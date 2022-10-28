@@ -1,0 +1,116 @@
+.contact-container{
+    position: relative;
+    left: 20%;
+    margin: 3% auto;
+    width: 800px;
+    height: 950px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#contact-top {
+    position: absolute;
+    top: 5%;
+    right: 65%;
+}
+
+#contact-location {
+    position: absolute;
+    top: 5%;
+    right: 9.5%;
+}
+
+#contact-middle {
+    position: absolute;
+    width: 800px;
+    top: 36%;
+    left: 8%;
+}
+
+#contact-bottom {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+}
+
+h2#font-format  {
+    color: orangered;
+    font-weight: 300;
+}
+
+input [id="what"],
+[id="what1"],
+[id="what2"],
+[id="what3"] {
+    margin: 0px;
+}
+
+.contact-label {
+    float: right;
+
+}
+
+#contact-info {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+input[id="contact-input"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[id="contact-input"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="radio"] {
+    display: flex;
+}
+
+input[id="contact-submit"] {
+    position: absolute;
+    top: 92%;
+    left: 8%;
+    margin-top: 28px;
+    width: 120px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }
+  
+  input[id="contact-submit"]:hover,
+  input[id="contact-submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+  
+  input[id="contact-submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+  }
+

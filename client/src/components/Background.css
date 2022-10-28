@@ -1,0 +1,47 @@
+.Background-container {
+  width: 100%;
+  height: var(--first-component);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.first1 {
+    margin-top: 0px;
+    float: left;
+    padding-right: 1rem;
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.first2 {
+    margin-top: 0px;
+    float: left;
+    padding-right: 1rem;
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.first3 {
+    margin-top: 0px;
+    float: left;
+    padding-right: 1rem;
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+#large::first-letter {
+    font-size: 180%;
+    color: rgb(255, 255, 255);
+}
+

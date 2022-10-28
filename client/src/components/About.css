@@ -1,0 +1,18 @@
+.about-background {
+    height: 100vh;
+    width: 100%;
+    color: white;
+}
+.about-h1 {
+    color: orangered;
+    font: 2em sans-serif;
+    text-align: center;
+    
+}
+
+.about-container > p {
+    font-size: 1.7rem;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1em;
+    margin-right: 1em;
+}

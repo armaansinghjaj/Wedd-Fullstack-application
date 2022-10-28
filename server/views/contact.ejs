@@ -1,0 +1,41 @@
+<%- include("header") -%>
+
+<h1>Need other services?</h1>
+<form method="post" action="/contact">
+    <label>Name:</label>
+    <input type="text" name="name"><br>
+    <label>Address:</label>
+    <input type="text" name="address"><br>
+    <label>Phone:</label>
+    <input type="text" name="phone"><br>
+    <label>What services are you looking for?</label>
+    <table>
+        <tr>
+            <td><input type="radio" name="services" value="1"></td>
+            <td>Ride: Shuttle (Our car)</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="services" value="2"></td>
+            <td>Ride: Chauffeur (Your car)</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="services" value="3"></td>
+            <td>Drive: Apply to be a driver</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="services" value="4"></td>
+            <td>Own: Request to open a franchise</td>
+        </tr>
+    </table>
+    
+    <label>Email:</label>
+    <input type="email" name="email"><br>
+    <label>Comments:</label>
+    <input type="text" name="comments"><br>
+    <input type="checkbox" name="consent" value="1"> I consent to receive 'We DD' updates and newsletters via email.<br>
+    <input type="submit">
+</form>
+
+<img src="<%= contact_image %> " style="height: 100px; width: 100px;" alt="">
+
+<%- include("footer") -%>
