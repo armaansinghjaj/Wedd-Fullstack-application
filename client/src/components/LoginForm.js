@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import env from "react-dotenv";
 import './LoginForm.css';
 
 
@@ -57,7 +58,7 @@ function LoginForm() {
             </form>
                 <div className="login-bottom">
                     <FacebookLogin
-                    appId="866567161040291"
+                    appId={env.REACT_APP_FACEBOOK_LOGIN_ID}
                     autoLoad
                     callback={responseFacebook}
                     render={renderProps => (
