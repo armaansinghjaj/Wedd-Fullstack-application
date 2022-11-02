@@ -1,18 +1,100 @@
-.about-background {
-    height: 100vh;
+
+.aboutus-top {
+    padding-top: 7%;
+    padding-bottom: 4%;
     width: 100%;
-    color: white;
+    align-content: center;
 }
-.about-h1 {
-    color: orangered;
-    font: 2em sans-serif;
+
+.column {
+    background-color: white;
+    padding: 1em 1em;
+    border-radius: 2em;
+}
+
+#column1{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+
+#column2{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.title-h1 {
+    font-weight: 300;
+    font-size: 6em;
+    color: white;
     text-align: center;
+}
+
+#aboutus-h1 {
+    margin-top: 1% auto;
+    color: #002d72;
+
+}
+#aboutus-p{
+    color: #002d72;
+}
+
+.aboutus-middle {
+    width: 100%;
+    height: 35vh;
+    background-color: rgb(255, 108, 23);
+}
+
+.about-ul{
+    position: relative;
+    left: 40%;
+    font-size: 1.4rem;
+    font-weight: 300;
+    list-style-type: none;
+    color: #002d72;
+}
+
+.aboutus-bottom {
+    display: block;
+    background-color:  rgb(212, 212, 212);
+    width: 100%;
+    height: 130vh;
     
 }
 
-.about-container > p {
-    font-size: 1.7rem;
+#middle-h1 {
+    padding-top: 0.2em;
+    color: #002d72;
+}
+
+.bottom-h3 {
+    background-color: white;
+    color: #002d72;
+    font-weight: 400;
+    text-align: center;
+    font-size: 5em;
+    padding-top: 0.em;
+}
+
+.spacing {
+    display: flex;
+}
+
+.cards__item__pic-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+#staff-p {
+
+    word-wrap: break-word;
+    font-size: 1em;
     font-family: 'Roboto', sans-serif;
     margin-left: 1em;
     margin-right: 1em;
+}
+
+#aboutus-p {
+    font-size: 1.2em;
 }

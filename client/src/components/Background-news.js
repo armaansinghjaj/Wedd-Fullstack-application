@@ -6,8 +6,8 @@ function newbackground() {
 
     return (
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
+            <div className='news-container'>
+                <div className='news-title-container'>
                     <CardNews/>
                 </div>
             </div>

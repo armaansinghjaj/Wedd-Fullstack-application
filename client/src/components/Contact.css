@@ -1,70 +1,84 @@
 .contact-container{
     position: relative;
-    left: 20%;
-    margin: 3% auto;
-    width: 800px;
-    height: 950px;
+    margin: 10% auto;
+    width: 600px;
+    height: 61rem;
     background: #FFF;
-    border-radius: 2px;
+    border-radius: 2em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 #contact-top {
-    position: absolute;
-    top: 5%;
-    right: 65%;
+    position: relative;
+    
+    bottom: 50%;
+    text-align: center;
 }
 
 #contact-location {
-    position: absolute;
-    top: 5%;
-    right: 9.5%;
+    position: relative;
+    left: 0.2%;
+    bottom: 50%;
+    text-align: center;
 }
 
 #contact-middle {
-    position: absolute;
-    width: 800px;
-    top: 36%;
-    left: 8%;
+    position: relative;
+    width: 350px;
+    top: 32%;
+    left: 22.5%;
 }
 
 #contact-bottom {
-    position: absolute;
-    top: 60%;
-    left: 8%;
+    padding-top: 1em;
+    position: relative;
+    top: 50%;
+    left: 2%;
+    text-align: center;
+    height: 7vh;
 }
+
+#commenti {
+    position: relative;
+    left:9%;
+}
+
 
 h2#font-format  {
     color: orangered;
     font-weight: 300;
 }
 
-input [id="what"],
-[id="what1"],
-[id="what2"],
-[id="what3"] {
-    margin: 0px;
+#checklist-wrapper{ 
+    margin-bottom: 0.5em;
+}
+#contact-label {
+    position: relative;
+    left: 15%;
 }
 
-.contact-label {
-    float: right;
+input[type="radio"] {
+    position: relative;
+    left: 13%;
 
 }
 
 #contact-info {
-    font-size: 25px;
+    font-size: 2rem;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
 }
-
 
 input[id="contact-input"] {
   display: block;
+  position: relative;
+  left: 26%;
   box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 220px;
-  height: 32px;
+  margin-bottom: 1.2em;
+  padding: 0.25em;
+  width: 18.3rem;
+  height: 2em;
   border: none;
   border-bottom: 1px solid #AAA;
   font-family: 'Roboto', sans-serif;
@@ -79,20 +93,15 @@ input[id="contact-input"]:focus {
   transition: 0.2s ease;
 }
 
-input[type="radio"] {
-    display: flex;
-}
-
 input[id="contact-submit"] {
-    position: absolute;
-    top: 92%;
-    left: 8%;
-    margin-top: 28px;
+    position: relative;
+    top: 90%;
+    right: 31.5%;
     width: 120px;
-    height: 32px;
+    height: 2.5em;
     background: #16a085;
     border: none;
-    border-radius: 2px;
+    border-radius: 2em;
     color: #FFF;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -112,5 +121,5 @@ input[id="contact-submit"] {
     opacity: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
-  }
+    }
 

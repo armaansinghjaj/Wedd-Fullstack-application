@@ -1,14 +1,15 @@
 import React from 'react';
 import './Background.css';
-import About from './Aboutus';
+import Aboutus from './Aboutus';
 
 function newbackground() {
 
     return (
         <>
-            <div className='Background-container'>
+            <div className='BackgroundAbout-container'>
                 <div className='title-container'>
-                    <About/>
+                    <Aboutus />
+
                 </div>
             </div>
         </>

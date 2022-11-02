@@ -7,7 +7,7 @@ function Contactus() {
     return (
         <div className='contact-container'>
             <form>
-                  <p id='contact-info'>Contact WeDD by filling out the form below. </p>
+                  <p id='contact-info'>Contact Us</p>
                 <div id='contact-top'>
                   <h2 id='font-format'>Contact Information</h2>
                   <input typeof='text' id='contact-input' placeholder='First Name (required)' required/>
@@ -26,22 +26,30 @@ function Contactus() {
 
                 <div id='contact-middle'>
                   <h2 id='font-format'>What service are you looking for?</h2>
-                  <input type='radio' name='r1' id='what' value='Ride'/> 
-                  <label htmlFor="what" id='contact-label'>Shuttle Service (Our Car)</label>
-                  <input type='radio'  name='r1'id='what1' value='Ride1'/> 
-                  <label htmlFor="what1" id='contact-label'>Chauffeur Service (Your Car)</label>
-                  <input type='radio' name='r1' id='what2' value='Drive'/> 
-                  <label htmlFor="what2" id='contact-label'>Apply to be a driver</label>
-                  <input type='radio' name='r1' id='what3' value='Own'/> 
-                  <label htmlFor="what3" id='contact-label'>Request to open a franchise</label>
+                  <div id='checklist-wrapper'>
+                    <input type='radio' name='r1' id='what' value='Ride'/> 
+                    <label htmlFor="what" id='contact-label'>Shuttle Service (Our Car)</label>
+                  </div>
+                  <div id='checklist-wrapper'>
+                    <input type='radio'  name='r1'id='what1' value='Ride1'/> 
+                    <label htmlFor="what1" id='contact-label'>Chauffeur Service (Your Car)</label>
+                  </div>
+                  <div id='checklist-wrapper'>
+                    <input type='radio' name='r1' id='what2' value='Drive'/> 
+                    <label htmlFor="what2" id='contact-label'>Apply to be a driver</label>
+                  </div>
+                  <div id='checklist-wrapper'>
+                    <input type='radio' name='r1' id='what3' value='Own'/> 
+                    <label htmlFor="what3" id='contact-label'>Request to open a franchise</label>
+                  </div>
                 </div>
 
                 <div id='contact-bottom'>
                   <h2 htmlFor="comment" id='font-format'>Comments and Questions:</h2>
-                  <textarea name="Comment" id="commenti" cols="88" rows="15"></textarea>
+                  <textarea name="Comment" id="commenti" cols="50" rows="10"></textarea>
+                  <input type="submit"  id='contact-submit' value="Submit" />
                 </div>
-
-                <input type="submit"  id='contact-submit' value="Submit" />
+                
 
             </form> 
         </div>

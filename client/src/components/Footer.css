@@ -95,7 +95,10 @@
   .footer-input::placeholder {
     color: #b1b1b1;
   }
-  
+
+  #footer-logo {
+    padding-left: 0.5rem;
+  }
   /* Social Icons */
   .social-icon-link {
     color: #fff;

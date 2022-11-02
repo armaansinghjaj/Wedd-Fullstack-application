@@ -12,7 +12,6 @@ function newbackground() {
                 </div>
             </div>
         </>
-        
     );
 }
 

@@ -4,126 +4,121 @@
 }
 
 #login-container {
+  
   position: relative;
-  margin: 5% auto;
-  width: 600px;
-  height: 400px;
+  margin: 10% auto;
+  width: 34.375rem;
+  height: 37.5rem;
   background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 }
 
-.login-left {
-  position: absolute;
-  top: 0;
-  left: 0;
+.login-top {
+  position: relative;
   box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
+  bottom: 50%;
+  left: 25.5%;
+  width: 18.75rem;
+  height: 18.75rem;
+}
+
+.login-bottom {
+  position: relative;
+  box-sizing: border-box;
+  left: 25.5%;
+  width: 18.75rem;
+  height: 15.625rem;
+  background-size: cover;
+  background-position: center;
 }
 
 #login-h1 {
-  color: orangered;  
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  font-size: 28px;
+  color: rgb(3, 3, 3);  
+  margin: 1em 0em;
+  font-weight: 400;
+  font-size: 3rem;
+  padding: 0;
+  position: relative;
+  right: 5%;
 }
 
 input[id="login-input"],
 input[id="login-password"] {
   display: block;
   box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 220px;
-  height: 32px;
+  margin-bottom: 1.25rem;
+  padding: 0.25rem;
+  width: 17rem;
+  height: 2rem;
   border: none;
-  border-bottom: 1px solid #AAA;
+  border-bottom: 0.063rem solid #AAA;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.2em;
   transition: 0.2s ease;
 }
 
 input[id="login-input"]:focus,
 input[id="login-password"]:focus {
-  border-bottom: 2px solid #16a085;
+  border-bottom: 0.125rem solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
 }
 
 input[id="login-submit"] {
-  margin-top: 28px;
-  width: 120px;
-  height: 32px;
+  position: relative;
+  left: 20%;
+  margin-top: 1em;
+  width: 9em;
+  height: 2.5em;
   background: #16a085;
   border: none;
-  border-radius: 2px;
+  border-radius: 1.5em;
   color: #FFF;
   font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
-  transition: 0.1s ease;
+  transition: 0.3s ease;
   cursor: pointer;
 }
 
 input[id="login-submit"]:hover,
 input[id="login-submit"]:focus {
   opacity: 0.8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
 
 input[id="login-submit"]:active {
   opacity: 1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
 
-
-.login-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
-}
-
-.login-right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: orangered;
-  text-align: center;
-}
-
 button.social-login {
-  margin-bottom: 20px;
-  width: 220px;
-  height: 36px;
+  margin-bottom: 1rem;
+  width: 17rem;
+  height: 3rem;
   border: none;
-  border-radius: 2px;
+  border-radius: 2rem;
   color: #FFF;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  font-size: 1rem;
   transition: 0.2s ease;
   cursor: pointer;
 }
 
 button.social-login:hover,
 button.social-login:focus {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
 }
 
 button.social-login:active {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
 }
 
@@ -131,8 +126,8 @@ button.social-login.facebook {
   background: #32508E;
 }
 
-button.social-login.twitter {
-  background: #55ACEE;
+button.social-login.apple {
+  background: black;
 }
 
 button.social-login.google {
@@ -141,14 +136,39 @@ button.social-login.google {
 
 #link-container {
   width: 30vh;
-  display: flex;
+  position: relative;
+  left: 27%;
+  bottom: 9%;
 }
 
 #signup-text {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .signup-route {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   margin-left: 0.5vh;
 }
+
+.error-msg{
+  font-size: 0.8em;
+  margin-top: -1.2em;
+  color: red;
+}
+
+
+#Facebook-login {
+  position: relative;
+  right: 0.5rem;
+}
+#Apple-login  {
+  position: relative;
+  right: 1.2rem;
+}
+#Google-login {
+  position: relative;
+  right: 0.7rem;
+}
+
+
+

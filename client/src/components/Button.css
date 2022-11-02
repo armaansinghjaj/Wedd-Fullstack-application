@@ -30,14 +30,14 @@
   
   .btn--medium {
     padding: 8px 20px;
-    font-size: 18px;
-    margin-top: 1rem;
+    font-size: 0.8em;
+    margin-top: 0.2rem;
     margin-right: 5px;
   }
   
   .btn--large {
     padding: 12px 26px;
-    font-size: 20px;
+    font-size: 1vmin;
   }
   
   .btn--large:hover,
@@ -49,5 +49,5 @@
   }
 
   .btn-mobile {
-    padding-top: 0.8rem;
+    padding-top: 0.5rem;
   }

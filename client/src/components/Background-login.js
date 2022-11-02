@@ -6,7 +6,7 @@ function newbackground() {
 
     return (
         <>
-            <div className='Background-container'>
+            <div className='login-container'>
                 <div className='title-container'>
                     <LoginForm/>
                 </div>

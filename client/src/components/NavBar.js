@@ -7,11 +7,13 @@ import './NavBar.css';
 
 
 function NavBar() {
+    // close menu on click variables
     const [click, setClick] = useState(false);
-
     const handleClick = () => setClick(!click);
-
     const closeMobileMenu = () => setClick(false);
+    // Header visibility variables
+    const [position, setPosition] = useState(window.pageYOffset)
+    const [visible, setVisible] = useState(true) 
 
     const ScrollToTop = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -20,13 +22,12 @@ function NavBar() {
     const [button, setButton] = useState(true);
 
     const showButton = () => {
-        if (window.innerWidth <= 1023) {
+        if (window.innerWidth <= 479) {
           setButton(false);
         } else {
           setButton(true);
         }
-      };
-
+      }; 
     window.addEventListener('resize', showButton);
 
     const scrollAndClose = () => {
@@ -34,14 +35,27 @@ function NavBar() {
             ScrollToTop();
     }
 
-    useEffect(() => {
-        showButton();
-    }, []);
+        useEffect(()=> {
+            const handleScroll = () => {
+               let moving = window.pageYOffset
+               
+               setVisible(position > moving);
+               setPosition(moving)
+            };
+            window.addEventListener("scroll", handleScroll);
+            return(() => {
+               window.removeEventListener("scroll", handleScroll);
+            })
+        })
+    
+
+
+    const cls = visible ? "visible" : "hidden";
 
     return (
 
         <>
-            <nav className="navbar">
+            <nav  id='navbar' className={cls}>
                 <div className="navbar-container">
                         <Link to="/Home" className="navbar-logo" onClick={scrollAndClose}>WeDD <i className=''/>
                         </Link>

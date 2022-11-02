@@ -1,6 +1,6 @@
 .cards {
-    padding: 4rem;
-    background: #fff;
+    padding: 4em;
+    background: rgb(212, 212, 212);
   }
   
 
@@ -8,14 +8,14 @@
     text-align: center;
     font-family: inherit;
     font-weight: 300;
-    font-size: 60px;
+    font-size: 4em;
   }
   
   .cards__container {
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 1120px;
+    max-width: 70em;
     width: 90%;
     margin: 0 auto;
   }
@@ -24,16 +24,14 @@
     position: relative;
     margin: 50px 0 45px;
   }
-  
-  .cards__items {
-    margin-bottom: 24px;
-  }
-  
+    
   .cards__item {
+    margin-bottom: 24px;
     display: flex;
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;
+    padding-top: 1em;
   }
   
   .cards__item__link {
@@ -54,25 +52,6 @@
     overflow: hidden;
   }
   
-  .fade-img {
-    animation-name: fade-img;
-    animation-duration: 2s;
-  }
-  
-  .cards__item__pic-wrap::after {
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #1f98f4;
-    box-sizing: border-box;
-  }
-  
   .cards__item__link:hover {
     transform: scale(1.03);
   }
@@ -84,10 +63,10 @@
   .cards__item__text {
     color: #252e48;
     font-size: 35px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 24px;
     text-align: center;
-    font-family: inherit;
+    font-family: 'Roboto', sans-serif;
   }
   
   @media only screen and (min-width: 1200px) {
@@ -102,8 +81,6 @@
     }
   }
   
-  @media only screen and (max-width: 1024px) {
-    .cards__item {
-      margin-bottom: 2rem;
-    }
+  @media only screen and (max-width: 767px) {
+
   }

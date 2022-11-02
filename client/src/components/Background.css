@@ -1,3 +1,5 @@
+
+/* default background container */
 .Background-container {
   width: 100%;
   height: var(--first-component);
@@ -16,32 +18,130 @@
   flex-wrap: wrap;
 }
 
-.first1 {
-    margin-top: 0px;
-    float: left;
-    padding-right: 1rem;
-    font-size: 4rem;
-    font-weight: 300;
+:root {
+  --first-component: 100vh;
 }
 
-.first2 {
-    margin-top: 0px;
-    float: left;
-    padding-right: 1rem;
-    font-size: 4rem;
-    font-weight: 300;
+/* Home page background */
+h3{
+  color: white;
+  font-size: 6rem;
 }
 
-.first3 {
-    margin-top: 0px;
-    float: left;
-    padding-right: 1rem;
-    font-size: 4rem;
-    font-weight: 300;
+.tag-line{
+  padding-top: calc(((var(--first-component) / 5)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-#large::first-letter {
-    font-size: 180%;
-    color: rgb(255, 255, 255);
+.form-container{
+  padding: calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh)));
+  margin-top: calc(((var(--first-component) / 5)));
+  border-radius: 3px;
+  background: #ccccccec;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  transition: 0.5s;
 }
 
+.form-container:hover{
+  background: #fff;
+}
+input[type='text']{
+  border: 0;
+  border-bottom: 2px solid rgb(44, 44, 44);
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 15px 0 15px 0;
+}
+
+.form-head{
+  font-size: 42px;
+  margin-bottom: 30px;
+  margin-top: -20px;
+}
+
+.form-component{
+  padding: 10px 0 10px 0;
+}
+
+.submit-btn input{
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  background: black;
+  color: white;
+  font-size: 16px;
+  margin-top: 38px;
+  margin-bottom: -20px;
+}
+
+/* Login background */
+.login-container {
+  width: 100%;
+  height: var(325vh);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* signup background */
+
+.signup-container {
+  width: 100%;
+  height: var(325vh);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* About us background */
+.BackgroundAbout-container {
+  width: 100%;
+  height: var(325vh);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+/* Contact background */
+.Background-contact-container {
+  width: 100%;
+  height: var(150vh);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* News Background */
+.news-container {
+  width: 100%;
+  height: var(--first-component);
+  background-image: url("../images/Background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.news-title-container {
+  position: relative;
+  top: 15%;
+}
