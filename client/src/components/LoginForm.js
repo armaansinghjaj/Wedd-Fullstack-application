@@ -57,23 +57,19 @@ function LoginForm() {
             </form>
                 <div className="login-bottom">
                     <FacebookLogin
-                    appId="1088597931155576"
+                    appId="866567161040291"
                     autoLoad
                     callback={responseFacebook}
                     render={renderProps => (
                         <button className="social-login facebook" onClick={renderProps.onClick}><i id='Facebook-login' className="fa-brands fa-facebook"/>Sign in with Facebook</button>
                     )}
                     />
-                    <button className="social-login apple">  
-                        <i id='Apple-login' className="fa-brands fa-apple"/>
-                        Sign in with Apple
-                    </button>
                     <button className="social-login google">    
                         <i id='Google-login' className="fa-brands fa-google"/>
                         Sign in with Google
                     </button>
                 </div>
-                <div id='link-container'>
+                <div id='signuplink-container'>
                     <span id='signup-text'>Dont have an account?</span> 
                     <Link to='/signup' className='signup-route'>Sign up here!</Link>
                 </div>

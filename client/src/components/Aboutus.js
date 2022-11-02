@@ -19,7 +19,7 @@ function Aboutus() {
 
     return (
         <div className='about-background'>
-            <div className='head-container'>
+            {/* <div className='head-container'>
                 <h1>{items.h1}</h1> <br/>
                 <h1 className='about-h1'>{items.abouth1}</h1>
             </div>
@@ -28,7 +28,18 @@ function Aboutus() {
                 <p id='para1'>{items.para1}</p> <br/>
                 <p id='para2'>{items.para2}</p> <br/>
                 <p id='para3'>{items.para3}</p> <br/>
+            </div> */}
+        <div className='aboutus-top'>
+        <h1 className='title-h1'>{items.h1}</h1>
+            <div className='spacing'>
+                <div className='column' id="column1">
+                    <h1 id='aboutus-h1'>{items.abouth1}</h1>
+                    <p id='para1'>{items.para1}</p> <br/>
+                    <p id='para2'>{items.para2}</p> <br/>
+                    <p id='para3'>{items.para3}</p> <br/>
+                </div>
             </div>
+        </div>
 
             <div className='aboutus-middle'>
                 <div className='spacing-2'>

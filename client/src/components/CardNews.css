@@ -20,16 +20,16 @@
     position: relative;
     margin: 50px 0 45px;
   }
-  
-  .cardnews__items {
-    margin-bottom: 24px;
-  }
-  
+    
   .cardnews__item {
+    position: relative;
+    left: 30%;
     display: flex;
     flex: 1;
+    max-width: 800px;
     margin: 0 1rem;
-    border-radius: 10px;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
   }
   
   .cardnews__item__link {
@@ -38,8 +38,6 @@
     width: 100%;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     background: white;
-    /* -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017)); */
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
@@ -66,7 +64,6 @@
     font-size: 12px;
     font-weight: 700;
     color: #fff;
-    /* background-color: #1f98f4; */
     box-sizing: border-box;
   }
   

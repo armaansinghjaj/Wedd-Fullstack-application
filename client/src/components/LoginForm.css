@@ -6,9 +6,9 @@
 #login-container {
   
   position: relative;
-  margin: 10% auto;
+  margin: 6% auto;
   width: 34.375rem;
-  height: 37.5rem;
+  height: 35rem;
   background: #FFF;
   border-radius: 2rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
@@ -28,7 +28,7 @@
   box-sizing: border-box;
   left: 25.5%;
   width: 18.75rem;
-  height: 15.625rem;
+  height: 12rem;
   background-size: cover;
   background-position: center;
 }
@@ -126,15 +126,12 @@ button.social-login.facebook {
   background: #32508E;
 }
 
-button.social-login.apple {
-  background: black;
-}
 
 button.social-login.google {
   background: #DD4B39;
 }
 
-#link-container {
+#signuplink-container {
   width: 30vh;
   position: relative;
   left: 27%;
@@ -156,14 +153,9 @@ button.social-login.google {
   color: red;
 }
 
-
 #Facebook-login {
   position: relative;
   right: 0.5rem;
-}
-#Apple-login  {
-  position: relative;
-  right: 1.2rem;
 }
 #Google-login {
   position: relative;

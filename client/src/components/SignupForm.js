@@ -141,17 +141,13 @@ function SignupForm() {
             <i id='Facebook-login' className="fa-brands fa-facebook"/>
             Sign up with Facebook
             </button>
-            <button className="social-signin Apple">
-            <i id='Apple-login' className="fa-brands fa-apple"/>
-            Sign up with Apple
-            </button>
             <button className="social-signin google">
             <i id='Google-login' className="fa-brands fa-google"/>
             Sign up with Google
             </button>
         </div>
         </form>
-                <div id='link-container'>
+                <div id='loginlink-container'>
                     <span id='login-text'>Already have an account?</span> 
                     <Link to='/login' className='login-route'>Login</Link>
                 </div>

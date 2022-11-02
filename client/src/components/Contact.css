@@ -1,8 +1,8 @@
 .contact-container{
     position: relative;
-    margin: 10% auto;
+    margin: 6% auto;
     width: 600px;
-    height: 61rem;
+    height: 59rem;
     background: #FFF;
     border-radius: 2em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -10,7 +10,6 @@
 
 #contact-top {
     position: relative;
-    
     bottom: 50%;
     text-align: center;
 }
@@ -24,13 +23,13 @@
 
 #contact-middle {
     position: relative;
-    width: 350px;
+    width: 375px;
     top: 32%;
     left: 22.5%;
 }
 
 #contact-bottom {
-    padding-top: 1em;
+    padding-top: 0.5em;
     position: relative;
     top: 50%;
     left: 2%;
@@ -40,27 +39,27 @@
 
 #commenti {
     position: relative;
-    left:9%;
+    left: 11%;
 }
 
-
 h2#font-format  {
-    color: orangered;
-    font-weight: 300;
+    color: black;
+    font-weight: 400;
 }
 
 #checklist-wrapper{ 
     margin-bottom: 0.5em;
 }
+
 #contact-label {
     position: relative;
     left: 15%;
 }
 
-input[type="radio"] {
+
+.contact-radio {
     position: relative;
     left: 13%;
-
 }
 
 #contact-info {
@@ -68,58 +67,68 @@ input[type="radio"] {
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
+    font-weight: 400;
 }
 
 input[id="contact-input"] {
-  display: block;
-  position: relative;
-  left: 26%;
-  box-sizing: border-box;
-  margin-bottom: 1.2em;
-  padding: 0.25em;
-  width: 18.3rem;
-  height: 2em;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  transition: 0.2s ease;
+    display: block;
+    position: relative;
+    left: 26%;
+    box-sizing: border-box;
+    margin-bottom: 1.2em;
+    padding: 0.25em;
+    width: 18.3rem;
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
 }
 
 input[id="contact-input"]:focus {
-  border-bottom: 2px solid #16a085;
-  color: #16a085;
-  transition: 0.2s ease;
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
 }
 
 input[id="contact-submit"] {
     position: relative;
-    top: 90%;
+    top: 60%;
     right: 31.5%;
-    width: 120px;
+    width: 9em;
     height: 2.5em;
     background: #16a085;
     border: none;
     border-radius: 2em;
     color: #FFF;
+    font-size: 1em;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     transition: 0.1s ease;
     cursor: pointer;
-  }
+}
   
-  input[id="contact-submit"]:hover,
-  input[id="contact-submit"]:focus {
+input[id="contact-submit"]:hover,
+input[id="contact-submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
-  }
+}
   
-  input[id="contact-submit"]:active {
+input[id="contact-submit"]:active {
     opacity: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
-    }
+}
+
+.serviceerror-msg {
+    position: relative;
+    font-size: 0.8em;
+    left: 26%;
+    top: 0rem;
+    color: red;
+}
 

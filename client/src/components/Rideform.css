@@ -118,12 +118,9 @@ input [id="ride-submit"]:active {
 
 .ride-checklist {
   position: relative;
-}
-
-input[type="radio"] {
-  position: relative;
   left: 41%;
 }
+
 #payment-label {
     position: relative;
     left: 42%;
@@ -133,7 +130,7 @@ input[type="radio"] {
 .paymenterror-msg {
   width: 10rem;
   position: relative;
-  right: 6.8rem;
+  left: 11rem;
   top: 0rem;
   color: red;
 }
