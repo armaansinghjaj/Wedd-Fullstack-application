@@ -1,11 +1,16 @@
-  .ride-container {
+
+.ride-container {
     position: relative;
-    margin: 20% auto;
+    margin: 17% auto;
     width: 37.5rem;
     height: 38rem;
     background: #FFF;
-    border-radius: 2rem;
-    box-shadow: 0rem 0.063rem 0.25rem rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .ride-background {
+    height: 100%;
   }
 
   .ride-left {
@@ -21,7 +26,7 @@
   .ride-right {
     position: relative;
     bottom: 25.1rem;
-    left: 18rem;
+    left: 15rem;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -34,7 +39,7 @@
   position: relative;
   bottom: 27.5rem;
   left: 2.625rem;
-  height: 15vh;
+  height: 19vh;
   width: 86%;
 }
 
@@ -108,29 +113,292 @@ input [id="ride-submit"]:active {
 }
 
 .payment-type {
-    color: black;  
-    margin: 0 0 1.25rem 0;
-    font-weight: 400;
+  position: relative;
+    color: #000000;  
+    margin: 0 0 0.15rem 0;
+    font-weight: 300;
+    font-size: 0.75rem;
+    text-align: left;
+    right: 32%;
+}
+
+.car-type{
+  position:relative;
+  color: black;  
+  margin: 0 0 0.0rem 0;
+  font-weight: 300;
+  font-size: 1.75rem;
+  text-align: right;
+  bottom: 68%;
+  right: 13%;
+}
+
+.payment-right {
+    position: absolute;
+    width: 100px;
+    height: 4rem;
+    bottom: 4rem;
+    left: 57%;
+    
+}
+
+.payment-right {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0ch;
+ 
+}
+
+.car-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0ch;
+  
+
+}
+
+.car-left {
+  position: absolute;
+  width: 6px;
+  height: 3rem;
+  bottom: 2.5rem;
+  left: 59%;
+  
+}
+
+.ride-checklist {
+  position: relative;
+  width: 3em;
+  margin-left: 2em;
+}
+
+.car-checklist {
+  position: relative;
+  width: 3em;
+  margin-left: 2em;
+  /* top:-90px;
+  bottom: 20px;
+  left: 20%;
+  margin-right: 10px; */
+  
+}
+
+.payment-label {
+  position: relative;
+
+}
+
+#car-label {
+  position: relative;
+  top: -2.25ch;
+  left: 7ch;
+}
+
+input[id="ride-submit"] {
+  position: absolute;
+  top: 100px;
+  /* right: 205px; */
+}
+
+#discount_code{
+  position: relative;
+  right: 1%;
+  width: 7rem;
+  border: 1px solid #d2d2d2;
+  padding: 7px 0;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.discount-code-div{
+  position: relative;
+  left: 39%;
+  top: 15%;
+}
+
+.submit-btn-div{
+  position: relative;
+  bottom: 50%;
+}
+
+#ride,#ride1,#ride3{
+  margin-top: 0ch;
+}
+
+#car,#car1{
+  margin-top: 0ch;
+}
+
+#ride-submit{
+  margin-top: 5ch;
+}
+
+.paymenterror-msg {
+  position: relative;
+  left: 34%;
+  color: red;
+}
+
+@media screen and (max-width:768px ), (min-width: 480px){
+
+  
+.ride-container {
+  position: relative;
+  margin: 25% auto;
+  width: 29.5rem;
+  height: 35rem;
+  
+}
+#discount_code{
+  width: 7rem;
+  right:5%
+}
+
+input[id="ride-input"] {
+ 
+  margin-bottom: 1rem;
+  padding: 0%;
+  width: 8.75rem;
+  height: 1rem;
+  font-weight: 300;
+ margin-right: 5px;
+}
+
+
+.payment-type {
+   
+  margin-top: -15%;;
+  font-weight: 300;
+  font-size: 1.55rem;
+  text-align: center;
+}
+.ride-location {
+  margin-top: 2.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.75rem;
+  color: black;
+  font-weight: 300;
+  margin-right: 10%;
+}
+
+
+
+.payment-left {
+
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: initial;
+  
+} 
+
+input[id="ride-submit"] {
+  
+  left: 35%;
+  width: 7em;
+  height: 1.5rem;
+  font-weight: 300;
+  font-size: 1rem;
+  top: 60px;;
+  
+}
+
+}
+
+@media screen and (max-device-width:479px){
+  .ride-container {
+    position: relative;
+    margin: 30% auto;
+    width: 32rem;
+    height: 35rem;
+    
+  }
+
+  .ride-location {
+  
     font-size: 1.75rem;
-    text-align: center;
+    color: black;
+    font-weight: 400;
+   
+  }
+
+  input[id="ride-input"] {
+ 
+    margin-bottom: 1rem;
+    padding: 0%;
+    width: 7.75rem;
+    height: 1rem;
+    font-weight: 200;
+
+  }
+
+ .payment-type {
+  color: black;  
+  margin: 0 0 1rem 0;
+  font-weight: 200;
+  font-size: 1.20rem;
+  text-align: left;
+  left: 2%;
+}
+
+
+.car-type{
+color: black;  
+margin: 0 0 1rem 0;
+font-weight: 200;
+font-size: 1.20rem;
+text-align: right;
+right: 25%;
+bottom: 81%;
+}
+
+.payment-right {
+  position: absolute;
+  width: 20px;
+  height: 4rem;
+  bottom: 9rem;
+  left: 57%;
+  margin-right: 2%;
+}
+
+.car-left {
+  position: absolute;
+  width: 0px;
+  height: 2.5rem;
+  bottom: 1rem;
+  left: 60%;
+  margin-right: 1%;
 }
 
 
 .ride-checklist {
-  position: relative;
-  left: 41%;
+
+  width: 2em;
+  margin-left: 2em;
 }
 
-#payment-label {
-    position: relative;
-    left: 42%;
-
+.car-checklist {
+  
+  margin-left: 2em;
+ 
 }
 
-.paymenterror-msg {
-  width: 10rem;
-  position: relative;
-  left: 11rem;
-  top: 0rem;
-  color: red;
+input[id="ride-submit"] {
+  
+  left: 34%;
+  top: 20px;;
+  
+}
+#discount_code{
+  width: 6rem;
+  right:4%;
+  top: -30px;
+}
+
 }

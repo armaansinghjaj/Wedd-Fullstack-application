@@ -9,7 +9,7 @@ const STYLES = ['btn--primary', 'btn--outline']
 const SIZES = ['btn--medium', 'btn--large', 'btn--test'];
 
 
-// exports button functions
+// exports button props
 export const Button = ({children,
     type, 
     onClick, 
@@ -26,7 +26,7 @@ export const Button = ({children,
 
      return (
         <div id='btn-container'>
-             <Link className='btn-mobile' to='/Signup'> 
+             <Link className='btn-mobile2' to='/Signup'> 
             <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}
             onClick={onClick}
             type={type}>

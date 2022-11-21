@@ -1,0 +1,64 @@
+#support_form{
+    padding: 5px;
+    position: relative;
+    margin-top: 5ch;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    width: 900px;
+    background-color: rgba(130, 125, 123, 0.219);
+}
+.user{
+    padding: 10px;
+}
+#drop{
+    margin-top: 1ch;
+}
+#textarea{
+    margin-top: 1ch;
+}
+#submitnew{
+    position: relative;
+    top: 0rem;
+    left: 1rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submitnew:hover{
+    transition: all 0.3s ease-out;
+    background: #002d72;
+    color: #fff;
+    transition: 250ms;
+}
+#customer_email{
+    margin-left: 1ch;
+}
+#question{
+    margin-left: 1ch;
+    color: rgba(255, 0, 0, 0.614);
+}
+#answer{
+    margin-left: 1ch;
+    color:rgba(90, 90, 90, 0.781);
+}
+#vert-navbar-li {
+    margin-left: 1ch;
+    font-size: 2ch;
+    color:black
+}
+
+
+#questions{
+    
+    
+    border-radius: 0.5rem;
+    margin-top: 1ch;
+    border-width: 0.5px;
+    
+}
+.FAQ{
+    border: solid;
+    margin-right: 10%;
+}

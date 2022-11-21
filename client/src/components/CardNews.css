@@ -1,116 +1,136 @@
-.cardnews {
-    padding: 4rem;
-    background: #fff;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .cardnews__container {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    max-width: 1120px;
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .cardnews__wrapper {
-    position: relative;
-    margin: 50px 0 45px;
-  }
-    
-  .cardnews__item {
-    position: relative;
-    left: 30%;
-    display: flex;
-    flex: 1;
-    max-width: 800px;
-    margin: 0 1rem;
-    border-radius: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .cardnews__item__link {
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    text-decoration: none;
-  }
-  
-  .cardnews__item__pic-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .fade-img {
-    animation-name: fade-img;
-    animation-duration: 2s;
-  }
-  
-  .cardnews__item__pic-wrap::after {
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    box-sizing: border-box;
-  }
-  
-  .cardnews__item__img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    transition: all 0.2s linear;
-  }
-  
-  .cardnews__item__img:hover {
-    transform: scale(1.1);
-  }
-  
-  .cardnews__item__info {
-    padding: 20px 30px 30px;
-  }
-  
-  .cardnews__item__text {
-    color: #252e48;
-    font-size: 18px;
-    line-height: 24px;
-  }
+.update-container{
+  position: sticky;
+  background-color: white;
+  top: 18%;
+  left: 100%;
+  width: 2.1em;
+  height: 2.2em;
+  border-top-left-radius: 0.8em;
+  border-bottom-left-radius: 0.8em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  transition: all 0.5s ease;
+  z-index: 998;
+}
 
-  
-  @media only screen and (min-width: 1200px) {
-    .content__blog__container {
-      width: 84%;
-    }
+.update-active{
+  position: sticky;
+  background-color: white;
+  margin-right: -1px;
+  top: 18%;
+  left: 100%;
+  width: 15em;
+  height: 2.2em;
+  border-top-left-radius: 0.8em;
+  border-bottom-left-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-right: 0;
+  border-bottom: 0;
+  transition: all 0.5s ease;
+  z-index: 998;
+}
+
+.update-links {
+  overflow-x: hidden;
+  position: absolute; 
+  padding-left: 1em;
+  padding-top: 1em;
+  margin-top: 0.45em;
+  margin-left: -0.45em;
+  left: 180%;
+  transition: all 0.5s ease;
+  border-bottom-left-radius: 0.8em;
+  background-color: white;
+  width: 15em;
+
+
+}
+
+.update-links-active {
+  position: sticky; 
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 0.45em;
+  margin-left: -0.5em;
+  border-bottom-left-radius: 0.8em;
+  background-color: white;
+  width: 15.1em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-top: 0;
+}
+
+.news-circle{
+  position: relative;
+  left: 15%;
+  top: 15.5%;
+  border-radius: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  border-color: rgb(33, 82, 187);
+  border-style: solid;
+  border-width: 2.5px;
+}
+
+.news-circle-active{
+  position: relative;
+  left: 2%;
+  top: 15.5%;
+  border-radius: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  border-color: rgb(33, 82, 187);
+  border-style: solid;
+  border-width: 2.5px;
+}
+
+.fa-solid.fa-angle-right{
+  position: relative;
+  top: 2%;
+  left: 25%;
+}
+
+.fa-solid.fa-angle-down {
+  position: relative;
+  top: 2%;
+  left: 14%;
+}
+
+#update-h3 {
+  font-size: 1em;
+  color: black;
+  text-align: center;
+  border-style: solid;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: black;
+}
+
+.cardnews__item {
+  list-style: none;
+  text-align: center;
+  border-style: solid;
+  border-top: 1px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: black;
+}
+
+@media only screen and (max-device-width: 479px) {
+  .update-container{
+    position:fixed;
+    background-color: white;
+    top: 15%;
+    left: 94.5%;
+    width: 2.1em;
+    height: 2.2em;
+    
   }
   
-  @media only screen and (min-width: 1024px) {
-    .cardnews__items {
-      display: flex;
-    }
-  }
-  
-  @media only screen and (max-width: 1024px) {
-    .cardnews__item {
-      margin-bottom: 2rem;
-    }
-  }
+}

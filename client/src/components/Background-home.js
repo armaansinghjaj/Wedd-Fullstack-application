@@ -1,6 +1,6 @@
 import React from 'react';
 import './Background.css';
-import BackgroundHome from './BackgroundHome';
+import BackgroundHome from '../Pages/BackgroundHome';
 
 function newbackground() {
 

@@ -1,0 +1,138 @@
+/* Customer account Home css */
+.profile-container{
+    position: relative;
+    left: 20%;
+    width: 80%;
+    height: 100vh;
+}
+
+#profile-h3 {
+    position: relative;
+    color: black;
+    font-size: 5ch;
+     
+}
+
+.changepass{
+    position: relative;
+    top: 7%;
+    
+    
+}
+#profile-image-wrapper {
+    background-color: grey;
+    border-radius: 1em;
+    height: 190px;
+    width: 160px;
+}
+.deleteacc{
+    position: relative;
+    top:13%;
+
+}
+.conformation{
+    position: relative;
+    top: 18%;
+}
+#old_password{
+    position: relative;
+    left: 4.2ch;
+}
+#new_password_field{
+    position: relative;
+    left: 3.2ch;
+}
+#profile-image{
+    position: relative;
+    left: 3%;
+    top: 2%;
+    width: 150px;
+}
+#line{
+    margin-left: -1ch;
+}
+.trip-table{
+    width: 60%;
+    position: relative;
+    margin-left:-10%;
+    margin-top: 5%;
+    
+}
+#logo-wrapper {
+    display: inline-block;
+}
+
+/* Customer account settings and privacy css */
+.settings-container{
+    position: relative;
+    left: 25%;
+    width: 80%;
+    height: 100vh;
+}
+
+.settings-table {
+    position: relative;
+    top: 25%;
+    left: 40%;
+}
+
+/* Customer account Help and Support css */
+.help-container {
+    position: relative;
+    left: 25%;
+    width: 80%;
+    height: 100vh;
+}
+
+.FAQ{
+    position: relative;
+    top: 5%;
+}
+
+.contact-wedd {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    top:10%;
+}
+
+/* Customer account Trip history css */
+.trip-container {
+    position: relative;
+    left: 25%;
+    width: 80%;
+    height: 100vh;
+}
+.trip-table {
+    position: relative;
+    left: 32%;
+    top: 15%;
+}
+
+/* FAQ css */
+.faq-container{
+    position: relative;
+    left: 25%;
+    width: 80%;
+    height: 100vh;
+}
+li{
+    list-style: none;
+    
+}
+#submit{
+    position: relative;
+    top: 2rem;
+    left: 5rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submit:hover{
+    transition: all 0.3s ease-out;
+    background: #ff7248;
+    color: #fff;
+    transition: 250ms;
+}

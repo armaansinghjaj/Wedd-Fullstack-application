@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './Button';
 import './NavBar.css';
-
-
-
 
 function NavBar() {
     // close menu on click variables
@@ -14,6 +11,9 @@ function NavBar() {
     // Header visibility variables
     const [position, setPosition] = useState(window.pageYOffset)
     const [visible, setVisible] = useState(true) 
+    // Watch page path 
+    const location = useLocation();
+    console.log(location);
 
     const ScrollToTop = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -28,6 +28,7 @@ function NavBar() {
           setButton(true);
         }
       }; 
+      
     window.addEventListener('resize', showButton);
 
     const scrollAndClose = () => {
@@ -48,8 +49,6 @@ function NavBar() {
             })
         })
     
-
-
     const cls = visible ? "visible" : "hidden";
 
     return (
@@ -64,33 +63,30 @@ function NavBar() {
                     </div>
                     <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
                         <li className = 'nav-item'>
-                            <Link to='/Home' className='navlinks' onClick={scrollAndClose}> Home
+                            <Link to='/Home' className={location.pathname === '/Home'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Home
                             </Link>
                         </li>
                         <li className = 'nav-item'>
-                            <Link to='/ride' className='navlinks' onClick={scrollAndClose}> Ride
+                            <Link to='/ride' className={location.pathname === '/ride'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Ride
                             </Link>
                         </li>
                         <li className = 'nav-item'>
-                            <Link to='/about' className='navlinks' onClick={scrollAndClose}> About 
+                            <Link to='/about' className={location.pathname === '/about'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> About 
                             </Link>
                         </li>
                         <li className = 'nav-item'>
-                            <Link to='/contact' className='navlinks' onClick={scrollAndClose}> Contacts 
-                            </Link>
-                        </li>
-                        <li className = 'nav-item'>
-                            <Link to='/news' className='navlinks' onClick={scrollAndClose}> News
+                            <Link to='/contact' className={location.pathname === '/contact'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Contacts 
                             </Link>
                         </li>
                         <li className = 'nav-item' id='login-active'>
-                            <Link to='/login' className='navlinks' onClick={scrollAndClose}> Login
+                            <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login
                             </Link>
                         </li>
                     </ul>
                     {button && <Button onClick={scrollAndClose} buttonStyle='btn--outline'></Button>}
                 </div>
             </nav>
+            
         </>
     );
 }

@@ -3,14 +3,14 @@
   outline: none;
 }
 
+
 #login-container {
-  
   position: relative;
-  margin: 6% auto;
-  width: 34.375rem;
-  height: 35rem;
+  margin: 10% auto;
+  width: 32.375rem;
+  height: 33.5rem;
   background: #FFF;
-  border-radius: 2rem;
+  border-radius: 1.2rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 }
 
@@ -28,7 +28,7 @@
   box-sizing: border-box;
   left: 25.5%;
   width: 18.75rem;
-  height: 12rem;
+  height: 15.625rem;
   background-size: cover;
   background-position: center;
 }
@@ -40,7 +40,7 @@
   font-size: 3rem;
   padding: 0;
   position: relative;
-  right: 5%;
+  right: 9%;
 }
 
 input[id="login-input"],
@@ -48,14 +48,15 @@ input[id="login-password"] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 1.25rem;
-  padding: 0.25rem;
+  padding: 0.2rem;
   width: 17rem;
-  height: 2rem;
+  margin-left: -3%;
+  height: 1.5rem;
   border: none;
   border-bottom: 0.063rem solid #AAA;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 1.2em;
+  font-weight: 300;
+  font-size: 1.1em;
   transition: 0.2s ease;
 }
 
@@ -68,8 +69,8 @@ input[id="login-password"]:focus {
 
 input[id="login-submit"] {
   position: relative;
-  left: 20%;
-  margin-top: 1em;
+  left: 16%;
+  margin-top: 0.5em;
   width: 9em;
   height: 2.5em;
   background: #16a085;
@@ -100,7 +101,7 @@ input[id="login-submit"]:active {
 button.social-login {
   margin-bottom: 1rem;
   width: 17rem;
-  height: 3rem;
+  height: 2.5rem;
   border: none;
   border-radius: 2rem;
   color: #FFF;
@@ -109,42 +110,55 @@ button.social-login {
   font-size: 1rem;
   transition: 0.2s ease;
   cursor: pointer;
+  margin-left: -1.5ch;
 }
 
 button.social-login:hover,
 button.social-login:focus {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
+  
 }
 
 button.social-login:active {
   box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
+  
 }
 
 button.social-login.facebook {
   background: #32508E;
+  margin-top: -4ch;
+  border-radius: 65px;
+  
 }
 
+button.social-login.apple {
+  background: black;
+  margin-top: -1ch;
+}
 
 button.social-login.google {
   background: #DD4B39;
+  margin-top: -1ch;
+  border-radius: 65px;
 }
 
-#signuplink-container {
-  width: 30vh;
+#link-container {
+  width: 37vh;
   position: relative;
-  left: 27%;
+  margin-top: -8ch;
+  left: 25%;
   bottom: 9%;
 }
 
 #signup-text {
-  margin-top: 0.625rem;
+  margin-top: 0rem;
 }
 
 .signup-route {
-  margin-top: 0.625rem;
-  margin-left: 0.5vh;
+  margin-top: 0rem;
+  margin-left: 1%;
 }
 
 .error-msg{
@@ -153,14 +167,143 @@ button.social-login.google {
   color: red;
 }
 
+
 #Facebook-login {
   position: relative;
   right: 0.5rem;
+}
+#Apple-login  {
+  position: relative;
+  right: 1.2rem;
 }
 #Google-login {
   position: relative;
   right: 0.7rem;
 }
+.dividerl{
+  background-color: rgb(108, 108, 108);
+  height: 1px;
+  width: 410px;
+  margin-top: -35px;
+  margin-bottom:30px ;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+@media screen and (max-width:768px) and (min-width: 480px){
 
+  #login-container {
+    position: relative;
+    margin: 20% auto;
+    width: 25.375rem;
+    height: 25.5rem;
+   
+  }
+
+  #login-h1 {
+    color: rgb(3, 3, 3);  
+    margin: 1em 0em;
+    font-weight: 300;
+    font-size: 2rem;
+    padding: 0;
+    position: relative;
+    right: 5%;
+  }
+
+  .login-top {
+    position: relative;
+    box-sizing: border-box;
+    bottom: 40%;
+    left: 25.5%;
+    width: 12.75rem;
+    height: 10.75rem;
+  }
+  
+  .login-bottom {
+    position: relative;
+    left: 28.5%;
+   margin-top: 15%;;
+    width: 16.75rem;
+    height: 13.625rem;
+   
+  }
+  button.social-login {
+    width: 13rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+  }
+
+  input[id="login-input"],
+  input[id="login-password"] {
+    width: 14rem;
+    margin-left: -3%;
+    height: 1rem;
+    font-weight: 200;
+    font-size: 1em;
+    
+  }
+
+  input[id="login-submit"] {
+    margin-top: 0.5em;
+    width: 9em;
+    height: 1.5em;
+    font-size: 1rem;
+    font-weight: 300;
+    
+  }
+}
+
+@media only screen and (max-width: 479px){
+
+  #login-container {
+    margin: 30% auto;
+    width: 20.375rem;
+   
+  }
+
+  #login-h1 {
+  
+    margin: 1em 0em;
+    font-weight: 300;
+    font-size: 2rem;
+    right: 5%;
+  }
+
+  .login-top {
+    position: relative;
+    box-sizing: border-box;
+    bottom: 40%;
+    left: 17.5%;
+    width: 12.75rem;
+    height: 11.75rem;
+  }
+  
+  .login-bottom {
+    position: relative;
+    left: 22.5%;
+   margin-top: 10%;;
+    width: 16.75rem;
+    height: 13.625rem;
+   
+  }
+  button.social-login {
+    width: 13rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+  }
+
+  .dividerl{
+    height: 1px;
+    width: 310px;
+    margin-top: -10px;
+  }
+
+  #link-container {
+    width: 38vh;
+    top: -10%;
+  }
+
+}
 

@@ -1,33 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import CardItem from "./CardItemnews";
 import './CardNews.css';
 
 
 function CardNews () {
+
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
+      
     return (
-
-
-                    <ul>
-                        <CardItem 
-                        src=''
-                        name='DISCOUNT!!'
-                        text='Get a 10% discount off total price (Before taxes). With rides before 11pm.'
-                        label=''
-                        path=''/>
-                        <CardItem 
-                        src=''
-                        name='HOLIDAY HOURS'
-                        text='WEDD now available from 7am to 4am from December 20th to January 5th! '
-                        label=''
-                        path=''/>
-                        <CardItem 
-                        src=''
-                        name='MEET THE TEAM!'
-                        text='Learn more about us! Visit our blog at WEDD@medium.com'
-                        label=''
-                        path=''/>
-                        
-                    </ul>
+        <>
+            <div className={click ? 'update-active' : 'update-container'} onClick={handleClick}>
+                <div className={click ? 'news-circle-active' : 'news-circle'} onClick={handleClick}>
+                    <i className={click ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'} onClick={handleClick}/>
+                    <div className={click ? 'update-links-active' : 'update-links'}>
+                    <h3 id='update-h3'>Updates</h3>
+                    <CardItem text='News 1'
+                    name='news 1'/>
+                    <CardItem text='News 2'
+                    name='news 2'/>
+                    <CardItem text='News 3'
+                    name='news 3'/>
+                    <CardItem text='News 4'
+                    name='news 4'/>
+                    </div>
+                </div>
+            </div>
+        </>
 
     )
 }

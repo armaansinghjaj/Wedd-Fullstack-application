@@ -1,6 +1,6 @@
 import React from 'react';
 import './Background.css';
-import LoginForm from './LoginForm';
+import LoginForm from './LoginForm'
 
 function newbackground() {
 

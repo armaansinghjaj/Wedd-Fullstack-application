@@ -1,65 +1,55 @@
+#font-format  {
+    color: orangered;
+    font-weight: 400;
+    font-size: 30px;
+}
+
 .contact-container{
     position: relative;
-    margin: 6% auto;
-    width: 600px;
-    height: 59rem;
+    margin: 4% auto;
+    margin-top: 8%;
+    width: 65vw;
+    height: 75vh;
     background: #FFF;
-    border-radius: 2em;
+    border-radius: 1.2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
-#contact-top {
+#contact-top{
     position: relative;
-    bottom: 50%;
-    text-align: center;
+    display: inline-block;
+    height: 275px;
+    left: 8%;
+
 }
-
-#contact-location {
+#contact-location{
     position: relative;
-    left: 0.2%;
-    bottom: 50%;
-    text-align: center;
+    display: inline-block;
+    height: 275px;
+    left: 20%;
 }
 
 #contact-middle {
-    position: relative;
-    width: 375px;
-    top: 32%;
-    left: 22.5%;
+   position: relative;
+   display: inline-block;
+   height: 275px;
+   left: 35%;
+   bottom: 25%;
+    
 }
 
-#contact-bottom {
-    padding-top: 0.5em;
-    position: relative;
-    top: 50%;
-    left: 2%;
-    text-align: center;
-    height: 7vh;
+.selections{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
 }
 
-#commenti {
-    position: relative;
-    left: 11%;
-}
-
-h2#font-format  {
-    color: black;
-    font-weight: 400;
-}
-
-#checklist-wrapper{ 
-    margin-bottom: 0.5em;
-}
-
-#contact-label {
-    position: relative;
-    left: 15%;
-}
-
-
-.contact-radio {
-    position: relative;
-    left: 13%;
+.service-items{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.957rem 0;
 }
 
 #contact-info {
@@ -67,52 +57,54 @@ h2#font-format  {
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
-    font-weight: 400;
 }
-
 input[id="contact-input"] {
     display: block;
-    position: relative;
-    left: 26%;
     box-sizing: border-box;
-    margin-bottom: 1.2em;
-    padding: 0.25em;
-    width: 18.3rem;
-    height: 2em;
+    margin-top: 8px;
+    width: 150px;
+    height: 25px;
     border: none;
     border-bottom: 1px solid #AAA;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 15px;
     transition: 0.2s ease;
+    
+}
+.bottom-containers{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
-input[id="contact-input"]:focus {
-    border-bottom: 2px solid #16a085;
-    color: #16a085;
-    transition: 0.2s ease;
+input[class="contact-input"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
 }
+
+
 
 input[id="contact-submit"] {
     position: relative;
-    top: 60%;
-    right: 31.5%;
-    width: 9em;
-    height: 2.5em;
+    bottom: 27%;
+    right: 38.7%;
+    padding: 10px 97px;
     background: #16a085;
     border: none;
-    border-radius: 2em;
+    border-radius: 2px;
     color: #FFF;
-    font-size: 1em;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     transition: 0.1s ease;
     cursor: pointer;
+    float: right;
 }
   
-input[id="contact-submit"]:hover,
-input[id="contact-submit"]:focus {
+input[id="contact-submit"]:hover, input[id="contact-submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
@@ -124,11 +116,145 @@ input[id="contact-submit"]:active {
     transition: 0.1s ease;
 }
 
-.serviceerror-msg {
+.contact-error-msg {
     position: relative;
+    top: 10%;
     font-size: 0.8em;
-    left: 26%;
-    top: 0rem;
+    margin-top: -1.5em;
+    color: red;
+}
+#contactus-form{
+    height: 100%;
+}
+#commenti{
+    border-radius: 5px;
+    border: 1px solid #242424;
+}
+#contact-label{
+    margin-left: 1ch;
+}
+#contact-bottom{
+    position: relative;
+    left: 33.5%;
+    bottom: 28%;
+}
+.service-error-msg {
+    left: 12%;
+    position: relative;
     color: red;
 }
 
+
+  
+  @media only screen and (max-width: 767px) {
+
+    .contact-container{
+        margin-top: 10%;
+        margin: 20% auto;
+        width: 65vw;
+        height: 130vh;
+       
+    }
+    #font-format  {
+        font-weight: 300;
+        font-size: 20px;
+    }
+    #contact-top{
+        left: 11%;
+        top:2%;
+    }
+    #contact-location{
+        top:24%;
+        height: 750px;
+        left:-41.5%;
+    }
+    
+    input[id="contact-submit"] {
+        position: relative;
+        bottom: 33%;
+        right: 24.7%;
+        padding: 5px 60px;
+        font-weight: 400;
+        
+    }
+
+    #contact-middle {
+        height: 175px;
+        left: 11%;
+        bottom: 33%;
+         
+     }
+     #contact-bottom{
+        left: 11%;
+        bottom: 35%;
+    }
+    input[id="contact-input"] {
+        margin-top: 7px;
+        width: 120px;
+        height: 15px;
+        font-weight: 400;
+        font-size: 10px;
+    }
+
+    .service-items{
+        padding: 0.3rem 0;
+    }
+  } 
+
+  @media only screen and (max-device-width: 479px){
+
+    .contact-container{
+        margin-top: 10%;
+        margin: 30% auto;
+        width: 95vw;
+        height: 103vh;
+       
+    }
+
+    #font-format  {
+        font-weight: 300;
+        font-size: 15px;
+    }
+   
+    input[id="contact-input"] {
+        margin-top: 4px;
+        width: 120px;
+        height: 15px;
+        font-weight: 400;
+        font-size: 10px;
+    }
+
+    /* #contact-location{
+        top:23%;
+        height: 690px;
+        left:-41.5%;
+    } */
+    
+    input[id="contact-submit"] {
+        position: relative;
+        bottom: 33%;
+        right:44.7%;
+        padding: 4px 6px;
+        font-weight: 400;
+        
+    }
+
+    #contact-middle {
+        height: 300px;
+        left: 23%;
+        bottom: 15%;
+         
+     }
+     #contact-bottom{
+        left: 19%;
+        bottom: 38%;
+    }
+    
+    #contact-location{
+        position: relative;
+        display: inline-block;
+        height:325px;
+        top: 2%;
+        left: 27%;
+    }
+  }

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import env from "react-dotenv";
 import { Link } from 'react-router-dom';
+// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+// import { GoogleLogin } from 'react-google-login';
 
 import './SignupForm.css';
 
@@ -10,30 +10,14 @@ function SignupForm() {
 
     const [firstname, setFirstname]=useState('');
     const [firstnameError, setFirstnameError]=useState('');
-    const [lastname, setLastname]=useState('');
-    const [lastnameError, setLastnameError]=useState('');
-    const [username, setUsername]=useState('');
-    const [usernameError, setUsernameError]=useState('');
     const [email, setEmail]=useState('');
     const [emailError, setEmailError]=useState('');
     const [password, setPassword]=useState('');
     const [passwordError, setPasswordError]=useState('');
-    const [confirmPassword, setConfirmPassword]=useState('');
-    const [confirmPasswordError, setConfirmPasswordError]=useState('');
 
     const handleFirstnameChange=(e)=>{
         setFirstnameError('');
         setFirstname(e.target.value);
-    }
-
-    const handleLastnameChange=(e)=>{
-        setLastnameError('');
-        setLastname(e.target.value);
-    }
-
-    const handleUsernameChange=(e)=>{
-        setUsernameError('');
-        setUsername(e.target.value);
     }
 
     const handleEmailChange=(e)=>{
@@ -46,15 +30,6 @@ function SignupForm() {
       setPassword(e.target.value);
     }
 
-    const handleConfirmPasswordChange=(e)=>{
-        setConfirmPasswordError('');
-      setConfirmPassword(e.target.value);
-    }
-
-    const responseFacebook = (response) => {
-        console.log(response);
-    }
-
     const handleFormSubmit=(e)=>{
         e.preventDefault();
         
@@ -63,23 +38,7 @@ function SignupForm() {
            
         }
         else{
-            setFirstnameError('Firstname Required');
-        }
-
-         //checking if lastname is empty
-         if(lastname!==''){
-           
-        }
-        else{
-            setLastnameError('Lastname Required');
-        }
-
-         //checking if username is empty
-         if(username!==''){
-           
-        }
-        else{
-            setUsernameError('username Required');
+            setFirstnameError('Name Required');
         }
  
         //checking if email is empty
@@ -97,14 +56,16 @@ function SignupForm() {
             setPasswordError('Password Required');
         }
 
-        if(password !== confirmPassword){
-            setConfirmPasswordError('Password must match');
-        }
-        else{
-            
-        }
-  
-    
+    }
+
+    // Facebook Signup
+    const responseFacebook = (response) => {
+        console.log(response);
+    }
+
+    // google Signup button
+    const responseGoogle = (response) => {
+        console.log(response);
     }
 
     return (
@@ -112,17 +73,9 @@ function SignupForm() {
         <form onSubmit={handleFormSubmit}>
             <div class="signup-left">
                 <h1 id='signup-h1'>Sign up</h1>
-                <input type="text" name="firstName" placeholder="First Name" id="signup-input" 
+                <input type="text" name="name" placeholder="Name" id="signup-input" 
                 onChange={handleFirstnameChange} value={firstname}/>
                 {firstnameError&&<div className='error-msg'>{firstnameError}</div>}
-
-                <input type="text" name="lastName" placeholder="Last Name" id="signup-input" 
-                onChange={handleLastnameChange} value={lastname}/>
-                {lastnameError&&<div className='error-msg'>{lastnameError}</div>}
-
-                <input type="text" name="username" placeholder="Username" id="signup-input" 
-                onChange={handleUsernameChange} value={username}/>
-                {usernameError&&<div className='error-msg'>{usernameError}</div>}
 
                 <input type="text" name="email" placeholder="E-mail" id="signup-input" 
                 onChange={handleEmailChange} value={email} />
@@ -132,32 +85,44 @@ function SignupForm() {
                 onChange={handlePasswordChange} value={password} />
                 {passwordError&&<div className='error-msg'>{passwordError}</div>}
 
-                <input type="password" name="password2" placeholder="Confirm password" id="signup-password" 
-                onChange={handleConfirmPasswordChange} value={confirmPassword} />
-                {confirmPasswordError&&<div className='error-msg'>{confirmPasswordError}</div>}
-
-                <input type="submit" name="signup_submit" value="Sign me up" id="signup-submit" />
+                <input type="submit" name="signup_submit" value="Sign up" id="signup-submit" />
             </div>
-        
+                {/* Divider Line */}
+                <div className="divider"></div>
             <div class="signup-right">
-                <span class="loginwith"></span>  
-                <FacebookLogin
-                appId={env.REACT_APP_FACEBOOK_LOGIN_ID}
-                autoLoad
-                callback={responseFacebook}
-                render={renderProps => (
-                    <button className="social-signin facebook" onClick={renderProps.onClick}><i id='Facebook-login' className="fa-brands fa-facebook"/>Sign in with Facebook</button>
-                )}/>        
-                <button className="social-signin google">
-                <i id='Google-login' className="fa-brands fa-google"/>
-                Sign up with Google
-                </button>
-            </div>
-        </form>
-                <div id='loginlink-container'>
-                    <span id='login-text'>Already have an account?</span> 
-                    <Link to='/login' className='login-route'>Login</Link>
+                {/* Space between divider line and social media login buttons */}
+                <span class="loginwith"></span>
+                {/* Facebook Login Button */}
+                {/* <FacebookLogin
+                    appId="866567161040291"
+                    autoLoad
+                    callback={responseFacebook}
+                    render={renderProps => (
+                    <button className="social-signin facebook" 
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}>
+                    <i id='Facebook-login' className="fa-brands fa-facebook"/>
+                    Sign in with Facebook</button>
+                )}
+                /> */}
+                {/* Google Login Button */}
+                {/* <GoogleLogin
+                    clientId="247213296818-igllkm2tm2r4tu7g4gqu11avkhckmrnb.apps.googleusercontent.com"
+                    render={renderProps => (
+                        <button className="social-signin google" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                        <i id='Google-login' className="fa-brands fa-google"/>Sign up with Google</button>
+                    )}
+                    buttonText="Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    /> */}
                 </div>
+            </form>
+            <div id='signup-link-container'>
+                <span id='login-text'>Already have an account?</span> 
+                <Link to='/login' className='login-route'>Login</Link>
+            </div>
     </div>
     )
 }

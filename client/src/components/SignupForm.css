@@ -5,12 +5,12 @@
 
 #signupform-container {
   position: relative;
-  margin: 6% auto;
+  margin: 10% auto;
   width: 34.375rem;
-  height: 48rem;
+  height: 36.5rem;
   background: #FFF;
-  border-radius: 2em;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .signup-left {
@@ -39,12 +39,12 @@ input[id="signup-password"] {
   margin-bottom: 1.25rem;
   padding: 0.25rem;
   width: 17rem;
-  height: 2rem;
+  height: 1.1rem;
   border: none;
   border-bottom: 0.063rem solid #AAA;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.1em;
   transition: 0.2s ease;
 }
 
@@ -58,7 +58,7 @@ input[id="signup-password"]:focus {
 input[id="signup-submit"] {
   position: relative;
   left: 20%;
-  margin-top: 1em;
+  margin-top: 0.5em;
   width: 9em;
   height: 2.5em;
   background: #16a085;
@@ -115,13 +115,14 @@ input[id="signup-submit"]:active {
   font-size: 28px;
   color: orangered;
   text-align: center;
+  margin-top: -1.5ch;
 }
 
 
 button.social-signin {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   width: 17rem;
-  height: 3rem;
+  height: 2.5rem;
   border: none;
   border-radius: 2rem;
   color: #FFF;
@@ -130,6 +131,7 @@ button.social-signin {
   font-size: 1rem;
   transition: 0.2s ease;
   cursor: pointer;
+ 
 }
 
 button.social-signin:hover,
@@ -145,17 +147,23 @@ button.social-signin:active {
 
 button.social-signin.facebook {
   background: #32508E;
+  
+}
+
+button.social-signin.Apple {
+  background: black;
 }
 
 button.social-signin.google {
   background: #DD4B39;
 }
 
-#loginlink-container{
+#login-link-container{
   width: 30vh;
   position: relative;
-  left: 29%;
-  bottom: 13%;
+  left: 27%;
+  margin-top: 2ch;
+  bottom: 9%;
 }
 
 #haveAccount {
@@ -166,12 +174,161 @@ button.social-signin.google {
   position: relative;
   right: 0.5rem;
 }
-
+#Apple-login  {
+  position: relative;
+  right: 1.2rem;
+}
 #Google-login {
   position: relative;
   right: 0.7rem;
 }
 
+#signup-link-container {
+  position: relative;
+  bottom: 8%;
+  left: 29.5%;
+  margin-top: -9ch;
+}
+
+.divider{
+  background-color: rgb(108, 108, 108);
+  height: 1px;
+  width: 410px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20ch;
+}
+
 .login-route {
   margin-left: 0.5vh;
 } 
+
+#login-text{
+  margin-top: 0.5ch;
+}
+
+@media screen and (max-width: 768px) and (min-width: 480px){
+
+  #signupform-container {
+    margin: 20% auto;
+    width: 25.375rem;
+    height: 25.5rem;
+  }
+
+   .signup-left {
+    left: 25.5%;
+    width: 12.75rem;
+    height: 25.75rem;
+  } 
+
+  #signup-h1 {
+    font-weight: 300;
+    font-size: 2rem;
+    right: 5%;
+  }
+
+  button.social-signin {
+    width: 13rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+   
+  }
+  .signup-right {
+    
+    left: 26.5%;
+    width: 13.75rem;
+    height: 11.50rem;
+  }
+
+  input[id="signup-input"],
+  input[id="signup-password"] {
+  width: 14rem;
+  margin-left: -3%;
+  height: 1rem;
+ 
+  font-weight: 200;
+  font-size: 1em;
+}
+
+input[id="signup-submit"] {
+  margin-top: 0.5em;
+  width: 9em;
+  height: 1.5em;
+  left:15%;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+#signup-link-container {
+  bottom: 10%;
+  left: 25%;
+}
+}
+
+
+@media only screen and (max-width: 479px){
+
+#signup-h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    position: relative;
+    left: 2%;
+}
+
+  #signupform-container {
+    position: relative;
+    right: 1%;
+    margin: 30% auto;
+    width: 19.375rem;
+    height: 24rem;
+  }
+
+  .signup-left {
+    left: 15.5%;
+    width: 12.75rem;
+    height: 24.75rem;
+  } 
+
+  .signup-right {
+    left: 15.5%;
+    width: 13.75rem;
+    height: 11.50rem;
+  }
+
+  button.social-signin {
+    width: 13rem;
+    height: 1.5rem;
+    border: none;
+    border-radius: 2rem;
+  }
+
+  input[id="signup-input"],
+  input[id="signup-password"] {
+    width: 12rem;
+    height: 1rem;
+    font-weight: 200;
+    font-size: 1em;
+  }
+  
+  input[id="signup-submit"] {
+    margin-top: 0.5em;
+    width: 8em;
+    height: 1.5em;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .login-route {
+    margin-left: 0.2vh;
+  } 
+
+  .divider{
+    width: 250px;
+  }
+
+  #signup-link-container {
+    bottom: 7%;
+    left: 12%;
+  }
+}

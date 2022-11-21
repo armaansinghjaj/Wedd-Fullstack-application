@@ -1,0 +1,120 @@
+
+/* Dashboard css */
+#Driverdash-container{
+    position: relative;
+    left: 20%;
+    width: 80%;
+    height: 100vh;
+}
+/* Drivers requests css */
+#DriverRequests-container {
+    position: relative;
+    left: 20%;
+    width: 80%;
+    height: 100vh;
+}
+.Startshift{
+    position: relative;
+    left:20%;
+    
+}
+
+.driverinfo {
+  position: relative;
+  width: 15rem;
+  height: 100vh;
+ }
+
+#driver1{
+    position: relative;
+   
+ margin-right: 30%;
+}
+#dtable{
+  
+    margin-top: 50%;
+    margin-left: 180%;
+}
+#driver-1{
+    position: relative;
+    top: -1ch;
+}
+#driver-2{
+    position: relative;
+}
+#carid{
+    position: relative;
+    top: 1ch;
+}
+#login-submit{
+    position: relative;
+    top: 2ch;
+}
+.Drivertable{
+width: 70%;
+position: relative;
+left: 10%;
+border: solid;
+}
+p{
+    position: relative;
+    margin-left: 7ch;
+    margin-top: 2ch;
+}
+#submit{
+    position: relative;
+    top: 2rem;
+    left: 5rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submit:hover{
+    transition: all 0.3s ease-out;
+    background: #002d72;
+    color: #fff;
+    transition: 250ms;
+}
+#Driverdash-container{
+    position: relative;
+    left: 45%;
+    margin-top: 5%;
+}
+#submiti{
+    position: relative;
+    margin-top: 0ch;
+    left: 10rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submiti:hover{
+    transition: all 0.3s ease-out;
+    background: #002d72;
+    color: #fff;
+    transition: 250ms;
+}
+#submitc{
+    position: relative;
+    top: 2rem;
+    left: 1rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submitc:hover{
+    transition: all 0.3s ease-out;
+    background: #002d72;
+    color: #fff;
+    transition: 250ms;
+}
+#map_section{
+    margin-left: 5ch;
+    margin-top: 2ch;
+}

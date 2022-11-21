@@ -56,11 +56,11 @@ app.use(cookieParser());
 // create database connection
 var pool = mysql.createPool({
     connectionLimit:100,
-    host: "localhost",
-    port: 3307,
-    user: "root",
-    password: "password",
-    database: "wedddb"
+    host: "t07cxyau6qg7o5nz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    port: 3306,
+    user: "vyagfein4amzelvg",
+    password: "sukk89i6asp6quqp",
+    database: "l04wu7ocit93m8cz"
 });
 
 function loadDefaultValues(req){

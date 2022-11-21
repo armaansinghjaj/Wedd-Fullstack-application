@@ -1,0 +1,334 @@
+  /* Contains css for Admin-News/Admin-Home/Admin-Roles/Admin-DriversEdit pages */
+  
+  table{
+    border: 1px solid;
+  }
+  th,td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #e64c1b;
+    color: white;
+  }
+
+  #admin-h1 {
+    font-size: 5rem;
+    font-weight: 200;
+  }
+
+  #account-h3 {
+    color: black;
+  }
+
+  .edit{
+    transition-duration: 0.4s;
+    padding: 5px;
+  }
+  
+  .edit:hover {
+    background-color: #e64c1b; /* blue*/
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .delete{
+    transition-duration: 0.4s;
+    padding: 5px;
+  }
+  
+  .delete:hover {
+    background-color: rgb(243, 73, 73); /* */
+    color: white;
+  }
+
+  .editi{
+    transition-duration: 0.4s;
+    padding: 10px 35px;
+    margin-top: 2ch;
+  }
+  
+  .editi:hover {
+    background-color:#e64c1b; /* blue*/
+    color: white;
+    border-radius: 0.5rem;
+  }
+  .editnews{
+    transition-duration: 0.4s;
+    padding: 10px 35px;
+    margin-top: 2ch;
+  }
+  
+  .editnews:hover {
+    background-color: #e64c1b; /* blue*/
+    color: white;
+    border-radius: 0.5rem;
+  }
+  #link{
+    margin-top: 5ch;
+  }
+  .deletei{
+    transition-duration: 0.4s;
+    padding: 10px 35px;
+    margin-top: 2ch;
+  }
+  
+  .deletei:hover {
+    background-color: rgb(243, 73, 73); /* */
+    color: white;
+  }
+
+  #Add-button {
+    position: fixed;
+    z-index: 900;
+    top: 5%;
+    left: 95%;
+    width: 2rem;
+    height: 2rem;
+  }
+ 
+    /* Drivers list edit css */
+  .DriversEdit-container{
+      position: relative;
+      display: inline-block;
+      width: 80%;
+      height: 100vh;
+      left: 20%;
+  }
+  .editdriver{
+    margin-left: 0ch;
+    margin-top: 15ch;
+  }
+  
+  .adriver{
+    margin-left: 55%;
+    margin-top: -27ch;
+  }
+
+  /* Admin list edit css */
+  .AdminEdit-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  .Admintable {
+    position: relative;
+  }
+
+  .addAdmin-container{
+    position: relative;
+    height: 30vh;
+    width: 15rem;
+    left: 20%;
+  }
+
+  /* Admin roles edit css */
+  .AdminRoles-container{
+    position: fixed;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* Contact request css */
+  .contactRequest-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* ride request css */
+  .ride-request-container{
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* News edit css */
+  .AdminNews-container{
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* Background edit home */
+  .bghome-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* Background about home */
+
+  .bgabout-container{
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+
+  /* Background contact home */
+  .bgcontact-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100vh;
+    left: 20%;
+  }
+  
+  .Drivertable{
+    width: 70%;
+    position: relative;
+    left: 5%;
+    border: solid;
+  }
+  .fa-solid{
+    width: 35px;
+  }
+  .Drivertablei{
+    width: 80%;
+    justify-content: center;
+    margin-left: 10ch;
+    margin-top: 5ch;
+    border-radius: 0.5rem;
+    border: solid;
+  }
+
+   /* overlay form */
+   .overlay-visibleEdit{
+    position: fixed;
+    box-shadow: 0px 10px 10px 0px #2b2b2bd1;
+    backdrop-filter: blur(10px);
+    left: 16.2rem;
+    width: 86%;
+    height: 99vh;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+  .overlay-hiddenEdit{
+    position: fixed;
+    height: 0;
+    width: 86%;
+    left: 16rem;
+    transition: all 0.5s ease;
+    top: -250px;
+  }
+
+  #add-closeOverlay-btn-role {
+    position: relative;
+    left: 86%;
+  }
+
+  #edit-closeOverlay-btn-role {
+    position: relative;
+    left: 86%;
+  }
+
+  #edit-closeOverlay-btn-driver {
+    position: relative;
+    left: 86%;
+  }
+
+  #add-closeOverlay-btn-driver {
+    position: relative;
+    left: 86%;
+  }
+
+  #edit-closeOverlay-btn-admin {
+    position: relative;
+    left: 86%;
+  }
+
+  #add-closeOverlay-btn-admin {
+    position: relative;
+    left: 86%;
+  }
+
+.overlay-visibleAdd{
+  position: fixed;
+  box-shadow: 0px 10px 10px 0px #2b2b2bd1;
+  backdrop-filter: blur(8px);
+  left: 16.2rem;
+  width: 86%;
+  height: 99vh;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+.overlay-hiddenAdd{
+  position: fixed;
+  left: 16rem;
+  height: 40vh;
+  width: 86%;
+  transition: all 0.5s ease;
+  top: -400px;
+}
+
+.add-role-hidden{
+  position: relative;
+  width: 20.5rem;
+  top: -40vh;
+  left: 35vw;
+  border-radius: 1rem;
+  padding: 1em;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+
+.add-role{
+  position: relative;
+  width: 20.5rem;
+  top: 30vh;
+  left: 35vw;
+  background-color: white;
+  box-shadow: 10px 10px 10px 10px #2b2b2bd1;
+  border-radius: 1rem;
+  padding: 1em;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+
+.edit-role-hidden{
+  position: relative;
+  width: 20rem;
+  top: -40vh;
+  left: 35vw;
+  border-radius: 1rem;
+  padding: 1em;
+  transition: all 0.5s ease;
+  z-index: 999;
+
+}
+.edit-role{
+  position: relative;
+  width: 20rem;
+  top: 30vh;
+  left: 35vw;
+  background-color: white;
+  box-shadow: 10px 10px 10px 10px #2b2b2bd1;
+  border-radius: 1rem;
+  padding: 1em;
+  transition: all 0.5s ease;
+  z-index: 999;
+}
+/* Admin news page*/
+.AdminNews-container{
+  position: relative;
+  left: 45%;
+  top: 10%;
+}

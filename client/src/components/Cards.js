@@ -1,7 +1,7 @@
 import React from "react";
 import CardItem from "./CardItem";
 import './Cards.css';
-import ContactJpg from '../images/smartphone.jpg';
+import ContactJpg from '../images/Google-maps-on-phone.jpg';
 import AboutJpg from '../images/keys.jpg';
 import RideJpg from '../images/driving-car.jpg';
 import StaffJpg from '../images/man-and-keys.jpg';
@@ -11,7 +11,7 @@ function Cards () {
 
     return (
         <div className='cards'>
-            <h1>Learn more about us!</h1>
+            <h1 id='cards-h1'>Learn more about us!</h1>
                 <div className='cards__container'>
                     <div className='cards__wrapper'>
                         <ul className='cards__items'>

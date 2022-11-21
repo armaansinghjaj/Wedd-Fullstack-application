@@ -1,6 +1,7 @@
 import React from 'react';
 import './Background.css';
-import Aboutus from './Aboutus';
+import Abouttop from './About-top';
+
 
 function newbackground() {
 
@@ -8,8 +9,7 @@ function newbackground() {
         <>
             <div className='BackgroundAbout-container'>
                 <div className='title-container'>
-                    <Aboutus />
-
+                    <Abouttop />
                 </div>
             </div>
         </>

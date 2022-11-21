@@ -1,12 +1,12 @@
 import React from 'react';
 import '../App.css';
-import Footer from '../components/Footer';
+import AdminNavbar from '../components/AdminNavbar.js'
 
 
 export default function Admin() {
   return (
     <div>
-      <Footer />
+      <AdminNavbar/>
     </div>
   )
 }
