@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { Link } from 'react-router-dom';
-// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-// import { GoogleLogin } from 'react-google-login';
+
 
 import './SignupForm.css';
 

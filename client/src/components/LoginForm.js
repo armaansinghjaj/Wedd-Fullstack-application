@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-// import { GoogleLogin } from 'react-google-login';
+
 
 import './LoginForm.css';
 
@@ -64,29 +63,9 @@ function LoginForm() {
             <div className="dividerl"></div>
             <div className="login-bottom">
                 {/* Facebook Login Button */}
-                {/* <FacebookLogin
-                appId="866567161040291"
-                autoLoad
-                callback={responseFacebook}
-                render={renderProps => (
-                    <button className="social-login facebook" 
-                    onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                    <i id='Facebook-login' className="fa-brands fa-facebook"/>
-                    Sign in with Facebook</button>
-                )}
-                /> */}
+
                 {/* Google Login Button */}
-                {/* <GoogleLogin
-                    clientId="247213296818-igllkm2tm2r4tu7g4gqu11avkhckmrnb.apps.googleusercontent.com"
-                    render={renderProps => (
-                        <button className='social-login google' onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                            <i id='Google-login' className="fa-brands fa-google"/>Sign in with Google</button>
-                    )}
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> */}
+
             </div>
             </form>
             <div id='link-container'>
