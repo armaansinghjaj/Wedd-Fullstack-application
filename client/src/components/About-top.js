@@ -9,7 +9,7 @@ function Abouttop() {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const data = await fetch('/about');
+        const data = await fetch('/api/about');
         const items = await data.json();
         setItems(items);
     };
@@ -150,18 +150,6 @@ function Abouttop() {
             </div>
         </section>
       </Fragment>
-
-
-
-
-
-
-
-
-
-
-
-
 
         // <div className='aboutus-top'>
         // <h3 className='title-h1'>About us</h3>

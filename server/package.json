@@ -4,8 +4,7 @@
   "description": "This is capstone project backend created using NodeJS and ExpressJS.",
   "main": "App.js",
   "scripts": {
-    "server": "npx nodemon App.js",
-    "client": "npm run start --prefix ../client"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,7 @@
   },
   "homepage": "https://github.com/armaansinghjaj/Wedd#readme",
   "dependencies": {
+    "alert": "^5.1.1",
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
@@ -27,6 +27,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.19",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "uuid": "^9.0.0"
   }
 }

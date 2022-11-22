@@ -43,37 +43,39 @@ const App = () => {
        {/* Routing for application */}
       <Routes>
         <Route path= "*" element={<Home />}/>
-        <Route path= '/Ride'  element={<Ride/>}/> 
-        <Route path= '/About'  element={<About/>}/> 
-        <Route path= '/Contact'  element={<Contact/>}/> 
-        <Route path= '/Login'  element={<Login/>}/> 
-        <Route path= '/Signup'  element={<Signup/>}/>
+        <Route path= '/ride'  element={<Ride/>}/> 
+        <Route path= '/about'  element={<About/>}/> 
+        <Route path= '/services'  element={<Contact/>}/> 
+        <Route path= '/login'  element={<Login/>}/> 
+        <Route path= '/signup'  element={<Signup/>}/>
+        
+        {/* News Page is pending yet */}
 
         {/* Admin Pages */}
-        <Route path= '/Admin'  element={<Admin/>}/> 
-        <Route path= '/AdminEdit'  element={<AdminEdit/>}/> 
-        <Route path= '/AdminNews'  element={<AdminNews/>}/> 
-        <Route path= '/AdminRoles'  element={<AdminRoles/>}/> 
-        <Route path= '/DriversEdit'  element={<DriversEdit/>}/> 
-        <Route path= '/ContactRequests' element={<ContactRequests/>}/>
-        <Route path= '/RideRequests' element={<AdminRideRequests/>}/>
+        <Route path= '/admin'  element={<Admin/>}/> 
+        <Route path= '/admin/adminlist'  element={<AdminEdit/>}/> 
+        <Route path= '/admin/news'  element={<AdminNews/>}/> 
+        <Route path= '/admin/roles'  element={<AdminRoles/>}/> 
+        <Route path= '/admin/driverlist'  element={<DriversEdit/>}/> 
+        <Route path= '/admin/services' element={<ContactRequests/>}/>
+        <Route path= '/admin/rides' element={<AdminRideRequests/>}/>
 
         {/* Background editing pages */}
-        <Route path='/BackgroundEditHome' element={<BgHome/>}/>
-        <Route path='/BackgroundEditAbout' element={<BgAbout/>}/>
-        <Route path='/BackgroundEditContact' element={<BgContact/>}/>
+        <Route path='/backgroundedithome' element={<BgHome/>}/>
+        <Route path='/backgroundeditabout' element={<BgAbout/>}/>
+        <Route path='/backgroundeditcontact' element={<BgContact/>}/>
 
         {/* Driver dashboard pages */}
-        <Route path= '/Driver'  element={<Driver/>}/> 
-        <Route path= '/DriverDashboard'  element={<DriverDashboard/>}/>
-        <Route path= '/DriverAvailRequests'  element={<DriverRequests/>}/> 
+        <Route path= '/driver'  element={<Driver/>}/> 
+        <Route path= '/driverdashboard'  element={<DriverDashboard/>}/>
+        <Route path= '/driveravailrequests'  element={<DriverRequests/>}/> 
 
 
         {/* Customer account pages */}
-        <Route path= '/Account'  element={<Account/>}/>        
-        <Route path= '/TripHistory'  element={<TripHistory/>}/>
-        <Route path= '/HelpAndSupport'  element={<HelpAndSupport/>}/>
-        <Route path= '/FAQ'  element={<FaQuestions/>}/>
+        <Route path= '/profile'  element={<Account/>}/>        
+        <Route path= '/triphistory'  element={<TripHistory/>}/>
+        <Route path= '/helpandsupport'  element={<HelpAndSupport/>}/>
+        <Route path= '/faq'  element={<FaQuestions/>}/>
         {/* <Route path='/' element={</>}/> */}
       </Routes>
     </Router>

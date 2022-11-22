@@ -1,14 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './AdminPages.css';
 
 export default function AdminEdit() {
 
+    //PLACEHOLDERS
     const admin_employee_id='1234567';
     const admin_name='Admin name';
     const admin_email='email@email.com';
     const admin_edit_employee_id='1234567';
     const admin_edit_email='Admin name';
     const admin_edit_name='email@email.com';
+
+    useEffect( () => {
+        fetchItems();
+    }, []);
+
+    const [items, setItems] = useState([]);
+
+    const fetchItems = async () => {
+        const data = await fetch('/api/admin/adminlist');
+        const items = await data.json();
+        setItems(items);
+    };
 
     const [visibleEdit, setVisibleEdit] = useState(false) 
     const [visibleAdd, setVisibleAdd] = useState(false) 
@@ -24,7 +37,6 @@ export default function AdminEdit() {
 
     return(
         <>
-
             {/* edit Admin form */}
             <div className={overlayEdit}>
                 <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
@@ -106,36 +118,41 @@ export default function AdminEdit() {
             <div className='Admintable'>
             <h1 id='admin-h1'>Edit Admins</h1>
                 <table className='Drivertable'>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>Name</th>
-                        <th>E-mail</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    {/* <% admins.forEach(admin => { %> */}
-                    <tr>
-                        <td>{admin_employee_id}</td>
-                        <td>{admin_name}</td>
-                        <td>{admin_email}</td>
-                        <td>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>E-mail</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
 
-                            <button onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
-                               {/* <input type='submit' value='edit' className='edit' name='edit'/>*/}
-                                <input type='hidden' name='selected' value={admin_employee_id}/>
-                                <input type='hidden' name='action'  value='edit'/>
+                    {items.map(item =>{
+                        return <tbody>
+                            <tr>
+                                <td>{item.employee_id}</td>
+                                <td>{item.name}</td>
+                                <td>{item.email}</td>
+                                <td>
 
-                        </td>
-                        <td>
-                            <form action='/admins' method='post'>
-                            <button><i class="fa-solid fa-x"></i></button>
-                              {/*  <input type='submit' value='delete' className='delete' name='delete'/>*/}
-                                <input type='hidden' name='selected' value={admin_employee_id}/>
-                                <input type='hidden' name='action'  value='delete'/>
-                            </form>
-                        </td>
-                    </tr>
-                    {/* <% }) %> */}
+                                    <button onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
+                                    {/* <input type='submit' value='edit' className='edit' name='edit'/>*/}
+                                        <input type='hidden' name='selected' value={admin_employee_id}/>
+                                        <input type='hidden' name='action'  value='edit'/>
+
+                                </td>
+                                <td>
+                                    <form action='/admins' method='post'>
+                                    <button><i class="fa-solid fa-x"></i></button>
+                                    {/*  <input type='submit' value='delete' className='delete' name='delete'/>*/}
+                                        <input type='hidden' name='selected' value={admin_employee_id}/>
+                                        <input type='hidden' name='action'  value='delete'/>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    })}
                 </table>
             </div>
         </div>

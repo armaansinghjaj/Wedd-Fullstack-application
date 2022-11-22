@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedd | New Rides</title>
+</head>
+<body>
+    <% if (rides.length > 0) { %>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Pick-up Address</th>
+                <th>Destination</th>
+                <th>Payment mode</th>
+                <th>Accept</th>
+                <th>Decline</th>
+            </tr>
+            <% rides.forEach(ride => { %>
+                <tr>
+                    <td><%=ride.name%></td>
+                    <td><%=ride.phone%></td>
+                    <td><%=ride.pickup%></td>
+                    <td><%=ride.destination%></td>
+                    <td><%=ride.payment%></td>
+                    <td>
+                        <!-- 
+                            did = driver id (1/2)
+                            dcid = driver car id
+                            cid = customer id
+                            pic = pickup address
+                            drp = drop off address
+                            dst = estimated distance
+                            etd = estimated time to drop
+                            etc = estimated total cost
+                         -->
+                        <form action='/driver?daction=racc&did1=4&did2=5&dcid=1&cid=2&pic=1233Abc&drp=12333cba&dst=17.6&etd=30&etc=46.89' method='POST'>
+                            <input type='submit' value='Accept' name='accept'>
+                            <input type='hidden' name='selected' value='<%=ride.request_id%>'>
+                            <input type='hidden' name='action' value='accept'>
+                        </form>
+                    </td>
+                    <td>
+                        <form action='/driver?daction=rdec&did1=4&did2=5&cid=1' method='POST'>
+                            <input type='submit' value='Decline' name='decline'>
+                            <input type='hidden' name='selected' value='<%=ride.request_id%>'>
+                            <input type='hidden' name='action'value='decline'>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } else { %>
+        <p>No requests to show</p>
+        <p>Searching for requests...</p>
+    <% } %>
+
+    <button class="end_shift">End shift</button> <br>
+    <div class="end_form_container" style="display: none;">
+        <p>Are you sure you want to end your shift?</p>
+        <form action="/driver?daction=end" method="POST">
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementsByClassName("end_shift")[0].addEventListener('click', ()=>{
+        if(document.getElementsByClassName("end_form_container")[0].style.display == "block"){
+            document.getElementsByClassName("end_form_container")[0].style.display = "none";
+        }
+        else{
+            document.getElementsByClassName("end_form_container")[0].style.display = "block";
+        }
+    })
+</script>
+</html>
