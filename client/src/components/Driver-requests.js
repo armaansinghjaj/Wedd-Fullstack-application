@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import './Driverportal.css';
 
@@ -12,17 +12,12 @@ export default function Dashboard() {
     const ridePickup = 'Pickup Address';
     const rideDropoff = 'Dropoff Address';
 
-    const move = useNavigate();
-    const accept = useNavigate();
+    const [visibleConfirm, setVisibleConfirm] = useState(false) 
+    const displayConfirm = visibleConfirm ? "end_form_container-visible" : "end_form_container";
 
-    const toDash = () => {
-        accept('/DriverDashboard')
+    const displayButton = () => {
+        setVisibleConfirm(!visibleConfirm);
     }
-    const toShift = () => {
-        move("/Driver")
-    }
-
-
 
     return(
         <>
@@ -70,16 +65,16 @@ export default function Dashboard() {
         <p>Searching for requests...</p>
     {/* // <% } %> */}
 
-        <button className="end_shift"  id="submit" onClick={toShift}>End shift</button> <br/>
+        <button className="end_shift"  id="submit" onClick={displayButton}>End shift</button> <br/>
         
         {/* This form prevents rendering. Dont know why */}
 
-            {/* <div class="end_form_container" style="display: none;">
+            <div class={displayConfirm}>
                 <p>Are you sure you want to end your shift?</p>
-                <form action="/Driver" method="POST">
+                <form action="/Driver">
                     <input type="submit" value="Confirm"/>
                 </form>
-            </div> */}
+            </div>
         </div>    
         </div>
         </>

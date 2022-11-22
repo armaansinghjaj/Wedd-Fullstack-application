@@ -17,18 +17,17 @@ export default function AccountNavbar() {
 
                     <ul className='link-wrapper'>
                         <li>
-                            <Link className={location.pathname === '/Account'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Account'>Settings and Profile</Link>
+                            <Link className={location.pathname === '/profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/profile'>Settings and Profile</Link>
                         </li>
                         <li>
-                            <Link className={location.pathname === '/TripHistory'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/TripHistory'>Trip History</Link>
+                            <Link className={location.pathname === '/triphistory'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/triphistory'>Trip History</Link>
                         </li>
                         <li>
-                            <Link className={location.pathname === '/HelpAndSupport'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/HelpAndSupport'>Help and Support</Link>
+                            <Link className={location.pathname === '/helpandsupport'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/helpandsupport'>Help and Support</Link>
                         </li>
                         <li>
-                            <Link className={location.pathname === '/FAQ'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/FAQ'>Frequently Asked Questions</Link>
+                            <Link className={location.pathname === '/faq'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/faq'>Frequently Asked Questions</Link>
                         </li>
-
                     </ul>
                 </div>
                 <div className='logout-wrapper'>

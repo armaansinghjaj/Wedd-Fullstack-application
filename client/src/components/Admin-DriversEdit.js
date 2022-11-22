@@ -5,8 +5,8 @@ export default function AdminDriversEdit() {
 
     // PLACEHOLDERS
     const employee_id='1234567';
-    const name='employee name';
-    const email='email@email.com';
+    // const name='employee name';
+    // const email='email@email.com';
     const edit_employee_id='1234567';
     const edit_email='email@email.com';
     const edit_name='name';

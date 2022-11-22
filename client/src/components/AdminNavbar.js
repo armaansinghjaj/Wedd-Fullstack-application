@@ -5,7 +5,6 @@ import './VerticalNavbar.css';
     export default function AdminNavbar() {
 
     const location = useLocation();
-    console.log(location);
 
     return(
         <>
@@ -19,22 +18,22 @@ import './VerticalNavbar.css';
                     <Link className={location.pathname === '/BackgroundEditHome'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditHome'>Edit Backgrounds</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/DriversEdit'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/DriversEdit'>Edit Driver List</Link>
+                    <Link className={location.pathname === '/admin/driverlist'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/driverlist'>Edit Driver List</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/AdminEdit'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/AdminEdit'>Edit Admin list</Link>
+                    <Link className={location.pathname === '/admin/adminlist'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/adminlist'>Edit Admin list</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/AdminRoles'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/AdminRoles'>Edit Employee Roles</Link>
+                    <Link className={location.pathname === '/admin/roles'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/roles'>Edit Employee Roles</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/AdminNews'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/AdminNews'>Edit News updates</Link>
+                    <Link className={location.pathname === '/admin/news'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/news'>Edit News updates</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/ContactRequests'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/ContactRequests'>Access Contact Requests</Link>
+                    <Link className={location.pathname === '/admin/services'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/services'>Access Contact Requests</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/RideRequests'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/RideRequests'>Access Ride Requests</Link>
+                    <Link className={location.pathname === '/admin/rides'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/rides'>Access Ride Requests</Link>
                 </li>
             </ul>
         </div>

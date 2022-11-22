@@ -5,8 +5,8 @@ export default function AdminEdit() {
 
     //PLACEHOLDERS
     const admin_employee_id='1234567';
-    const admin_name='Admin name';
-    const admin_email='email@email.com';
+    // const admin_name='Admin name';
+    // const admin_email='email@email.com';
     const admin_edit_employee_id='1234567';
     const admin_edit_email='Admin name';
     const admin_edit_name='email@email.com';

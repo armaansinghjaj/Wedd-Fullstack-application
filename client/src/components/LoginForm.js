@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 
-
 import './LoginForm.css';
 
 
@@ -20,14 +19,6 @@ function LoginForm() {
         setPasswordError('');
         setPassword(e.target.value);
     }
-    // Facebook login button
-    const responseFacebook = (response) => {
-        console.log(response);
-    }
-    // google login button
-    const responseGoogle = (response) => {
-        console.log(response);
-      }
 
     const handleFormSubmit=(e)=>{
         e.preventDefault();

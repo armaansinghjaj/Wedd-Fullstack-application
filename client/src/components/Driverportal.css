@@ -16,6 +16,13 @@
 .Startshift{
     position: relative;
     left:20%;
+}
+
+.end_form_container{
+    display: none;
+}
+
+.end_form_container-visible {
     
 }
 
