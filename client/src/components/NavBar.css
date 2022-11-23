@@ -81,7 +81,7 @@ nav {
 }
 
 .nav-links-mobile {
-  display: none;
+  display: initial;
 }
 
 .menu-icon {
@@ -173,29 +173,23 @@ nav {
     font-size: 2rem;
   }
 
-  .nav-links-mobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: #fff;
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
+}
 
-  .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
+@media screen and (max-width:768px ) and (min-width: 480px) {
+  nav {
+    left: 1.5%;
+    width: 525px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed;
+    z-index: 999;
+    top: 0;
   }
 }
 
-@media only screen and (max-width: 479px) {
+
+@media only screen and (max-device-width: 479px) {
   nav {
     left: 1.5%;
     width: 460px;
@@ -215,13 +209,52 @@ nav {
     position: fixed;
     background: #242222;
     right: -41px;
-    height: 100vh;
+    height: 120vh;
     width: 490px;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
   }
 
+  #login-active {
+    display: initial;
+  }
 
+  .navbar-logo {
+    left: 45%;
+  }
+
+}
+
+@media only screen and (max-width: 390px) {
+  nav {
+    left: 1.5%;
+    width: 375px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+  }
+
+  .nav-menu.active {
+    position: fixed;
+    background: #242222;
+    right: -41px;
+    height: 65vh;
+    width: 392px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .navbar-logo {
+    left: 42%;
+  }
+
+  .menu-icon {
+    top: 17px;
+  }
 }
 

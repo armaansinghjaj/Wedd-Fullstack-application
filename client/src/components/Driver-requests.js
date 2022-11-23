@@ -71,9 +71,10 @@ export default function Dashboard() {
 
             <div class={displayConfirm}>
                 <p>Are you sure you want to end your shift?</p>
-                <form action="/Driver">
-                    <input type="submit" value="Confirm"/>
+                <form id="end-shift-form" action="/Driver">
+                    <input id="submit" type="submit" value="Confirm"/>
                 </form>
+                <button id="cancel-end-shift-btn" onClick={displayButton}>Close</button>
             </div>
         </div>    
         </div>
