@@ -267,7 +267,7 @@ input[id="signup-submit"] {
 }
 
 
-@media only screen and (max-width: 479px){
+@media only screen and (max-device-width: 390px){
 
 #signup-h1 {
     font-weight: 400;
