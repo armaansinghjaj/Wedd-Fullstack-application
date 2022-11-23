@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './AccountPages.css';
 
 export default function Settings() {
@@ -7,6 +7,13 @@ export default function Settings() {
     // const customer_email='Email';
     // const customer_phone='Phone';
     // const customer_pp='customer profile picture';
+
+    const [visibleConfirm, setVisibleConfirm] = useState(false) 
+    const displayConfirm = visibleConfirm ? "confirmation-visible" : "confirmation";
+
+    const displayButton = () => {
+        setVisibleConfirm(!visibleConfirm);
+    }
 
     return(
 
@@ -42,16 +49,17 @@ export default function Settings() {
 
 <div className="deleteacc">
 <h3 id="profile-h3">Delete account</h3>
-<p id="line">Once you delete your account, there is no going back. Please be certain.</p>
-<button class="delete_account_btn" id="submit" >Delete account</button>
+<button class="delete_account_btn" id="submit" onClick={displayButton}>Delete account</button>
 
 </div>
-<div className="confirmation">
+<div className={displayConfirm}>
             <form action="" method="post">
                 <div class="delete_confirmation" >
-                    <input type="submit" id="submit" value="Confirm"/> <input type="reset" class="delete_account_btn" id="submit"  value="Cancel"/>
+                <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
+                    <input type="submit" id="submit" value="Confirm"/> 
                 </div>
             </form>
+            <button id="cancel-end-shift-btn" onClick={displayButton}>Close</button>
             </div>
         </div>
         </>

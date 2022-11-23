@@ -31,8 +31,23 @@
 
 }
 .confirmation{
-    position: relative;
-    top: 18%;
+    position: fixed;
+    left: 45%;
+    top: -100px;
+    transition: all 0.5s ease;
+}
+
+.confirmation-visible{
+    position: fixed;
+    left: 45%;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 0px 10px 10px 0px #2b2b2bd1;
+    transition: all 0.5s ease;
+    width: 22vw;
+    height: 15vh;
 }
 #old_password{
     position: relative;
@@ -49,7 +64,8 @@
     width: 150px;
 }
 #line{
-    margin-left: -1ch;
+    position: relative;
+    right: 6%;
 }
 .trip-table{
     width: 60%;
@@ -60,6 +76,14 @@
 }
 #logo-wrapper {
     display: inline-block;
+}
+
+#cancel-end-shift-btn:hover {
+    transition: all 0.3s ease-out;
+    background: #ff7248;
+    color: #fff;
+    transition: 250ms;
+
 }
 
 /* Customer account settings and privacy css */
