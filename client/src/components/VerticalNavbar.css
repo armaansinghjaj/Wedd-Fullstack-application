@@ -177,10 +177,21 @@ display: none;
     }
 
     #h-profile {
+        display: initial;
         position: relative;
         font-size: 32px;
         color: #ff7248;
         left: 41%;
+        top: 20%;
+        text-decoration: none;
+    }
+
+    #h-logo {
+        display: initial;
+        position: relative;
+        font-size: 32px;
+        color: #ff7248;
+        left: 58%;
         top: 20%;
         text-decoration: none;
     }
