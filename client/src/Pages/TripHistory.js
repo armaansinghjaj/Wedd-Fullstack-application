@@ -7,7 +7,7 @@ export default function TripHistory() {
         <>
         
         <div className="TripHistory-container">
-            <AccountNav/>
+            {/* <AccountNav/> */}
             <History/>
         </div>
 

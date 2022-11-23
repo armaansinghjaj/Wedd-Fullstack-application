@@ -8,7 +8,7 @@ import AccountNav from '../components/Account-Navbar';
 export default function Account() {
   return (
     <div className='Account-container'>
-        <AccountNav/>
+        {/* <AccountNav/> */}
         <AccountSettings/>
     </div>
   )

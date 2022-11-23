@@ -6,7 +6,7 @@ import StartShift from '../components/startshift';
 export default function Driver() {
   return (
     <>
-      <DriverNavbar/>
+      {/* <DriverNavbar/> */}
       <StartShift/>
     </>
   )

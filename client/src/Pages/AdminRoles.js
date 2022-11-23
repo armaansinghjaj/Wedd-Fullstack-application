@@ -7,7 +7,7 @@ import AdminNavbar from '../components/AdminNavbar.js'
 export default function AdminRoles() {
   return (
     <div>
-      <AdminNavbar/>
+      {/* <AdminNavbar/> */}
       <Roles/>
     </div>
   )

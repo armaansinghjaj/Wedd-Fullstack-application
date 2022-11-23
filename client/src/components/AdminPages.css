@@ -332,3 +332,91 @@
   left: 45%;
   top: 10%;
 }
+
+
+@media screen and (max-device-width: 390px){
+
+  .contactRequest-container {
+    position: relative;
+   margin-top: 30%;
+   
+    height: 100vh;
+    left: 0%;
+  }
+  
+  /* News edit css */
+  .AdminNews-container{
+ 
+    width: 70%;
+    left: 60%;
+  }
+
+  /* Background edit home */
+  .bghome-container {
+    width: 80%;
+    margin-top: 30%;
+    right: 5%;
+    left: 0%;
+  }
+
+  /* Background about home */
+
+  .bgabout-container{
+   
+    width: 80%;
+    margin-top: 30%;
+    right: 5%;
+    left: 0%;
+  }
+
+  /* Background contact home */
+  /* .bgcontact-container {
+    width: 70%;
+    margin-top: 30%;
+    right: 0%;
+    left: 0%;
+  } */
+
+  .AdminRoles-container{
+   margin-top: 30%;
+    width: 30%;
+    height: 100vh;
+    left: 17%;
+    
+  }
+
+  .AdminEdit-container {
+    margin-top: 30%;
+    width: 0%;
+    height: 100vh;
+     left: 0%;
+  }
+
+  .Drivertable{
+    left: 0%;
+  }
+
+  .Drivertablei{
+    margin-left: 1ch;
+    margin-top: 4ch;
+   
+  }
+
+  #admin-h1 {
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: center;
+   /* margin-left: 10ch; */
+  }
+
+  .ride-request-container{
+    height: 100vh;
+    left: 0%;
+    margin-top: 30%;
+  }
+
+  .AdminNews-container{
+    left: 12%;
+    margin-top: 30%;
+  }
+}

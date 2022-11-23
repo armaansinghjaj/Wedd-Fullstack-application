@@ -7,7 +7,7 @@ export default function DriverAvailRequests() {
 
     return(
         <>
-        <DriverNavbar/>
+        {/* <DriverNavbar/> */}
         <Dashboard/>
         </>
     )

@@ -6,7 +6,7 @@ export default function ContactRequests() {
     return(
         <>
             <div>
-                <AdminNavbar/>
+                {/* <AdminNavbar/> */}
                 <ContactRequestTable/>
             </div>
         </>

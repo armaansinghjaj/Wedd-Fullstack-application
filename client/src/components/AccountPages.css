@@ -136,3 +136,32 @@ li{
     color: #fff;
     transition: 250ms;
 }
+
+@media screen and (max-device-width: 390px){
+    .trip-container {
+        position: relative;
+        left: 2%;
+      
+    }
+    .trip-table {
+        top: 10%;
+    }
+
+    h2{
+        margin-left: 90px;
+    }
+
+    .settings-container{
+       margin-top: 30%;
+       left: 2%;
+       width: 90%;
+       height: 100vh; 
+    }
+
+    #profile-h3 {
+        position: relative;
+        color: black;
+        font-size: 2ch;  
+    }
+ 
+}
