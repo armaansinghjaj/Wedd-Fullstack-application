@@ -1,8 +1,7 @@
 .update-container{
   position: sticky;
-  overflow-x: hidden;
-  background-color: white;
-  top: 18%;
+  background: white;
+  top: 15%;
   left: 100%;
   width: 2.1em;
   height: 2.2em;
@@ -12,14 +11,18 @@
   border-width: 1px;
   border-color: black;
   transition: all 0.5s ease;
+  backdrop-filter: blur(8px);
   z-index: 998;
 }
 
 .update-active{
   position: sticky;
-  background-color: white;
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+  background: rgb(255 255 255 / 90%);
+  backdrop-filter: blur(8px);
   margin-right: -1px;
-  top: 18%;
+  backdrop-filter: blur(8px);
+  top: 15%;
   left: 100%;
   width: 15em;
   height: 2.2em;
@@ -47,6 +50,7 @@
   margin-left: -0.5em;
   border-bottom-left-radius: 0.8em;
   background-color: white;
+  backdrop-filter: blur(8px);
   width: 15.1em;
   border-style: solid;
   border-width: 1px;
@@ -91,7 +95,9 @@
 }
 
 #update-h3-active{
-  font-size: 1em;
+  position: relative;
+  left: -4.5%;
+  font-size: 2em;
   color: black;
   text-align: center;
   border-style: solid;
@@ -103,6 +109,24 @@
 
 #update-h3 {
   display: none;
+}
+
+#update-li {
+  display: none;
+}
+
+#update-h1 {
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  left: 30%; 
+}
+
+#update-p {
+  position: relative;
+  right: 20%;
+  font-weight: 200;
+  
 }
 
 .cardnews__item-active {
@@ -120,11 +144,25 @@
 }
 
 @media only screen and (max-width: 390px) {
-
-  .update-container{
-    overflow-x: hidden;
-    width: 35px;
+  .update-container {
+    top: 12%;
   }
 
+  .update-active {
+    top: 12%;
+  }
+
+  #update-h1 {
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    left: 30%; 
+  }
+
+  #update-p {
+    position: relative;
+    right: 20%;
+    font-weight: 200;
+  }
 
 }

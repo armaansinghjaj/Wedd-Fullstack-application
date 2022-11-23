@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './VerticalNavbar.css';
 
     export default function AdminNavbar() {
 
-    const location = useLocation();
+        const [click, setClick] = useState(false);
+        const handleClick = () => setClick(!click);
+        const closeMobileMenu = () => setClick(false);
+
+        const location = useLocation();
 
     return(
         <>
@@ -42,6 +46,46 @@ import './VerticalNavbar.css';
             <button id='logout-button'>Log Out</button>
             </Link>
         </div>
+
+
+        <div className='h-navbar'>
+            <div id='logo-wrapper'>
+                <Link id='h-logo' to={'/Admin'}>WeDD</Link>
+            </div>
+            <div className='menu-icon' onClick={handleClick}>
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            </div>
+        </div>
+        
+        <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
+                <li>
+                    <Link className='h-nav-links' to='/BackgroundEditHome' onClick={closeMobileMenu}>Edit Backgrounds</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/driverlist' onClick={closeMobileMenu}>Edit Driver List</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/adminlist' onClick={closeMobileMenu}>Edit Admin list</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/roles' onClick={closeMobileMenu}>Edit Employee Roles</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/news' onClick={closeMobileMenu}>Edit News updates</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/services' onClick={closeMobileMenu}>Access Contact Requests</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/admin/rides' onClick={closeMobileMenu}>Access Ride Requests</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                </li>
+            </ul>
+
+
+
         </>
 
     )

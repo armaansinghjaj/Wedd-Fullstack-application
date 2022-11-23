@@ -79,11 +79,7 @@ function NavBar() {
                             </Link>
                         </li>
                         <li className = 'nav-item' id='login-active'>
-                            <Link to='/login' className='nav-links' onClick={scrollAndClose}> Sign up
-                            </Link>
-                        </li>
-                        <li className = 'nav-item' id='login-active'>
-                            <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login
+                            <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login 
                             </Link>
                         </li>
                     </ul>

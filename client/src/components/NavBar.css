@@ -9,6 +9,12 @@ nav {
   top: 0;
 }
 
+#cards-p-main{
+  position: relative;
+  right: 2.5%;
+  text-align: center;
+}
+
 #navbar {
   margin-top: 1rem;
   border-radius: 5px;
@@ -45,7 +51,7 @@ nav {
 
 .nav-menu {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(6, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
@@ -149,7 +155,6 @@ nav {
     background-color: #fff;
     color: #242424;
     border-radius: 0;
- 
   }
 
   .navbar-logo {
@@ -193,13 +198,13 @@ nav {
 
 @media only screen and (max-width: 390px) {
 
+
   #navbar {
-    width: 375px;
+    width: 380px;
   }
 
   .nav-menu {
     display: none;
-
   }
 
   .nav-menu.active {
@@ -208,7 +213,7 @@ nav {
     background: #242222;
     right: -41px;
     height: 65vh;
-    width: 392px;
+    width: 395px;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
@@ -220,6 +225,10 @@ nav {
 
   .menu-icon {
     top: 17px;
+  }
+
+  #login-active {
+    display: initial;
   }
 }
 
