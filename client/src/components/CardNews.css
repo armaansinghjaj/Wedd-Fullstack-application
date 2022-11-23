@@ -1,5 +1,6 @@
 .update-container{
   position: sticky;
+  overflow-x: hidden;
   background-color: white;
   top: 18%;
   left: 100%;
@@ -118,20 +119,12 @@
   display: none;
 }
 
-@media only screen and (max-device-width: 479px) {
+@media only screen and (max-width: 390px) {
+
   .update-container{
-    position:fixed;
-    background-color: white;
-    top: 15%;
-    left: 94.5%;
-    width: 2.1em;
-    height: 2.2em;
-    
+    overflow-x: hidden;
+    width: 35px;
   }
-  
-}
 
-@media only screen and (max-device-width: 390px) {
 
-  
 }

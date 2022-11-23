@@ -402,3 +402,68 @@ input[id="ride-submit"] {
 }
 
 }
+
+@media screen and (max-device-width:390px){
+
+  .ride-container {
+    position: relative;
+    margin: 35% auto;
+    width: 21rem;
+    height: 42rem;
+    background: #FFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  .ride-left {
+    position: relative;
+    top: -3ch;
+    left: 20%;
+    box-sizing: border-box;
+    padding: 2.5rem;
+    width: 18.75rem;
+    height: 25rem;
+  }
+  .ride-right {
+    position: relative;
+    margin-top: 35%;
+    left: 20%;
+    
+    box-sizing: border-box;
+    padding: 2.5rem;
+    width: 18.75rem;
+    height: 25rem;
+    
+}
+.payment-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: initial;
+  margin-left: 15%;
+  
+} 
+.payment-type{
+  margin-left: 20%;
+  margin-top: -55%;
+}
+
+.car-type{
+  margin-right: 25%;
+  margin-top: 55%;
+}
+.car-left{
+ position: relative;
+ margin-top: -28%;
+ left: 25%;
+}
+#discount_code{
+  position: relative;
+  margin-top: 2ch;
+  margin-left: -10%;
+}
+#ride-submit{
+  position: relative;
+  top: 5ch;
+  margin-left: -10%;
+}
+}
