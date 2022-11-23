@@ -1,15 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './VerticalNavbar.css';
 
+
+
 export default function VerticalNavbar() {
+
+    const [isMobile, setIsMobile] = useState(false)
+ 
+    //choose the screen size 
+    const handleResize = () => {
+    if (window.innerWidth <= 390) {
+        setIsMobile(true)
+    } else {
+        setIsMobile(false)
+    }
+    }
+
+    // create an event listener
+    useEffect(() => {
+    window.addEventListener("resize", handleResize)
+    })
+
+    const switchNavbar = isMobile ? "vertical-navbar" : "vertical-navbar-hidden";
+
+
     
-        const location = useLocation();
-        console.log(location);
+    const location = useLocation();
+
 
     return(
         <>
-        <div className='vertical-navbar'>
+        <div  className={switchNavbar}>
             <div id='logo-wrapper'>
                 <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
             </div>
