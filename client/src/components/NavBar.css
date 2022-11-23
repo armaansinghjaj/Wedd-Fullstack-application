@@ -201,10 +201,6 @@ nav {
     top: 0;
   }
 
-  .nav-menu {
-    width: 460px;
-  }
-
   .nav-menu.active {
     position: fixed;
     background: #242222;
@@ -226,7 +222,7 @@ nav {
 
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-device-width: 390px) {
   nav {
     left: 1.5%;
     width: 375px;
@@ -236,6 +232,10 @@ nav {
     position: fixed;
     z-index: 999;
     top: 0;
+  }
+
+  .nav-menu {
+    display: none;
   }
 
   .nav-menu.active {

@@ -34,19 +34,7 @@
 }
 
 .update-links {
-  overflow-x: hidden;
-  position: absolute; 
-  padding-left: 1em;
-  padding-top: 1em;
-  margin-top: 0.45em;
-  margin-left: -0.45em;
-  left: 180%;
-  transition: all 0.5s ease;
-  border-bottom-left-radius: 0.8em;
-  background-color: white;
-  width: 15em;
-
-
+  display: hidden;
 }
 
 .update-links-active {
@@ -101,7 +89,7 @@
   left: 14%;
 }
 
-#update-h3 {
+#update-h3-active{
   font-size: 1em;
   color: black;
   text-align: center;
@@ -112,7 +100,11 @@
   border-color: black;
 }
 
-.cardnews__item {
+#update-h3 {
+  display: none;
+}
+
+.cardnews__item-active {
   list-style: none;
   text-align: center;
   border-style: solid;
@@ -120,6 +112,10 @@
   border-right: 0px;
   border-left: 0px;
   border-color: black;
+}
+
+.cardnews__item {
+  display: none;
 }
 
 @media only screen and (max-device-width: 479px) {
@@ -132,5 +128,10 @@
     height: 2.2em;
     
   }
+  
+}
+
+@media only screen and (max-device-width: 390px) {
+
   
 }

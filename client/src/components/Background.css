@@ -340,3 +340,12 @@ input[type='text']{
     width: 479px;
   }
 }
+
+@media only screen and (max-device-width: 390px) {
+
+  .login-container {
+    width: 767px;
+    margin-top: 0;
+  }
+
+}
