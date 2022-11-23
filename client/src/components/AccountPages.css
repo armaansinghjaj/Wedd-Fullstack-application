@@ -19,17 +19,20 @@
     
     
 }
+
 #profile-image-wrapper {
     background-color: grey;
     border-radius: 1em;
     height: 190px;
     width: 160px;
 }
+
 .deleteacc{
     position: relative;
     top:13%;
 
 }
+
 .confirmation{
     position: fixed;
     left: 45%;

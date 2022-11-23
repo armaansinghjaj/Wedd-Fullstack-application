@@ -9,7 +9,11 @@ nav {
   top: 0;
 }
 
-
+#cards-p-main{
+  position: relative;
+  right: 2.5%;
+  text-align: center;
+}
 
 #navbar {
   margin-top: 1rem;
