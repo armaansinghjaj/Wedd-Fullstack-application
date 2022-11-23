@@ -189,56 +189,19 @@ nav {
 }
 
 
-@media only screen and (max-device-width: 479px) {
-  nav {
-    left: 1.5%;
-    width: 460px;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-  }
+@media only screen and (max-width: 390px) {
 
-  .nav-menu.active {
-    position: fixed;
-    background: #242222;
-    right: -41px;
-    height: 120vh;
-    width: 490px;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-
-  #login-active {
-    display: initial;
-  }
-
-  .navbar-logo {
-    left: 45%;
-  }
-
-}
-
-@media only screen and (max-device-width: 390px) {
-  nav {
-    left: 1.5%;
+  #navbar {
     width: 375px;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: fixed;
-    z-index: 999;
-    top: 0;
   }
 
   .nav-menu {
     display: none;
+
   }
 
   .nav-menu.active {
+    display: initial;
     position: fixed;
     background: #242222;
     right: -41px;
