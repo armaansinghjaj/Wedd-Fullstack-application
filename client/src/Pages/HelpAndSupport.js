@@ -8,7 +8,7 @@ export default function HelpAndSupport() {
         <>
         
         <div className="HelpAndSupport-container">
-            {/* <AccountNav/> */}
+            <AccountNav/>
             <Help/>
         </div>
         </>

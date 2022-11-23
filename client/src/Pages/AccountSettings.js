@@ -6,7 +6,6 @@ export default function AccountSettings() {
     return(
         <>
         <div className="Account-settings-container">
-            {/* <AccountNavbar/> */}
             <Settings/>
         </div>
         </>

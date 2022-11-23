@@ -8,7 +8,7 @@ export default function FrequentlyAskedQuestions() {
         <>
         
         <div className="Faq-container">
-            {/* <AccountNavbar/> */}
+            <AccountNavbar/>
             <Faq/>
         </div>
 

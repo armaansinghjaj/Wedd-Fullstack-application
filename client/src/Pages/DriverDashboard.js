@@ -8,7 +8,7 @@ export default function DriverDashboard() {
 
     return(
         <>
-        {/* <DriverNavbar/> */}
+        <DriverNavbar/>
         <Requests/>
         </>
     )

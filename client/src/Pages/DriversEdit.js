@@ -7,7 +7,7 @@ import AdminNavbar from '../components/AdminNavbar';
 export default function DriversEdit() {
   return (
     <div>
-      {/* <AdminNavbar/> */}
+      <AdminNavbar/>
       <AdminDriversEdit/>
 
     </div>

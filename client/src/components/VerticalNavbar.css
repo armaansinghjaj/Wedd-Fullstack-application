@@ -98,6 +98,87 @@
     transition: 250ms;
 }
 
-@media only screen and (max-width: 390px) {
-    
+#h-profile {
+display: none;
+}
+
+
+
+@media screen and (max-width: 390px) {
+    .vertical-navbar {
+        display: none;
+    }
+
+    .logout-wrapper {
+    display: none;
+    }
+
+    .h-navbar {
+        position: relative;
+        left: 1%;
+        width: 97%;
+        top: 10%;
+        margin-top: 1rem;
+        border-radius: 5px;
+        box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+    }
+
+    .h-wrapper {
+        display: flex;
+        flex-direction: column;
+        border-radius: 1em;
+        justify-content: flex-start;
+        width: 100vw;
+        position: fixed;
+        top: 5rem;
+        right: -110%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .h-wrapper-active {
+        position: fixed;
+        background: #242222;
+        border-radius: 1em;
+        width: 100vw;
+        right: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .h-nav-links {
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+        text-decoration: none;
+    }
+
+    .h-nav-links:hover{
+        border-bottom: 4px solid #fff;
+        background-color: #fff;
+        color: #242424;
+        border-radius: 0;
+    }
+
+    #vert-logo {
+        position: relative;
+        font-size: 32px;
+        left: 47%;
+        top: 20%;
+    }
+
+    #h-profile {
+        position: relative;
+        font-size: 32px;
+        color: #ff7248;
+        left: 41%;
+        top: 20%;
+        text-decoration: none;
+    }
+
 }
