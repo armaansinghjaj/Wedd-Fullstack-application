@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './VerticalNavbar.css';
 
@@ -41,7 +41,7 @@ export default function VerticalNavbar() {
 
         <div className='h-navbar'>
             <div id='logo-wrapper'>
-                <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
+                <Link id='h-logo' to={'/Admin'}>WeDD</Link>
             </div>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
