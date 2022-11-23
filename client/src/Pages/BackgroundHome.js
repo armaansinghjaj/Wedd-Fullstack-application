@@ -1,7 +1,10 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 import '../components/Background.css';
 
 function BackgroundHome() {
+
+    const location = useLocation();
 
     return (
         <>
@@ -20,8 +23,8 @@ function BackgroundHome() {
                 <div className='form-container'>
                     <h2 className='form-head form-component'>Request your ride</h2>
                     <div className="input-fields form-component">
-                        <input type={'text'} name='pickup_location' placeholder='Enter pickup location' required/>
-                        <input type={'text'} name='drop_location' placeholder='Enter drop off location' required/>
+                        <input id='home-ride-input' type={'text'} name='pickup_location' placeholder='Enter pickup location' required/>
+                        <input id='home-ride-input' type={'text'} name='drop_location' placeholder='Enter drop off location' required/>
                     </div>
                     <div className="submit-btn">
                         <input type={'submit'} className='ride-submit' name='ride-submit' value={'Request'}/>

@@ -61,16 +61,14 @@ export default function Dashboard() {
             {/* <% }) %> */}
         </table>
     {/* <% } else { %> */}
-        <p>No requests to show</p>
-        <p>Searching for requests...</p>
+        <p id="driver-requests-p">No requests to show</p>
+        <p id="driver-requests-p">Searching for requests...</p>
     {/* // <% } %> */}
 
         <button className="end_shift"  id="submit" onClick={displayButton}>End shift</button> <br/>
-        
-        {/* This form prevents rendering. Dont know why */}
 
             <div class={displayConfirm}>
-                <p>Are you sure you want to end your shift?</p>
+                <p id="confirm-p">Are you sure you want to end your shift?</p>
                 <form id="end-shift-form" action="/Driver">
                     <input id="submit" type="submit" value="Confirm"/>
                 </form>

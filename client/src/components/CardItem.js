@@ -13,6 +13,7 @@ function CardItem(props) {
           <h2 id='cards-h2'>{props.text}</h2>
           <p id='cards-p'>{props.text2}</p>
           <p id='cards-p2'>{props.text3}</p>
+          <br/>
           <i class="fa-sharp fa-solid fa-arrow-right-long fa-2x"></i>
         </Link>
       </li>
