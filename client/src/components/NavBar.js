@@ -75,7 +75,7 @@ function NavBar() {
                             </Link>
                         </li>
                         <li className = 'nav-item'>
-                            <Link to='/contact' className={location.pathname === '/contact'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Contacts 
+                            <Link to='/services' className={location.pathname === '/services'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Services 
                             </Link>
                         </li>
                         <li className = 'nav-item' id='login-active'>
