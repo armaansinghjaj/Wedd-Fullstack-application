@@ -170,7 +170,7 @@
     }
 }
 
-@media only screen and (max-device-width:479px){
+@media only screen and (max-device-width:390px){
     .about{
         padding: 2rem 1 rem 3 rem 1 rem;
        

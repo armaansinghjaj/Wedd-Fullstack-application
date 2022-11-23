@@ -153,7 +153,7 @@
   }
 
 
-  @media screen and (max-width: 390px) {
+  @media screen and (max-device-width: 390px) {
     .footer-container {
       width: 100%;
     }
@@ -161,6 +161,12 @@
     .footer-subscription {
       padding: 2px;
     }
-
-
+    .footer-link-wrapper{
+      position: relative;
+      left: 3ch;
+    }
+   
+    #footer-logo {
+      padding-left: 0rem;
+    }
   }

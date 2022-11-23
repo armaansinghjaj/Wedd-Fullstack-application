@@ -133,7 +133,7 @@ function Rideform() {
                 </div>
 
                 <div className='ride-bottom'>
-                        <h2 class='payment-type'>Payment Type:</h2>
+                        <h2 className='payment-type'>Payment Type:</h2>
 
                         <div className='payment-left'>
                             <div id='ride-checklist'>

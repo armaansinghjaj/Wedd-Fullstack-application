@@ -201,13 +201,13 @@ input[id="contact-submit"]:active {
     }
   } 
 
-  @media only screen and (max-device-width: 479px){
+  @media only screen and (max-device-width: 390px){
 
     .contact-container{
         margin-top: 10%;
         margin: 30% auto;
         width: 95vw;
-        height: 103vh;
+        height: 80vh;
        
     }
 
@@ -256,5 +256,9 @@ input[id="contact-submit"]:active {
         height:325px;
         top: 2%;
         left: 27%;
+    }
+    #contact-submit{
+        position: relative;
+        left: -40%;
     }
   }

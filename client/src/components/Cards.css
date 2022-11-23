@@ -118,28 +118,36 @@
     
   }
 
-  @media screen and (max-device-width: 479px) {
+  @media screen and (max-device-width: 390px) {
     
-    .cards__container {
+    /* .cards__container {
       display: flex;
       flex-flow: column;
       align-items: center;
-      max-width: 140%;
-      width: 100%;
+      max-width: 100%;
+      width: 80%;
       margin: 0 auto;
-    }
+    } */
     .cards__item__text {
       font-size: 30px;
     }
 
     #cards-h1  {
       text-align: center;
-      font-size: 40px;
+      font-size: 30px;
     }
 
     .cards {
+      position: relative;
       padding: 2em;
-      width: 140%;
+      width: 100%;
+      
     }
-
+    .cards__items{
+      position: relative;
+       width: 100%;
+       height: 50%;
+    }
+    
+    
   }
