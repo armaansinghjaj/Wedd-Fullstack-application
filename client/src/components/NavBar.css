@@ -9,6 +9,8 @@ nav {
   top: 0;
 }
 
+
+
 #navbar {
   margin-top: 1rem;
   border-radius: 5px;
@@ -147,7 +149,6 @@ nav {
     background-color: #fff;
     color: #242424;
     border-radius: 0;
- 
   }
 
   .navbar-logo {
@@ -190,6 +191,7 @@ nav {
 
 
 @media only screen and (max-width: 390px) {
+
 
   #navbar {
     width: 380px;

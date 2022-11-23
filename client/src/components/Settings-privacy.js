@@ -12,7 +12,6 @@ export default function Settings() {
 
         <>
         <div className="settings-container">
-          
             <h1>General Settings</h1>
             <div className="Profile-container">
         <hr />
@@ -47,10 +46,9 @@ export default function Settings() {
 <button class="delete_account_btn" id="submit" >Delete account</button>
 
 </div>
-<div className="conformation">
+<div className="confirmation">
             <form action="" method="post">
                 <div class="delete_confirmation" >
-                    
                     <input type="submit" id="submit" value="Confirm"/> <input type="reset" class="delete_account_btn" id="submit"  value="Cancel"/>
                 </div>
             </form>

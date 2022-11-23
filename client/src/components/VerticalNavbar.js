@@ -2,36 +2,17 @@ import React, {useState, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './VerticalNavbar.css';
 
-
-
 export default function VerticalNavbar() {
-
-    const [isMobile, setIsMobile] = useState(false)
- 
-    //choose the screen size 
-    const handleResize = () => {
-    if (window.innerWidth <= 390) {
-        setIsMobile(true)
-    } else {
-        setIsMobile(false)
-    }
-    }
-
-    // create an event listener
-    useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    })
-
-    const switchNavbar = isMobile ? "vertical-navbar" : "vertical-navbar-hidden";
-
-
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
     
-    const location = useLocation();
-
+        const location = useLocation();
+        console.log(location);
 
     return(
         <>
-        <div  className={switchNavbar}>
+        <div className='vertical-navbar'>
             <div id='logo-wrapper'>
                 <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
             </div>
@@ -55,9 +36,36 @@ export default function VerticalNavbar() {
         <div className='logout-wrapper'>
         <Link id='logout-link' to='/Home'>
             <button id='logout-button'>Log Out</button>
-            {/* <i className="fa-sharp fa-solid fa-right-from-bracket"></i> */}
             </Link>
         </div>
+
+        <div className='h-navbar'>
+            <div id='logo-wrapper'>
+                <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
+            </div>
+            <div className='menu-icon' onClick={handleClick}>
+                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            </div>
+        </div>
+
+            <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
+                <li>
+                    <Link className={'h-nav-links'} to='/BackgroundEditHome' onClick={closeMobileMenu}>Edit Home Page</Link>
+                </li>
+                <li>
+                    <Link className={'h-nav-links'} to='/BackgroundEditAbout' onClick={closeMobileMenu}>Edit About us page</Link>
+                </li>
+                <li>
+                    <Link className={'h-nav-links'} to='/BackgroundEditContact' onClick={closeMobileMenu}>Edit Contact us page</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/Admin' onClick={closeMobileMenu}>Admin home page</Link>
+                </li>
+                <li>
+                    <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                </li>
+            </ul>
+
 
         </>
 
