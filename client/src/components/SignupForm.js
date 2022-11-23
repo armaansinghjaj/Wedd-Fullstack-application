@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
@@ -7,6 +8,7 @@ import './SignupForm.css';
 
 function SignupForm() {
 
+    // watch inputs to validate
     const [firstname, setFirstname]=useState('');
     const [firstnameError, setFirstnameError]=useState('');
     const [email, setEmail]=useState('');
@@ -57,15 +59,32 @@ function SignupForm() {
 
     }
 
+        // send data to backend
+
+        const onSubmitForm = e => {
+            e.preventDefault();
+            let data = {
+                  firstName: this.state.firstname,
+                  email: this.state.lastname,
+                  password: this.state.email
+            };
+    
+            axios.post("http://localhost:3360/api/signup", data).then(() => {
+            //  catch error    
+             }).catch(() => {
+                console.log("Something went wrong. Plase try again later");
+            });
+        }
+
     // Facebook Signup
-    const responseFacebook = (response) => {
-        console.log(response);
-    }
+    // const responseFacebook = (response) => {
+    //     console.log(response);
+    // }
 
     // google Signup button
-    const responseGoogle = (response) => {
-        console.log(response);
-    }
+    // const responseGoogle = (response) => {
+    //     console.log(response);
+    // }
 
     return (
     <div id="signupform-container">
