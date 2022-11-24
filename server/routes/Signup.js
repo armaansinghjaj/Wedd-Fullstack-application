@@ -33,7 +33,10 @@ router.post("/", (req, res) => {
 			con.release();
 			if(err) throw err;
 
-			res.redirect("/");
+			return res.send({
+				userVerified: true
+			});
+			// res.redirect("/");
 		});
 	});
 });

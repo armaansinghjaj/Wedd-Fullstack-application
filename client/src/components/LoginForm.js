@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import './LoginForm.css';
 
@@ -11,6 +11,7 @@ function LoginForm() {
     const [emailError, setEmailError]=useState('');
     const [password, setPassword]=useState('');
     const [passwordError, setPasswordError]=useState('');
+    const [userAuthenticated, setAuthenticatedUser]=useState('');
 
     const handleEmailChange=(e)=>{
         setEmailError('');
@@ -31,7 +32,8 @@ function LoginForm() {
 
             // checking if password is empty
             if(password === '') setPasswordError('Password Required');
-        } else{
+        }
+        else{
             const data = {
                 email: email,
                 password: password
@@ -45,19 +47,17 @@ function LoginForm() {
                 },
                 body: JSON.stringify(data),
             })
-            // .then((response) => response.json())
-            // .then((data) => {
-            //     console.log(data);
-            // });
-            // .catch((error) => {
-            //     console.error('Error:', error);
-            // });
+            .then(response => response.json())
+            .then(responsedata => {
+                setAuthenticatedUser(responsedata.login);
+            })
         }
 
 
     }
     return (
         <div id='login-container'>
+            {userAuthenticated && (<Navigate to="/Home" replace={true} />)}
 
             <form id='loginForm' onSubmit={handleFormSubmit}>
                 <div className="login-top">
