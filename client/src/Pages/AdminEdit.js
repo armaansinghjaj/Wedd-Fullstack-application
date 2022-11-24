@@ -7,7 +7,7 @@ import AdminNavbar from '../components/AdminNavbar.js'
 export default function AdminEdit() {
   return (
     <div>
-      {/* <AdminNavbar/> */}
+      <AdminNavbar/>
       <Edit/>
     </div>
   )

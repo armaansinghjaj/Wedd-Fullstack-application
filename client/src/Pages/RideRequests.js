@@ -7,7 +7,7 @@ export default function RideRequests() {
         <>
         
         <div className="RideRequests-container">
-            {/* <AdminNavbar/> */}
+            <AdminNavbar/>
             <AdminRideRequests/>
         </div>
 

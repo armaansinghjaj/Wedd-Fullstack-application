@@ -6,7 +6,7 @@ export default function Help() {
     return(
         <>
         <div className="help-container">
-        <h2>Get in touch</h2>
+        <h2 className= "support-h2">Get in touch</h2>
             
             <form id="support_form" method="post">
                 <div className="user">

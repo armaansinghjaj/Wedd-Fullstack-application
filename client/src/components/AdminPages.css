@@ -339,9 +339,10 @@
   .contactRequest-container {
     position: relative;
    margin-top: 30%;
-   
+   overflow-x: scroll;
     height: 100vh;
     left: 0%;
+    width: 100%;
   }
   
   /* News edit css */
@@ -353,29 +354,32 @@
 
   /* Background edit home */
   .bghome-container {
-    width: 80%;
+    width: 100%;
     margin-top: 30%;
     right: 5%;
     left: 0%;
+    overflow-x: scroll;
   }
 
   /* Background about home */
 
   .bgabout-container{
    
-    width: 80%;
+    width: 100%;
     margin-top: 30%;
     right: 5%;
     left: 0%;
+    overflow-x: scroll;
   }
 
   /* Background contact home */
-  /* .bgcontact-container {
-    width: 70%;
+  .bgcontact-container {
+    width: 100%;
     margin-top: 30%;
     right: 0%;
     left: 0%;
-  } */
+    overflow-x: scroll;
+  }
 
   .AdminRoles-container{
    margin-top: 30%;
@@ -387,20 +391,23 @@
 
   .AdminEdit-container {
     margin-top: 30%;
-    width: 0%;
+    width: 95%;
     height: 100vh;
-     left: 0%;
+     left: 3%;
+     overflow-x: scroll;
+    
   }
 
   .Drivertable{
     left: 0%;
+    /* overflow-x: scroll; */
   }
 
   .Drivertablei{
     margin-left: 1ch;
     margin-top: 4ch;
-   
-  }
+    /* overflow-x: scroll;*/
+  } 
 
   #admin-h1 {
     font-size: 2rem;
@@ -411,12 +418,40 @@
 
   .ride-request-container{
     height: 100vh;
+    width: 100%;
     left: 0%;
     margin-top: 30%;
+    overflow-x: scroll;
   }
 
   .AdminNews-container{
     left: 12%;
-    margin-top: 30%;
+    margin-top: 20%;
   }
+/* 
+  #edit-closeOverlay-btn-driver {
+    position: relative;
+    left: 0%;
+  
+  } */
+  #Add-button {
+    position: fixed;
+    z-index: 900;
+    top: 16%;
+    left: 90%;
+   
+  }
+/* 
+  .addAdmin-container{
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    left: 0%;
+  } */
+
+  .driver-tab{
+    width: 100%;
+    overflow-x: scroll ;
+  }
+
 }

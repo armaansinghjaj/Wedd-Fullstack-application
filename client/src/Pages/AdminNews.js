@@ -8,7 +8,7 @@ import Updates from '../components/CardNews';
 export default function AdminNews() {
   return (
     <div>
-      {/* <AdminNavbar/> */}
+      <AdminNavbar/>
       <Updates/>
       <News/>
     </div>
