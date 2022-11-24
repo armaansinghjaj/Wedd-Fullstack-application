@@ -78,6 +78,10 @@ function NavBar() {
                             <Link to='/services' className={location.pathname === '/services'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Services 
                             </Link>
                         </li>
+                        <li className = 'nav-item' id='signup-active'>
+                            <Link to='/signup' className='nav-links' onClick={scrollAndClose}> Sign up
+                            </Link>
+                        </li>
                         <li className = 'nav-item' id='login-active'>
                             <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login 
                             </Link>

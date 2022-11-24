@@ -215,6 +215,12 @@ nav {
     top: 25px;
     right: 5px;
   }
+
+  .nav-links-active {
+    border-style: none;
+  }
+
+
 }
 
 
@@ -231,15 +237,18 @@ nav {
 
   .nav-menu {
     display: none;
+    margin-top: 0;
   }
 
   .nav-menu.active {
     display: initial;
     position: fixed;
+    top: 68px;
     background: #242222;
-    right: -41px;
+    border-radius: 0.5em;
+    right: -38px;
     height: 65vh;
-    width: 395px;
+    width: 390px;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
@@ -247,6 +256,12 @@ nav {
 
   .navbar-logo {
     left: 42%;
+  }
+
+  .fa-times {
+    position: relative;
+    top: 0px;
+    right: 5px;
   }
 
   .menu-icon {
