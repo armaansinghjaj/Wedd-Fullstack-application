@@ -76,16 +76,6 @@ function SignupForm() {
             });
         }
 
-    // Facebook Signup
-    // const responseFacebook = (response) => {
-    //     console.log(response);
-    // }
-
-    // google Signup button
-    // const responseGoogle = (response) => {
-    //     console.log(response);
-    // }
-
     return (
     <div id="signupform-container">
         <form onSubmit={handleFormSubmit}>
@@ -110,31 +100,6 @@ function SignupForm() {
             <div class="signup-right">
                 {/* Space between divider line and social media login buttons */}
                 <span class="loginwith"></span>
-                {/* Facebook Login Button */}
-                {/* <FacebookLogin
-                    appId="866567161040291"
-                    autoLoad
-                    callback={responseFacebook}
-                    render={renderProps => (
-                    <button className="social-signin facebook" 
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}>
-                    <i id='Facebook-login' className="fa-brands fa-facebook"/>
-                    Sign in with Facebook</button>
-                )}
-                /> */}
-                {/* Google Login Button */}
-                {/* <GoogleLogin
-                    clientId="247213296818-igllkm2tm2r4tu7g4gqu11avkhckmrnb.apps.googleusercontent.com"
-                    render={renderProps => (
-                        <button className="social-signin google" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                        <i id='Google-login' className="fa-brands fa-google"/>Sign up with Google</button>
-                    )}
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                    /> */}
                 </div>
             </form>
             <div id='signup-link-container'>

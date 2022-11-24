@@ -111,6 +111,12 @@ nav {
     position: relative;
   }
 
+  .fa-bars {
+    color: Black;
+    position: relative;
+    margin-top: 1ch;
+  }
+
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -193,6 +199,12 @@ nav {
 
   #navbar {
     width: 97%;
+  }
+
+  .fa-bars {
+    color: Black;
+    position: relative;
+    margin-top: 0;
   }
 
   .nav-menu {
