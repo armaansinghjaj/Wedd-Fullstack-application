@@ -30,22 +30,36 @@ router.post("/", (req, res) => {
 				
 				if (result.length > 0) {
 					if (result[0].password === req.body.password) {
+						
 						sess.useremail = req.body.email;
 						sess.user = result[0].email;
+
+						console.log(sess.user);
+						
 						if (result[0].role === 3) {
 							sess.access = 3;
 							return res.send({
 								user: result[0].email,
-								login: true
+								// login: true,
+								loginType: "customer"
 							});
 							// return res.redirect("/");
 						} else if (result[0].role === 2) {
 							sess.access = 2;
-							res.redirect("/driver");
-							return;
+							return res.send({
+								user: result[0].email,
+								// login: true,
+								loginType: "driver"
+							});
+							// return res.redirect("/driver");
 						} else if (result[0].role === 1) {
 							sess.access = 1;
-							return res.redirect("/admin");
+							return res.send({
+								user: result[0].email,
+								// login: true,
+								loginType: "admin"
+							});
+							// return res.redirect("/admin");
 						}
 					} else {
 						res.send("invalid password");
