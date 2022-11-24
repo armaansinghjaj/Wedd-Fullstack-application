@@ -27,6 +27,7 @@ export default function RequestTable() {
                     <button onClick={closeOverlayEdit}><i class="fa-solid fa-x"></i></button>
                 </div>
                 <form>
+                
                     <table>
                         <tr>
                             <td>Request ID</td>
@@ -55,6 +56,7 @@ export default function RequestTable() {
                     </table>
                         <input type="submit" className='editi' value="Edit"/>
                         <input type="hidden" name="action" value="update"/>
+               
                 </form>
             </div>
         </div>
