@@ -78,8 +78,6 @@ nav {
 
 .fa-bars {
   color: Black;
-  position: relative;
-  margin-top: 1ch;
 }
 
 .nav-links-mobile {
@@ -194,7 +192,7 @@ nav {
 
 
   #navbar {
-    width: 380px;
+    width: 97%;
   }
 
   .nav-menu {
