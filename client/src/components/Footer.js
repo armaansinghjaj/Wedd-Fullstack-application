@@ -1,8 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
+
+  const FbRedirect = () => {
+    useEffect(() => {
+      window.location.replace('https://www.google.com')
+    }, [])
+  }
+  const TwitRedirect = () => {
+    useEffect(() => {
+      window.location.replace('https://www.google.com')
+    }, [])
+  }
+  const YouRedirect = () => {
+    useEffect(() => {
+      window.location.replace('https://www.google.com')
+    }, [])
+  }
+  const InstRedirect = () => {
+    useEffect(() => {
+      window.location.replace('https://www.google.com')
+    }, [])
+  }
+  const LinkRedirect = () => {
+    useEffect(() => {
+      window.location.replace('https://www.google.com')
+    }, [])
+  }
 
   // On button press for page change scroll page to top
   const ScrollToTop = () => {
@@ -25,11 +51,11 @@ function Footer() {
         <div  className='footer-link-wrapper'>
           <div id='social-media-links'  className='footer-link-items'>
             <h2>Social Media</h2>
-            <a href='/https://www.instagram.com'>Instagram</a>
-            <a href='/https://www.facebook.com'>Facebook</a>
-            <a href='/https://www.youtube.com'>Youtube</a>
-            <a href='/https://twitter.com'>Twitter</a>
-            <a href='https://www.linkedin.com/'>linked-In</a>
+            <a href='https://www.instagram.com' target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href='https://www.facebook.com' target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href='https://www.youtube.com' target="_blank" rel="noopener noreferrer">Youtube</a>
+            <a href='https://twitter.com' target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href='https://www.linkedin.com' target="_blank" rel="noopener noreferrer">linked-In</a>
           </div>
           <div className='footer-link-items'>
             <h2>Contact</h2>
@@ -42,53 +68,52 @@ function Footer() {
       <section className='social-media'>
         <div className='social-media-wrap'>
           <div className='footer-logo'>
-            <Link to='/' className='social-logo' onClick={ScrollToTop}>
+            <Link to={{pathname: "/Home" }} target="_blank" className='social-logo' onClick={ScrollToTop}>
               WeDD
               
             </Link>
           </div>
           <small className='website-rights'>WeDD © 2022</small>
           <div className='social-icons'>
-            <Link
+            <a
               className='social-icon-link facebook'
-              to='/'
-              target='_blank'
+               href='/https://www.facebook.com' target="_blank" rel="noopener noreferrer"
               aria-label='Facebook'
             >
               <i className='fab fa-facebook-f' />
-            </Link>
-            <Link
+            </a>
+            <a
               className='social-icon-link instagram'
-              to='/'
-              target='_blank'
+              href='/https://www.instagram.com' target="_blank" rel="noopener noreferrer"
+
               aria-label='Instagram'
             >
               <i className='fab fa-instagram' />
-            </Link>
-            <Link
+            </a>
+            <a
               className='social-icon-link youtube'
-              to='/'
-              target='_blank'
+              href='/https://www.youtube.com' target="_blank" rel="noopener noreferrer"
+
               aria-label='Youtube'
             >
               <i className='fab fa-youtube' />
-            </Link>
-            <Link
+            </a>
+            <a
               className='social-icon-link twitter'
-              to='/'
-              target='_blank'
+              href='/https://twitter.com' target="_blank" rel="noopener noreferrer"
+
               aria-label='Twitter'
             >
               <i className='fab fa-twitter' />
-            </Link>
-            <Link
+            </a>
+            <a
               className='social-icon-link twitter'
-              to='/'
-              target='_blank'
+              href='/https://www.linkedin.com' target="_blank" rel="noopener noreferrer"
+
               aria-label='LinkedIn'
             >
               <i className='fab fa-linkedin' />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
