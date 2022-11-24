@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Rideform.css'
+import taxiImg from '../images/taxi.jpg'
 
 function Rideform() {
 
@@ -82,12 +83,26 @@ function Rideform() {
         if ( (Credit!== '' && Debit!== ''  && Apple!== ''  && Paypal!== '')   ? '' :  setPaymentError('Payment type required'));
 
         navigate('/rideConfirm')
+
     }
 
     return (
-        <div className='ride-background'>
+                       
+         <div className="master-container">
+         <figure>
+            <img src={taxiImg}  className= "ride-background-img" alt="ridebackground"  />
+         </figure>
+         <div className="parent-container">
+         
+         <div className="ride-conatiner-left child-container">
+             </div>
+
+         <div className="ride-conatiner-right child-container">
+
+         <div className='ride-background'>
             <div className='ride-container'>
                 <form onSubmit={handleFormSubmit}>
+                <h1 id='ride-with'>Ride With Us</h1>
                 <div className='ride-left'>
                     <h2 id='ride-contact'>Contact Information:</h2>  
                     <input className="ride-Fnamei" placeholder='Name ' id='ride-input' type='text' value={Name} onChange={handleNameChange}
@@ -168,7 +183,12 @@ function Rideform() {
                 </form>
             </div>
         </div>
-    );
+         </div>
+         
+         </div>
+         
+         </div>    
+         );
 }
 
 export default Rideform;
