@@ -61,7 +61,7 @@ function Footer() {
             <h2>Contact</h2>
             <Link id='footer-address' to='/About' onClick={ScrollToTop}>Address Placeholder</Link>
             <Link id='footer-phone' to='/About' onClick={ScrollToTop}>(403)-201-8223</Link>
-            <Link id='footer-email' to='/Ride' onClick={ScrollToTop} >WeDesignatedDrivers@gmail.com</Link>
+            <Link id='footer-email' to='/Ride' onClick={ScrollToTop} >WeDD@gmail.com</Link>
           </div>
         </div>
       </div>

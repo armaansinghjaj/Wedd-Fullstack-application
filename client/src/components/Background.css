@@ -247,6 +247,37 @@ input[type='text']{
   }
 }
 
+@media only screen and (max-width: 414px) {
+  .form-container{
+    padding: calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 90vh)));
+    margin-top: calc(((var(--first-component) / 4)));
+    border-radius: 5px;
+    width: 90%;
+    background: #ccccccec;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    transition: 0.5s;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+ }
+  .tag-line {
+    display: none;
+  }
+    
+  
+  
+}
+
+
+@media only screen and (max-width: 390px) {
+
+
+}
+
 
 
 @media only screen and (max-device-width: 375px) {
