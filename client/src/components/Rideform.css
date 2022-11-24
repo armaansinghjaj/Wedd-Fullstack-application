@@ -20,7 +20,7 @@
 }
 .ride-conatiner-right{
     -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px);
 }
 #ride-with{
     position: relative;
@@ -86,6 +86,8 @@ input[id="ride-input"] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 1.25rem;
+  background: transparent;
+  outline: none;
   padding: 0.25rem;
   width: 13.75rem;
   height: 2rem;
@@ -106,13 +108,13 @@ input[id="ride-input"]:focus{
 
 input[id="ride-submit"] {
     position: relative;
+    outline: none;
     left: 35%;
     bottom: 3rem;
     margin-top: 4.3rem;
     width: 9em;
     height: 2.8rem;
     background: #16a085;
-    color: #FFF;
     border: none;
     border-radius: 2rem;
     font-family: 'Roboto', sans-serif;
@@ -121,7 +123,6 @@ input[id="ride-submit"] {
     text-transform: uppercase;
     transition: 0.1s ease;
     cursor: pointer;
-
   }
 
 input[id="ride-submit"]:hover,

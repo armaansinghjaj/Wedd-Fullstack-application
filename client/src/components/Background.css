@@ -58,7 +58,8 @@ h3 {
 .form-container:hover{
   background: #fff;
 }
-input[type='text']{
+
+input[id='home-ride-input']{
   border: 0;
   font-size: 16px;
   background: transparent;
@@ -267,9 +268,7 @@ input[type='text']{
   .tag-line {
     display: none;
   }
-    
-  
-  
+
 }
 
 

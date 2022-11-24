@@ -105,14 +105,13 @@ function Rideform() {
                 <h1 id='ride-with'>Ride With Us</h1>
                 <div className='ride-left'>
                     <h2 id='ride-contact'>Contact Information:</h2>  
-                    <input className="ride-Fnamei" placeholder='Name ' id='ride-input' type='text' value={Name} onChange={handleNameChange}
+                    <input placeholder='Name ' id='ride-input' type='text' value={Name} onChange={handleNameChange}
 />
-                   
                     {nameError&&<div className='error-msg'>{nameError}</div>}
-                    <input className="ride-emaili" placeholder='Email ' id='ride-input' type='email' value={Email} onChange={handleEmailChange}
+                    <input placeholder='Email ' id='ride-input' type='email' value={Email} onChange={handleEmailChange}
 />
                     {EmailError&&<div className='error-msg'>{EmailError}</div>}
-                    <input className="ride-phonei" placeholder='Phone number' id='ride-input' type='tel' value={Phone} onChange={handlePhoneChange}
+                    <input placeholder='Phone number' id='ride-input' type='tel' value={Phone} onChange={handlePhoneChange}
 />
                     {PhoneError&&<div className='error-msg'>{PhoneError}</div>}
                 </div>
