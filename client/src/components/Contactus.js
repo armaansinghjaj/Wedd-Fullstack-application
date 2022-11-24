@@ -115,7 +115,7 @@ function Contactus() {
             <form id='contactus-form' onSubmit={handleFormSubmit}>
                   <h2 id='contact-info'>Contact We DD For Any Queries </h2>
                 <div id='contact-top'>
-                  <h2 id='font-format'>Contact Information</h2>
+                  <h2 id='font-formatc'>Contact Information</h2>
                   <input typeof='text' id='contact-input' placeholder='name '  value={Firstname} onChange={handleFirstnameChange}/>
                   {FirstnameError&&<div className='contact-error-msg'>{FirstnameError}</div>}
                   <br />
@@ -130,7 +130,7 @@ function Contactus() {
                 </div>
 
                 <div id='contact-location'>
-                  <h2 id='font-format'>Address</h2>
+                  <h2 id='font-formata'>Address</h2>
                   <input typeof='text' id='contact-input' placeholder='Street ' value={Street} onChange={handleStreetChange}/>
                   {StreetError&&<div className='contact-error-msg'>{StreetError}</div>}
                   <br />
@@ -145,7 +145,7 @@ function Contactus() {
                 </div>
 
                 <div id='contact-middle'>
-                  <h2 id='font-format'>Select Service</h2>
+                  <h2 id='font-formats'>Select Service</h2>
                   <div className="selections">
                   <div className='service-items'>
                     <input type='radio' name='r1' id='what' className='contact-radio' value={Our} onChange={handleServiceChange}/> 

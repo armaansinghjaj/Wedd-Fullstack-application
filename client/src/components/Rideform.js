@@ -102,8 +102,9 @@ function Rideform() {
                     {PhoneError&&<div className='error-msg'>{PhoneError}</div>}
                 </div>
 
+
                 <div className='ride-right'>
-                    <h2 className='ride-location'>Location:</h2>  
+                <h2 className='ride-location'>Location:</h2> 
                     <input className="ride-Paddri" placeholder='Pick-up Location ' id='ride-input' type='text' value={Pickup} onChange={handlePickupChange}
 />
                     {PickupError&&<div className='error-msg'>{PickupError}</div>}
@@ -140,7 +141,7 @@ function Rideform() {
                         </div>
 
 
-                            <h2 class='car-type'>Car Type:</h2>
+                            <h2 className='car-type'>Car Type:</h2>
                             <div className='car-left'>
                            
                             <div id='car-checklist'>
@@ -150,8 +151,8 @@ function Rideform() {
                             </div>
 
                             <div id='car-checklist'>
-                            <input type='radio'  name='c1'id='car1' class='car-checklist' value='auto'/> 
-                            <label id='car-label' htmlFor='car1'>Automatic</label>
+                            <input type='radio'  name='c1'id='car2' class='car-checklist' value='auto'/> 
+                            <label id='car-label1' htmlFor='car1'>Automatic</label>
                             </div>
                             </div>
                        
