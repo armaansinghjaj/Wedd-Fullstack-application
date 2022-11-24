@@ -1,13 +1,8 @@
 import React, {useState} from "react";
-// import axios from 'axios';
 import { Link, Navigate} from 'react-router-dom';
-
-
 import './SignupForm.css';
 
-
 function SignupForm() {
-
     // watch inputs to validate
     const [name, setname]=useState('');
     const [nameError, setnameError]=useState('');
@@ -69,26 +64,27 @@ function SignupForm() {
 
     return (
     <div id="signupform-container">
-        {userVerified && (<Navigate to="/Home" replace={true} />)}
+        
+        {userVerified && (<Navigate to="/" replace={true} />)}
+        
         <form onSubmit={handleFormSubmit}>
             <div class="signup-left">
                 <h1 id='signup-h1'>Sign up</h1>
-                <input type="text" name="name" placeholder="Name" id="signup-input" 
-                onChange={handlenameChange} value={name}/>
+                <input type="text" name="name" placeholder="Name" id="signup-input" onChange={handlenameChange} value={name}/>
                 {nameError&&<div className='error-msg'>{nameError}</div>}
 
-                <input type="text" name="email" placeholder="E-mail" id="signup-input" 
-                onChange={handleEmailChange} value={email} />
+                <input type="text" name="email" placeholder="E-mail" id="signup-input" onChange={handleEmailChange} value={email} />
                 {emailError&&<div className='error-msg'>{emailError}</div>}
 
-                <input type="password" name="password" placeholder="Password" id="signup-password"
-                onChange={handlePasswordChange} value={password} />
+                <input type="password" name="password" placeholder="Password" id="signup-password"onChange={handlePasswordChange} value={password} />
                 {passwordError&&<div className='error-msg'>{passwordError}</div>}
 
                 <input type="submit" name="signup_submit" value="Sign up" id="signup-submit" />
             </div>
-                {/* Divider Line */}
-                <div className="divider"></div>
+                
+            {/* Divider Line */}
+            <div className="divider"></div>
+
             <div class="signup-right">
                 {/* Space between divider line and social media login buttons */}
                 <span class="loginwith"></span>

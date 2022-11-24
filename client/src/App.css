@@ -5,8 +5,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-  html,body{ overflow-x: clip; }
-
-
-
-
+html,body{
+  overflow-x: clip;
+}

@@ -48,15 +48,36 @@ function LoginForm() {
             })
             .then(response => response.json())
             .then(responsedata => {
-                setAuthenticatedUser(responsedata.login);
+                setAuthenticatedUser(responsedata);
             })
         }
-
-
     }
+
+        // *****DO NOT REMOVE******
+        // REDIRECT CODE USING IF FOR REFERENCE PURPOSE.
+        // if(data){
+        //     if(data.loginType === "customer"){
+        //         <Navigate to="/" replace={true}/>
+        //     } else if(data.loginType === "driver"){
+        //         <Navigate to="/driver" replace={true}/>
+        //     } else if(data.loginType === "admin"){
+        //         <Navigate to="/admin" replace={true}/>
+        //     }
+        //     else{
+        //         alert("Wrong username or password")
+        //     }
+        // }
+
     return (
         <div id='login-container'>
-            {userAuthenticated && (<Navigate to="/Home" replace={true} />)}
+
+            {(userAuthenticated && ((userAuthenticated.loginType === "customer")?(
+                                <Navigate to="/" replace={true}/>
+                            ):((userAuthenticated.loginType === "driver")?(
+                                    <Navigate to="/driver" replace={true}/>
+                                ):((userAuthenticated.loginType === "admin")?(
+                                        <Navigate to="/admin" replace={true}/>
+                                            ):(alert("Nothing"))))))}
 
             <form id='loginForm' onSubmit={handleFormSubmit}>
                 <div className="login-top">
@@ -73,12 +94,6 @@ function LoginForm() {
                 
                 {/* Divider Line */}
                 <div className="dividerl"></div>
-                <div className="login-bottom">
-                    {/* Facebook Login Button */}
-
-                    {/* Google Login Button */}
-
-                </div>
             </form>
 
             <div id='link-container'>
