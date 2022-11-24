@@ -12,11 +12,13 @@ import Ride from './Pages/Ride';
 import Admin from './Pages/Admin';
 
 //Driver Page
+import DriverProfile from './Pages/DriverProfile';
 import Driver from './Pages/Driver';
 import DriverDashboard from './Pages/DriverDashboard';
 import DriverRequests from './Pages/DriverAvailRequests';
 
 // Admin pages
+import Profile from './Pages/Profile';
 import AdminEdit from './Pages/AdminEdit';
 import AdminNews from './Pages/AdminNews';
 import AdminRoles from './Pages/AdminRoles';
@@ -52,6 +54,7 @@ const App = () => {
         {/* News Page is pending yet */}
 
         {/* Admin Pages */}
+        <Route path= '/Employeeprofile'  element={<Profile/>}/> 
         <Route path= '/admin'  element={<Admin/>}/> 
         <Route path= '/admin/adminlist'  element={<AdminEdit/>}/> 
         <Route path= '/admin/news'  element={<AdminNews/>}/> 
@@ -66,6 +69,7 @@ const App = () => {
         <Route path='/backgroundeditcontact' element={<BgContact/>}/>
 
         {/* Driver dashboard pages */}
+        <Route path= '/Driver-Profile'  element={<DriverProfile/>}/> 
         <Route path= '/driver'  element={<Driver/>}/> 
         <Route path= '/driverdashboard'  element={<DriverDashboard/>}/>
         <Route path= '/driveravailrequests'  element={<DriverRequests/>}/> 
