@@ -62,6 +62,9 @@ export default function AccountNavbar() {
                         <li>
                             <Link className={'h-nav-links'} to='/faq' onClick={closeMobileMenu}>Frequently Asked Questions</Link>
                         </li>
+                        <li>
+                            <Link className={'h-nav-links'} to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                        </li>
                 </ul>
 
 

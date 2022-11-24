@@ -1,6 +1,7 @@
 nav {
   left: 1.5%;
-  width: 97%;
+  /* width: 97%; */
+  width: 95vw;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
@@ -8,8 +9,6 @@ nav {
   z-index: 999;
   top: 0;
 }
-
-
 
 #navbar {
   margin-top: 1rem;
@@ -194,7 +193,7 @@ nav {
 
 
   #navbar {
-    width: 380px;
+    width: 97%;
   }
 
   .nav-menu {

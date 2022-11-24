@@ -21,23 +21,15 @@ function Footer() {
             <Link to='/Login' onClick={ScrollToTop} >Login</Link>
             <Link to='/Signup' onClick={ScrollToTop} >Sign up</Link>
           </div>
-          <div className='footer-link-items'>
-            <h2>Placeholder</h2>
-            <Link to='/' onClick={ScrollToTop} >Placeholder</Link>
-            <Link to='/' onClick={ScrollToTop} >Placeholder</Link>
-            <Link to='/' onClick={ScrollToTop} >Placeholder</Link>
-            <Link to='/' onClick={ScrollToTop} >Placeholder</Link>
-            <Link to='/' onClick={ScrollToTop} >Placeholder</Link>
-          </div>
         </div>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
-            <Link to='/'>linked-In</Link>
+            <a href='/https://www.instagram.com'>Instagram</a>
+            <a href='/https://www.facebook.com'>Facebook</a>
+            <a href='/https://www.youtube.com'>Youtube</a>
+            <a href='/https://twitter.com'>Twitter</a>
+            <a href='https://www.linkedin.com/'>linked-In</a>
           </div>
           <div className='footer-link-items'>
             <h2>Contact Us</h2>

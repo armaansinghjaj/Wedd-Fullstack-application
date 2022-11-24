@@ -85,11 +85,17 @@ position: relative;
 left: 10%;
 border: solid;
 }
-p{
+#driver-requests-p {
     position: relative;
     margin-left: 7ch;
     margin-top: 2ch;
 }
+#confirm-p {
+    position: relative;
+    left: 8%;
+    top: 8%;
+}
+
 #submit{
     position: relative;
     top: 2rem;

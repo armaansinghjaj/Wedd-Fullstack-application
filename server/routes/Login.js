@@ -42,8 +42,12 @@ router.post("/", (req, res) => {
 							return;
 						} else if (result[0].role === 1) {
 							sess.access = 1;
-							res.redirect("/admin");
-							return;
+							
+							return res.send({
+								user: result[0].email,
+								login: true
+							});
+							// return res.redirect("/admin");
 						}
 					} else {
 						res.send("invalid password");

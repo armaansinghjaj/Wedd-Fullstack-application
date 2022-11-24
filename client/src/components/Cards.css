@@ -1,13 +1,35 @@
 .cards {
     padding: 4em;
-    background: rgb(212, 212, 212);
+    background-color: rgb(255, 255, 255);
   }
-  
- #cards-h1 {
+
+  #cards-h1 {
+    text-align: center;
+    
+  }
+
+  #cards-h2 {
+    padding-top: 0.5em;
     text-align: center;
     font-family: inherit;
     font-weight: 300;
-    font-size: 4em;
+    font-size: 2em;
+    color: #e64c1b;
+  }
+
+  #cards-p {
+    position: relative;
+    top: 10%;
+    text-align: center;
+    color: black;
+  }
+
+  .fa-arrow-right-long{
+    position: relative;
+    display: flex;
+    left: 43%;
+    top: 10%;
+    color: #002d72;
   }
   
   .cards__container {
@@ -28,9 +50,13 @@
     margin-bottom: 24px;
     display: flex;
     flex: 1;
-    margin: 0 1rem;
+    height: 22vh;
+    width: 16rem;
+    margin: 0 0.5rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(216, 216, 216);
     border-radius: 10px;
-    padding-top: 1em;
   }
   
   .cards__item__link {
@@ -45,27 +71,15 @@
     text-decoration: none;
   }
   
-  .cards__item__pic-wrap {
+  
+  #cards-p-main{
     position: relative;
-    width: 100%;
-    overflow: hidden;
+    margin-top: 2rem;
+    text-align: center;
   }
   
   .cards__item__link:hover {
     transform: scale(1.03);
-  }
-  
-  .cards__item__info {
-    padding: 20px 30px 30px;
-  }
-  
-  .cards__item__text {
-    color: #252e48;
-    font-size: 35px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
   }
   
   @media only screen and (min-width: 1200px) {
@@ -88,46 +102,17 @@
       font-size: 50px;
       margin-top:0%;
     }
-    
-    .cards__container {
-      max-width: 1em;
-      height:100%;
-      width: 50%;
-      margin: 2% auto;
-    }
-
-    .cards__item__pic-wrap {
-      position: relative;
-      width: 100%;
-      height:80%;
-      overflow: hidden;
-      align-items: center;
-    }
 
     .cards {
       padding: 2em;
-      background: rgb(212, 212, 212);
+      background: rgb(255, 255, 255);
     }
 
-    .cards__item__text {
-      font-size: 30px;
-      font-weight: 300;
-      line-height: 20px;
-   
-    }
-    
   }
 
-  @media screen and (max-device-width: 390px) {
+  @media screen and (max-width: 390px) {
     
-    /* .cards__container {
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-      max-width: 100%;
-      width: 80%;
-      margin: 0 auto;
-    } */
+
     .cards__item__text {
       font-size: 30px;
     }

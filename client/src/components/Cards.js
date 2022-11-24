@@ -1,41 +1,36 @@
 import React from "react";
 import CardItem from "./CardItem";
 import './Cards.css';
-import ContactJpg from '../images/Google-maps-on-phone.jpg';
-import AboutJpg from '../images/keys.jpg';
-import RideJpg from '../images/driving-car.jpg';
-import StaffJpg from '../images/man-and-keys.jpg';
 
 
 function Cards () {
 
     return (
         <div className='cards'>
-            <h1 id='cards-h1'>Learn more about us!</h1>
+            <h1 id='cards-h1'>We are Designated Drivers.</h1>
+            <p id="cards-p-main">We know transportation. 400+ communities depend on us for it.</p>
                 <div className='cards__container'>
                     <div className='cards__wrapper'>
                         <ul className='cards__items'>
                         <CardItem
-                            src={ContactJpg}
+                            text='Details'
+                            text2='Learn a little about us!'
+                            path='/about'
+                        />
+                        <CardItem
+                            text='Services'
+                            text2='Find out what we provide.'
+                            path='/services'
+                        />
+                        <CardItem
                             text='Join us'
-                            path='/Contact'
+                            text2='Make an account with us today!'
+                            path='/signup'
                         />
                         <CardItem
-                            src={AboutJpg}
-                            text='About'
-                            path='/About'
-                        />
-                        </ul>
-                        <ul className='cards__items'>
-                        <CardItem
-                            src={RideJpg}
-                            text='Ride With us'
-                            path='/Ride'
-                        />
-                         <CardItem
-                            src={StaffJpg}
-                            text='Our Staff'
-                            path='/About'
+                            text='Ride with us'
+                            text2='Schedule a ride!'
+                            path='/ride'
                         />
                         </ul>
                 </div>
