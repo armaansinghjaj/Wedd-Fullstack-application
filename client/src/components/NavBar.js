@@ -13,7 +13,7 @@ function NavBar() {
     const [visible, setVisible] = useState(true) 
     // Watch page path 
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     const ScrollToTop = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -63,7 +63,7 @@ function NavBar() {
                     </div>
                     <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
                         <li className = 'nav-item'>
-                            <Link to='/Home' className={location.pathname === '/Home'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Home
+                            <Link to='/' className={location.pathname === '/'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Home
                             </Link>
                         </li>
                         <li className = 'nav-item'>

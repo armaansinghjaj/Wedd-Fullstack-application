@@ -9,7 +9,7 @@ import './VerticalNavbar.css';
     const closeMobileMenu = () => setClick(false);
 
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     return(
         <>
