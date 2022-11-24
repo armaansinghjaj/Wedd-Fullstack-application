@@ -14,16 +14,16 @@ function Footer() {
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
-            <h2>About Us</h2>
-            <Link to='/About' onClick={ScrollToTop}>How it works</Link>
-            <Link to='/Contact' onClick={ScrollToTop} >Contact</Link>
-            <Link to='/Ride' onClick={ScrollToTop} >Ride with us</Link>
-            <Link to='/Login' onClick={ScrollToTop} >Login</Link>
-            <Link to='/Signup' onClick={ScrollToTop} >Sign up</Link>
+            <h2>About</h2>
+            <Link id='footer-about-links' to='/About' onClick={ScrollToTop}>How it works</Link>
+            <Link id='footer-about-links' to='/Contact' onClick={ScrollToTop} >Contact</Link>
+            <Link id='footer-about-links' to='/Ride' onClick={ScrollToTop} >Ride with us</Link>
+            <Link id='footer-about-links' to='/Login' onClick={ScrollToTop} >Login</Link>
+            <Link id='footer-about-links' to='/Signup' onClick={ScrollToTop} >Sign up</Link>
           </div>
         </div>
-        <div className='footer-link-wrapper'>
-          <div className='footer-link-items'>
+        <div  className='footer-link-wrapper'>
+          <div id='social-media-links'  className='footer-link-items'>
             <h2>Social Media</h2>
             <a href='/https://www.instagram.com'>Instagram</a>
             <a href='/https://www.facebook.com'>Facebook</a>
@@ -32,11 +32,10 @@ function Footer() {
             <a href='https://www.linkedin.com/'>linked-In</a>
           </div>
           <div className='footer-link-items'>
-            <h2>Contact Us</h2>
+            <h2>Contact</h2>
             <Link id='footer-address' to='/About' onClick={ScrollToTop}>Address Placeholder</Link>
             <Link id='footer-phone' to='/About' onClick={ScrollToTop}>(403)-201-8223</Link>
             <Link id='footer-email' to='/Ride' onClick={ScrollToTop} >WeDesignatedDrivers@gmail.com</Link>
-
           </div>
         </div>
       </div>

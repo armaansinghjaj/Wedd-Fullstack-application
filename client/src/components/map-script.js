@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <!-- fontawesome imports -->
-    <script src="https://kit.fontawesome.com/5d654c0182.js" crossorigin="anonymous"></script>
-
-   <!-- Maps Javascript imports -->
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script>let userlocationlat = null;
+let userlocationlat = null;
       let userlocationlng = null;
       let startlat = null;
       let startlng = null;
@@ -139,17 +121,4 @@
       }
       if (document.getElementById("map_state").value=="3"){
          addRoute();
-      }</script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>WEDD</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-
-  </body>
-</html>
+      }
