@@ -7,7 +7,6 @@ function Cards () {
 
     return (
         <div className='cards'>
-            <h1 id='cards-h1'>We are Designated Drivers.</h1>
             <p id="cards-p-main">We know transportation. 400+ communities depend on us for it.</p>
                 <div className='cards__container'>
                     <div className='cards__wrapper'>

@@ -1,10 +1,10 @@
 import React from 'react';
-import {useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import '../components/Background.css';
 
 function BackgroundHome() {
 
-    const location = useLocation();
+    const navigate = useNavigate();
 
     return (
         <>
@@ -16,10 +16,10 @@ function BackgroundHome() {
                     <h3>Designated</h3>
                 </div>
                 <div className='tag tag-line-word'>
-                        <h3>Drivers</h3>
+                    <h3>Drivers</h3>
                 </div>
             </div>
-            <div className='form'>
+            <form className='form' onSubmit={() => navigate('/ride')}>
                 <div className='form-container'>
                     <h2 className='form-head form-component'>Request your ride</h2>
                     <div className="input-fields form-component">
@@ -30,7 +30,7 @@ function BackgroundHome() {
                         <input type={'submit'} className='ride-submit' name='ride-submit' value={'Request'}/>
                     </div>
                 </div>
-            </div>
+            </form>
         </>
         
     );
