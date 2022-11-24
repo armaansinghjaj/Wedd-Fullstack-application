@@ -1,14 +1,13 @@
 import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Rideform.css'
 
 function Rideform() {
-    //discount code
-    // const discountCode = 'discount';
+
+    const navigate = useNavigate();
     //Monitors state of input
-    const [Firstname, setFirstname]=useState('');
-    const [FirstnameError, setFirstnameError]=useState('');
-    const [Lastname, setLastname]=useState('');
-    const [LastnameError, setLastnameError]=useState('');
+    const [Name, setName]=useState('');
+    const [nameError, setNameError]=useState('');
     const [Email, setEmail]=useState('');
     const [EmailError, setEmailError]=useState('');
     const [Phone, setPhone]=useState('');
@@ -17,10 +16,7 @@ function Rideform() {
     const [DropoffError, setDropoffError]=useState('');
     const [Pickup, setPickup]=useState('');
     const [PickupError, setPickupError]=useState('');
-    const [Date, setDate]=useState('');
-    const [DateError, setDateError]=useState('');
-    // const [Discount, setDiscount]=useState('');
-    // const [DiscountError, setDiscountError]=useState('');
+
 
     const [Credit, setCredit]=useState('');
 
@@ -33,14 +29,9 @@ function Rideform() {
     const [PaymentError, setPaymentError]=useState('');
 
 
-    const handleFirstnameChange=(e)=>{
-        setFirstnameError('');
-        setFirstname(e.target.value);
-    }
-
-    const handleLastnameChange=(e)=>{
-        setLastnameError('');
-        setLastname(e.target.value);
+    const handleNameChange=(e)=>{
+        setNameError('');
+        setName(e.target.value);
     }
     const handleEmailChange=(e)=>{
         setEmailError('');
@@ -58,14 +49,7 @@ function Rideform() {
         setPickupError('');
         setPickup(e.target.value);
     }
-    const handleDateChange=(e)=>{
-        setDateError('');
-        setDate(e.target.value);
-    }
-    // const handleDiscountChange=(e)=>{
-    //     setDiscountError('');
-    //     setDiscount(e.target.value);
-    // }
+
     const handlePaymentChange=(e)=>{
         setPaymentError('');
         setCredit(e.target.value)
@@ -76,11 +60,9 @@ function Rideform() {
 
     const handleFormSubmit=(e)=>{
         e.preventDefault();
-        //checking if Firstname is empty
-        if ( Firstname !== '' ? '' :  setFirstnameError('First name required'));
 
-        //checking if Lastname is empty
-        if ( Lastname !== '' ? '' :  setLastnameError(' required'));
+        //checking if Name is empty
+        if ( Name !== '' ? '' :  setNameError('Name required'));
 
         //checking if Email is empty
         if ( Email !== '' ? '' :  setEmailError('Email required'));
@@ -93,13 +75,13 @@ function Rideform() {
 
         //checking if Dropoff is empty
         if ( Dropoff !== '' ? '' :  setDropoffError('Dropoff location required'));
-
-        //checking if Date is empty
-        if ( Date !== '' ? '' :  setDateError('Date and time required'));
+        
         // checking discount code
-        // if ( Discount === discountCode ? '' :  setDiscountError('Discount code invalid'));
+
         //checking if Payment type is empty
         if ( (Credit!== '' && Debit!== ''  && Apple!== ''  && Paypal!== '')   ? '' :  setPaymentError('Payment type required'));
+
+        navigate('/rideConfirm')
     }
 
     return (
@@ -108,10 +90,10 @@ function Rideform() {
                 <form onSubmit={handleFormSubmit}>
                 <div className='ride-left'>
                     <h2 id='ride-contact'>Contact Information:</h2>  
-                    <input className="ride-Fnamei" placeholder='Name ' id='ride-input' type='text' value={Firstname} onChange={handleFirstnameChange}
+                    <input className="ride-Fnamei" placeholder='Name ' id='ride-input' type='text' value={Name} onChange={handleNameChange}
 />
                    
-                    {LastnameError&&<div className='error-msg'>{LastnameError}</div>}
+                    {nameError&&<div className='error-msg'>{nameError}</div>}
                     <input className="ride-emaili" placeholder='Email ' id='ride-input' type='email' value={Email} onChange={handleEmailChange}
 />
                     {EmailError&&<div className='error-msg'>{EmailError}</div>}
@@ -177,9 +159,6 @@ function Rideform() {
                                 
                             <input type='text' name='discount_code' id='discount_code' placeholder='Discount code' />
                             </div>
-                            {/* <div id='ride-checklist'>
-                            {DiscountError&&<div className='discounterror-msg'>{DiscountError}</div>}
-                            </div> */}
 
                         <div className="submit-btn-div">
                             <input type="submit" id='ride-submit' value="Submit"></input>

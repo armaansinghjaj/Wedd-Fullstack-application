@@ -8,7 +8,7 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import Ride from './Pages/Ride';
+
 import Admin from './Pages/Admin';
 
 //Driver Page
@@ -16,6 +16,13 @@ import DriverProfile from './Pages/DriverProfile';
 import Driver from './Pages/Driver';
 import DriverDashboard from './Pages/DriverDashboard';
 import DriverRequests from './Pages/DriverAvailRequests';
+
+// Ride Pages
+import Ride from './Pages/Ride';
+import RideConfirm from './Pages/RideConfirmation';
+import RideSearching from './Pages/RideSearching';
+import RideConnected from './Pages/RideConnected';
+import RideCompleted from './Pages/RideCompleted';
 
 // Admin pages
 import Profile from './Pages/Profile';
@@ -45,13 +52,17 @@ const App = () => {
        {/* Routing for application */}
       <Routes>
         <Route path= "*" element={<Home />}/>
-        <Route path= '/ride'  element={<Ride/>}/> 
         <Route path= '/about'  element={<About/>}/> 
         <Route path= '/services'  element={<Contact/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
         
-        {/* News Page is pending yet */}
+        {/* Ride Pages is pending yet */}
+        <Route path= '/ride'  element={<Ride/>}/> 
+        <Route path= '/rideConfirm'  element={<RideConfirm/>}/> 
+        <Route path= '/rideSearching'  element={<RideSearching/>}/> 
+        <Route path= '/rideConnected'  element={<RideConnected/>}/> 
+        <Route path= '/rideCompleted'  element={<RideCompleted/>}/> 
 
         {/* Admin Pages */}
         <Route path= '/Employeeprofile'  element={<Profile/>}/> 

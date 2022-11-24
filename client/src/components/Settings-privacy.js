@@ -3,7 +3,7 @@ import './AccountPages.css';
 
 export default function Settings() {
 
-    const customer_account_name='Customer Name';
+    // const customer_account_name='Customer Name';
     // const customer_email='Email';
     // const customer_phone='Phone';
     // const customer_pp='customer profile picture';

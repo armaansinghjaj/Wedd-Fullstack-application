@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import CardItem from "./CardItemnews";
+import React, { useState } from 'react';
+
 import './CardNews.css';
 
 
