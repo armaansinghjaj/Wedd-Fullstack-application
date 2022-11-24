@@ -10,12 +10,6 @@ nav {
   top: 0;
 }
 
-#cards-p-main{
-  position: relative;
-  right: 2.5%;
-  text-align: center;
-}
-
 #navbar {
   margin-top: 1rem;
   border-radius: 5px;
@@ -85,8 +79,6 @@ nav {
 
 .fa-bars {
   color: Black;
-  position: relative;
-  margin-top: 1ch;
 }
 
 .nav-links-mobile {
@@ -201,7 +193,7 @@ nav {
 
 
   #navbar {
-    width: 380px;
+    width: 97%;
   }
 
   .nav-menu {

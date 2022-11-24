@@ -12,6 +12,11 @@
   z-index: 1;
 }
 
+#home-ride-input{
+  border-bottom: 2px;
+  border-style: solid;
+}
+
 .title-container {
   display: flex;
   flex-direction: row;

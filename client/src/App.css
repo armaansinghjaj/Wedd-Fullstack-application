@@ -5,9 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
-@media screen and (max-width: 390px) {
   html,body{ overflow-x: clip; }
-}
+
 
 
 

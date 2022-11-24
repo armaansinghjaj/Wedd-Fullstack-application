@@ -19,14 +19,16 @@
 
   #cards-p {
     position: relative;
-    right: 10%;
+    top: 10%;
     text-align: center;
     color: black;
   }
 
   .fa-arrow-right-long{
     position: relative;
-    left: 45%;
+    display: flex;
+    left: 43%;
+    top: 10%;
     color: #002d72;
   }
   
@@ -49,6 +51,7 @@
     display: flex;
     flex: 1;
     height: 22vh;
+    width: 16rem;
     margin: 0 0.5rem;
     border-style: solid;
     border-width: 2px;
@@ -69,11 +72,15 @@
   }
   
   
+  #cards-p-main{
+    position: relative;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
   .cards__item__link:hover {
     transform: scale(1.03);
   }
-  
-
   
   @media only screen and (min-width: 1200px) {
     .content__blog__container {

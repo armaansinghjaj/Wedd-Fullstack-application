@@ -111,6 +111,7 @@
   display: none;
 }
 
+
 #update-li {
   display: none;
 }
@@ -119,14 +120,11 @@
   font-size: 20px;
   font-weight: 500;
   position: relative;
-  left: 30%; 
 }
 
 #update-p {
   position: relative;
-  right: 20%;
   font-weight: 200;
-  
 }
 
 .cardnews__item-active {
@@ -156,12 +154,10 @@
     font-size: 20px;
     font-weight: 500;
     position: relative;
-    left: 30%; 
   }
 
   #update-p {
     position: relative;
-    right: 20%;
     font-weight: 200;
   }
 

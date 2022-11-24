@@ -14,26 +14,22 @@ function Cards () {
                         <ul className='cards__items'>
                         <CardItem
                             text='Details'
-                            text2='Get to know a little about us!'
-                            
+                            text2='Learn a little about us!'
                             path='/about'
                         />
                         <CardItem
                             text='Services'
-                            text2='Learn about what we provide.'
-                            
+                            text2='Find out what we provide.'
                             path='/services'
                         />
                         <CardItem
                             text='Join us'
                             text2='Make an account with us today!'
-                            
                             path='/signup'
                         />
                         <CardItem
                             text='Ride with us'
-                            text2='Schedule a ride for your special events!'
-                            
+                            text2='Schedule a ride!'
                             path='/ride'
                         />
                         </ul>
