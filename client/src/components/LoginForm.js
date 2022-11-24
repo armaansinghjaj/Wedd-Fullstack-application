@@ -81,7 +81,7 @@ function LoginForm() {
 
             <form id='loginForm' onSubmit={handleFormSubmit}>
                 <div className="login-top">
-                    <h1 id='login-h1'>LOGIN</h1>
+                    <h1 id='login-h1'>Login</h1>
                     
                     <input type="text" name="email" placeholder="Email" id='login-input' onChange={handleEmailChange} value={email}/>
                     {emailError&&<div className='error-msg'>{emailError}</div>}

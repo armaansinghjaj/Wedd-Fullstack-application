@@ -77,7 +77,7 @@ input[id="ride-submit"] {
     bottom: 3rem;
     margin-top: 4.3rem;
     width: 9em;
-    height: 2.5rem;
+    height: 2.8rem;
     background: #16a085;
     color: #FFF;
     border: none;
@@ -231,7 +231,17 @@ input[id="ride-submit"] {
 }
 
 #car,#car1{
-  margin-top: 0ch;
+  margin-top: 5ch;
+}
+#car2{
+position: relative;
+top: -2.5ch;
+left: 0.5ch;
+}
+#car-label1{
+  position: relative;
+  left:7ch;
+  top:-4ch;
 }
 
 #ride-submit{
@@ -271,11 +281,13 @@ input[id="ride-input"] {
 
 
 .payment-type {
-   
-  margin-top: -15%;;
+   position: relative;
+  margin-top: -18%;
+  margin-bottom: 1.25rem;
+  font-size: 1.75rem;
+  color: black;
   font-weight: 300;
-  font-size: 1.55rem;
-  text-align: center;
+  margin-left: 30%;
 }
 .ride-location {
   margin-top: 2.25rem;
@@ -308,10 +320,15 @@ input[id="ride-submit"] {
   top: 60px;;
   
 }
+.car-type{
+  position: relative;
+ margin-top: -4%; 
+}
 
 }
 
 @media screen and (max-device-width:479px){
+  
   .ride-container {
     position: relative;
     margin: 30% auto;
@@ -401,18 +418,32 @@ input[id="ride-submit"] {
   top: -30px;
 }
 
+
 }
 
-@media screen and (max-device-width:390px){
+@media screen and (max-device-width:375px){
 
   .ride-container {
     position: relative;
-    margin: 35% auto;
-    width: 21rem;
-    height: 42rem;
+    width: 90vw;
+    height: 82vh;
     background: #FFF;
-    border-radius: 16px;
+    border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  #ride-contact{
+    position: relative;
+    font-size: 1.5em;
+    margin-left: -3ch;
+    font-weight: 300;
+    margin-right: auto;
+  }
+  .ride-location{
+    position: relative;
+     font-size: 1.5em;
+    margin-left: 0ch;
+    font-weight: 300;
+    margin-right: auto;
   }
   .ride-left {
     position: relative;
@@ -425,14 +456,20 @@ input[id="ride-submit"] {
   }
   .ride-right {
     position: relative;
-    margin-top: 35%;
+    margin-top: 29%;
     left: 20%;
-    
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
     height: 25rem;
     
+}
+.payment-type{
+  font-weight: 300;
+ position: relative;
+  font-size: 1.5em;
+ left: -6%;
+ margin-right: auto;
 }
 .payment-left {
   display: flex;
@@ -466,4 +503,47 @@ input[id="ride-submit"] {
   top: 5ch;
   margin-left: -10%;
 }
+
+input[id="ride-input"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem;
+  padding: 0.25rem;
+  width: 8rem;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 1.1em;
+  font-size: 1.4ch;
+  transition: 0.2s ease;
+}
+.car-type{
+  font-weight: 300;
+   position: relative;
+  font-size: 1.5em;
+  left:-40%;
+  margin-right: auto;
+}
+#car2{
+  position: relative;
+  top:-2.4ch;
+  left:0.4ch
+}
+#car-label1{
+  position: relative;
+  left:7ch;
+  top:-4ch;
+}
+#car-checklist{
+  position: relative;
+ 
+}
+.car-left{
+  position: relative;
+  top:-3ch;
+}
+.discount-code-div{
+  position: relative;
+  top:-0.5ch;
+}
+
 }
