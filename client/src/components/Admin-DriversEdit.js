@@ -39,6 +39,7 @@ export default function AdminDriversEdit() {
     return(
         <>
         {/* Edit Driver Form */}
+        <div >
         <div className={overlayEdit}>
                 <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
                     <div id='edit-closeOverlay-btn-driver' >
@@ -47,7 +48,7 @@ export default function AdminDriversEdit() {
                 <h2>Edit driver</h2>
                 <div>
                     <form action="/drivers" method="post">
-                        <table>
+                        <table className="driver-tab">
                             <tbody>
                                 <tr>
                                     <td>Employee ID</td>
@@ -69,7 +70,7 @@ export default function AdminDriversEdit() {
                 </div>
             </div>
         </div>
-
+        </div>
         {/* Add Driver Form */}
         <div className={overlayAdd}>
         <div className={visibleAdd === true ? 'edit-role' : 'edit-role-hidden'}>

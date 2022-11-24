@@ -62,3 +62,46 @@
     border: solid;
     margin-right: 10%;
 }
+
+@media screen and (max-device-width: 390px){
+    #support_form{
+       
+        margin-top: 5ch;
+        border: 1px solid;
+        border-radius: 0.5rem;
+        width: 360px;
+        right: 29%;
+    }
+
+    .support-h2{
+        margin-top: 10%;
+        margin-left: 1.5ch;
+    }
+
+   
+
+    .FAQ{
+       right: 14%;
+        margin-left: 0%;
+    }
+
+    .help-h1{
+        /* left: -40%; */
+        margin-left: 0.1ch;
+        margin-top: 10%;
+    }
+    
+    .contact-wedd{
+        top: 5ch;   
+}
+.contact-h2{
+    margin-left:-2rem;
+}
+
+#textarea{
+    margin-top: 1ch;
+    width: 20rem;
+}
+
+
+}

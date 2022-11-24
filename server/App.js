@@ -5,6 +5,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const session = require("express-session");
+var cors = require('cors');
 
 // SET VIEW ENGINE FOR USING 'EJS' FILES.
 app.set("view engine", "ejs"); // DELETE ON BUILD
@@ -24,7 +25,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(cors());
 
 // SET-UP HOST SERVER PORT
 const port = process.env.port || 3360;

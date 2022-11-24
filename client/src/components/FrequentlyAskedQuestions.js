@@ -54,7 +54,7 @@ export default function FAQ() {
                 </ul>
             </div>
             <div className="contact-wedd">
-                <h2>Contact We Designated Drivers</h2>
+                <h2 className="contact-h2">Contact We Designated Drivers</h2>
                 <ul>
                     <li>Email us!</li>
                     <li>Placeholder@email.com</li>

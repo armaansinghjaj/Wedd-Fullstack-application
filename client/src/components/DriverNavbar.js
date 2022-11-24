@@ -15,10 +15,10 @@ import './VerticalNavbar.css';
         <>
         <div className='vertical-navbar'>
             <div id='logo-wrapper'>
-                <ProfilePage/>
+                <Link id='vert-logo' to={'/driver'}>WeDD</Link>
             </div>
-            
         </div>
+
         <div className='logout-wrapper'>
             <Link id='logout-link' to='/Home'>
             <button id='logout-button'>Log Out</button>
