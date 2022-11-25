@@ -152,10 +152,11 @@ input[id='home-ride-input']{
 
 
 /* Admin home background */
-.AdminHome-container {
+.admin-home-container {
   width: 100%;
   height: 100vh;
 }
+
 /* Admin Edit background */
 .AdminEdit-container {
   width: 100%;
