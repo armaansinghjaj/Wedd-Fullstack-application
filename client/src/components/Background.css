@@ -15,6 +15,18 @@
   z-index: 1;
 }
 
+.BackgroundForget-container{
+  width: 100vw;
+  margin-top: -2.3rem;
+  height: var(--first-component);
+  background-image: url("../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
 #home-ride-input{
   border-bottom: 2px;
   border-style: solid;

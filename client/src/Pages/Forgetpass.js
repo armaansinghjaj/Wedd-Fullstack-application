@@ -1,12 +1,17 @@
 import React from 'react';
 import '../App.css';
+import Background from '../components/Background-Forget';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
-import Forgot from '../components/Forgot-password';
 
 export default function Forget() {
   return (
       <div className=''>
-       <Forgot/>
+      
+       <NavBar/>
+      <Background />
+      <Footer />
       </div>
     )
 }
