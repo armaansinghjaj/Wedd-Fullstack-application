@@ -294,6 +294,11 @@ input[id='home-ride-input']{
     width: 390px;
     margin-top: 0;
   }
+  .form-head {
+    position: relative;
+    width: 150%;
+    right: 20%;
+  }
 
   .tag-line{
     display: none;
