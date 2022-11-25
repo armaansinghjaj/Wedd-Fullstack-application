@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  bottom: 0;
 }
 
 .footer-input {
@@ -199,6 +200,18 @@
   }
 }
 @media screen and (max-device-width: 414px) {
+  .footer-logo {
+    position: relative;
+    left: -0.9rem;
+    bottom: 1.5rem;
+  }
+
+  .social-icons{
+    position: relative;
+    bottom: 2rem;
+  }
+
+
   #social-media-links{
     display: none;
   }
@@ -212,6 +225,7 @@
   .footer-container {
     width: 100vw;
   }
+
   .footer-link-wrapper{
     position: relative;
   }

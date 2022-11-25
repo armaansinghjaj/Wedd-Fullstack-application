@@ -1,6 +1,8 @@
 import React from 'react';
 import AdminNavbar from '../components/AdminNavbar';
 import '../components/AdminPages.css';
+import ProfilePage from './ProfilePage';
+
 
 export default function AdminHome() {
 
@@ -8,6 +10,7 @@ export default function AdminHome() {
         <>
         <div class="AdminHome-container">
             <AdminNavbar/>
+            <ProfilePage/>
         </div>
         </>
     )

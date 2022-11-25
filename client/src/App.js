@@ -26,7 +26,6 @@ import RideConnected from './Pages/RideConnected';
 import RideCompleted from './Pages/RideCompleted';
 
 // Admin pages
-import Profile from './Pages/Profile';
 import AdminEdit from './Pages/AdminEdit';
 import AdminNews from './Pages/AdminNews';
 import AdminRoles from './Pages/AdminRoles';
@@ -40,7 +39,7 @@ import BgAbout from './components/BackgroundEditAbout';
 import BgContact from './components/BackgroundEditContact'
 
 // Customer account pages
-import Account from './Pages/Account';
+import CustomerProfile from './Pages/Account';
 import TripHistory from './Pages/TripHistory';
 import HelpAndSupport from './Pages/HelpAndSupport';
 import FaQuestions from './Pages/FAQ';
@@ -67,7 +66,6 @@ const App = () => {
         <Route path= '/rideCompleted'  element={<RideCompleted/>}/> 
 
         {/* Admin Pages */}
-        <Route path= '/Employeeprofile'  element={<Profile/>}/> 
         <Route path= '/admin'  element={<Admin/>}/> 
         <Route path= '/admin/adminlist'  element={<AdminEdit/>}/> 
         <Route path= '/admin/news'  element={<AdminNews/>}/> 
@@ -89,7 +87,7 @@ const App = () => {
 
 
         {/* Customer account pages */}
-        <Route path= '/profile'  element={<Account/>}/>        
+        <Route path= '/customerprofile'  element={<CustomerProfile/>}/>        
         <Route path= '/triphistory'  element={<TripHistory/>}/>
         <Route path= '/helpandsupport'  element={<HelpAndSupport/>}/>
         <Route path= '/faq'  element={<FaQuestions/>}/>

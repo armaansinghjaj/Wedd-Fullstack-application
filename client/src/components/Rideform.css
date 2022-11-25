@@ -26,9 +26,8 @@
     position: relative;
     margin-top: -13%;
     font-size: 5rem;
-    color: white;
-    text-decoration: underline overline dotted rgb(202, 203, 90);  
-    font-weight: 500;
+    color: rgb(5, 5, 5);
+     font-weight: 500;
 }
 
 .ride-container {
@@ -55,7 +54,7 @@
   .ride-left {
     position: relative;
     top: 0;
-    left: 0;
+    left: -25%;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -64,7 +63,7 @@
 
   .ride-right {
     position: relative;
-    bottom: 25.1rem;
+    bottom: 27rem;
     left: 15rem;
     box-sizing: border-box;
     padding: 2.5rem;
@@ -77,16 +76,17 @@
 .ride-bottom {
   position: relative;
   bottom: 27.5rem;
-  left: 2.625rem;
+  margin-top:-25%;
+  left: -3rem;
   height: 19vh;
   width: 86%;
 }
 
   #ride-contact {
-    color: white;  
+    color: rgb(5, 5, 5);  
     margin: 0;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
 input[id="ride-input"] {
@@ -116,9 +116,9 @@ input[id="ride-input"]:focus{
 input[id="ride-submit"] {
     position: relative;
     outline: none;
-    left: 35%;
+    left: 50%;
     bottom: 3rem;
-    margin-top: 4.3rem;
+    margin-top: 4.5rem;
     width: 9em;
     height: 2.8rem;
     background: #16a085;
@@ -146,9 +146,11 @@ input [id="ride-submit"]:active {
 }
 
 .ride-location {
-    margin-top: 2.25rem;
+    position: relative;
+    margin-top: 0rem;
+    left: 05%;
     margin-bottom: 1.25rem;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: black;
     font-weight: 400;
 }
@@ -157,8 +159,8 @@ input [id="ride-submit"]:active {
   position: relative;
     color: #000000;  
     margin: 0 0 0.15rem 0;
-    font-weight: 300;
-    font-size: 0.75rem;
+    font-weight: 500;
+    font-size: 1.4rem;
     text-align: left;
     right: 32%;
 }
@@ -167,11 +169,14 @@ input [id="ride-submit"]:active {
   position:relative;
   color: black;  
   margin: 0 0 0.0rem 0;
-  font-weight: 300;
-  font-size: 1.75rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   text-align: right;
   bottom: 68%;
-  right: 13%;
+  right: -13%;
+}
+#car-label1,#car-label{
+    color: white;
 }
 
 .payment-right {
@@ -199,7 +204,8 @@ input [id="ride-submit"]:active {
   align-items: center;
   justify-content: center;
   margin-top: 0ch;
-  
+  position: relative;
+  margin-left: 8rem;
 
 }
 
@@ -229,8 +235,9 @@ input [id="ride-submit"]:active {
   
 }
 
-.payment-label {
+#payment-label {
   position: relative;
+  color: white;
 
 }
 
@@ -248,7 +255,7 @@ input[id="ride-submit"] {
 
 #discount_code{
   position: relative;
-  right: 1%;
+  margin-left: 20%;
   width: 7rem;
   border: 1px solid #d2d2d2;
   padding: 7px 0;
@@ -317,17 +324,17 @@ left: 0.5ch;
    position: relative;
   margin-top: -18%;
   margin-bottom: 1.25rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: black;
-  font-weight: 300;
+  font-weight: 500;
   margin-left: 30%;
 }
 .ride-location {
   margin-top: 2.25rem;
   margin-bottom: 1.25rem;
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   color: black;
-  font-weight: 300;
+  font-weight: 500;
   margin-right: 10%;
 }
 
@@ -345,12 +352,13 @@ left: 0.5ch;
 
 input[id="ride-submit"] {
   
-  left: 35%;
+  left: 55%;
   width: 7em;
-  height: 1.5rem;
+  color: white;
+  height: 1.8rem;
   font-weight: 300;
   font-size: 1rem;
-  top: 60px;;
+  top: 70px;;
   
 }
 .car-type{
@@ -372,7 +380,7 @@ input[id="ride-submit"] {
 
   .ride-location {
   
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: black;
     font-weight: 400;
    
@@ -391,8 +399,8 @@ input[id="ride-submit"] {
  .payment-type {
   color: black;  
   margin: 0 0 1rem 0;
-  font-weight: 200;
-  font-size: 1.20rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   text-align: left;
   left: 2%;
 }
@@ -473,7 +481,7 @@ input[id="ride-submit"] {
   }
   .ride-location{
     position: relative;
-     font-size: 1.5em;
+     font-size: 1.4rem;
     margin-left: 0ch;
     font-weight: 300;
     margin-right: auto;
@@ -481,7 +489,7 @@ input[id="ride-submit"] {
   .ride-left {
     position: relative;
     top: -3ch;
-    left: 20%;
+    margin-left: 20%;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -498,9 +506,9 @@ input[id="ride-submit"] {
     
 }
 .payment-type{
-  font-weight: 300;
+  font-weight: 500;
  position: relative;
-  font-size: 1.5em;
+  font-size: 1.5rem;
  left: -6%;
  margin-right: auto;
 }
