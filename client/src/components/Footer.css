@@ -198,15 +198,19 @@
       font-size: 18px;
   }
 }
+@media screen and (max-device-width: 414px) {
+  #social-media-links{
+    display: none;
+  }
+  .website-rights {
+    display: none;
+  }
+  
+}
 
-/* 
 @media screen and (max-device-width: 390px) {
   .footer-container {
-    width: 100%;
-  }
-
-  .footer-subscription {
-    padding: 2px;
+    width: 100vw;
   }
   .footer-link-wrapper{
     position: relative;
@@ -224,7 +228,7 @@
   }
   #footer-address, #footer-phone, #footer-email {
     position: relative;
-    right: 10%;
+    left: 14%;
     font-size: 0.8rem;
   }
 
@@ -251,4 +255,8 @@
   .website-rights {
     display: none;
   }
-} */
+}
+
+@media screen and (max-device-width: 375px) {
+
+}

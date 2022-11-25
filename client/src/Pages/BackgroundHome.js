@@ -27,7 +27,7 @@ function BackgroundHome() {
                         <input id='home-ride-input' type={'text'} name='drop_location' placeholder='Enter drop off location' required/>
                     </div>
                     <div className="submit-btn">
-                        <input type={'submit'} className='ride-submit' name='ride-submit' value={'Request'}/>
+                        <input id='home-ride-submit' type={'submit'} className='ride-submit' name='ride-submit' value={'Request'}/>
                     </div>
                 </div>
             </form>

@@ -182,6 +182,9 @@ nav {
 }
 
 @media screen and (max-width:768px ) and (min-width: 480px) {
+  #navbar {
+    width: 97%;
+  }
   nav {
     left: 1.5%;
     width: 525px;
@@ -194,10 +197,34 @@ nav {
   }
 }
 
+@media only screen and (max-width: 414px) {
+  #navbar {
+    width: 97%;
+  }
+
+  .menu-icon {
+    top: -20px;
+  }
+
+  .navbar-logo {
+    left: 42%;
+  }
+
+  .fa-times {
+    position: relative;
+    top: 25px;
+    right: 5px;
+  }
+
+  .nav-links-active {
+    border-style: none;
+  }
+
+
+}
+
 
 @media only screen and (max-width: 390px) {
-
-
   #navbar {
     width: 97%;
   }
@@ -210,15 +237,18 @@ nav {
 
   .nav-menu {
     display: none;
+    margin-top: 0;
   }
 
   .nav-menu.active {
     display: initial;
     position: fixed;
+    top: 68px;
     background: #242222;
-    right: -41px;
+    border-radius: 0.5em;
+    right: -38px;
     height: 65vh;
-    width: 395px;
+    width: 390px;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
@@ -228,6 +258,12 @@ nav {
     left: 42%;
   }
 
+  .fa-times {
+    position: relative;
+    top: 0px;
+    right: 5px;
+  }
+
   .menu-icon {
     top: 17px;
   }
@@ -235,5 +271,15 @@ nav {
   #login-active {
     display: initial;
   }
+}
+
+@media only screen and (max-width: 375px) {
+
+  .fa-times {
+    position: relative;
+    top: 0px;
+    right: 5px;
+  }
+
 }
 

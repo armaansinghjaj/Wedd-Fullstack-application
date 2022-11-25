@@ -6,8 +6,8 @@
 #signupform-container {
   position: relative;
   margin: 10% auto;
-  width: 34.375rem;
-  height: 36.5rem;
+  width: 32.375rem;
+  height: 33.5rem;
   background: #FFF;
   border-radius: 1.2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -29,7 +29,7 @@
   font-size: 3rem;
   padding: 0;
   position: relative;
-  right: 5%;
+  right: -15%;
 }
 
 input[id="signup-input"],
@@ -267,7 +267,7 @@ input[id="signup-submit"] {
 }
 
 
-@media only screen and (max-device-width: 390px){
+@media only screen and (max-device-width: 375px){
 
 #signup-h1 {
     font-weight: 400;
@@ -283,11 +283,16 @@ input[id="signup-submit"] {
     width: 19.375rem;
     height: 24rem;
   }
-
+  
+  #signup-h1{
+    position: relative;
+    margin-left: 2ch;
+  }
   .signup-left {
     left: 15.5%;
     width: 12.75rem;
     height: 24.75rem;
+    font-weight: 300;
   } 
 
   .signup-right {
@@ -312,18 +317,21 @@ input[id="signup-submit"] {
   }
   
   input[id="signup-submit"] {
-    margin-top: 0.5em;
-    width: 8em;
+    margin-top: 1em;
+    width: 50%;
+    position: relative;
     height: 1.5em;
     font-size: 1rem;
     font-weight: 300;
   }
-
+  
   .login-route {
     margin-left: 0.2vh;
   } 
 
   .divider{
+    position: relative;
+    top: 1ch;
     width: 250px;
   }
 

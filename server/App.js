@@ -5,7 +5,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const session = require("express-session");
-var cors = require('cors');
+// var cors = require('cors');
 
 // SET VIEW ENGINE FOR USING 'EJS' FILES.
 app.set("view engine", "ejs"); // DELETE ON BUILD
@@ -27,13 +27,13 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use(cors());
+// app.use(cors());
 
 // SET-UP HOST SERVER PORT
 const port = process.env.port || 3360;
 
 // COMMON IMPORTS
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 
 function setPickupLocation(req,values) {
 	req.session.startlat = values[0].lat,

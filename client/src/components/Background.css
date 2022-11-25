@@ -45,7 +45,7 @@ h3 {
 .form-container{
   padding: calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh)));
   margin-top: calc(((var(--first-component) / 5)));
-  border-radius: 3px;
+  border-radius: 0.5rem;
   background: #ccccccec;
   backdrop-filter: blur(10px);
   display: flex;
@@ -58,7 +58,8 @@ h3 {
 .form-container:hover{
   background: #fff;
 }
-input[type='text']{
+
+input[id='home-ride-input']{
   border: 0;
   font-size: 16px;
   background: transparent;
@@ -228,7 +229,7 @@ input[type='text']{
   }
 
   .form-head{
-    font-size: 35px;
+    font-size: 2em;
     margin-bottom: 20px;
     margin-top: -30px;
     
@@ -247,9 +248,47 @@ input[type='text']{
   }
 }
 
+@media only screen and (max-width: 414px) {
+  .form-container{
+    padding: calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 90vh)));
+    margin-top: calc(((var(--first-component) / 4)));
+    border-radius: 5px;
+    width: 90%;
+    background: #ccccccec;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    transition: 0.5s;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+ }
+  .tag-line {
+    display: none;
+  }
+
+}
 
 
-@media only screen and (max-device-width: 390px) {
+@media only screen and (max-width: 390px) {
+
+  .form-head {
+    position: relative;
+    width: 150%;
+    right: 60%;
+  }
+
+  #home-ride-submit {
+    position: relative;
+    left: 20%;
+  }
+}
+
+
+
+@media only screen and (max-device-width: 375px) {
 
   .login-container {
     width: 390px;
@@ -264,6 +303,13 @@ input[type='text']{
     margin-top: calc(((var(--first-component) / 4)));
     border-radius: 5px;
     width: 90%;
+    background: #ccccccec;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    transition: 0.5s;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -275,4 +321,13 @@ input[type='text']{
  .Account-container {
     height: 0;
  }
+ .form-head {
+  font-size: 2em;
+  position: relative;
+  margin-left: 1ch;
+  margin-right: auto;
+ }
+ .form-container:hover{
+  background: #fff;
+}
 }
