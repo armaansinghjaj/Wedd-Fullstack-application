@@ -135,17 +135,17 @@ function Rideform() {
                         <div className='payment-left'>
                             <div id='ride-checklist'>
                             <input type='radio' name='r1' id='ride' 
-                            class='ride-checklist' value='Paypal' onChange={handlePaymentChange}/> 
+                            className='ride-checklist' value='Paypal' onChange={handlePaymentChange}/> 
                             <label id='payment-label' htmlFor='ride'>Cash</label>
                             </div>
 
                             <div id='ride-checklist'>
-                            <input type='radio'  name='r1'id='ride1' class='ride-checklist' value='Credit' onChange={handlePaymentChange}/> 
+                            <input type='radio'  name='r1'id='ride1' className='ride-checklist' value='Credit' onChange={handlePaymentChange}/> 
                             <label id='payment-label' htmlFor='ride1'>Credit Card</label>
                             </div>
 
                             <div id='ride-checklist'>
-                            <input type='radio' name='r1' id='ride3' class='ride-checklist' value='Debit' onChange={handlePaymentChange}/> 
+                            <input type='radio' name='r1' id='ride3' className='ride-checklist' value='Debit' onChange={handlePaymentChange}/> 
                             <label id='payment-label' htmlFor='ride3'>Debit card</label>
                             </div>
                             
@@ -160,12 +160,12 @@ function Rideform() {
                            
                             <div id='car-checklist'>
                             <input type='radio' name='c1' id='car1' 
-                            class='car-checklist' value='Manual' /> 
+                            className='car-checklist' value='Manual' /> 
                             <label id='car-label' htmlFor='car'>Manual</label>
                             </div>
 
                             <div id='car-checklist'>
-                            <input type='radio'  name='c1'id='car2' class='car-checklist' value='auto'/> 
+                            <input type='radio'  name='c1'id='car2' className='car-checklist' value='auto'/> 
                             <label id='car-label1' htmlFor='car1'>Automatic</label>
                             </div>
                             </div>
