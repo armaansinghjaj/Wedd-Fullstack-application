@@ -19,16 +19,14 @@ import './VerticalNavbar.css';
             </div>
         </div>
 
-        <ul className='link-wrapper'>
+        <ul className='driver-link-wrapper'>
             <li>
                     <Link className={location.pathname === 'Driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver-Profile'>Profile</Link>
                 </li>
-                {/* <li>
-                    <Link className={location.pathname === '/DriverDashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/DriverDashboard'>Dashboard</Link>
-                </li>
                 <li>
-                    <Link className={location.pathname === '/DriverAvailRequests'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/DriverAvailRequests'>Driver Requests</Link>
-                </li> */}
+                    <Link className={location.pathname === '/DriverDashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/DriverDashboard'>Start Shift</Link>
+                </li>
+
             </ul>
         <div className='logout-wrapper'>
 
@@ -46,6 +44,9 @@ import './VerticalNavbar.css';
             </div>
         </div>
         <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
+            <li>
+                <Link className='h-nav-links' to='/driver-profile' onClick={closeMobileMenu}>Profile</Link>
+            </li>
             <li>
                 <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
             </li>

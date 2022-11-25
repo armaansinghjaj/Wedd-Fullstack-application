@@ -1,173 +1,103 @@
-import React, {Fragment, useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+import figure1 from "../images/About-page-figure-1.jpg"
 import './About.css';
 
 function Abouttop() {
-    useEffect( () => {
-        fetchItems();
-    }, []);
 
-    const [items, setItems] = useState([]);
+    const phoneDialer = () => {
 
-    const fetchItems = async () => {
-        const data = await fetch('/api/about');
-        const items = await data.json();
-        setItems(items);
-    };
-    const [ toggleTab, setToggleTab] = useState(1)
-    const toggleState = (index) =>{
-         setToggleTab(index)
     }
     return(
-      <Fragment>
-        <section className="about">
-            <div className="row">
-
-                <div className="column">
-                    <div className="about-img">
-
+        <>
+        <React.Fragment>
+            <div className="figure-1-div">
+                <figure>
+                    <img className="figure-1" src={figure1}/>
+                </figure>
+            </div>
+        </React.Fragment>
+        <React.Fragment>
+            <div className="about-content-block">
+                <div className="about-content about-content-left">
+                    <div className="about-sidebar-div">
+                        <ul className="about-sidebar">
+                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><Link className="about-sidebar-li-question-a" to='/about' onClick={phoneDialer(1)}>+1-xxx-xxx-xxxx</Link></li>
+                        </ul>
                     </div>
                 </div>
-                <div className="column">
-                    <div className="tabs">
-                        <div className={toggleTab ===1 ?"single-tab active-tab": "single-tab"}
-                        onClick = {() => toggleState(1)}>
-                            <h2>
-                                About
-                            </h2>
-                        </div>
 
-                        <div className={toggleTab === 2 ?"single-tab active-tab": "single-tab"}
-                        onClick = {() => toggleState(2)}>
-                            <h2>
-                                Vision
-                            </h2>
+                <div className="about-content about-content-right">
+                    <div className="content-1 content-block">
+                        <div className="content-1-head content-head">
+                            Bringing people together changes everything.
                         </div>
-
-                        <div className={toggleTab === 3 ?"single-tab active-tab": "single-tab"}
-                        onClick = {() => toggleState(3)}>
-                            <h2>
-                                Client
-                            </h2>
+                        <div className="content-1-details  content-details">
+                        From the start, Salesforce has sought to change the world for the better through technology that builds stronger relationships. Between companies and their customers. Between employees and far-flung teams. Between governments and their citizens. Between people who want to make a difference.
                         </div>
-
-                        {/* <div className={toggleTab === 4 ?"single-tab active-tab": "single-tab"}
-                        onClick = {() => toggleState(4)}>
-                            <h2>
-                                Feedback
-                            </h2>
-                        </div>
-
-                        <div className={toggleTab === 5 ?"single-tab active-tab": "single-tab"}
-                        onClick = {() => toggleState(5)}>
-                            <h2>
-                                Events
-                            </h2>
-                        </div> */}
-                    </div>
-                    <div className="tab-content">
-                    {/* About content */}
-                    <div className={toggleTab === 1 ?"content active-content":"content"} >
-                        <h2>Our Story</h2>
-                    <p> {items.para1}</p>
-                        <h3>Our Story</h3>
-                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                       
                     </div>
 
-                    {/* vision content */}
+                    <div id="our-story" className="content-2 content-block">
+                        <div className="content-2-head content-small-head content-head">
+                            Our story
+                        </div>
+                        <div className="content-2-details  content-details">
+                            When we come together, we unlock hidden potential. We unify people to help businesses and communities pursue their loftiest goals, solve their thorniest challenges, and harness their success to leave our planet a little better than we found it.
+                        </div>
+                        <div className="content-2-1-details  content-details">
+                            The world will continue to change. Technology will evolve. Business will pivot and pivot again. But relationships, built on trust and respect, will help us face the future, come what may.
+                        </div>
+                    </div>
 
-                    <div className={toggleTab === 2 ?"content active-content":"content"}>
-                        <h2>Our Story</h2>
-                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        <h3>Our Story</h3>
-                        <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                         
-                         <div className="vision-row">
-
-                            <div classname="vision-column">
-                                <div className="progress-wrap">
-                                    <h3>developers</h3>
-                                    <div className="progress">
-                                        <div className="progess-bar">
-                                            <span>90%</span>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="content-3 content-block">
+                        <div className="content-3-head content-small-head content-head">
+                            <figure>
+                                <img className="figure-ceo" alt="The CEO" src={figure1}/>
+                            </figure>
+                        </div>
+                        <div className="content-ceo-text content-details">
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, exercitationem sed ut molestiae autem nostrum illum."
+                            <br/>
+                            <div className="content-ceo-name">
+                                Rahul Narang, CEO
                             </div>
-                            <div classname="vision-column">
-                                <div className="progress-wrap">
-                                    <h3>developers</h3>
-                                    <div className="progress">
-                                        <div className="progess-bar">
-                                            <span>90%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div classname="vision-column">
-                                <div className="progress-wrap">
-                                    <h3>developers</h3>
-                                    <div className="progress">
-                                        <div className="progess-bar">
-                                            <span>90%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-
-                    {/* next */}
-
-                    <div className={toggleTab === 3 ?"content active-content":"content"}>
-                        <div className="exp-column">
-                            <h3>Who are we?</h3>
-                            <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                         
-                        </div>
-
-                        <div className="exp-column">
-                            <h3>How it works</h3>
-                            <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                         
-                        </div>
-
-                        <div className="exp-column">
-                            <h3>Events</h3>
-                            <p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                         
                         </div>
                     </div>
+
+                    <div className="content-4 content-block">
+                        <div className="content-4-head content-small-head content-head">
+                            We believe business is the greatest platform for change.
+                        </div>
+                        <div className="content-4-details  content-details">
+                            We are passionate proponents of stakeholder capitalism, committed to doing well by all our stakeholders — our customers, employees, partners, communities, the planet, and society as a whole.
+                        </div>
+                        <div className="content-4-1-details  content-details">
+                            And we lead by example, spearheading initiatives in philanthropy, racial equality and justice, climate action and advocacy, and the ethical and humane use of technology.
+                        </div>
                     </div>
+
+                    <div className="content-5 content-block">
+                        <div className="content-5-head content-small-head content-head">
+                            We believe business is the greatest platform for change.
+                        </div>
+                        <div className="content-5-details  content-details">
+                            We are passionate proponents of stakeholder capitalism, committed to doing well by all our stakeholders — our customers, employees, partners, communities, the planet, and society as a whole.
+                        </div>
+                    </div>
+
+                    <div className="content-6 content-block">
+                        <div className="content-4-head content-small-head content-head">
+                            We believe business is the greatest platform for change.
+                        </div>
+                        <div className="content-6-details  content-details">
+                            We are passionate proponents of stakeholder capitalism, committed to doing well by all our stakeholders — our customers, employees, partners, communities, the planet, and society as a whole.
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </section>
-      </Fragment>
-
-        // <div className='aboutus-top'>
-        // <h3 className='title-h1'>About us</h3>
-        //     <div className='spacing'>
-        //         <div className='column' id="column1">
-        //             <h1 id='aboutus-h1'>Our Purpose</h1>
-        //             <p id='aboutus-p'>
-        //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        //             </p>
-        //             </div>
-        //             <div className='column' id="column2">
-        //             <h1 id='aboutus-h1'>Who we are</h1>
-        //             <p id='aboutus-p'>
-        //                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        //             </p>
-        //         </div>
-        //     </div>
-        // </div>
+        </React.Fragment>
+      </>
     )
 }
 

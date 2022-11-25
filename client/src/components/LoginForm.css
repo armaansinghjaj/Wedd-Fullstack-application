@@ -14,6 +14,7 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 }
 
+
 .login-top {
   position: relative;
   box-sizing: border-box;
@@ -40,7 +41,7 @@
   font-size: 3rem;
   padding: 0;
   position: relative;
-  right: 9%;
+  right: -17%;
 }
 
 input[id="login-input"],
@@ -149,7 +150,15 @@ button.social-login.google {
   position: relative;
   margin-top: -8ch;
   left: 25%;
-  bottom: 9%;
+  bottom: -22%;
+}
+
+.forgot-password{
+  width: 37vh;
+  position: relative;
+  margin-top: -8ch;
+  left: 25%;
+  bottom: -42%;
 }
 
 #signup-text {
@@ -184,7 +193,7 @@ button.social-login.google {
   background-color: rgb(108, 108, 108);
   height: 1px;
   width: 410px;
-  margin-top: -35px;
+  margin-top: -30px;
   margin-bottom:30px ;
   margin-left: auto;
   margin-right: auto;
@@ -254,21 +263,22 @@ button.social-login.google {
   }
 }
 
-@media only screen and (max-device-width: 390px){
+@media only screen and (max-device-width: 375px){
 
   #login-container {
+    position: relative;
+    right: 1%;
     margin: 30% auto;
-    width: 22rem;
-    height: 27rem;
+    width: 19.375rem;
+    height: 24rem;
    
   }
 
   #login-h1 {
-  
-    margin: 1em 0em;
-    font-weight: 300;
+    
+    font-weight: 400;
     font-size: 2rem;
-    left: 30%;
+    left: 25%;
   }
 
   .login-top {
@@ -297,8 +307,8 @@ button.social-login.google {
 
   .dividerl{
     height: 1px;
-    width: 310px;
-    margin-top: 5ch;
+    width: 250px;
+    margin-top: 3ch;
   }
 
   #link-container {
@@ -313,5 +323,28 @@ button.social-login.google {
     margin-left: 2%;
   }
 
+  input[id="login-input"],
+  input[id="login-password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem;
+  padding: 0.2rem;
+  width: 13rem;
+  margin-left: -3%;
+  height: 1.5rem;
+  border: none;
+  border-bottom: 0.063rem solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.1em;
+  transition: 0.2s ease;
+}
+
+input[id="login-input"]:focus,
+input[id="login-password"]:focus {
+  border-bottom: 0.125rem solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
 }
 

@@ -19,7 +19,7 @@ import './VerticalNavbar.css';
 
             <ul className='link-wrapper'>
             <li>
-                    <Link className={location.pathname === 'Employeeprofile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Employeeprofile'>Profile</Link>
+                    <Link className={location.pathname === 'Employeeprofile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin'>Profile</Link>
                 </li>
                 <li>
                     <Link className={location.pathname === '/BackgroundEditHome'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditHome'>Edit Backgrounds</Link>

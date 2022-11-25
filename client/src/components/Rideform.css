@@ -1,13 +1,52 @@
+.parent-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    /* align-items: center; */
+}
+.child-container{
+    top: 0;
+    display: block;
+    width:50vw;
+    height: 100%;
+    top: 0;
+    position: absolute;
+}
+.ride-background-img{
+    z-index: -5;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+.ride-conatiner-right{
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px);
+    background-color: #ffffff85;
+}
+#ride-with{
+    position: relative;
+    margin-top: -13%;
+    font-size: 5rem;
+    color: rgb(5, 5, 5);
+     font-weight: 500;
+}
 
 .ride-container {
     position: relative;
     margin: 17% auto;
     width: 37.5rem;
     height: 38rem;
-    background: #FFF;
-    border-radius: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background: none;
+    
+   
   }
+
+  /* .map-container{
+    width: 50%;
+    height: 50px;
+    background-color:#16a085;
+    border: #AAA;
+  } */
 
   .ride-background {
     height: 100%;
@@ -16,7 +55,7 @@
   .ride-left {
     position: relative;
     top: 0;
-    left: 0;
+    left: -25%;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -25,7 +64,7 @@
 
   .ride-right {
     position: relative;
-    bottom: 25.1rem;
+    bottom: 27rem;
     left: 15rem;
     box-sizing: border-box;
     padding: 2.5rem;
@@ -38,30 +77,34 @@
 .ride-bottom {
   position: relative;
   bottom: 27.5rem;
-  left: 2.625rem;
+  margin-top:-25%;
+  left: -3rem;
   height: 19vh;
   width: 86%;
 }
 
   #ride-contact {
-    color: black;  
-    margin: 0rem 0rem 1.25rem 0rem;
-    font-weight: 400;
-    font-size: 1.75rem;
+    color: rgb(5, 5, 5);  
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.4rem;
   }
 
 input[id="ride-input"] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 1.25rem;
+  background: transparent;
+  outline: none;
   padding: 0.25rem;
   width: 13.75rem;
   height: 2rem;
   border: none;
+  color: white;
   border-bottom: 1px solid #AAA;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 0.938rem;
+  font-size: 1rem;
   transition: 0.2s ease;
 }
 
@@ -73,13 +116,13 @@ input[id="ride-input"]:focus{
 
 input[id="ride-submit"] {
     position: relative;
-    left: 35%;
+    outline: none;
+    left: 50%;
     bottom: 3rem;
-    margin-top: 4.3rem;
+    margin-top: 4.5rem;
     width: 9em;
-    height: 2.5rem;
+    height: 2.8rem;
     background: #16a085;
-    color: #FFF;
     border: none;
     border-radius: 2rem;
     font-family: 'Roboto', sans-serif;
@@ -88,7 +131,6 @@ input[id="ride-submit"] {
     text-transform: uppercase;
     transition: 0.1s ease;
     cursor: pointer;
-
   }
 
 input[id="ride-submit"]:hover,
@@ -105,9 +147,11 @@ input [id="ride-submit"]:active {
 }
 
 .ride-location {
-    margin-top: 2.25rem;
+    position: relative;
+    margin-top: 0rem;
+    left: 05%;
     margin-bottom: 1.25rem;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: black;
     font-weight: 400;
 }
@@ -116,8 +160,8 @@ input [id="ride-submit"]:active {
   position: relative;
     color: #000000;  
     margin: 0 0 0.15rem 0;
-    font-weight: 300;
-    font-size: 0.75rem;
+    font-weight: 500;
+    font-size: 1.4rem;
     text-align: left;
     right: 32%;
 }
@@ -126,11 +170,14 @@ input [id="ride-submit"]:active {
   position:relative;
   color: black;  
   margin: 0 0 0.0rem 0;
-  font-weight: 300;
-  font-size: 1.75rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   text-align: right;
   bottom: 68%;
-  right: 13%;
+  right: -13%;
+}
+#car-label1,#car-label{
+    color: white;
 }
 
 .payment-right {
@@ -158,7 +205,8 @@ input [id="ride-submit"]:active {
   align-items: center;
   justify-content: center;
   margin-top: 0ch;
-  
+  position: relative;
+  margin-left: 8rem;
 
 }
 
@@ -188,8 +236,9 @@ input [id="ride-submit"]:active {
   
 }
 
-.payment-label {
+#payment-label {
   position: relative;
+  color: white;
 
 }
 
@@ -207,7 +256,7 @@ input[id="ride-submit"] {
 
 #discount_code{
   position: relative;
-  right: 1%;
+  margin-left: 20%;
   width: 7rem;
   border: 1px solid #d2d2d2;
   padding: 7px 0;
@@ -231,7 +280,17 @@ input[id="ride-submit"] {
 }
 
 #car,#car1{
-  margin-top: 0ch;
+  margin-top: 5ch;
+}
+#car2{
+position: relative;
+top: -2.5ch;
+left: 0.5ch;
+}
+#car-label1{
+  position: relative;
+  left:7ch;
+  top:-4ch;
 }
 
 #ride-submit{
@@ -259,30 +318,24 @@ input[id="ride-submit"] {
   right:5%
 }
 
-input[id="ride-input"] {
- 
-  margin-bottom: 1rem;
-  padding: 0%;
-  width: 8.75rem;
-  height: 1rem;
-  font-weight: 300;
- margin-right: 5px;
-}
+
 
 
 .payment-type {
-   
-  margin-top: -15%;;
-  font-weight: 300;
-  font-size: 1.55rem;
-  text-align: center;
+   position: relative;
+  margin-top: -18%;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 500;
+  margin-left: 30%;
 }
 .ride-location {
   margin-top: 2.25rem;
   margin-bottom: 1.25rem;
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   color: black;
-  font-weight: 300;
+  font-weight: 500;
   margin-right: 10%;
 }
 
@@ -300,18 +353,24 @@ input[id="ride-input"] {
 
 input[id="ride-submit"] {
   
-  left: 35%;
+  left: 55%;
   width: 7em;
-  height: 1.5rem;
+  color: white;
+  height: 1.8rem;
   font-weight: 300;
   font-size: 1rem;
-  top: 60px;;
+  top: 70px;;
   
+}
+.car-type{
+  position: relative;
+ margin-top: -4%; 
 }
 
 }
 
 @media screen and (max-device-width:479px){
+  
   .ride-container {
     position: relative;
     margin: 30% auto;
@@ -322,7 +381,7 @@ input[id="ride-submit"] {
 
   .ride-location {
   
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: black;
     font-weight: 400;
    
@@ -341,8 +400,8 @@ input[id="ride-submit"] {
  .payment-type {
   color: black;  
   margin: 0 0 1rem 0;
-  font-weight: 200;
-  font-size: 1.20rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   text-align: left;
   left: 2%;
 }
@@ -401,23 +460,37 @@ input[id="ride-submit"] {
   top: -30px;
 }
 
+
 }
 
-@media screen and (max-device-width:390px){
+@media screen and (max-device-width:375px){
 
   .ride-container {
     position: relative;
-    margin: 35% auto;
-    width: 21rem;
-    height: 42rem;
+    width: 90vw;
+    height: 82vh;
     background: #FFF;
-    border-radius: 16px;
+    border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  #ride-contact{
+    position: relative;
+    font-size: 1.5em;
+    margin-left: -3ch;
+    font-weight: 300;
+    margin-right: auto;
+  }
+  .ride-location{
+    position: relative;
+     font-size: 1.4rem;
+    margin-left: 0ch;
+    font-weight: 300;
+    margin-right: auto;
   }
   .ride-left {
     position: relative;
     top: -3ch;
-    left: 20%;
+    margin-left: 20%;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -425,14 +498,20 @@ input[id="ride-submit"] {
   }
   .ride-right {
     position: relative;
-    margin-top: 35%;
+    margin-top: 29%;
     left: 20%;
-    
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
     height: 25rem;
     
+}
+.payment-type{
+  font-weight: 500;
+ position: relative;
+  font-size: 1.5rem;
+ left: -6%;
+ margin-right: auto;
 }
 .payment-left {
   display: flex;
@@ -466,4 +545,47 @@ input[id="ride-submit"] {
   top: 5ch;
   margin-left: -10%;
 }
+
+input[id="ride-input"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem;
+  padding: 0.25rem;
+  width: 8rem;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 1.1em;
+  font-size: 1.4ch;
+  transition: 0.2s ease;
+}
+.car-type{
+  font-weight: 300;
+   position: relative;
+  font-size: 1.5em;
+  left:-40%;
+  margin-right: auto;
+}
+#car2{
+  position: relative;
+  top:-2.4ch;
+  left:0.4ch
+}
+#car-label1{
+  position: relative;
+  left:7ch;
+  top:-4ch;
+}
+#car-checklist{
+  position: relative;
+ 
+}
+.car-left{
+  position: relative;
+  top:-3ch;
+}
+.discount-code-div{
+  position: relative;
+  top:-0.5ch;
+}
+
 }

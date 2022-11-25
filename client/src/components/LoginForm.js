@@ -81,7 +81,7 @@ function LoginForm() {
 
             <form id='loginForm' onSubmit={handleFormSubmit}>
                 <div className="login-top">
-                    <h1 id='login-h1'>LOGIN</h1>
+                    <h1 id='login-h1'>Login</h1>
                     
                     <input type="text" name="email" placeholder="Email" id='login-input' onChange={handleEmailChange} value={email}/>
                     {emailError&&<div className='error-msg'>{emailError}</div>}
@@ -99,6 +99,12 @@ function LoginForm() {
             <div id='link-container'>
                 <span id='signup-text'>Dont have an account?</span> 
                 <Link to='/signup' className='signup-route'>Sign up here!</Link>
+             
+            </div>
+
+            <div className="forgot-password">
+                <span id='pass-txt'>Forget your password?</span>
+                <Link to='/forget' className='forgot-route'>Forget Password?</Link>
             </div>
         </div>
     )

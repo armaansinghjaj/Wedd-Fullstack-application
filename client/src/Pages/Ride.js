@@ -1,10 +1,9 @@
-import React from "react";
-import "../App.css";
-import Background from "../components/Background-ride";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import Updates from "../components/CardNews";
-import Maps from "../components/maps";
+import React from 'react';
+import '../App.css';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import RideForm from '../components/Rideform';
+import Updates from '../components/CardNews';
 
 export default function Ride() {
 	return (
@@ -12,7 +11,7 @@ export default function Ride() {
 			<NavBar />
 			<Updates />
 			<Maps />
-			<Background />
+			<RideForm/>
 			<Footer />
 			<input type="hidden" id="startlat" name="startlat" />
 			<input type="hidden" id="startlng" name="startlng" />

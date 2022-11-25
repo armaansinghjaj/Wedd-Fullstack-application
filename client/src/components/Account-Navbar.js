@@ -51,7 +51,7 @@ export default function AccountNavbar() {
 
                 <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
                         <li>
-                            <Link className={'h-nav-links'} to='/profile' onClick={closeMobileMenu}>Settings and Profile</Link>
+                            <Link className={'h-nav-links'} to='/customerprofile' onClick={closeMobileMenu}>Settings and Profile</Link>
                         </li>
                         <li>
                             <Link className={'h-nav-links'} to='/triphistory' onClick={closeMobileMenu}>Trip History</Link>
