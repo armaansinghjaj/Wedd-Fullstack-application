@@ -99,6 +99,12 @@ function LoginForm() {
             <div id='link-container'>
                 <span id='signup-text'>Dont have an account?</span> 
                 <Link to='/signup' className='signup-route'>Sign up here!</Link>
+             
+            </div>
+
+            <div className="forgot-password">
+                <span id='pass-txt'>Forget your password?</span>
+                <Link to='/forget' className='forgot-route'>Forget Password?</Link>
             </div>
         </div>
     )

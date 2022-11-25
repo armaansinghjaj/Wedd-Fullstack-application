@@ -178,9 +178,15 @@ function Rideform() {
                         <div className="submit-btn-div">
                             <input type="submit" id='ride-submit' value="Submit"></input>
                         </div>
+
+                        
                 </div>
                 </form>
-            </div>
+                 {/* <div className="map-container">
+                <p>ide</p>
+                </div> */}
+            </div> 
+            
         </div>
          </div>
          

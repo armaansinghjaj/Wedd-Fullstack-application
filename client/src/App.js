@@ -8,6 +8,7 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import Forgetpass from './Pages/Forgetpass';
 
 import Admin from './Pages/Admin';
 
@@ -56,6 +57,7 @@ const App = () => {
         <Route path= '/services'  element={<Contact/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
+        <Route path= '/forget'  element={<Forgetpass/>}/>
         
         {/* Ride Pages is pending yet */}
         <Route path= '/ride'  element={<Ride/>}/> 
