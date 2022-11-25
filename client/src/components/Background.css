@@ -200,6 +200,50 @@ input[id='home-ride-input']{
   height: 100vh;
 }
 
+.rideComplete-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideSearching-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideConnected-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideConfirmation-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
 @media only screen and (max-device-width: 767px){
 
 

@@ -1,0 +1,84 @@
+/* Ride confirm css */
+#confirm-container {
+    position: relative;
+    top: 5%;
+    left: 2.5%;
+    height: 80vh;
+    width: 95vw;
+    background-color: rgb(209, 105, 45);
+    border-radius: 1rem;
+}
+
+#map_div{
+    position: relative;
+    top: 0.5%;
+    left: 0.5%;
+    background-color: white;
+    width: 99%;
+    height: 99%;
+    border-radius: 1em;
+}
+
+
+#info_div{
+    position: relative;
+    bottom: 27%;
+    left: 2%;
+    background-color: white;
+    width: 14vw;
+    box-shadow: 0px 5px 15px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+    border-radius: 0.5em;
+    height: 20vh;
+}
+
+#buttons {
+    position: relative;
+    top: 19%;
+    left: 18%;
+    background-color: white;
+    box-shadow: 0px 5px 15px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+    height: 4rem;
+    width: 8vw;
+    border-radius: 0.5em;
+}
+
+#get_map{
+    position: relative;
+    left: 24%;
+    margin: 0.5em;
+}
+
+#ride-confirm-form{
+    position: relative;
+    left: 26%;
+    margin: 0.5em;
+}
+
+
+#estimate {
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 5px 15px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    width: 5rem;
+    height: 2rem;
+    top: 29.2%;
+    left: 28%;
+    border-radius: 0.5em;
+}
+
+#getquote {
+    position: relative;
+    left: 11%;
+    top: 18%;
+}
+
+
+
+
+/* Ride searching css */
+

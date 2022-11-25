@@ -5,10 +5,8 @@ export default function rideSearching() {
     return(
 
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
-                    <Search/>
-                </div>
+            <div className='.rideSearching-container'>
+                <Search/>
             </div>
         </>
     ) 

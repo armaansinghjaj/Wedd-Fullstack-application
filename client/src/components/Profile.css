@@ -1,6 +1,54 @@
 .profile-container{
    position: relative;
-   left: 10%;
-   background-color: rgb(88, 88, 88);
-   border-radius: 1.2rem;
+   justify-content: center; 
+   margin-left: 10ch;
+}
+#change-profile{
+    font-size: 6ch;
+}
+#change-profilei{
+    position: relative;
+    font-size: 6ch;
+    top: 2ch;
+}
+#change-profilec{
+    position: relative;
+    font-size: 6ch;
+    top: 1ch;
+}
+#employee_name{
+    position: relative;
+    margin-left: 11ch;
+    top: -3.7ch;
+}
+#input{
+    margin-top: 5ch;
+}
+#inputemail{
+    position: relative;
+    margin-top: -4ch;
+}
+#employee_email{
+    position: relative;
+    left: 2ch;
+}
+#submit{
+    position: relative;
+    top: 1rem;
+    left: 5rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+#submit:hover{
+    transition: all 0.3s ease-out;
+    background: #ff7248;
+    color: #fff;
+    transition: 250ms;
+}
+.change{
+    position: relative;
+    top: 5ch;
 }

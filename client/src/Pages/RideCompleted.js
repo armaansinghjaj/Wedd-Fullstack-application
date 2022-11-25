@@ -6,10 +6,8 @@ export default function rideComplete() {
     return(
 
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
+            <div className='rideComplete-container'>
                     <Complete/>
-                </div>
             </div>
         </>
     ) 

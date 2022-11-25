@@ -5,10 +5,9 @@ export default function rideConnected() {
     return(
 
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
+            <div className='rideConnected-container'>
                     <Connected/>
-                </div>
+
             </div>
         </>
     ) 

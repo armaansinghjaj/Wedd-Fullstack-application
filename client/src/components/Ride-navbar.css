@@ -1,0 +1,56 @@
+#ride-navbar {
+    position: relative;
+    top: 1%;
+    width: 97%;
+    left: 1.5%;
+    border-radius: 5px;
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+  }
+
+  .ride-navbar-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+  }
+
+.ride-navbar-logo {
+    position: relative;
+    left: 58%;
+    color: #e64c1b;
+    justify-self: start;
+    margin-bottom: 0.8rem;
+    width: 6rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding-top: 15px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+@media screen and (max-width: 414px) {
+
+}
+@media screen and (max-width: 390px) {
+
+}
+
+@media screen and (max-width: 375px) {
+    /* #ride-navbar {
+
+    }
+    
+    .ride-navbar-container {
+
+    }
+    
+    .ride-navbar-logo {
+
+    } */
+}
+
+
+  

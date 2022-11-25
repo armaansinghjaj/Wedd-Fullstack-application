@@ -4,7 +4,7 @@ export default function rideConnecting() {
     return(
         <>
         
-        <div>
+        <div id="connect-container">
             {/* <% if (driver_available === true) { %> */}
         <input type="hidden" value="<%= startlat %>" name="startlat" id="startlat"/>
         <input type="hidden" value="<%= startlng %>" name="startlng" id="startlng"/>

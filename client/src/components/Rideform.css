@@ -40,13 +40,6 @@
    
   }
 
-  /* .map-container{
-    width: 50%;
-    height: 50px;
-    background-color:#16a085;
-    border: #AAA;
-  } */
-
   .ride-background {
     height: 100%;
   }
@@ -406,15 +399,15 @@ input[id="ride-submit"] {
 }
 
 
-.car-type{
-color: black;  
-margin: 0 0 1rem 0;
-font-weight: 200;
-font-size: 1.20rem;
-text-align: right;
-right: 25%;
-bottom: 81%;
-}
+  .car-type{
+  color: black;  
+  margin: 0 0 1rem 0;
+  font-weight: 200;
+  font-size: 1.20rem;
+  text-align: right;
+  right: 25%;
+  bottom: 81%;
+  }
 
 .payment-right {
   position: absolute;

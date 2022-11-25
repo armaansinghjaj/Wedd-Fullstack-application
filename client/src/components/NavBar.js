@@ -54,7 +54,7 @@ function NavBar() {
     return (
 
         <>
-            <nav  id='navbar' className={cls}>
+            <nav id='navbar' className={cls}>
                 <div className="navbar-container">
                         <Link to="/Home" className="navbar-logo" onClick={scrollAndClose}>WeDD <i className=''/>
                         </Link>

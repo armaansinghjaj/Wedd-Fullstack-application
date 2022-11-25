@@ -5,7 +5,7 @@ export default function EmployeeProfile() {
 
     return(
         <>
-        <div className="employeeprofile-container">
+        <div className="profile-container">
             <h1 id="change-profile">Change profile</h1>
            
             <form action="/employeeprofile/account?option=details" method="post">
