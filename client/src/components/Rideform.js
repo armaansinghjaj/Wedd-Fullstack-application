@@ -104,7 +104,7 @@ function Rideform() {
                 <form onSubmit={handleFormSubmit}>
                 <h1 id='ride-with'>Ride With Us</h1>
                 <div className='ride-left'>
-                    <h2 id='ride-contact'>Contact Information:</h2>  
+                    <h2 id='ride-contact'>Contact Information</h2>  
                     <input placeholder='Name ' id='ride-input' type='text' value={Name} onChange={handleNameChange}
 />
                     {nameError&&<div className='error-msg'>{nameError}</div>}
@@ -118,7 +118,7 @@ function Rideform() {
 
 
                 <div className='ride-right'>
-                <h2 className='ride-location'>Location:</h2> 
+                <h2 className='ride-location'>Location</h2> 
                     <input className="ride-Paddri" placeholder='Pick-up Location ' id='ride-input' type='text' value={Pickup} onChange={handlePickupChange}
 />
                     {PickupError&&<div className='error-msg'>{PickupError}</div>}
