@@ -14,6 +14,7 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 }
 
+
 .login-top {
   position: relative;
   box-sizing: border-box;
@@ -149,7 +150,15 @@ button.social-login.google {
   position: relative;
   margin-top: -8ch;
   left: 25%;
-  bottom: 9%;
+  bottom: -22%;
+}
+
+.forgot-password{
+  width: 37vh;
+  position: relative;
+  margin-top: -8ch;
+  left: 25%;
+  bottom: -42%;
 }
 
 #signup-text {
