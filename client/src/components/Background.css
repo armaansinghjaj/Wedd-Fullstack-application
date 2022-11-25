@@ -274,7 +274,16 @@ input[id='home-ride-input']{
 
 @media only screen and (max-width: 390px) {
 
+  .form-head {
+    position: relative;
+    width: 150%;
+    right: 60%;
+  }
 
+  #home-ride-submit {
+    position: relative;
+    left: 20%;
+  }
 }
 
 
