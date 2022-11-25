@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from '../components/map';
+import Maps from '../components/maps';
 
 export default function RideConfirm() {
 
@@ -10,7 +10,7 @@ export default function RideConfirm() {
         
         <div id="map_div" >
             {/* <%- include("map") -%> <br> */}
-            <Map></Map>
+            <Maps></Maps>
             <div id="estimate">
                 <button id="getquote">Get Quote</button>
             </div>
