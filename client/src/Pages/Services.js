@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Background from '../components/Customer-components/Background-contact';
+import Services from '../components/Customer-components/Services-components/Service';
 import NavBar from '../components/Customer-components/Navbar-components/NavBar';
 import Footer from '../components/Customer-components/Footer-components/Footer';
 import Updates from '../components/Customer-components/Homepage-components/CardNews';
@@ -8,12 +8,12 @@ import Updates from '../components/Customer-components/Homepage-components/CardN
 
 function Contact() {
     return (
-        <div>
+        <>
           <NavBar/>
-          <Updates/>
-          <Background />
+          {/*<Updates/>*/}
+          <Services/>
           <Footer />
-        </div>
+        </>
       )
 }
 export default Contact; 
