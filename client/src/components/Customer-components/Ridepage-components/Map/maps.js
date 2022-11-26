@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import * as LR from "react-leaflet";
 import * as G from "leaflet-control-geocoder";
-import * as R from "leaflet-routing-machine";
+// import * as R from "leaflet-routing-machine";
 
 import "./map.css";
 import "leaflet/dist/leaflet";
@@ -17,7 +17,7 @@ let startlng = null;
 let destlat = null;
 let destlng = null;
 
-function Leaflet_maps() {
+function LeafletMaps() {
 	var map = LR.useMap();
 
 	G.geocoder().addTo(map);
@@ -52,8 +52,6 @@ function Leaflet_maps() {
 		userlocationlng = long;
 	}
 
-	
-
 	function addRoute() {
 		startlat = parseFloat(document.getElementById("startlat").value);
 		startlng = parseFloat(document.getElementById("startlng").value);
@@ -67,7 +65,7 @@ function Leaflet_maps() {
 		let pickup = document.getElementById("picks").value;
 		pickup = pickup.replace(" ", "+");
 		var url = "https://nominatim.openstreetmap.org/?q=" + pickup + "&format=json";
-		var xmldoc = null;
+		// var xmldoc = null;
 		return fetch(url)
 			.then((response) => response.text())
 			.then((str) => {
@@ -79,7 +77,7 @@ function Leaflet_maps() {
 				let destination = document.getElementById("dest").value;
 				destination = destination.replace(" ", "+");
 				var url = "https://nominatim.openstreetmap.org/?q=" + destination + "&format=json";
-				var xmldoc = null;
+				// var xmldoc = null;
 				return fetch(url)
 					.then((response) => response.text())
 					.then((str) => {
@@ -91,25 +89,24 @@ function Leaflet_maps() {
 			});
 	}
 
-	if (document.getElementById("map_state").value == "1") {
-		// document.getElementById("dest").addEventListener("input", () => {
-		// 	updateLatLng();
-		// });
-		// document.getElementById("picks").addEventListener("input", () => {
-		// 	updateLatLng();
-		// });
-
-		// document.getElementById("gps").addEventListener("click", () => {
-		// 	var url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + userlocationlat + "&lon=" + userlocationlng;
-		// 	var xmldoc = null;
-		// 	return fetch(url)
-		// 		.then((response) => response.text())
-		// 		.then((str) => {
-		// 			document.getElementById("picks").value = JSON.parse(str).display_name;
-		// 		});
-		// });
+	if (document.getElementById("map_state").value === "1") {
+		document.getElementById("gps").addEventListener("click", () => {
+			var url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + userlocationlat + "&lon=" + userlocationlng;
+			// var xmldoc = null;
+			return fetch(url)
+				.then((response) => response.text())
+				.then((str) => {
+					document.getElementById("picks").value = JSON.parse(str).display_name;
+				});
+		});
+		document.getElementById("picks").addEventListener("input", () => {
+			updateLatLng();
+		});
+		document.getElementById("dest").addEventListener("input", () => {
+			updateLatLng();
+		});
 	}
-	if (document.getElementById("map_state").value == "2") {
+	if (document.getElementById("map_state").value === "2") {
 		addRoute();
 
 		document.getElementById("get_map").addEventListener("click", () => {
@@ -137,7 +134,7 @@ function Leaflet_maps() {
 			document.getElementById("estimate").innerHTML = "Estimate: " + price + "$ (This is just an estimate the price may change)";
 		});
 	}
-	if (document.getElementById("map_state").value == "3") {
+	if (document.getElementById("map_state").value === "3") {
 		addRoute();
 	}
 }
@@ -147,7 +144,7 @@ export default function maps() {
 		<>
 			<LR.MapContainer center={[51.0447, -114.0719]} id="map" style={{height: "50vh", width: "50vw"}} zoom={12}>
 				<LR.TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={17}></LR.TileLayer>
-				<Leaflet_maps />
+				<LeafletMaps />
 			</LR.MapContainer>
 		</>
 	);

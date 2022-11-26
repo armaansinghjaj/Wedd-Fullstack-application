@@ -60,7 +60,7 @@ const App = () => {
         
         {/* Ride Pages is pending yet */}
         <Route path= '/ride'  element={<Ride/>}/> 
-        <Route path= '/rideConfirm'  element={<RideConfirm/>}/> 
+        <Route path= '/ride/confirm'  element={<RideConfirm/>}/> 
         <Route path= '/rideSearching'  element={<RideSearching/>}/> 
         <Route path= '/rideConnected'  element={<RideConnected/>}/> 
         <Route path= '/rideCompleted'  element={<RideCompleted/>}/> 

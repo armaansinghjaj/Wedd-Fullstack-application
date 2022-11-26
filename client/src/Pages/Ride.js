@@ -14,12 +14,7 @@ export default function Ride() {
 			<Maps />
 			<RideForm/>
 			<Footer />
-			<input type="hidden" id="startlat" name="startlat" />
-			<input type="hidden" id="startlng" name="startlng" />
-			<input type="hidden" id="destlat" name="destlat" />
-			<input type="hidden" id="destlng" name="destlng" />
-			<input type="hidden" id="action" name="action" value="request" />
-			<input type="hidden" value="1" id="map_state"></input>
+			
 		</div>
 	);
 }

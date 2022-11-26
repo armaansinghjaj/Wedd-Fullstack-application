@@ -102,7 +102,7 @@ function NavBar() {
                     </ul>
                     <div className="navbar-profile-menu">
                         {cookies.get('uid') && <div className="navbar-user-link">
-                            <Link to={{javascript:void(0)}}>{cookies.get('uid').charAt(0).toUpperCase() + cookies.get('uid').slice(1)} <i class='fas fa-angle-down'></i><i class='fas fa-angle-up'></i></Link>
+                            <Link to={{javascript:void(0)}}>{cookies.get('uid').charAt(0).toUpperCase() + cookies.get('uid').slice(1)} <i className='fas fa-angle-down'></i><i className='fas fa-angle-up'></i></Link>
                             <Dropdown/>
                         </div>}
                         {!cookies.get('uid') && <div className="navbar-buttons">
