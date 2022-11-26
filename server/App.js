@@ -68,7 +68,7 @@ const employeeRoute = require("./routes/EmployeeProfile");
 app.use("/api/", homeRoute);
 app.use("/api/login", loginRoute);
 app.use("/api/signup", signupRoute);
-app.use("/api/profile", profileRoute);
+app.use("/api/account", profileRoute);
 app.use("/api/about", aboutPageRoute);
 app.use("/api/services", servicesRoute);
 app.use("/api/ride", rideRoute);

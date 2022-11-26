@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
-import '../components/Background.css';
+import '../components/Customer-components/Background.css';
 
 function BackgroundHome() {
 

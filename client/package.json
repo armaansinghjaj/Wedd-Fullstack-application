@@ -10,12 +10,15 @@
     "cors": "^2.8.5",
     "http-proxy-middleware": "^2.0.6",
     "leaflet": "^1.9.3",
+    "leaflet-control-geocoder": "^2.4.0",
+    "leaflet-routing-machine": "^3.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-leaflet": "^4.1.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

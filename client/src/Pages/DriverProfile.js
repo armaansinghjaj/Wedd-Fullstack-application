@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import DProfile from '../components/Driver-Profile';
-import DriverNavbar from '../components/DriverNavbar.js'
+import DProfile from '../components/Driver-components/Driver-Profile';
+import DriverNavbar from '../components/Driver-components/Driver-Sidebar'
 
 export default function DriverProfile() {
   return (

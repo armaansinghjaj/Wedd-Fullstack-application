@@ -1,15 +1,14 @@
 import React from "react";
-import Complete from '../components/ride-completed'
-import Footer from "../components/Footer";
+import Complete from '../components/Customer-components/Ridepage-components/Ride-process/ride-completed'
+import RideNavbar from '../components/Customer-components/Ridepage-components/Ride-navbar'
 
 export default function rideComplete() {
     return(
 
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
-                    <Complete/>
-                </div>
+            <div className='rideComplete-container'>
+                <RideNavbar/>
+                <Complete/>
             </div>
         </>
     ) 

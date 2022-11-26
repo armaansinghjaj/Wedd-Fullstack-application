@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from './Pages/Home';
 import About from './Pages/About';
-import Contact from './Pages/Contact';
+import Services from './Pages/Services';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import Forgetpass from './Pages/Forgetpass';
@@ -16,7 +16,7 @@ import Admin from './Pages/Admin';
 import DriverProfile from './Pages/DriverProfile';
 import Driver from './Pages/Driver';
 import DriverDashboard from './Pages/DriverDashboard';
-import DriverRequests from './Pages/DriverAvailRequests';
+import DriverRequests from './Pages/Driver-Available-Requests';
 
 // Ride Pages
 import Ride from './Pages/Ride';
@@ -34,9 +34,9 @@ import ContactRequests from './Pages/ContactRequests';
 import AdminRideRequests from './Pages/RideRequests';
 
 // Background edit pages
-import BgHome from './components/BackgroundEditHome';
-import BgAbout from './components/BackgroundEditAbout';
-import BgContact from './components/BackgroundEditContact'
+import BgHome from './components/Admin-components/Edit-Background-Home';
+import BgAbout from './components/Admin-components/Edit-Background-About';
+import BgContact from './components/Admin-components/Edit-Background-About'
 
 // Customer account pages
 import CustomerProfile from './Pages/Account';
@@ -53,7 +53,7 @@ const App = () => {
       <Routes>
         <Route path= "*" element={<Home />}/>
         <Route path= '/about'  element={<About/>}/> 
-        <Route path= '/services'  element={<Contact/>}/> 
+        <Route path= '/services'  element={<Services/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
         <Route path= '/forget'  element={<Forgetpass/>}/>
@@ -87,7 +87,7 @@ const App = () => {
 
 
         {/* Customer account pages */}
-        <Route path= '/customerprofile'  element={<CustomerProfile/>}/>        
+        <Route path= '/account'  element={<CustomerProfile/>}/>        
         <Route path= '/triphistory'  element={<TripHistory/>}/>
         <Route path= '/helpandsupport'  element={<HelpAndSupport/>}/>
         <Route path= '/faq'  element={<FaQuestions/>}/>

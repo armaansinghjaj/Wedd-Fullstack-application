@@ -11,4 +11,8 @@ function loadDefaultValues(req) {
 	}
 }
 
+function logoutUser(){
+	
+}
+
 module.exports = loadDefaultValues;

@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 		});
 	});
 });
-router.get("/account", (req, res) => {
+router.get("/profile", (req, res) => {
 	loadDefaultValues(req);
 	let sess = req.session;
 
@@ -53,7 +53,7 @@ router.get("/support", (req, res) => {
 	});
 });
 
-router.post("/account", setProfilePicture.single("image"), (req, res) => {
+router.post("/profile", setProfilePicture.single("image"), (req, res) => {
 	loadDefaultValues(req);
 	let sess = req.session;
 

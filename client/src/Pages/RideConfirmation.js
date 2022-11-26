@@ -1,16 +1,15 @@
 import React from "react";
-import Confirm from '../components/ride-confirm'
+import Confirm from '../components/Customer-components/Ridepage-components/Ride-process/ride-completed'
+import RideNavbar from '../components/Customer-components/Ridepage-components/Ride-navbar'
 
 export default function rideConfirmation() {
     return(
 
         <>
-            <div className='Background-container'>
-                <div className='title-container'>
+            <div className='rideConfirmation-container'>
+                <RideNavbar/>
                 <Confirm/>
-                </div>
             </div>
-
         </>
     ) 
 }

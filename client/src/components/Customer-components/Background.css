@@ -1,0 +1,395 @@
+:root {
+  --first-component: 100vh;
+}
+
+/* default background container */
+.Background-container {
+  width: 100vw;
+  margin-top: -2.3rem;
+  height: var(--first-component);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.BackgroundForget-container{
+  width: 100vw;
+  margin-top: -2.3rem;
+  height: var(--first-component);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+#home-ride-input{
+  border-bottom: 2px;
+  border-style: solid;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+/* Home page background */
+h3 {
+  color: white;
+  font-size: 6rem;
+}
+
+.tag-line{
+  padding-top: calc(((var(--first-component) / 5)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-container{
+  padding: calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh)));
+  margin-top: calc(((var(--first-component) / 5)));
+  border-radius: 0.5rem;
+  background: #ccccccec;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.form-container:hover{
+  background: #fff;
+}
+
+input[id='home-ride-input']{
+  border: 0;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  padding: 15px 0 15px 0;
+}
+
+.form-head{
+  font-size: 42px;
+  margin-bottom: 30px;
+  margin-top: -20px;
+}
+
+.form-component{
+  padding: 10px 0 10px 0;
+}
+
+.submit-btn input{
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  background: black;
+  color: white;
+  font-size: 16px;
+  margin-top: 38px;
+  margin-bottom: -20px;
+}
+
+/* Login background */
+.login-container {
+  width: 100%;
+  margin-top: -2.3rem;
+  height: var(325vh);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.ride-container{
+  width: 100%;
+  margin-top: -2.3rem;
+  height: var(325vh);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* signup background */
+
+.signup-container {
+  width: 100%;
+  margin-top: -2.3rem;
+  height: var(325vh);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* About us background */
+.BackgroundAbout-container {
+  width: 100%;
+  margin-top: -2.3rem;
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+/* Contact background */
+.Background-contact-container {
+  width: 100%;
+  margin-top: -2.3rem;
+  height: var(150vh);
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* Admin home background */
+.admin-home-container {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Admin Edit background */
+.AdminEdit-container {
+  width: 100%;
+  height: 100vh;
+}
+/* Admin Roles background */
+.AdminRoles-container {
+  width: 100%;
+  height: 100vh;
+}
+/* Admin News background */
+.AdminNews-container {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Admin Background edit background */
+.AdminBackgroundEdit-container {
+  width: 100%;
+  height: 100vh;
+}
+/* Account page background */
+.Account-container{
+  width: 100%;
+  height: 100vh;
+}
+
+/* Admin Bg-about background */
+.bgabout-container{
+  width: 100%;
+  height: 100vh;
+}
+/* Admin Bg-home background */
+.bghome-container {
+  width: 100%;
+  height: 100vh;
+}
+/* Admin Bg-contact background */
+.bgcontact-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.rideComplete-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideSearching-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideConnected-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.rideConfirmation-container {
+  width: 100%;
+  height: 120vh;
+  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+@media only screen and (max-device-width: 767px){
+
+
+
+  h3{
+  
+    font-size: 2rem;
+  }
+  
+  .submit-btn input{
+    padding: 12px 18px;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 38px;
+    margin-bottom: -20px;
+  
+  }
+  
+  input[type='text']{
+    /* border: 0;
+    border-bottom: 2px solid rgb(44, 44, 44);
+    font-size: 10px;
+    background: transparent;
+    outline: none;
+    width: 90%;
+    padding: 15px 0 15px 0; */
+  }
+
+  .form-head{
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: -30px;
+    
+  }
+  
+  .form-component{
+    padding: 10px 0 10px 0;
+    
+  }
+
+  .form-container{
+    padding: calc(((var(--first-component) - 88vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 85vh))) calc(((var(--first-component) - 90vh)));
+    margin-top: calc(((var(--first-component) / 1000)));
+    border-radius: 4px;
+    
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .form-container{
+    padding: calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 90vh)));
+    margin-top: calc(((var(--first-component) / 4)));
+    border-radius: 5px;
+    width: 90%;
+    background: #ccccccec;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    transition: 0.5s;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+ }
+  .tag-line {
+    display: none;
+  }
+
+}
+
+
+@media only screen and (max-width: 390px) {
+
+  .form-head {
+    position: relative;
+    width: 150%;
+    right: 60%;
+  }
+
+  #home-ride-submit {
+    position: relative;
+    left: 20%;
+  }
+}
+
+
+
+@media only screen and (max-device-width: 375px) {
+
+  .login-container {
+    width: 390px;
+    margin-top: 0;
+  }
+  .form-head {
+    position: relative;
+    width: 150%;
+    right: 20%;
+  }
+
+  .tag-line{
+    display: none;
+  }
+  .form-container{
+    padding: calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 92vh))) calc(((var(--first-component) - 90vh))) calc(((var(--first-component) - 90vh)));
+    margin-top: calc(((var(--first-component) / 4)));
+    border-radius: 5px;
+    width: 90%;
+    background: #ccccccec;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    transition: 0.5s;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .ride-submit{
+  position: relative;
+  left: 4.5ch;
+ }
+ .Account-container {
+    height: 0;
+ }
+ .form-head {
+  font-size: 2em;
+  position: relative;
+  margin-left: 1ch;
+  margin-right: auto;
+ }
+ .form-container:hover{
+  background: #fff;
+}
+}

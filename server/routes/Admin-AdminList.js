@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 			if(err) throw err;
 
 			sess.admins = result;
-
+			
 			res.send(result);
 			// res.render("admins", sess);
 		});
