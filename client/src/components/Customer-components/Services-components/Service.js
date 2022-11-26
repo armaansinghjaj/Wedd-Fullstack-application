@@ -111,64 +111,68 @@ function Contactus() {
 //  e.target.reset()
 // };
     return (
-<div className='contact-container'>
+      <div className="service-parent-conatiner">
+       
+       <div className='service-container'>
             <form id='contactus-form' onSubmit={handleFormSubmit}>
-                  <h2 id='contact-info'>Contact We DD For Any Queries </h2>
-                <div id='contact-top'>
-                  <h2 id='font-formatc'>Contact Information</h2>
-                  <input typeof='text' id='contact-input' placeholder='name '  value={Firstname} onChange={handleFirstnameChange}/>
-                  {FirstnameError&&<div className='contact-error-msg'>{FirstnameError}</div>}
+                  <h2 id='service-info'>Service WeDD For Any Queries </h2>
+                <div id='service-top'>
+                  <h2 id='font-formatc'>Service Information</h2>
+                  <input typeof='text' id='service-input' placeholder='name '  value={Firstname} onChange={handleFirstnameChange}/>
+                  {FirstnameError&&<div className='service-error-msg'>{FirstnameError}</div>}
                   <br />
-                  <input typeof='text' id='contact-input' placeholder='lastname ' value={Lastname} onChange={handleLastnameChange}/>
-                  {LastnameError&&<div className='contact-error-msg'>{LastnameError}</div>}  
+                  <input typeof='text' id='service-input' placeholder='lastname ' value={Lastname} onChange={handleLastnameChange}/>
+                  {LastnameError&&<div className='service-error-msg'>{LastnameError}</div>}  
                   <br />
-                  <input typeof='tel' id='contact-input' placeholder='Phone Number ' value={Phone} onChange={handlePhoneChange}/>
-                  {PhoneError&&<div className='contact-error-msg'>{PhoneError}</div>}
+                  <input typeof='tel' id='service-input' placeholder='Phone Number ' value={Phone} onChange={handlePhoneChange}/>
+                  {PhoneError&&<div className='service-error-msg'>{PhoneError}</div>}
                   <br />
-                  <input typeof='email' id='contact-input' placeholder='E-mail Address ' value={Email} onChange={handleEmailChange}/>
-                  {EmailError&&<div className='contact-error-msg'>{EmailError}</div>}
+                  <input typeof='email' id='service-input' placeholder='E-mail Address ' value={Email} onChange={handleEmailChange}/>
+                  {EmailError&&<div className='service-error-msg'>{EmailError}</div>}
                 </div>
 
-                <div id='contact-location'>
+                <div id='service-location'>
                   <h2 id='font-formata'>Address</h2>
-                  <input typeof='text' id='contact-input' placeholder='Street ' value={Street} onChange={handleStreetChange}/>
-                  {StreetError&&<div className='contact-error-msg'>{StreetError}</div>}
+                  <input typeof='text' id='service-input' placeholder='Street ' value={Street} onChange={handleStreetChange}/>
+                  {StreetError&&<div className='service-error-msg'>{StreetError}</div>}
                   <br />
-                  <input typeof='text' id='contact-input' placeholder='City ' value={City} onChange={handleCityChange}/>
-                  {ProvinceError&&<div className='contact-error-msg'>{CityError}</div>}
+                  <input typeof='text' id='service-input' placeholder='City ' value={City} onChange={handleCityChange}/>
+                  {ProvinceError&&<div className='service-error-msg'>{CityError}</div>}
                   <br />
-                  <input typeof='text' id='contact-input' placeholder='Province ' value={Province} onChange={handleProvinceChange}/>
-                  {ProvinceError&&<div className='contact-error-msg'>{ProvinceError}</div>}
+                  <input typeof='text' id='service-input' placeholder='Province ' value={Province} onChange={handleProvinceChange}/>
+                  {ProvinceError&&<div className='service-error-msg'>{ProvinceError}</div>}
                   <br />
-                  <input typeof='text' id='contact-input' placeholder='Postal code ' value={Postal} onChange={handlePostalChange}/>
-                  {PostalError&&<div className='contact-error-msg'>{PostalError}</div>}
+                  <input typeof='text' id='service-input' placeholder='Postal code ' value={Postal} onChange={handlePostalChange}/>
+                  {PostalError&&<div className='service-error-msg'>{PostalError}</div>}
                 </div>
 
-                <div id='contact-middle'>
+                <div id='service-middle'>
                   <h2 id='font-formats'>Select Service</h2>
                   <div className="selections">
                   <div className='service-items'>
-                    <input type='radio' name='r1' id='what' className='contact-radio' value={Our} onChange={handleServiceChange}/> 
-                    <label htmlFor="what" id='contact-label'>Shuttle Service (Our Car)</label>
+                    <input type='radio' name='r1' id='what' className='service-radio' value={Our} onChange={handleServiceChange}/> 
+                    <label htmlFor="what" id='service-label'>Shuttle Service (Our Car)</label>
                   </div>
                   <div className='service-items'>
-                    <input type='radio'  name='r1'id='what1' className='contact-radio' value={Your} onChange={handleServiceChange}/> 
-                    <label htmlFor="what1" id='contact-label'>Chauffeur Service (Your Car)</label>
+                    <input type='radio'  name='r1'id='what1' className='service-radio' value={Your} onChange={handleServiceChange}/> 
+                    <label htmlFor="what1" id='service-label'>Chauffeur Service (Your Car)</label>
                   </div>
                   <div className='service-items'>
-                    <input type='radio' name='r1' id='what2' className='contact-radio' value={Apply} onChange={handleServiceChange}/> 
-                    <label htmlFor="what2" id='contact-label'>Apply to be a driver</label>
+                    <input type='radio' name='r1' id='what2' className='service-radio' value={Apply} onChange={handleServiceChange}/> 
+                    <label htmlFor="what2" id='service-label'>Apply to be a driver</label>
                   </div>
                   {ServiceError&&<div className='service-error-msg'>{ServiceError}</div>}
                   </div>
                   </div>
 
-                <div id='contact-bottom'>
+                <div id='service-bottom'>
                   <h2 htmlFor="comment" id='font-format'>Comments and Questions:</h2>
                   <textarea name="Comment" id="commenti" cols="40" rows="5"></textarea>
                 </div>
-                <input type="submit"  id='contact-submit' value="Submit" />
+                <input type="submit"  id='service-submit' value="Submit" />
             </form> 
+        </div>
+
         </div>
     );
 }

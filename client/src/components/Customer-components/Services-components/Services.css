@@ -1,8 +1,16 @@
+.service-parent-conatiner{
+    background-color: rgb(247, 199, 111);
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+}
 #font-format  {
     color: orangered;
     font-weight: 400;
     font-size: 30px;
 }
+
+
 #font-formats  {
     color: orangered;
     font-weight: 400;
@@ -19,31 +27,39 @@
     font-size: 30px;
 }
 
-.contact-container{
+.service-container{
     position: relative;
-    margin: 4% auto;
-    margin-top: 8%;
     width: 65vw;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     height: 75vh;
     background: #FFF;
     border-radius: 1.2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-#contact-top{
+.service-parent-conatiner{
+    background-color: rgb(255, 200, 172);
+    position: relative;
+padding-top: 8%;
+
+
+}
+#service-top{
     position: relative;
     display: inline-block;
     height: 275px;
     left: 8%;
 
 }
-#contact-location{
+#service-location{
     position: relative;
     display: inline-block;
     height: 275px;
     left: 20%;
 }
 
-#contact-middle {
+#service-middle {
    position: relative;
    display: inline-block;
    height: 275px;
@@ -67,13 +83,13 @@
     padding: 0.957rem 0;
 }
 
-#contact-info {
+#service-info {
     font-size: 2rem;
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
 }
-input[id="contact-input"] {
+input[id="service-input"] {
     display: block;
     box-sizing: border-box;
     margin-top: 8px;
@@ -94,7 +110,7 @@ input[id="contact-input"] {
     justify-content: space-around;
 }
 
-input[class="contact-input"]:focus {
+input[class="service-input"]:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
@@ -102,36 +118,53 @@ input[class="contact-input"]:focus {
 
 
 
-input[id="contact-submit"] {
-    position: relative;
-    bottom: 27%;
-    right: 38.7%;
-    padding: 10px 97px;
-    background: #16a085;
-    border: none;
-    border-radius: 2px;
-    color: #FFF;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: 0.1s ease;
+#service-submit{
+        appearance: none;
+        margin: 0px;
+        overflow: visible;
+        font-style: inherit;
+        font-variant: inherit;
+        font-stretch: inherit;
+        font-family: inherit;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        text-transform: none;
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        padding: 0px 0.5rem;
+        background: #032d60;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+        line-height: 44px;
+        height: 48px;
+        min-width: 40px;
+        max-width: none;
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap;
+        border-width: 2px;
+        border-style: solid;
+        border-color: transparent;
+        width: 30%;
+        left: 60%;
+        top:-45%;
+      
+}
+  
+#service-submit:hover{
     cursor: pointer;
-    float: right;
-}
+    background: rgb(212 103 0 / 93%);
+  }
   
-input[id="contact-submit"]:hover, input[id="contact-submit"]:focus {
-    opacity: 0.8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: 0.1s ease;
-}
-  
-input[id="contact-submit"]:active {
-    opacity: 1;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    transition: 0.1s ease;
-}
 
-.contact-error-msg {
+
+.service-error-msg {
     position: relative;
     top: 10%;
     font-size: 0.8em;
@@ -145,10 +178,10 @@ input[id="contact-submit"]:active {
     border-radius: 5px;
     border: 1px solid #242424;
 }
-#contact-label{
+#service-label{
     margin-left: 1ch;
 }
-#contact-bottom{
+#service-bottom{
     position: relative;
     left: 8%;
     bottom: 28%;
@@ -159,7 +192,7 @@ input[id="contact-submit"]:active {
     color: red;
 }
 
-input[id="contact-submit"] {
+input[id="service-submit"] {
     position: relative;
     left: -15%;
     margin-top: -7%;
@@ -177,14 +210,14 @@ input[id="contact-submit"] {
     cursor: pointer;
   }
   
-  input[id="contact-submit"]:hover,
-  input[id="contact-submit"]:focus {
+  input[id="service-submit"]:hover,
+  input[id="service-submit"]:focus {
     opacity: 0.8;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
   }
   
-  input[id="contact-submit"]:active {
+  input[id="service-submit"]:active {
   
     box-shadow: 0 0.063rem 0.125rem rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
@@ -192,7 +225,7 @@ input[id="contact-submit"] {
   
   @media only screen and (max-device-width: 767px) {
 
-    .contact-container{
+    .service-container{
         margin-top: 10%;
         margin: 20% auto;
         width: 65vw;
@@ -203,17 +236,26 @@ input[id="contact-submit"] {
         font-weight: 300;
         font-size: 20px;
     }
+<<<<<<< HEAD
     #contact-top{
         left: 2rem;
         top:1rem;
     }
     #contact-location{
         top:1.1rem;
+=======
+    #service-top{
+        left: 11%;
+        top:2%;
+    }
+    #service-location{
+        top:24%;
+>>>>>>> c6f7e31d08b47fac62404a0f4900737c40391d65
         height: 750px;
         left:4rem;
     }
     
-    input[id="contact-submit"] {
+    input[id="service-submit"] {
         position: relative;
         bottom: 33%;
         right: 24.7%;
@@ -222,17 +264,22 @@ input[id="contact-submit"] {
         
     }
 
+<<<<<<< HEAD
     #contact-middle {
         height: 17rem;
+=======
+    #service-middle {
+        height: 175px;
+>>>>>>> c6f7e31d08b47fac62404a0f4900737c40391d65
         left: 11%;
         bottom: 34%;
          
      }
-     #contact-bottom{
+     #service-bottom{
         left: 11%;
         bottom: 35%;
     }
-    input[id="contact-input"] {
+    input[id="service-input"] {
         margin-top: 7px;
         width: 120px;
         height: 15px;
@@ -255,13 +302,13 @@ input[id="contact-submit"] {
 
   @media only screen and (max-device-width: 375px){
 
-    .contact-container{
+    .service-container{
         margin-top: 10%;
         margin: 30% auto;
         width: 95vw;
         height: 80vh;
     }
-    #contact-info{
+    #service-info{
         position: relative;
         right: 13%;
     }
@@ -281,7 +328,7 @@ input[id="contact-submit"] {
         font-size: 1.3em;
     }
    
-    input[id="contact-input"] {
+    input[id="service-input"] {
         margin-top: 4px;
         width: 120px;
         height: 15px;
@@ -289,13 +336,13 @@ input[id="contact-submit"] {
         font-size: 10px;
     }
 
-    /* #contact-location{
+    /* #service-location{
         top:23%;
         height: 690px;
         left:-41.5%;
     } */
     
-    input[id="contact-submit"] {
+    input[id="service-submit"] {
         position: relative;
         bottom: 33%;
         right:44.7%;
@@ -304,33 +351,33 @@ input[id="contact-submit"] {
         
     }
 
-    #contact-middle {
+    #service-middle {
         height: 300px;
         left: 23%;
         bottom: 15%;
          
      }
-     #contact-bottom{
+     #service-bottom{
         left: 19%;
         bottom: 38%;
     }
     
-    #contact-location{
+    #service-location{
         position: relative;
         display: inline-block;
         height:325px;
         top: -44%;
         margin-left: 100%;
     }
-    #contact-submit{
+    #service-submit{
         position: relative;
         left: -40%;
     }
-    #contact-top{
+    #service-top{
       position: relative;
       top:-2%
     }
-    #contact-middle{
+    #service-middle{
         position: relative;
         top:-65%;
     }
@@ -342,7 +389,7 @@ input[id="contact-submit"] {
         font-weight: 300;
         font-size: 1.4em;
     }
-    #contact-bottom{
+    #service-bottom{
         position: relative;
         top: -90%;
         left: -2%;
@@ -353,7 +400,7 @@ input[id="contact-submit"] {
         top:15%;
         left: 10%;
     }
-    #contact-submit{
+    #service-submit{
         position: relative;
         top:-85%;
         margin-right: 1ch;
