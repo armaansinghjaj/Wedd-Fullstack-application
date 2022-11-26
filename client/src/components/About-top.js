@@ -1,30 +1,12 @@
-import React, {Fragment, useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import figure1 from "../images/About-page-figure-1.jpg"
 import './About.css';
 
 function Abouttop() {
-    useEffect( () => {
-        fetchItems();
-    }, []);
 
-    const [items, setItems] = useState([]);
+    const phoneDialer = () => {
 
-    const fetchItems = async () => {
-        const data = await fetch('/api/about');
-        const items = await data.json();
-        setItems(items);
-    };
-    const [ toggleTab, setToggleTab] = useState(1)
-    const toggleState = (index) =>{
-         setToggleTab(index)
-    }
-
-    const ScrollToSection = (section) => {
-        // if(section === 1){
-        //     document.querySelector('#our-story') && document.querySelector('#our-story').scrollIntoView({behavior:"smooth"})
-        // }
-        // alert("Yet to imeplement")
     }
     return(
         <>
@@ -36,19 +18,13 @@ function Abouttop() {
             </div>
         </React.Fragment>
         <React.Fragment>
-            <div className="about-sidebar-div">
-                <ul className="about-sidebar">
-                    <li><Link to='/about' onClick={ScrollToSection(1)}>Our Story</Link></li>
-                    <li><Link to='/about' onClick={ScrollToSection(2)}>What is WeDD?</Link></li>
-                    <li><Link to='/about' onClick={ScrollToSection(3)}>Vision</Link></li>
-                    <li><Link to='/about' onClick={ScrollToSection(4)}>WeDD for all</Link></li>
-                </ul>
-            </div>
-        </React.Fragment>
-        <React.Fragment>
             <div className="about-content-block">
                 <div className="about-content about-content-left">
-                    
+                    <div className="about-sidebar-div">
+                        <ul className="about-sidebar">
+                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><Link className="about-sidebar-li-question-a" to='/about' onClick={phoneDialer(1)}>+1-xxx-xxx-xxxx</Link></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="about-content about-content-right">
@@ -76,7 +52,7 @@ function Abouttop() {
                     <div className="content-3 content-block">
                         <div className="content-3-head content-small-head content-head">
                             <figure>
-                                <img className="figure-ceo" src={figure1}/>
+                                <img className="figure-ceo" alt="The CEO" src={figure1}/>
                             </figure>
                         </div>
                         <div className="content-ceo-text content-details">

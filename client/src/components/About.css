@@ -1,36 +1,39 @@
+:root{
+    --side-bar-width: 15vw;
+}
+
 .about-sidebar-div{
-    top: 0;
+    margin-top: -4px;
     display: inline-block;
-    position: absolute;
-    margin-left: 8rem;
-    text-align: center;
-    height: 276.8vh;
-    width: 15vw;
+    position: fixed;
+    margin-left: 4vw;
+    height: 30vh;
+    width: var(--side-bar-width);
     max-width: 20vw;
-    box-shadow: 0px 0px 80px -45px #2b2b2bd1;
+    box-shadow: 0 8px 40px -1px #2b2b2b6b;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.562);
-}
-
-.footer-container{
-    z-index: 10;
+    border-radius: 20px 20px 0 0;
 }
 
 .about-sidebar{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 20vh;
+    padding-top: 9vh;
 }
 
-.about-sidebar li{
-    padding: 2rem 0;
-    list-style: none;
+.about-sidebar-li-question{
+    padding: 1rem 0;
+    padding-left: 3rem;
     font-size: 1.4rem;
+    padding: 1rem 2rem;
+    list-style: none;
 }
 
-.about-sidebar li a{
+.about-sidebar-li-question-a{
+    font-size: 1rem;
     text-decoration: none;
     color: #0058c2;
 }
@@ -53,6 +56,7 @@
 .about-content-block{
     display: flex;
     flex-direction: row;
+    margin-bottom: -2.4rem;
 }
 
 .about-content-left{
