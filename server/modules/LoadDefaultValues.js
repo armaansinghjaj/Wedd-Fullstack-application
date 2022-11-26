@@ -6,9 +6,13 @@ function loadDefaultValues(req) {
 	req.session.edit_role_id = null;
 	req.session.edit_title = null;
 	if (!(req.session.access)) {
-		req.session.access = 1; 
-		req.session.user = "admin1@gmail.com";
+		req.session.access = null; 
+		req.session.user = null;
 	}
+}
+
+function logoutUser(){
+	
 }
 
 module.exports = loadDefaultValues;

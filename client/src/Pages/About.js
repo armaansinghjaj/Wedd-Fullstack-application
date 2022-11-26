@@ -1,10 +1,9 @@
 import React from 'react';
 import '../App.css';
-import Background from '../components/Background-about';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import Updates from '../components/CardNews';
-import Abouttop from '../components/About-top';
+import NavBar from '../components/Customer-components/Navbar-components/NavBar';
+import Footer from '../components/Customer-components/Footer-components/Footer';
+import Updates from '../components/Customer-components/Homepage-components/CardNews';
+import Abouttop from '../components/Customer-components/About-us-components/About-top';
 
 function About() {
   return (
@@ -12,7 +11,6 @@ function About() {
       <NavBar/>
       <Abouttop />
       <Updates/>
-      {/* <Background /> */}
       <Footer />
     </div>
   )

@@ -1,6 +1,6 @@
 import React from "react";
-import Help from '../components/Help-support';
-import AccountNav from '../components/Account-Navbar';
+import Help from '../components/Common-components/Help-support';
+import AccountNav from '../components/Customer-components/Profilepage-components/Account-Navbar';
 
 export default function HelpAndSupport() {
     return(

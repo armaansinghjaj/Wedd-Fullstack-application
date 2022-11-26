@@ -1,6 +1,6 @@
 import React from "react";
-import Complete from '../components/ride-completed'
-import RideNavbar from '../components/Ride-navbar'
+import Complete from '../components/Customer-components/Ridepage-components/Ride-process/ride-completed'
+import RideNavbar from '../components/Customer-components/Ridepage-components/Ride-navbar'
 
 export default function rideComplete() {
     return(

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import AdminDriversEdit from '../components/Admin-DriversEdit.js'
-import AdminNavbar from '../components/AdminNavbar';
+import AdminDriversEdit from '../components/Admin-components/Edit-Drivers'
+import AdminNavbar from '../components/Admin-components/Admin-bar';
 
 
 export default function DriversEdit() {
@@ -9,7 +9,6 @@ export default function DriversEdit() {
     <div>
       <AdminNavbar/>
       <AdminDriversEdit/>
-
     </div>
   )
 }

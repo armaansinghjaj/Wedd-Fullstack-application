@@ -40,6 +40,7 @@ router.post("/", (req, res) => {
 							sess.access = 3;
 							return res.send({
 								user: result[0].email,
+								name: result[0].name,
 								// login: true,
 								loginType: "customer"
 							});
@@ -48,6 +49,7 @@ router.post("/", (req, res) => {
 							sess.access = 2;
 							return res.send({
 								user: result[0].email,
+								name: result[0].name,
 								// login: true,
 								loginType: "driver"
 							});
@@ -56,6 +58,7 @@ router.post("/", (req, res) => {
 							sess.access = 1;
 							return res.send({
 								user: result[0].email,
+								name: result[0].name,
 								// login: true,
 								loginType: "admin"
 							});

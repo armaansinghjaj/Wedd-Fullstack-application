@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import Edit from '../components/Admin-Edit'
-import AdminNavbar from '../components/AdminNavbar.js'
+import Edit from '../components/Admin-components/Edit-Admins'
+import AdminNavbar from '../components/Admin-components/Admin-bar'
 
 
 export default function AdminEdit() {
