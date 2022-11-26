@@ -4,83 +4,80 @@ import './Rideform.css'
 import taxiImg from '../images/taxi.jpg'
 
 function Rideform() {
+	const navigate = useNavigate();
+	//Monitors state of input
+	const [Name, setName] = useState("");
+	const [nameError, setNameError] = useState("");
+	const [Email, setEmail] = useState("");
+	const [EmailError, setEmailError] = useState("");
+	const [Phone, setPhone] = useState("");
+	const [PhoneError, setPhoneError] = useState("");
+	const [Dropoff, setDropoff] = useState("");
+	const [DropoffError, setDropoffError] = useState("");
+	const [Pickup, setPickup] = useState("");
+	const [PickupError, setPickupError] = useState("");
 
-    const navigate = useNavigate();
-    //Monitors state of input
-    const [Name, setName]=useState('');
-    const [nameError, setNameError]=useState('');
-    const [Email, setEmail]=useState('');
-    const [EmailError, setEmailError]=useState('');
-    const [Phone, setPhone]=useState('');
-    const [PhoneError, setPhoneError]=useState('');
-    const [Dropoff, setDropoff]=useState('');
-    const [DropoffError, setDropoffError]=useState('');
-    const [Pickup, setPickup]=useState('');
-    const [PickupError, setPickupError]=useState('');
+	const [Credit, setCredit] = useState("");
 
+	const [Debit, setDebit] = useState("");
 
-    const [Credit, setCredit]=useState('');
+	const [Apple, setApple] = useState("");
 
-    const [Debit, setDebit]=useState('');
+	const [Paypal, setPaypal] = useState("");
 
-    const [Apple, setApple]=useState('');
+	const [PaymentError, setPaymentError] = useState("");
 
-    const [Paypal, setPaypal]=useState('');
+	const handleNameChange = (e) => {
+		setNameError("");
+		setName(e.target.value);
+	};
+	const handleEmailChange = (e) => {
+		setEmailError("");
+		setEmail(e.target.value);
+	};
+	const handlePhoneChange = (e) => {
+		setPhoneError("");
+		setPhone(e.target.value);
+	};
+	const handleDropoffChange = (e) => {
+		setDropoffError("");
+		setDropoff(e.target.value);
+	};
+	const handlePickupChange = (e) => {
+		setPickupError("");
+		setPickup(e.target.value);
+	};
 
-    const [PaymentError, setPaymentError]=useState('');
+	const handlePaymentChange = (e) => {
+		setPaymentError("");
+		setCredit(e.target.value);
+		setDebit(e.target.value);
+		setPaypal(e.target.value);
+		setApple(e.target.value);
+	};
 
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
 
-    const handleNameChange=(e)=>{
-        setNameError('');
-        setName(e.target.value);
-    }
-    const handleEmailChange=(e)=>{
-        setEmailError('');
-        setEmail(e.target.value);
-    }
-    const handlePhoneChange=(e)=>{
-        setPhoneError('');
-        setPhone(e.target.value);
-    }
-    const handleDropoffChange=(e)=>{
-        setDropoffError('');
-        setDropoff(e.target.value);
-    }
-    const handlePickupChange=(e)=>{
-        setPickupError('');
-        setPickup(e.target.value);
-    }
+		//checking if Name is empty
+		if (Name !== "" ? "" : setNameError("Name required"));
 
-    const handlePaymentChange=(e)=>{
-        setPaymentError('');
-        setCredit(e.target.value)
-        setDebit(e.target.value)
-        setPaypal(e.target.value)
-        setApple(e.target.value)
-    }
+		//checking if Email is empty
+		if (Email !== "" ? "" : setEmailError("Email required"));
 
-    const handleFormSubmit=(e)=>{
-        e.preventDefault();
+		//checking if Phone is empty
+		if (Phone !== "" ? "" : setPhoneError("Phone number required"));
 
-        //checking if Name is empty
-        if ( Name !== '' ? '' :  setNameError('Name required'));
+		//checking if Pickup is empty
+		if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
 
-        //checking if Email is empty
-        if ( Email !== '' ? '' :  setEmailError('Email required'));
+		//checking if Dropoff is empty
+		if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
 
-        //checking if Phone is empty
-        if ( Phone !== '' ? '' :  setPhoneError('Phone number required'));
+		// checking discount code
 
-        //checking if Pickup is empty
-        if ( Pickup !== '' ? '' :  setPickupError('Pickup location required'));
-
-        //checking if Dropoff is empty
-        if ( Dropoff !== '' ? '' :  setDropoffError('Dropoff location required'));
-        
-        // checking discount code
-
-        //checking if Payment type is empty
-        if ( (Credit!== '' && Debit!== ''  && Apple!== ''  && Paypal!== '')   ? '' :  setPaymentError('Payment type required'));
+		//checking if Payment type is empty
+		if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
 
         navigate('/rideConfirm')
 
@@ -129,8 +126,8 @@ function Rideform() {
                     
                 </div>
 
-                <div className='ride-bottom'>
-                        <h2 className='payment-type'>Payment Type:</h2>
+					<div className="ride-bottom">
+						<h2 className="payment-type">Payment Type:</h2>
 
                         <div className='payment-left'>
                             <div id='ride-checklist'>

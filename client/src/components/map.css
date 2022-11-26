@@ -8,31 +8,7 @@
     height: 50vh;
     width: 50vw;
 }
-.navbar {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-.navbar h1 {
-    padding-right: 20px;
-}
-.navbar li {
-    margin-top: 22px;
-}
-.navbar_item {
-    list-style: none;
-    padding: 10px;
-}
-.navbar_item a {
-    font-size: 20px;
-    color: black;
-}
-.footer {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
+
 .leaflet-touch .leaflet-control-geocoder {
     visibility: hidden;
 }

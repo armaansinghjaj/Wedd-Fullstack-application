@@ -1,0 +1,32 @@
+#ride-complete-container{
+    position: relative;
+    top: 5%;
+    left: 15%;
+    border-radius: 0.5em;
+    background-color: white;
+    height: 40vh;
+    width: 70vw;
+}
+
+#complete-text{
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+
+#complete-link > button{
+    border-radius: 2em;
+    border-style: none;
+    width: 4rem;
+    height: 2rem;
+    color: white;
+    background-color: #16a085;
+
+}
+
+#complete-link > button:hover{
+    background-color: #50c4ac;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
+
+}
