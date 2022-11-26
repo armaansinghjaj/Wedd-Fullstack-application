@@ -16,14 +16,14 @@ export default function RideConfirm() {
                     </div>
                     <div id="buttons">
                         <button id="get_map">Confirm</button>
-                        <form id='ride-confirm-form' action="ride">
+                        <form id='ride-reset-form' action="ride">
                             <input type="submit" value="Reset"/>
                         </form>
 
                 </div>	
                 </div>
                 <div id="info_div">
-                    Check Details<br/>
+                    <p id='check-details'>Check Details</p><br/>
                     {/* <%= details %> */}
                 </div>
                 <input type="hidden" value="<%= startlat %>" name="startlat" id="startlat" />
