@@ -8,7 +8,7 @@ function newbackground() {
         <>
             <div className='login-container'>
                 <div className='title-container'>
-                    <LoginForm/>
+                    
                 </div>
             </div>
         </>

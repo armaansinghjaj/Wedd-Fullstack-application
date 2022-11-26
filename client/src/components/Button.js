@@ -26,20 +26,20 @@ export const Button = ({children,
 
      return (
         <div id='btn-container'>
-             <Link className='btn-mobile2' to='/Signup'> 
-            <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-            onClick={onClick}
-            type={type}>
-                {children}
-                SIGN UP
-            </button>
-            </Link> 
-            <Link className='btn-mobile' to='/Login'>
+            <Link className='btn-mobile' to='/login'>
             <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}
             onClick={onClick}
             type={type}>
                 {children}
                 LOGIN
+            </button>
+            </Link>
+             <Link className='btn-mobile2' to='/signup'> 
+            <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+            onClick={onClick}
+            type={type}>
+                {children}
+                SIGN UP
             </button>
             </Link>
         </div>

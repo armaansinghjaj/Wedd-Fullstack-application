@@ -6,7 +6,6 @@ import RideForm from '../components/Rideform';
 import Updates from '../components/CardNews';
 
 export default function Ride() {
-
   
   return (
     <div>

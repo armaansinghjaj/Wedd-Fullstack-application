@@ -63,38 +63,46 @@ function SignupForm() {
     }
 
     return (
-    <div id="signupform-container">
-        
+        <>
         {userVerified && (<Navigate to="/" replace={true} />)}
-        
-        <form onSubmit={handleFormSubmit}>
-            <div class="signup-left">
-                <h1 id='signup-h1'>Sign up</h1>
-                <input type="text" name="name" placeholder="Name" id="signup-input" onChange={handlenameChange} value={name}/>
-                {nameError&&<div className='error-msg'>{nameError}</div>}
+        <div className="signup-parent-container">
 
-                <input type="text" name="email" placeholder="E-mail" id="signup-input" onChange={handleEmailChange} value={email} />
-                {emailError&&<div className='error-msg'>{emailError}</div>}
+                <div className='signup-container-form'>
 
-                <input type="password" name="password" placeholder="Password" id="signup-password"onChange={handlePasswordChange} value={password} />
-                {passwordError&&<div className='error-msg'>{passwordError}</div>}
+                    <div className="signup-form-div-contents">
+                        
+                        <div className="signup-form-contents">
+                            
+                            <form id='signupForm' onSubmit={handleFormSubmit}>
+                                
+                                <div className="signup-form">
+                                <h1 className='signup-form-head signup-form-inside-contents'>Sign Up with Email</h1>
+                                <input type="text" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="name" placeholder="Name" id="signup-input" onChange={handlenameChange} value={name}/>
+                                {nameError&&<div className='error-msg'>{nameError}</div>}
 
-                <input type="submit" name="signup_submit" value="Sign up" id="signup-submit" />
-            </div>
-                
-            {/* Divider Line */}
-            <div className="divider"></div>
+                                <input type="email" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="email" placeholder="E-mail" id="signup-input" onChange={handleEmailChange} value={email} />
+                                {emailError&&<div className='error-msg'>{emailError}</div>}
 
-            <div class="signup-right">
-                {/* Space between divider line and social media login buttons */}
-                <span class="loginwith"></span>
+                                <input type="password" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="password" placeholder="Password" id="signup-password"onChange={handlePasswordChange} value={password} />
+                                {passwordError&&<div className='error-msg'>{passwordError}</div>}
+
+                                <input type="submit" className='signup-form-submit signup-form-inputs signup-form-inside-contents' name="signup_submit" value="Sign up" id="signup-submit" />
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="signup-divider"></div>
+
+                        <div className='link-container'>
+                            <div className="signup-link-container signup-form-links">
+                                <span id='signup-text'>Already have an account? </span> 
+                                <Link to='/signup' className='signup-route'>Login</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <div id='signup-link-container'>
-                <span id='login-text'>Already have an account?</span> 
-                <Link to='/login' className='login-route'>Login</Link>
             </div>
-    </div>
+        </>
     )
 }
 

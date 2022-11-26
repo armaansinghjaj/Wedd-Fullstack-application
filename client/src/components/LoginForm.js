@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import { Link, Navigate } from 'react-router-dom';
-
 import './LoginForm.css';
 
 
@@ -69,44 +68,70 @@ function LoginForm() {
         // }
 
     return (
-        <div id='login-container'>
+        <>
+        {(userAuthenticated && ((userAuthenticated.loginType === "customer")?(
+            <Navigate to="/" replace={true}/>
+        ):((userAuthenticated.loginType === "driver")?(
+                <Navigate to="/driver" replace={true}/>
+            ):((userAuthenticated.loginType === "admin")?(
+                    <Navigate to="/admin" replace={true}/>
+                        ):(alert("Nothing")
+        )))))}
+        
+        <div className="login-parent-container">
 
-            {(userAuthenticated && ((userAuthenticated.loginType === "customer")?(
-                                <Navigate to="/" replace={true}/>
-                            ):((userAuthenticated.loginType === "driver")?(
-                                    <Navigate to="/driver" replace={true}/>
-                                ):((userAuthenticated.loginType === "admin")?(
-                                        <Navigate to="/admin" replace={true}/>
-                                            ):(alert("Nothing"))))))}
+            <div className="login-container-left login-child-containers">
 
-            <form id='loginForm' onSubmit={handleFormSubmit}>
-                <div className="login-top">
-                    <h1 id='login-h1'>Login</h1>
-                    
-                    <input type="text" name="email" placeholder="Email" id='login-input' onChange={handleEmailChange} value={email}/>
-                    {emailError&&<div className='error-msg'>{emailError}</div>}
-                    
-                    <input type="password" name="password" placeholder="Password" id='login-password' onChange={handlePasswordChange} value={password}/>
-                    {passwordError&&<div className='error-msg'>{passwordError}</div>}
-                    
-                    <input type="submit" name="login_submit" value="Login" id='login-submit'/>                
+                <div className='login-container-form'>
+
+                    <div className="login-form-div-contents">
+                        
+                        <div className="login-form-contents">
+                            
+                            <form id='loginForm' onSubmit={handleFormSubmit}>
+                                
+                                <div className="login-form">
+                                    <h1 className='login-form-head login-form-inside-contents'>Log in to your account</h1>
+                                    
+                                    <input type="email" className='login-form-fields login-form-inputs login-form-inside-contents' name="email" placeholder="Enter your email address" id='login-input' onChange={handleEmailChange} value={email}/>
+                                    {emailError&&<div className='error-msg'>{emailError}</div>}
+                                    
+                                    <input type="password" className='login-form-fields login-form-inputs login-form-inside-contents' name="password" placeholder="Enter your password" id='login-password' onChange={handlePasswordChange} value={password}/>
+                                    {passwordError&&<div className='error-msg'>{passwordError}</div>}
+                                    
+                                    <input type="submit" className='login-form-submit login-form-inputs login-form-inside-contents' name="login_submit" value="Login" id='login-submit'/>                
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="login-divider"></div>
+
+                        <div className='link-container'>
+
+                            <div className="signup-link-container login-form-links">
+                                <Link to='/forget' className='forgot-route'>Forgot Password?</Link>
+                            </div>
+
+                            <div className="forgot-password-container login-form-links">
+                                <span id='signup-text'>Dont have an account? </span>
+                                <Link to='/signup' className='signup-route'>Sign up</Link>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                
-                {/* Divider Line */}
-                <div className="dividerl"></div>
-            </form>
-
-            <div id='link-container'>
-                <span id='signup-text'>Dont have an account?</span> 
-                <Link to='/signup' className='signup-route'>Sign up here!</Link>
-             
             </div>
-
-            <div className="forgot-password">
-                <span id='pass-txt'>Forget your password?</span>
-                <Link to='/forget' className='forgot-route'>Forget Password?</Link>
+            
+            <div className="login-container-right login-child-containers">
+                <div className="login-right-banner">
+                    <span className='login-right-banner-contents banner-content-1'>WeDD</span>
+                    <span className='login-right-banner-contents banner-content-2'>Commute made simple</span>
+                    <span className='login-right-banner-contents banner-content-3'>Call us at</span>
+                    <span className='login-right-banner-contents banner-content-4'>+1-XXX-XXX-XXXX</span>
+                </div>
             </div>
         </div>
+        </>
     )
 }
 

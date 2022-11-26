@@ -5,8 +5,6 @@ export default function AdminEdit() {
 
     //PLACEHOLDERS
     const admin_employee_id='1234567';
-    // const admin_name='Admin name';
-    // const admin_email='email@email.com';
     const admin_edit_employee_id='1234567';
     const admin_edit_email='Admin name';
     const admin_edit_name='email@email.com';
@@ -41,30 +39,32 @@ export default function AdminEdit() {
             <div className={overlayEdit}>
                 <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
                     <div id='edit-closeOverlay-btn-admin' >
-                        <button onClick={closeOverlayEdit}><i class="fa-solid fa-x"></i></button>
+                        <button onClick={closeOverlayEdit}><i className="fa-solid fa-x"></i></button>
                     </div>
                         <h2>Edit Admin</h2>
                         <div >
                             <form>
                                 <table>
-                                    <tr>
-                                        <td>Employee ID</td>
-                                        <td>
-                                            <input type="number" name="edit_employee_id" readonly value={admin_edit_employee_id}/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>E-Mail</td>
-                                        <td>
-                                            <input type="email" name="edit_email" value={admin_edit_email}/>
+                                    <tbody>
+                                        <tr>
+                                            <td>Employee ID</td>
+                                            <td>
+                                                <input type="number" name="edit_employee_id" readOnly value={admin_edit_employee_id}/>
                                             </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>
-                                            <input type="text" name="edit_name" value={admin_edit_name}/>
-                                        </td>
-                                    </tr>
+                                        </tr>
+                                        <tr>
+                                            <td>E-Mail</td>
+                                            <td>
+                                                <input type="email" name="edit_email" readOnly value={admin_edit_email}/>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>
+                                                <input type="text" name="edit_name" readOnly value={admin_edit_name}/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                                 <input type="submit"  className='editi' value="Edit"></input>
                                 <input type="hidden" name="action" value="update"/>
@@ -82,30 +82,32 @@ export default function AdminEdit() {
             <div className={overlayAdd}>
                 <div className={visibleAdd === true ? 'edit-role' : 'edit-role-hidden'}>
                 <div id='add-closeOverlay-btn-admin'>
-                        <button onClick={closeOverlayAdd}><i class="fa-solid fa-x"></i></button>
+                        <button onClick={closeOverlayAdd}><i className="fa-solid fa-x"></i></button>
                     </div>
                     <h2>Add Admin</h2>
                     <div >
                         <form>       
                             <table>
-                                <tr>
-                                    <td>E-Mail</td>
-                                    <td>
-                                        <input type="email" name="new_email" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>
-                                        <input type="text" name="new_name" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td>
-                                    <td>
-                                        <input type="password" name="new_password" />
-                                    </td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>E-Mail</td>
+                                        <td>
+                                            <input type="email" name="new_email" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>
+                                            <input type="text" name="new_name" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password</td>
+                                        <td>
+                                            <input type="password" name="new_password" />
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <input type='submit' className='deletei' value='add'></input>
                             <input type="hidden" name="action" value="add"/>
@@ -144,7 +146,7 @@ export default function AdminEdit() {
                                 </td>
                                 <td>
                                     <form action='/admins' method='post'>
-                                    <button><i class="fa-solid fa-x"></i></button>
+                                    <button><i className="fa-solid fa-x"></i></button>
                                     {/*  <input type='submit' value='delete' className='delete' name='delete'/>*/}
                                         <input type='hidden' name='selected' value={admin_employee_id}/>
                                         <input type='hidden' name='action'  value='delete'/>
