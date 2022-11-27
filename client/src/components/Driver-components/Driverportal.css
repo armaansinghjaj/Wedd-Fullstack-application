@@ -2,10 +2,30 @@
 /* Dashboard css */
 #Driverdash-container{
     position: relative;
-    left: 20%;
+   left:45%;
     width: 80%;
     height: 100vh;
+   
 }
+
+#driver-h{
+  left: 20%;
+}
+
+/* .bordr{
+    border: 1px solid;
+    height: 50vh;
+    width: 30vw;
+    margin-left: 30rem;
+    border-radius: 10px;
+    background-color: rgb(247, 246, 241);
+} */
+
+
+#drv-pick tr:hover {
+    background-color: #ddd;
+}
+
 /* Drivers requests css */
 #DriverRequests-container {
     position: relative;
@@ -15,7 +35,14 @@
 }
 .Startshift{
     position: relative;
-    left:20%;
+    left:40rem;
+    /* border: 1px solid;
+    border-radius: 5px; */
+    width: 30vw;
+    height: 60vh;
+    border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .end_form_container{
@@ -30,7 +57,7 @@
     left: 45%;
     border-radius: 1rem;
     background-color: rgb(255, 255, 255);
-    border-style: solid;
+    border-style: solid white;
     border-width: 2px;
     box-shadow: 0px 10px 10px 0px #2b2b2bd1;
     transition: all 0.5s ease;
@@ -52,38 +79,137 @@
   position: relative;
   width: 15rem;
   height: 100vh;
+  right:18rem;
+
  }
 
 #driver1{
     position: relative;
-   
- margin-right: 30%;
+   text-align: center;
+margin-left: auto;
+margin-right: auto;
+ margin-top: 2rem;
+ font-size: 40px;
+ 
 }
 #dtable{
-  
-    margin-top: 50%;
+    
+    margin-top: 30%;
     margin-left: 180%;
 }
+
+/* input[type=number]{
+    width: 100%;
+    padding: 1px 200px;
+    margin: 7px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid red;
+  } */
 #driver-1{
     position: relative;
     top: -1ch;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 2.25rem;
+    padding: 0.2rem;
+    width: 17rem;
+    margin-left: -3.3rem;
+    height: 1.5rem;
+    margin-top: 3rem;
+    border: none;
+    border-bottom: 0.063rem solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+    transition: 0.2s ease;
 }
 #driver-2{
     position: relative;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 2.25rem;
+    padding: 0.2rem;
+    width: 17rem;
+    margin-left: -3.3rem;
+    height: 1.5rem;
+    margin-top: -2rem;
+    border: none;
+    border-bottom: 0.063rem solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+    transition: 0.2s ease;
 }
 #carid{
     position: relative;
-    top: 1ch;
+    /* top: 1ch; */
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 2.25rem;
+    padding: 0.2rem;
+    width: 17rem;
+    margin-left: -3.3rem;
+    height: 1.5rem;
+    margin-top: -1rem;
+    border: none;
+    border-bottom: 0.063rem solid #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1em;
+    transition: 0.2s ease;
 }
-#login-submit{
+#login-submit-driver{
     position: relative;
     top: 2ch;
+    width: 17rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    margin-left: -3.3rem;
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(235 114 0 / 93%); 
 }
+
 .Drivertable{
 width: 70%;
 position: relative;
 left: 10%;
-border: solid;
+border-collapse: collapse;
+}
+
+.Drivertable td, .Drivertable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+.Drivertable tr:hover{
+   background-color: #ddd;
+}
+
+.Drivertable tr:nth-child(even){
+    background-color: #f2f2f2;
+
+}
+
+#hi-submit{
+    color:white;
+    background-color: #002d72;
+    border-radius: 3px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
+}
+
+#hi-decline{
+    color:white;
+    background-color: #002d72;
+    border-radius: 3px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
 }
 #driver-requests-p {
     position: relative;
@@ -96,16 +222,23 @@ border: solid;
     top: 8%;
 }
 
-#submit{
+#submit-done{
     position: relative;
     top: 2rem;
     left: 5rem;
     padding: 8px 20px;
     border-radius: 2px;
+    width: 6rem;
     outline: none;
     border: none;
     cursor: pointer;
+    background-color: #002d72;
+    color:white;
 }
+
+#submit-done:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
 #submit:hover{
     transition: all 0.3s ease-out;
     background: #002d72;
@@ -114,18 +247,21 @@ border: solid;
 }
 #Driverdash-container{
     position: relative;
-    left: 45%;
-    margin-top: 5%;
+    /* left: 45%; */
+    margin-top: 10%;
 }
 #submiti{
     position: relative;
     margin-top: 0ch;
     left: 10rem;
     padding: 8px 20px;
-    border-radius: 2px;
+    border-radius: 4px;
     outline: none;
     border: none;
     cursor: pointer;
+    /* background-color: rgb(248, 85, 3); */
+    background-color: #002d72;
+    color: white;
 }
 #submiti:hover{
     transition: all 0.3s ease-out;
@@ -138,10 +274,12 @@ border: solid;
     top: 2rem;
     left: 1rem;
     padding: 8px 20px;
-    border-radius: 2px;
+    border-radius: 4px;
     outline: none;
     border: none;
     cursor: pointer;
+    color: white;
+    background-color: #002d72;
 }
 #submitc:hover{
     transition: all 0.3s ease-out;

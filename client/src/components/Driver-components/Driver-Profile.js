@@ -10,9 +10,9 @@ export default function DProfile() {
            
             <form action="/employeeprofile/account?option=details" method="post">
                 <ul>
-                    <li id="input">Your name: <input type="text" name="employee_name" id="employee_name" value="<%= employee_account.name %>"/></li>
-                    <li id="inputemail">Your email: <input type="email" name="employee_email" id="employee_email" value="<%= employee_account.email %>"/></li>
-                    <input type="submit"  id="submit" value="Update account"/>
+                    <li id="input">Your name: <input type="text" name="employee_name" id="employee_name" value="Name"/></li>
+                    <li id="inputemail">Your email: <input type="email" name="employee_email" id="employee_email" value="Email"/></li>
+                    <input type="submit"  id="submit-profile" value="Update account"/>
                 </ul>
             </form>
             
@@ -24,17 +24,18 @@ export default function DProfile() {
                     <li>Old password: <input type="password" name="employee_password[old]" id="old_password" value=""/></li>
                     <li>New password: <input type="password" name="employee_password[new]" id="new_password_field" value=""/></li>
                     <li>Confirm password: <input type="password" name="employee_password[confirm]" id="confirm_password" value=""/></li>
-                    <input type="submit"  id="submit" value="Update password"/>
+                    <input type="submit"  id="submit-pass" value="Update password"/>
                 </ul>
             </form>
             </div>
-            <h1 id="change-profilei">Delete account</h1>
+            <h1 id="change-profilei">Delete your account</h1>
             
             <div className="change">
-            <button className="delete_account_btn"  id="submit" >Delete account</button>
+            <button className="delete_account_btn"  id="submit-dlt" >Delete account</button>
             <form action="/Employeeprofile/account?option=delete" method="post">
                 <div className="delete_confirmation">
-                    <p>Once you delete your account, there is no going back. Please be certain.</p>
+                
+                    <p> <i class="fa fa-exclamation-circle" aria-hidden="true"></i>Once you delete your account, there is no going back. Please be certain.</p>
                     <input type="submit" id="submit" value="Confirm"/> <input type="reset"  id="submit" className="delete_account_btn" value="Cancel"/>
                 </div>
             </form>

@@ -296,7 +296,7 @@ left: 0.5ch;
   color: red;
 }
 
-@media screen and (max-width:768px ), (min-width: 480px){
+@media screen and (max-width:768px ) , (min-width: 480px){
 
   
 .ride-container {
@@ -456,16 +456,36 @@ input[id="ride-submit"] {
 
 }
 
-@media screen and (max-device-width:375px){
+@media screen and (max-device-width:390px){
 
   .ride-container {
     position: relative;
     width: 90vw;
     height: 82vh;
-    background: #FFF;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    background: none;
+    
   }
+
+  .child-container{
+    top: 0;
+    display: block;
+    width:100vw;
+    height: 100vh;
+    top: 0;
+    position: absolute;
+   
+  }
+
+  #ride-with{
+    position: relative;
+    margin-top: 27%;
+    font-size: 2rem;
+    color: rgb(5, 5, 5);
+     font-weight: 300;
+     text-align: center;
+  }
+  
+ 
   #ride-contact{
     position: relative;
     font-size: 1.5em;
@@ -483,7 +503,7 @@ input[id="ride-submit"] {
   .ride-left {
     position: relative;
     top: -3ch;
-    margin-left: 20%;
+    margin-left: 10.2rem;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -492,7 +512,7 @@ input[id="ride-submit"] {
   .ride-right {
     position: relative;
     margin-top: 29%;
-    left: 20%;
+    left: 5rem;
     box-sizing: border-box;
     padding: 2.5rem;
     width: 18.75rem;
@@ -520,23 +540,27 @@ input[id="ride-submit"] {
 }
 
 .car-type{
-  margin-right: 25%;
-  margin-top: 55%;
+  font-weight: 500;
+  position: relative;
+ font-size: 1.5em;
+ margin-left:23rem;
+ bottom:6.3rem;
+ margin-right: auto;
 }
 .car-left{
  position: relative;
  margin-top: -28%;
- left: 25%;
+ left: 40%;
 }
 #discount_code{
   position: relative;
-  margin-top: 2ch;
-  margin-left: -10%;
+  margin-top: 10ch;
+  margin-left: 25%;
 }
 #ride-submit{
   position: relative;
   top: 5ch;
-  margin-left: -10%;
+  margin-left: 4.5rem;
 }
 
 input[id="ride-input"] {
@@ -582,3 +606,147 @@ input[id="ride-input"] {
 }
 
 }
+
+  @media screen and (max-device-width: 375px){
+    /* .master-container{
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(16px);
+    }  */
+
+  .ride-conatiner-left r{
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(16px);
+  }
+  .ride-container {
+    position: relative;
+    margin: 10% auto;
+    width: 20.5rem;
+    height: 36rem;
+    background: none;
+    right: 0.2rem;
+    border: none;
+}
+
+.child-container{
+  top: 0;
+  display: block;
+  width:100vw;
+  height: 100vh;
+  top: 0;
+  position: absolute;
+ 
+}
+
+#ride-contact{
+  position: relative;
+  font-size: 1.4em;
+  margin-left: -2ch;
+  font-weight: 300;
+  margin-right: auto;
+}
+.ride-location{
+  position: relative;
+  top:2%;
+   font-size: 1.4rem;
+  margin-left: 0ch;
+  font-weight: 300;
+  margin-right: auto;
+}
+
+#ride-with{
+  position: relative;
+  margin-top: 27%;
+  font-size: 2rem;
+  color: rgb(5, 5, 5);
+   font-weight: 300;
+   text-align: center;
+}
+
+
+  
+  .ride-background {
+    height: 100%;
+  }
+
+  .ride-left {
+    position: relative;
+    top: 0;
+    left: 4rem;
+    box-sizing: border-box;
+    padding: 2.5rem;
+    width: 20.75rem;
+    height: 25rem;
+  }
+
+  .ride-right {
+    position: relative;
+    bottom: 20rem;
+    left: 4rem;
+    box-sizing: border-box;
+    padding: 2.5rem;
+    width: 18.75rem;
+    height: 29rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.ride-bottom {
+  position: relative;
+  bottom: 35.5rem;
+  margin-top:2%;
+  left: -1rem;
+  height: 19vh;
+  width: 80%;
+}
+
+#discount_code{
+  position: relative;
+  margin-left: 15%;
+  width: 7rem;
+ background-color: white;
+  border: 1px solid white;
+  padding: 7px 0;
+  top:-3rem;
+  border-radius: 2px;
+  text-align: center;
+}
+
+#payment-label {
+  position: relative;
+  color:white;
+
+}
+
+.car-left{
+  position: relative;
+  top:-6rem;
+  left:7rem;
+}
+
+#car-label1,#car-label{
+  color:white;
+}
+
+.car-type{
+  font-weight: 300;
+   position: relative;
+  font-size: 1.5em;
+  left:30%;
+  bottom:6.3rem;
+  margin-right: auto;
+}
+
+#ride-submit{
+  position: relative;
+  top: 1rem;
+  margin-left: 16%;
+}
+
+.payment-type{
+  font-weight: 300;
+ position: relative;
+  font-size: 1.5rem;
+ left: 2rem;
+ margin-right: auto;
+}
+}  
