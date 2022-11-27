@@ -1,24 +1,25 @@
-DROP SCHEMA IF EXISTS `wedddb`;
-CREATE SCHEMA IF NOT EXISTS `wedddb` DEFAULT CHARACTER SET latin1;
-USE `wedddb`;
+-- l04wu7ocit93m8cz is databse schema instead of wedddb
+DROP SCHEMA IF EXISTS `l04wu7ocit93m8cz`;
+CREATE SCHEMA IF NOT EXISTS `l04wu7ocit93m8cz` DEFAULT CHARACTER SET latin1;
+USE `l04wu7ocit93m8cz`;
 
 
 -- -----------------------------------------------------
--- Table `wedddb`.`user_roles`
+-- Table `l04wu7ocit93m8cz`.`user_roles`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `wedddb`.`user_roles` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`user_roles` (
   `role_id` INT(10) NOT NULL AUTO_INCREMENT,
   `role_title` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`role_id`)
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`customer_car`
+-- Table `l04wu7ocit93m8cz`.`customer_car`
 -- -----------------------------------------------------
 -- Deletes after every ride completion
 
-CREATE TABLE IF NOT EXISTS `wedddb`.`customer_car` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`customer_car` (
   `customer_car_id` INT(10) NOT NULL AUTO_INCREMENT,
   `model_number` VARCHAR(50) NOT NULL,
   `color` VARCHAR(20) NOT NULL,
@@ -30,9 +31,9 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`customer_car` (
 
 
 -- -----------------------------------------------------
--- Table `wedddb`.`customer`
+-- Table `l04wu7ocit93m8cz`.`customer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`customer` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`customer` (
   `customer_id` INT(10) NOT NULL AUTO_INCREMENT,
   `customer_pp` VARCHAR(255), -- profile picture
   `car_id` INT(10), -- make it null after ride completion
@@ -50,17 +51,17 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`customer` (
   INDEX `fk_c_car_idx` (`car_id` ASC),
   CONSTRAINT `fk_c_car_id`
     FOREIGN KEY (`car_id`)
-    REFERENCES `wedddb`.`customer_car` (`customer_car_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`customer_car` (`customer_car_id`),
   INDEX `fk_c_role` (`role` ASC),
   CONSTRAINT `fk_c_role`
     FOREIGN KEY (`role`)
-    REFERENCES `wedddb`.`user_roles` (`role_id`)
+    REFERENCES `l04wu7ocit93m8cz`.`user_roles` (`role_id`)
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`employees`
+-- Table `l04wu7ocit93m8cz`.`employees`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`employees` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`employees` (
   `employee_id` INT(10) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(40) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
@@ -74,14 +75,14 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`employees` (
   INDEX `fk_a_role` (`role` ASC),
   CONSTRAINT `fk_a_role`
     FOREIGN KEY (`role`)
-    REFERENCES `wedddb`.`user_roles` (`role_id`)
+    REFERENCES `l04wu7ocit93m8cz`.`user_roles` (`role_id`)
 );
 
 
 -- -----------------------------------------------------
--- Table `wedddb`.`driver_car`
+-- Table `l04wu7ocit93m8cz`.`driver_car`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`driver_car` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`driver_car` (
   `driver_car_id` INT(10) NOT NULL AUTO_INCREMENT,
   `manufacturer` VARCHAR(20) NOT NULL,
   `model` VARCHAR(20) NOT NULL,
@@ -91,13 +92,13 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`driver_car` (
   `car_type` CHAR(1) NOT NULL,
   `licence_plate` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`driver_car_id`),
-  CONSTRAINT CHK_Type CHECK (car_type IN ('A', 'M')) -- Automatic or manual
+  CONSTRAINT CHK_Type_driver_car CHECK (car_type IN ('A', 'M')) -- Automatic or manual
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`active_driver`
+-- Table `l04wu7ocit93m8cz`.`active_driver`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`available_drivers` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`available_drivers` (
   `active_driver_session_id` VARCHAR(16) NOT NULL,
   `driver_1_id` INT(10) NOT NULL,
   `driver_2_id` INT(10),
@@ -105,21 +106,21 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`available_drivers` (
   INDEX `fk_driver_1_idx` (`driver_1_id` ASC),
   CONSTRAINT `fk_driver_1_id`
     FOREIGN KEY (`driver_1_id`)
-    REFERENCES `wedddb`.`employees` (`employee_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`employees` (`employee_id`),
   INDEX `fk_driver_2_idx` (`driver_2_id` ASC),
   CONSTRAINT `fk_driver_2_id`
     FOREIGN KEY (`driver_2_id`)
-    REFERENCES `wedddb`.`employees` (`employee_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`employees` (`employee_id`),
   INDEX `fk_d_car_idx` (`car_id` ASC),
   CONSTRAINT `fk_d_car_id`
     FOREIGN KEY (`car_id`)
-    REFERENCES `wedddb`.`driver_car` (`driver_car_id`)
+    REFERENCES `l04wu7ocit93m8cz`.`driver_car` (`driver_car_id`)
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`current_rides`
+-- Table `l04wu7ocit93m8cz`.`current_rides`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`current_rides` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`current_rides` (
   `ride_allocated_session_id` VARCHAR(16) NOT NULL,
   `ride_id` INT(10) NOT NULL AUTO_INCREMENT, -- driver 1 drives customer car
   `driver_1_id` INT(10) NOT NULL, -- driver 1 drives customer car
@@ -136,25 +137,25 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`current_rides` (
   INDEX `fk_driver_1_id_idx` (`driver_1_id` ASC),
   CONSTRAINT `fk_driver_1_cr_id`
     FOREIGN KEY (`driver_1_id`)
-    REFERENCES `wedddb`.`employees` (`employee_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`employees` (`employee_id`),
   INDEX `fk_driver_2_id_idx` (`driver_2_id` ASC),
   CONSTRAINT `fk_driver_2_cr_id`
     FOREIGN KEY (`driver_2_id`)
-    REFERENCES `wedddb`.`employees` (`employee_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`employees` (`employee_id`),
   INDEX `fk_d_cr_car_idx` (`car_id` ASC),
   CONSTRAINT `fk_d_cr_car_id`
     FOREIGN KEY (`car_id`)
-    REFERENCES `wedddb`.`driver_car` (`driver_car_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`driver_car` (`driver_car_id`),
   INDEX `fk_customer_idx` (`customer_id` ASC),
   CONSTRAINT `fk_customer_id`
     FOREIGN KEY (`customer_id`)
-    REFERENCES `wedddb`.`customer` (`customer_id`)
+    REFERENCES `l04wu7ocit93m8cz`.`customer` (`customer_id`)
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`news`
+-- Table `l04wu7ocit93m8cz`.`news`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`news` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`news` (
   `news_id` INT(2) NOT NULL AUTO_INCREMENT,
   `start_date` DATE,
   `end_date` DATE,
@@ -165,9 +166,9 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`news` (
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`background`
+-- Table `l04wu7ocit93m8cz`.`background`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`background` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`background` (
   `home_page` VARCHAR(255),
   `about_page` VARCHAR(255),
   `contact_page` VARCHAR(255),
@@ -175,18 +176,18 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`background` (
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`services`
+-- Table `l04wu7ocit93m8cz`.`services`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`services` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`services` (
   `service_id` TINYINT(2) NOT NULL,
   `service_name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`service_id`)
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`requests`
+-- Table `l04wu7ocit93m8cz`.`requests`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`requests` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`requests` (
   `request_id` INT(10) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `address` VARCHAR(500) NOT NULL,
@@ -199,15 +200,15 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`requests` (
   INDEX `fk_service_idx` (`service_id` ASC),
   CONSTRAINT `fk_service_id`
     FOREIGN KEY (`service_id`)
-    REFERENCES `wedddb`.`services` (`service_id`),
+    REFERENCES `l04wu7ocit93m8cz`.`services` (`service_id`),
   CONSTRAINT CHK_service_id CHECK (service_id >= 1 AND service_id <= 4),
   CONSTRAINT CHK_updates CHECK (updates IN ('0', '1'))
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`rideRequests`
+-- Table `l04wu7ocit93m8cz`.`rideRequests`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`rideRequests` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`rideRequests` (
   `request_id` INT(16) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
@@ -219,13 +220,27 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`rideRequests` (
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`supportRequests`
+-- Table `l04wu7ocit93m8cz`.`supportRequests`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wedddb`.`supportRequests` (
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`supportRequests` (
   `email` VARCHAR(50) NOT NULL,
   `reason` VARCHAR(20) NOT NULL,
   `description` VARCHAR(30) NOT NULL,
   `comments` VARCHAR(500)
+);
+
+-- -----------------------------------------------------
+-- Table `l04wu7ocit93m8cz`.`temp_ride`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `l04wu7ocit93m8cz`.`temp_ride` (
+  `temp_ride_session` VARCHAR(16) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `pickup` VARCHAR(500) NOT NULL,
+  `destination` VARCHAR(500) NOT NULL,
+  `payment` VARCHAR(500) NOT NULL,
+  PRIMARY KEY (`temp_ride_session`)
 );
 
 INSERT INTO services (service_id, service_name)
