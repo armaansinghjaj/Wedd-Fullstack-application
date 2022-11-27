@@ -44,14 +44,14 @@ export default function Dashboard() {
                     <td>{rideDropoff}</td>
                     <td>
                         <form action='/DriverDashboard'>
-                            <input type='submit' value='Accept' name='accept'/>
+                            <input id="hi-submit" type='submit' value='Accept' name='accept'/>
                             <input type='hidden' name='selected' value={rideRequestID}/>
                             <input type='hidden' name='action' value='accept'/>
                         </form>
                     </td>
                     <td>
                         <form action='/DriverAvailRequests' >
-                            <input type='submit' value='Decline' name='decline'/>
+                            <input type='submit' id="hi-decline" value='Decline' name='decline'/>
                             <input type='hidden' name='selected' value={rideRequestID}/>
                             <input type='hidden' name='action' value='Decline'/>
                         </form>
@@ -64,7 +64,7 @@ export default function Dashboard() {
         <p id="driver-requests-p">Searching for requests...</p>
     {/* // <% } %> */}
 
-        <button className="end_shift"  id="submit" onClick={displayButton}>End shift</button> <br/>
+        <button className="end_shift"  id="submit-done" onClick={displayButton}>End shift</button> <br/>
 
             <div class={displayConfirm}>
                 <p id="confirm-p">Are you sure you want to end your shift?</p>

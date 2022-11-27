@@ -24,7 +24,7 @@ export default function DriverHome() {
                     <input type="number" name="d2id" placeholder="Driver2 ID" id='driver-2'/>
                     <br/>
                     <input type="number" name="carid" placeholder="Car-id" id='carid'/>
-                    <input type="submit" name="login_submit" id='login-submit' value='confirm' onClick={toRequests}/>
+                    <input type="submit" name="login_submit" id='login-submit-driver' value='confirm' onClick={toRequests}/>
                 
             </form>
             </div>

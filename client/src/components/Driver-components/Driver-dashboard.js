@@ -9,12 +9,12 @@ export default function Requests() {
 
     return(
         <>
-         <h2>Welcome {driverName}</h2>
-        <div>
+         <h2 id="driver-h">Welcome {driverName}</h2>
+        <div className="bordr">
         <div id="Driverdash-container">
            
             <h2>Your ride</h2>
-            <table>
+            <table id="drv-pick">
                 <tr>
                     <th>FROM</th>
                     <th>TO</th>
