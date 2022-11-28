@@ -2,35 +2,51 @@
    position: relative;
    justify-content: center; 
    margin-left: 10ch;
+  
 }
 #change-profile{
-    font-size: 6ch;
+    font-size: 3.5ch;
 }
 #change-profilei{
     position: relative;
-    font-size: 6ch;
-    top: 2ch;
+    font-size: 3.5ch;
+    top: 4.5ch;
 }
 #change-profilec{
     position: relative;
-    font-size: 6ch;
-    top: 1ch;
+    font-size: 3.5ch;
+    top: 2ch;
 }
 #employee_name{
     position: relative;
-    margin-left: 11ch;
-    top: -3.7ch;
+    margin-left: 1.9ch;
+    top: 0.2ch;
+    width: 20%;
+  padding: 7px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 #input{
-    margin-top: 5ch;
+    margin-top: 2ch;
 }
 #inputemail{
     position: relative;
-    margin-top: -4ch;
+    /* margin-top: 0.2ch; */
+    
 }
 #employee_email{
     position: relative;
-    left: 2ch;
+    /* bottom: 1ch; */
+    width: 20%;
+  padding: 7px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 #submit{
     position: relative;
@@ -41,7 +57,61 @@
     outline: none;
     border: none;
     cursor: pointer;
+    /* background-color: #2d15e2; */
 }
+
+#submit-profile{
+    position: relative;
+    top: 1rem;
+    left: 5.3rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #002d72;
+}
+
+#submit-pass{
+    position: relative;
+    top: 1rem;
+    left: 5rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color:white;
+    background-color: #002d72;
+    
+}
+
+ #submit-dlt{
+    position: relative;
+    top: 1rem;
+    left: 5.3rem;
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #002d72;
+    margin-top: 2rem;
+ }  
+ 
+ #submit-profile:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+ }
+
+ #submit-pass:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+ }
+ 
+ #submit-dlt:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+ }
 #submit:hover{
     transition: all 0.3s ease-out;
     background: #ff7248;

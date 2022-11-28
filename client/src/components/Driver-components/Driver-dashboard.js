@@ -10,10 +10,12 @@ export default function Requests() {
 
     return(
         <>
+
             <div id="Driverdash-container">
-                <div id='dashboard-wrapper'>
-                    <h2 id="dashboard-h2">Your ride</h2>  
-                    <table id="dashboard-table">
+                <div id="dashboard-wrapper">
+                    <h2>Your ride</h2>
+                    
+                    <table>
                         <tr>
                             <th>FROM</th>
                             <th>TO</th>
@@ -25,7 +27,7 @@ export default function Requests() {
                     </table>
                     <div class="starter">
                         <p>Slide to drive</p>
-                        <p><input type="range" value="0" className="pullee"/></p>
+                        <p><input type="range" value="0" class="pullee"/></p>
                     </div>
                     <div class="map">
                         <span id="map_section">MAP HERE</span>

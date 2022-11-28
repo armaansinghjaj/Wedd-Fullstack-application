@@ -1,6 +1,7 @@
 import React from 'react'
 import Forgotpassword from '../Common-components/Forgot-password.css'
 
+
 function BackgroundForget() {
   return (
     <div className='BackgroundForget-container'>

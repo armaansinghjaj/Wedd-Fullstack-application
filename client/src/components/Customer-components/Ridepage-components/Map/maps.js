@@ -1,21 +1,19 @@
 import React from "react";
 import * as LR from "react-leaflet";
 import * as G from "leaflet-control-geocoder";
-// import * as R from "leaflet-routing-machine";
+import "leaflet-routing-machine";
 
 import "./map.css";
 import "leaflet/dist/leaflet";
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import "leaflet-routing-machine/dist/leaflet-routing-machine";
-import L from "leaflet";
+import L, {Routing} from "leaflet";
 var marker, circle, lat, long, accuracy;
 let userlocationlat = null;
 let userlocationlng = null;
-let startlat = null;
-let startlng = null;
-let destlat = null;
-let destlng = null;
+let display_pickup = null;
+let display_destination = null;
 
 function LeafletMaps() {
 	var map = LR.useMap();
@@ -53,40 +51,18 @@ function LeafletMaps() {
 	}
 
 	function addRoute() {
-		startlat = parseFloat(document.getElementById("startlat").value);
-		startlng = parseFloat(document.getElementById("startlng").value);
-		destlat = parseFloat(document.getElementById("destlat").value);
-		destlng = parseFloat(document.getElementById("destlng").value);
-		L.Routing.control({
-			waypoints: [L.latLng(startlat, startlng), L.latLng(destlat, destlng)],
-		}).addTo(map);
-	}
-	function updateLatLng() {
-		let pickup = document.getElementById("picks").value;
-		pickup = pickup.replace(" ", "+");
-		var url = "https://nominatim.openstreetmap.org/?q=" + pickup + "&format=json";
-		// var xmldoc = null;
-		return fetch(url)
-			.then((response) => response.text())
-			.then((str) => {
-				if (JSON.parse(str)[0]) {
-					document.getElementById("startlat").value = parseFloat(JSON.parse(str)[0].lat);
-					document.getElementById("startlng").value = parseFloat(JSON.parse(str)[0].lon);
-				}
-
-				let destination = document.getElementById("dest").value;
-				destination = destination.replace(" ", "+");
-				var url = "https://nominatim.openstreetmap.org/?q=" + destination + "&format=json";
-				// var xmldoc = null;
-				return fetch(url)
-					.then((response) => response.text())
-					.then((str) => {
-						if (JSON.parse(str)[0]) {
-							document.getElementById("destlat").value = parseFloat(JSON.parse(str)[0].lat);
-							document.getElementById("destlng").value = parseFloat(JSON.parse(str)[0].lon);
-						}
-					});
+		let geocoder = G.geocoders.nominatim();
+		var r = geocoder.geocode(display_pickup, (results) => {
+			var p = results[0];
+			display_pickup = p.name
+			geocoder.geocode(display_destination, (results) => {
+				var d = results[0];
+				display_destination = p.name
+				Routing.control({
+					waypoints: [L.latLng(p.center.lat, p.center.lng), L.latLng(d.center.lat, d.center.lng)],
+				}).addTo(map);
 			});
+		});
 	}
 
 	if (document.getElementById("map_state").value === "1") {
@@ -99,15 +75,15 @@ function LeafletMaps() {
 					document.getElementById("picks").value = JSON.parse(str).display_name;
 				});
 		});
-		document.getElementById("picks").addEventListener("input", () => {
-			updateLatLng();
-		});
-		document.getElementById("dest").addEventListener("input", () => {
-			updateLatLng();
-		});
 	}
 	if (document.getElementById("map_state").value === "2") {
+		let display_name = document.getElementById("hidden_name").value;
+		let display_email = document.getElementById("hidden_email").value;
+		let display_phone = document.getElementById("hidden_phone").value;
+		display_pickup = document.getElementById("hidden_pickup").value;
+		display_destination = document.getElementById("hidden_destination").value;
 		addRoute();
+		document.getElementById("details").innerHTML = "Name: " + display_name + "<br>Email: " + display_email + "<br>Phone number: " + display_phone + "<br>Pick-up Address: " + display_pickup + " <br>Destination: " + display_destination;
 
 		document.getElementById("get_map").addEventListener("click", () => {
 			document.getElementById("map_div").style.visibility = "visible";
@@ -136,6 +112,7 @@ function LeafletMaps() {
 	}
 	if (document.getElementById("map_state").value === "3") {
 		addRoute();
+		document.getElementById("map_state").value = "0";
 	}
 }
 
@@ -144,6 +121,7 @@ export default function maps() {
 		<>
 			<LR.MapContainer center={[51.0447, -114.0719]} id="map" style={{height: "50vh", width: "50vw"}} zoom={12}>
 				<LR.TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={17}></LR.TileLayer>
+
 				<LeafletMaps />
 			</LR.MapContainer>
 		</>
