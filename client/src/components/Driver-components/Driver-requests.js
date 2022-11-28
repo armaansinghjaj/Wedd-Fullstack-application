@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import './Driverportal.css';
+import './Driver-requests.css';
+import Drivernametag from "./Driver-nametag";
 
 
 export default function Dashboard() {
@@ -11,70 +12,79 @@ export default function Dashboard() {
     const ridePickup = 'Pickup Address';
     const rideDropoff = 'Dropoff Address';
 
-    const [visibleConfirm, setVisibleConfirm] = useState(false) 
-    const displayConfirm = visibleConfirm ? "end_form_container-visible" : "end_form_container";
+
+    const [endShift, setEndShift] = useState(false);
 
     const displayButton = () => {
-        setVisibleConfirm(!visibleConfirm);
+        setEndShift(!endShift)
     }
+
 
     return(
         <>
-        <div>
+        <Drivernametag/>
         <div id="DriverRequests-container">
-        {/* <% if (rides.length > 0) { %> */}
-        <table className='Drivertable'>
-            <tr>
-                <th>Request ID</th>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>Phone</th>
-                <th>Pick-up Address</th>
-                <th>Destination</th>
-                <th>Accept</th>
-                <th>Decline</th>
-            </tr>
-            {/* <% rides.forEach(ride => { %> */}
-                <tr>
-                    <td>{rideRequestID}</td>
-                    <td>{rideName}</td>
-                    <td>{rideEmail}</td>
-                    <td>{ridePhone}</td>
-                    <td>{ridePickup}</td>
-                    <td>{rideDropoff}</td>
-                    <td>
-                        <form action='/DriverDashboard'>
-                            <input type='submit' value='Accept' name='accept'/>
-                            <input type='hidden' name='selected' value={rideRequestID}/>
-                            <input type='hidden' name='action' value='accept'/>
-                        </form>
-                    </td>
-                    <td>
-                        <form action='/DriverAvailRequests' >
-                            <input type='submit' value='Decline' name='decline'/>
-                            <input type='hidden' name='selected' value={rideRequestID}/>
-                            <input type='hidden' name='action' value='Decline'/>
-                        </form>
-                    </td>
+            <div id="Driver-requests-table">
+            {/* <% if (rides.length > 0) { %> */}
+            <table className='requests-drivertable'>
+                <tr id="requests-tr-header">
+                    <th id="requests-th">ID</th>
+                    <th id="requests-th">Name</th>
+                    <th id="requests-th">E-mail</th>
+                    <th id="requests-th">Phone</th>
+                    <th id="requests-th">Pick-up</th>
+                    <th id="requests-th">Destination</th>
+                    <th id="requests-th">Accept</th>
+                    <th id="requests-th">Decline</th>
                 </tr>
-            {/* <% }) %> */}
-        </table>
-    {/* <% } else { %> */}
-        <p id="driver-requests-p">No requests to show</p>
-        <p id="driver-requests-p">Searching for requests...</p>
-    {/* // <% } %> */}
+                {/* <% rides.forEach(ride => { %> */}
+                    <tr id="requests-tr-data">
+                        <td>{rideRequestID}</td>
+                        <td>{rideName}</td>
+                        <td>{rideEmail}</td>
+                        <td>{ridePhone}</td>
+                        <td>{ridePickup}</td>
+                        <td>{rideDropoff}</td>
+                        <td>
+                            <form action='/DriverDashboard'>
+                                <input id="requests-accept-btn" type='submit' value='Accept' name='accept'/>
+                                <input type='hidden' name='selected' value={rideRequestID}/>
+                                <input type='hidden' name='action' value='accept'/>
+                            </form>
+                        </td>
+                        <td>
+                            <form action='/DriverAvailRequests' >
+                                <input id="requests-decline-btn" type='submit' value='Decline' name='decline'/>
+                                <input type='hidden' name='selected' value={rideRequestID}/>
+                                <input type='hidden' name='action' value='Decline'/>
+                            </form>
+                        </td>
+                    </tr>
+                {/* <% }) %> */}
+            </table>
 
-        <button className="end_shift"  id="submit" onClick={displayButton}>End shift</button> <br/>
-
-            <div class={displayConfirm}>
-                <p id="confirm-p">Are you sure you want to end your shift?</p>
-                <form id="end-shift-form" action="/Driver">
-                    <input id="submit" type="submit" value="Confirm"/>
-                </form>
-                <button id="cancel-end-shift-btn" onClick={displayButton}>Close</button>
-            </div>
-        </div>    
+            </div>    
         </div>
+        {/* <% } else { %> */}
+        <div id="requests-feedback">
+            <p id="driver-null-p">No requests</p>
+            <p id="driver-searching-p">Searching...</p>
+        </div>
+        {/* // <% } %> */}
+        <div id={endShift ? "ride-requests-overlay-active" : "ride-requests-overlay"}>
+            <div class={"end_form_container"}>
+                    <p id="confirm-p">Are you sure you want to end your shift?</p>
+                    <form id="end-shift-form" action="/Driver">
+                        <input id="requests-submit" type={"submit"} value="Confirm"/>
+                        <input id="end-shift-btn" value="Cancel" onClick={displayButton}/>
+                    </form>
+            </div>
+        </div>
+
+        <div>
+            <button className="end_shift" onClick={displayButton}>End shift</button>
+        </div>
+
         </>
     )
 }

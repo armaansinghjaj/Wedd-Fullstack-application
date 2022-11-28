@@ -6,7 +6,7 @@ import AdminNavbar from '../components/Admin-components/Admin-bar';
 
 export default function DriversEdit() {
   return (
-    <div>
+    <div id='driver-home-background'>
       <AdminNavbar/>
       <AdminDriversEdit/>
     </div>

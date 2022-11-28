@@ -85,7 +85,6 @@ const App = () => {
         <Route path= '/driverdashboard'  element={<DriverDashboard/>}/>
         <Route path= '/driveravailrequests'  element={<DriverRequests/>}/> 
 
-
         {/* Customer account pages */}
         <Route path= '/account'  element={<CustomerProfile/>}/>        
         <Route path= '/triphistory'  element={<TripHistory/>}/>
