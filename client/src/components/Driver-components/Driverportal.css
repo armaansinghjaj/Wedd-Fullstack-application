@@ -110,6 +110,23 @@
     color: #fff;
     transition: 250ms;
 }
+@media screen and (max-width:1600px) { 
+    
+    #start-shift-container{
+        left: 11%;
+        width: 25rem;
+        height: 25rem;
+    }
+}
+
+@media screen and (max-width:1366px) { 
+    
+    #start-shift-container{
+        left: 14%;
+        width: 25rem;
+        height: 25rem;
+    }
+}
 
 @media screen and (max-width:1280px) { 
     #employee-name-tag{
