@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { Link, Navigate} from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import './SignupForm.css';
@@ -12,6 +12,8 @@ function SignupForm() {
     const [password, setPassword]=useState('');
     const [passwordError, setPasswordError]=useState('');
     const [userVerified, setVerifiedUser]=useState('');
+    let [passwordLength, setPasswordLength]=useState(0);
+    const [passwordLengthError, setPasswordLengthError]=useState('');
 
     const cookies = new Cookies();
 
@@ -27,7 +29,8 @@ function SignupForm() {
 
     const handlePasswordChange=(e)=>{
         setPasswordError('');
-      setPassword(e.target.value);
+        setPassword(e.target.value);
+        setPasswordLength(passwordLength+=1)
     }
 
     const handleFormSubmit=(e)=>{
@@ -43,8 +46,11 @@ function SignupForm() {
             // checking if password is empty
             if(password === '') setPasswordError('Password Required');
         }
+        else if(passwordLength < 8){
+            setPasswordLengthError("Password must be at least 8 characters long");
+        }
         else{
-            const data = {
+            const signup_data = {
                 name: name,
                 email: email,
                 password: password
@@ -56,19 +62,28 @@ function SignupForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(signup_data),
             })
-            .then(response => response.json())
-            .then(responsedata => {
-                setVerifiedUser(responsedata.userVerified);
+            .then(signup_response => signup_response.json())
+            .then(signup_responseData => {
+                console.log(signup_responseData)
+                if(signup_responseData.userCreate){
+                    setVerifiedUser(signup_responseData.userCreate);
+                    cookies.set('c_user', signup_responseData.name, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                    cookies.set('__sid', signup_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                } else {
+                    alert(signup_responseData.signinErrorMessage)
+                }
             })
         }
     }
 
     return (
         <>
-        {userVerified && (<Navigate to="/" replace={true} />)}
-        {cookies.get('uid') && <Navigate to="/ride" replace={true} />}
+        {userVerified && (<Navigate to="/ride" replace={true} />)}
+
+        {cookies.get('__sid') && <Navigate to="/ride" replace={true} />}
+
         <div className="signup-parent-container">
 
                 <div className='signup-container-form'>
@@ -87,8 +102,8 @@ function SignupForm() {
                                 <input type="email" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="email" placeholder="Enter your email address" id="signup-input" onChange={handleEmailChange} value={email} />
                                 {emailError&&<div className='error-msg'>{emailError}</div>}
 
-                                <input type="password" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="password" placeholder="Create a password" id="signup-password"onChange={handlePasswordChange} value={password} />
-                                {passwordError&&<div className='error-msg'>{passwordError}</div>}
+                                <input type="password" className='signup-form-fields signup-form-inputs signup-form-inside-contents' name="password" placeholder="Create a password" id="signup-password" onChange={handlePasswordChange} value={password} />
+                                {passwordLengthError&&<div className='error-msg'>{passwordLengthError}</div>}
 
                                 <input type="submit" className='signup-form-submit signup-form-inputs signup-form-inside-contents' name="signup_submit" value="Sign up" id="signup-submit" />
                                 </div>
@@ -100,7 +115,7 @@ function SignupForm() {
                         <div className='link-container'>
                             <div className="signup-link-container signup-form-links">
                                 <span id='signup-text'>Already have an account? </span> 
-                                <Link to='/signup' className='signup-route'>Login</Link>
+                                <Link to='/login' className='signup-route'>Login</Link>
                             </div>
                         </div>
                     </div>

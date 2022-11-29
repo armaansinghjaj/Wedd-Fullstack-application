@@ -50,6 +50,7 @@ function setDropLocation(req, values) {
 
 const homeRoute = require("./routes/Home");
 const loginRoute = require("./routes/Login");
+const logoutRoute = require("./routes/Logout");
 const signupRoute = require("./routes/Signup");
 const profileRoute = require("./routes/Profile");
 const aboutPageRoute = require("./routes/About");
@@ -67,6 +68,7 @@ const employeeRoute = require("./routes/EmployeeProfile");
 
 app.use("/api/", homeRoute);
 app.use("/api/login", loginRoute);
+app.use("/api/logout", logoutRoute);
 app.use("/api/signup", signupRoute);
 app.use("/api/account", profileRoute);
 app.use("/api/about", aboutPageRoute);
