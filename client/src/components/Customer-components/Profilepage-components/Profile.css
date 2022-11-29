@@ -123,37 +123,3 @@
     top: 5ch;
 }
 
-#old_password{
-    width: 20%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-#new_password_field{
-    width: 20%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-#confirm_password{
-    width: 20%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.delete_confirmation{
-    margin-top: 3rem;
-    color: red;
-}

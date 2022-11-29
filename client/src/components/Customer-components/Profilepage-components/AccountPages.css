@@ -162,6 +162,12 @@ li{
     transition: 250ms;
 }
 
+@media screen and (max-width:414px) {
+    .profile-container{
+        left: -8%;
+    }
+}
+
 @media screen and (max-device-width: 390px){
     .trip-container {
         position: relative;

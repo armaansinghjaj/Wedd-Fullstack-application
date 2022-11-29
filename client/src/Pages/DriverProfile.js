@@ -5,9 +5,9 @@ import DriverNavbar from '../components/Driver-components/Driver-Sidebar'
 
 export default function DriverProfile() {
   return (
-    <div>
-    <DriverNavbar/>
-    <DProfile/>
-  </div>
+    <div id='driver-home-background'>
+      <DriverNavbar/>
+      <DProfile/>
+    </div>
   )
 }

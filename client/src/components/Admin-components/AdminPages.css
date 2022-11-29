@@ -1,6 +1,6 @@
   /* Contains css for Admin-News/Admin-Home/Admin-Roles/Admin-DriversEdit pages */
   
-  table{
+  /* table{
     border: 1px solid;
   }
   th,td {
@@ -10,7 +10,7 @@
   th {
     background-color: #e64c1b;
     color: white;
-  }
+  } */
 
   #admin-h1 {
     font-size: 3rem;
