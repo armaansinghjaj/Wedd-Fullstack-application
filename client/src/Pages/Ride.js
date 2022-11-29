@@ -11,8 +11,8 @@ export default function Ride() {
 		<div>
 			<NavBar />
 			<Updates />
-			<Maps />
 			<RideForm/>
+			<Maps />
 			<Footer />
 			
 		</div>
