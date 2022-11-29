@@ -6,12 +6,14 @@
     backdrop-filter: blur(8px);
     height: 100vh;
     width: 16rem;
+    z-index: 999;
 }
 
 .vert-nav-h1 {
     position: sticky;
     top: 2rem;
     color: #e64c1b;
+    z-index: 999;
 }
 
 .Vert-Nav-Links{
@@ -24,6 +26,7 @@
     padding: 0.3rem 1rem;
     margin-bottom: 5px;
     height: 100%;
+    z-index: 999;
 }
 
 .Vert-Nav-Active{
@@ -35,12 +38,14 @@
     border-bottom: 0;
     border-left: 0;
     border-top: 0;
+    z-index: 999;
 }
 
 .Vert-Nav-Links:hover {
     color: black;
     border-right: 4px solid #e64c1b;
     transition: all 0.2s ease-out;
+    z-index: 999;
 }
 
 .link-wrapper {
@@ -52,17 +57,19 @@
     border-width: 1px;
     border-right: 0;
     border-left: 0;
+    z-index: 999;
 }
 
 .driver-link-wrapper {
     list-style: none;
     display: inline-block;
     position: relative;
-    top: 10rem;
+    top: 14rem;
     border-style: solid;
     border-width: 1px;
     border-right: 0;
     border-left: 0;
+    z-index: 999;
 
 }
 
@@ -74,6 +81,7 @@
     background-color: #002d72;
     bottom: 0;
     left: 0;
+    z-index: 999;
 }
 
 #logo-wrapper {
@@ -125,9 +133,12 @@ display: none;
     display: none;
 }
 
+@media screen and (max-width: 414px) {
 
+    .driver-link-wrapper {
+        display: none;
+    }
 
-@media screen and (max-width: 390px) {
     .vertical-navbar {
         display: none;
     }
@@ -137,31 +148,36 @@ display: none;
     }
 
     .h-navbar {
-        position: relative;
+        position: fixed;
+        display: initial;
         left: 1%;
         width: 97%;
-        top: 10%;
-        margin-top: 1rem;
+        top: 1%;
         border-radius: 5px;
         box-shadow: 0px 10px 45px 0px #2b2b2bd1;
         background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(8px);
+        z-index: 998;
     }
 
     .h-wrapper {
+        display: initial;
         display: flex;
         flex-direction: column;
         border-radius: 1em;
         justify-content: flex-start;
         width: 100vw;
         position: fixed;
-        top: 5rem;
+        top: 4.5rem;
         right: -110%;
+        z-index: 999;
         opacity: 1;
         transition: all 0.5s ease;
     }
 
     .h-wrapper-active {
+        display: initial;
+        top: 8.6%;
         position: fixed;
         background: #242222;
         border-radius: 1em;
@@ -169,7 +185,7 @@ display: none;
         right: 0;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 1;
+        z-index: 999;
     }
 
     .h-nav-links {
@@ -186,33 +202,31 @@ display: none;
         background-color: #fff;
         color: #242424;
         border-radius: 0;
-    }
-
-    #vert-logo {
-        position: relative;
-        font-size: 32px;
-        left: 47%;
-        top: 20%;
-    }
+    }   
 
     #h-profile {
         display: initial;
         position: relative;
         font-size: 32px;
         color: #ff7248;
-        left: 41%;
-        top: 20%;
+        left: 65%;
+        top: 22%;
         text-decoration: none;
     }
 
-    #h-logo {
-        display: initial;
-        position: relative;
-        font-size: 32px;
-        color: #ff7248;
-        left: 58%;
-        top: 20%;
-        text-decoration: none;
-    }
 
+}
+
+@media screen and (max-width: 390px) {
+    
+    #h-profile {
+        left: 60%;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .h-wrapper-active {
+        top: 11.2%;
+    }
+    
 }

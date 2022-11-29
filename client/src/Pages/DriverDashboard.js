@@ -5,8 +5,10 @@ import Requests from '../components/Driver-components/Driver-dashboard';
 export default function DriverDashboard() {
     return(
         <>
+        <div id='driver-home-background'>
         <DriverNavbar/>
         <Requests/>
+        </div>
         </>
     )
 }

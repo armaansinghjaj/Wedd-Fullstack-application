@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import ProfilePage from '../Customer-components/Profilepage-components/ProfilePage';
 import '../Admin-components/Sidebar-Background-edit.css';
 
     export default function DriverNavbar() {
@@ -21,15 +20,13 @@ import '../Admin-components/Sidebar-Background-edit.css';
 
         <ul className='driver-link-wrapper'>
             <li>
-                    <Link className={location.pathname === 'Driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver-Profile'>Profile</Link>
+                    <Link className={location.pathname === 'driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver/Profile'>Profile</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/DriverDashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/DriverDashboard'>Start Shift</Link>
+                    <Link className={location.pathname === '/driver-dashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver'>Start Shift</Link>
                 </li>
-
             </ul>
         <div className='logout-wrapper'>
-
             <Link id='logout-link' to='/Home'>
             <button id='logout-button'>Log Out</button>
             </Link>
@@ -37,7 +34,7 @@ import '../Admin-components/Sidebar-Background-edit.css';
 
         <div className='h-navbar'>
             <div id='logo-wrapper'>
-                <Link id='h-profile' to={'/Admin'}>Driver Name</Link>
+                <Link id='h-profile' to={'/driver'}>WeDD</Link>
             </div>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -48,11 +45,12 @@ import '../Admin-components/Sidebar-Background-edit.css';
                 <Link className='h-nav-links' to='/driver-profile' onClick={closeMobileMenu}>Profile</Link>
             </li>
             <li>
+                <Link className='h-nav-links' to='/driver' onClick={closeMobileMenu}>Start Shift</Link>
+            </li>
+            <li>
                 <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
             </li>
         </ul>
-
-
         </>
 
     )

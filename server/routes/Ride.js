@@ -22,7 +22,19 @@ router.get("/", (req, res) => {
 	return res.render("ride");
 });
 
-router.get("/processing", (req, res) => {});
+router.get("/processing", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`SELECT * FROM temp_ride WHERE temp_ride_session = '${sess.temp_session_id}'`, function (err, result, fields) {
+			con.release();
+
+			if (err) return res.send("backend error");
+			console.log(result)
+			return res.send(result[0]);
+		});
+	});
+});
 
 router.post("/processing", (req, res) => {
 	let sess = req.session;

@@ -9,7 +9,7 @@ export default function AdminNews() {
         <div className='AdminNews-container'>
         <h1 id='admin-h1'>Add News</h1>
         <form action="/addnews" method="POST">
-            <table>
+            <table id="mytable1">
                 <tr>
                     <td>Start-date</td>
                     <td><input type="datetime-local" name="start_date" /></td>
