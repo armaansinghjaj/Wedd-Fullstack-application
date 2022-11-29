@@ -80,10 +80,10 @@ const App = () => {
         <Route path='/backgroundeditcontact' element={<BgContact/>}/>
 
         {/* Driver dashboard pages */}
-        <Route path= '/Driver-Profile'  element={<DriverProfile/>}/> 
+        <Route path= '/driver/Profile'  element={<DriverProfile/>}/> 
         <Route path= '/driver'  element={<Driver/>}/> 
-        <Route path= '/driverdashboard'  element={<DriverDashboard/>}/>
-        <Route path= '/driveravailrequests'  element={<DriverRequests/>}/> 
+        <Route path= '/driver/dashboard'  element={<DriverDashboard/>}/>
+        <Route path= '/driver/availrequests'  element={<DriverRequests/>}/> 
 
         {/* Customer account pages */}
         <Route path= '/account'  element={<CustomerProfile/>}/>        
