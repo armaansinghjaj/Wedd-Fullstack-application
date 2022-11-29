@@ -10,8 +10,7 @@ export default function DriverHome() {
     const toRequests = () => {
         move("/DriverAvailRequests");
     }
-
-
+    
     return(
         <>
             <Drivernametag/>
