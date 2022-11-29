@@ -13,8 +13,44 @@
   }
 
   #admin-h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 200;
+    margin-top: 3%;
+
+    margin-left: 7rem;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -2px;
+  }
+
+  input[type=color] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -2px;
+  }
+
+  input[type=datetime-local] {
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: -2px;
   }
 
   #account-h3 {
@@ -56,13 +92,19 @@
     transition-duration: 0.4s;
     padding: 10px 35px;
     margin-top: 2ch;
+    width: 19.3rem;
+    color:white;
+    background-color: #002d72;
+    border: none;
+    border-radius: 3px;
+    margin-left: 4.8rem;
   }
   
-  .editnews:hover {
-    background-color: #e64c1b; /* blue*/
+  /* .editnews:hover {
+    background-color: #e64c1b;
     color: white;
     border-radius: 0.5rem;
-  }
+  } */
   #link{
     margin-top: 5ch;
   }
@@ -151,22 +193,70 @@
     left: 20%;
   }
 
+  #homepage{
+    border-collapse: collapse;
+  width: 20%;
+  height: 18.5vh;
+  
+  }
+
+  #homepage td, #homegae th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    
+  }
+
+  
+
+  #file-typ{
+    margin-left: 3rem;
+  }
+
+  #add-me{
+    margin-left: 3rem;
+    margin-top: 1rem;
+    color:white;
+    background-color: #002d72;
+    border-radius: 3px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
+  }
+
+  #hit-me{
+    margin-top: 1rem;
+    color:white;
+    background-color: #002d72;
+    border-radius: 3px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
+  }
   /* News edit css */
   .AdminNews-container{
     position: relative;
     display: inline-block;
-    width: 80%;
-    height: 100vh;
+    width: 30vw;
+    height: 65vh;
     left: 20%;
+    border: 1px solid;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 18px #888888;
+  }
+
+  #mytable1{
+    margin-left: 3.5rem;
+    border: none;
   }
 
   /* Background edit home */
   .bghome-container {
     position: relative;
     display: inline-block;
-    width: 80%;
+    width: 80vw;
     height: 100vh;
-    left: 20%;
+    left: 25rem;
+    margin-top: 10rem;
   }
 
   /* Background about home */
