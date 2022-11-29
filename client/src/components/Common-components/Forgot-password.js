@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Forget.css';
+import './Forgot-password.css';
 
 export default function Forgotpassword() {
   return (
