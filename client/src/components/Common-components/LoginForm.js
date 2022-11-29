@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import './LoginForm.css';
@@ -33,7 +33,7 @@ function LoginForm() {
             if(password === '') setPasswordError('Password Required');
         }
         else{
-            const data = {
+            const login_data = {
                 email: email,
                 password: password
             }
@@ -44,13 +44,13 @@ function LoginForm() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(login_data),
             })
-            .then(response => response.json())
-            .then(responsedata => {
-                setAuthenticatedUser(responsedata);
-                cookies.set('uid', responsedata.name, { path: '/', maxAge: '5260000', secure: false, sameSite: 'strict'});
-                console.log(cookies.get('uid'));
+            .then(login_response => login_response.json())
+            .then(login_responseData => {
+                setAuthenticatedUser(login_responseData);
+                cookies.set('c_user', login_responseData.name, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                cookies.set('__sid', login_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
             })
         }
     }
@@ -72,16 +72,11 @@ function LoginForm() {
 
     return (
         <>
-        {(userAuthenticated && ((userAuthenticated.loginType === "customer")?(
-            <Navigate to="/" replace={true}/>
-        ):((userAuthenticated.loginType === "driver")?(
-                <Navigate to="/driver" replace={true}/>
-            ):((userAuthenticated.loginType === "admin")?(
-                    <Navigate to="/admin" replace={true}/>
-                        ):(alert("Nothing")
-        )))))}
+        {/* Redirect to different portals when logged in */}
+        {userAuthenticated && <Navigate to={userAuthenticated.accessPath} replace={true}/>}
 
-        {cookies.get('uid') && <Navigate to="/ride" replace={true} />}
+        {/* Redirect to ride if user comes to login page after logging in. */}
+        {(cookies.get('__uid') && cookies.get('__sid')) && <Navigate to="/ride" replace={true} />}
         
         <div className="login-parent-container">
 
@@ -97,6 +92,8 @@ function LoginForm() {
                                 
                                 <div className="login-form">
                                     <h1 className='login-form-head login-form-inside-contents'>Log in to your account</h1>
+
+                                    <div className="login-form-error-txt"></div>
                                     
                                     <input type="email" className='login-form-fields login-form-inputs login-form-inside-contents' name="email" placeholder="Enter your email address" id='login-input' onChange={handleEmailChange} value={email}/>
                                     {emailError&&<div className='error-msg'>{emailError}</div>}

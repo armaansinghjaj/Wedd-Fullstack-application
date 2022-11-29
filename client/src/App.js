@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
 
 import Home from './Pages/Home';
@@ -43,6 +43,9 @@ import CustomerProfile from './Pages/Account';
 import TripHistory from './Pages/TripHistory';
 import HelpAndSupport from './Pages/HelpAndSupport';
 import FaQuestions from './Pages/FAQ';
+
+// Common pages
+import Logout from './components/Common-components/Logout'
 
 const App = () => {
   
@@ -92,6 +95,14 @@ const App = () => {
         <Route path= '/helpandsupport'  element={<HelpAndSupport/>}/>
         <Route path= '/faq'  element={<FaQuestions/>}/>
         {/* <Route path='/' element={</>}/> */}
+
+        {/* Common pages */}
+        <Route path='/logout' element={<Logout/>}/>
+
+        {/* Redirect pages */}
+        <Route path='/customer' element={
+          <Navigate replace to="/"/>
+        }/>
       </Routes>
     </Router>
 

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
+const {signupSessionID} = require("../modules/GenerateSessionID");
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -22,23 +23,45 @@ router.post("/", (req, res) => {
 		return;
 	}
 	if (req.body.email === "" || req.body.name === "" || req.body.password === "") {
-		alert("Sorry, try again!");
-		return;
+		return res.send({
+			userCreate: false,
+			signinErrorMessage: "Email or password cannot be empty."
+		});
 	}
 
 	pool.getConnection((err, con) => {
 		if (err) throw err;
 
-		con.query(`INSERT INTO customer (customer_id, email, name, password) VALUES (0, '${req.body.email}','${req.body.name}','${req.body.password}')`, function (err, result, fields) {
+		con.query(`SELECT * FROM customer WHERE email = '${req.body.email}'`, function (err, driversFromDB, fields) {
 			con.release();
 			if(err) throw err;
 
-			return res.send({
-				userVerified: true
-			});
-			// res.redirect("/");
+			console.log(driversFromDB[0] !== null);
+			console.log(driversFromDB[0]);
+			if(driversFromDB[0]){
+				return res.send({
+					userCreate: false,
+					signinErrorMessage: "Sorry, that email address is already associated with an account."
+				});
+			} else {
+				pool.getConnection((err, con) => {
+					if (err) throw err;
+			
+					con.query(`INSERT INTO customer (customer_id, email, name, password) VALUES (0,'${req.body.email}','${req.body.name}','${req.body.password}')`, function (err, result, fields) {
+						con.release();
+						if(err) throw err;
+			
+						signupSessionID(req);
+						return res.send({
+							userCreate: true,
+							user: req.body.email,
+							name: req.body.name,
+							sessionID: sess.sessionID
+						});
+					});
+				});
+			}
 		});
 	});
 });
-
 module.exports = router;
