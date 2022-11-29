@@ -1,7 +1,7 @@
 .parent-container{
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: left;
     /* align-items: center; */
 }
 .child-container{
@@ -18,11 +18,11 @@
     height: 100vh;
     object-fit: cover;
 }
-.ride-conatiner-right{
+/* .ride-conatiner-right{
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(16px);
     background-color: #ffffff85;
-}
+} */
 #ride-with{
     position: relative;
     margin-top: -13%;

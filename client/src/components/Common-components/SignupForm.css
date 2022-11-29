@@ -50,6 +50,8 @@
 }
 
 .signup-form-head{
+  position: relative;
+  top: -2rem;
   font-size: 2rem;
 }
 
