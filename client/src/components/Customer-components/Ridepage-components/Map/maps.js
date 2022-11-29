@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import * as LR from "react-leaflet";
 import * as G from "leaflet-control-geocoder";
 import "leaflet-routing-machine";
-import Loading from "./Loader";
 
 import "./map.css";
 import "leaflet/dist/leaflet";
@@ -65,11 +64,8 @@ function LeafletMaps() {
 						.on("routesfound", function (e) {
 							var routes = e.routes;
 							var summary = routes[0].summary;
-							// alert distance and time in km and minutes
 							let distance = Math.round(summary.totalDistance / 1000);
-							console.log(distance);
 							let minutes = Math.round((summary.totalTime % 3600) / 60);
-							console.log(minutes);
 							let price = 28 + distance * 1.25 + minutes * 0.8;
 							document.getElementById("estimate").innerHTML = "Estimate: " + price + "$ (This is just an estimate the price may change)";
 						});

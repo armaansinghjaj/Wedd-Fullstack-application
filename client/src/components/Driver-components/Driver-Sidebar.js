@@ -20,10 +20,10 @@ import '../Admin-components/Sidebar-Background-edit.css';
 
         <ul className='driver-link-wrapper'>
             <li>
-                    <Link className={location.pathname === 'Driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver-Profile'>Profile</Link>
+                    <Link className={location.pathname === 'driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver/Profile'>Profile</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/DriverDashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver'>Start Shift</Link>
+                    <Link className={location.pathname === '/driver-dashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver'>Start Shift</Link>
                 </li>
             </ul>
         <div className='logout-wrapper'>
