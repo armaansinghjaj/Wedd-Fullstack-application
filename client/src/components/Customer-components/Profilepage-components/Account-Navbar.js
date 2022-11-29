@@ -21,7 +21,7 @@ export default function AccountNavbar() {
 
                     <ul className='link-wrapper'>
                         <li>
-                            <Link className={location.pathname === '/profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/profile'>Settings and Profile</Link>
+                            <Link className={location.pathname === '/Account'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Account'>Settings and Profile</Link>
                         </li>
                         <li>
                             <Link className={location.pathname === '/triphistory'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/triphistory'>Trip History</Link>

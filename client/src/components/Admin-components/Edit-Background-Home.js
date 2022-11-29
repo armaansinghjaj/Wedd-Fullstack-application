@@ -22,9 +22,9 @@ export default function BackgroundHome() {
 
                         <td>
                             <form action="/background?page=home" method="POST" enctype="multipart/form-data">
-                                <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/>
+                                <input id="file-typ" type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/>
                                 <input type="hidden" name="action" value="Home Page"/>
-                                <input type="submit" value="Add"/>
+                                <input id="add-me" type="submit" value="Add"/>
                             </form>
                         </td>
                         <br />
@@ -34,7 +34,7 @@ export default function BackgroundHome() {
                                 <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg"  id="browse" name="image"/>
                                 <input type="hidden" name="action" value="for_home"/>
                                 <br />
-                                <input type="submit" />
+                                <input id="hit-me" type="submit" />
                             </form>
                         </td>
                     </tr>

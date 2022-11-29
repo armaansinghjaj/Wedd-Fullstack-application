@@ -6,9 +6,9 @@ import Dashboard from '../components/Driver-components/Driver-requests';
 export default function DriverAvailRequests() {
 
     return(
-        <>
+        <div id='driver-home-background'>
         <DriverNavbar/>
         <Dashboard/>
-        </>
+        </div>
     )
 }

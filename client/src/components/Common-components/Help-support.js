@@ -10,8 +10,9 @@ export default function Help() {
             
             <form id="support_form" method="post">
                 <div className="user">
-                <label>User email:</label>
-                <input type="email" name="customer_email" id="customer_email" value="<%= customer_account.email %>"/> <br/><br/>
+                <label>User email:</label><br>
+                </br>
+                <input type="email" name="customer_email" id="customer_email" value="Email"/> <br/><br/>
                 <label>How can we help you?</label>
                 <br/>
                 <select name="problem[reason]" id="drop">

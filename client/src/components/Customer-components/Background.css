@@ -212,6 +212,13 @@ input[id='home-ride-input']{
   height: 100vh;
 }
 
+/* driver pages background */
+#driver-home-background{
+  height: 100vh;
+  background-image: url("../../images/driver-background.jpg");
+  z-index: 1;
+}
+
 .rideComplete-container {
   width: 100%;
   height: 120vh;
@@ -273,16 +280,6 @@ input[id='home-ride-input']{
     margin-top: 38px;
     margin-bottom: -20px;
   
-  }
-  
-  input[type='text']{
-    /* border: 0;
-    border-bottom: 2px solid rgb(44, 44, 44);
-    font-size: 10px;
-    background: transparent;
-    outline: none;
-    width: 90%;
-    padding: 15px 0 15px 0; */
   }
 
   .form-head{

@@ -1,0 +1,32 @@
+#employee-name-tag{
+    position: relative;
+    left: 46%;
+    height: 10rem;
+    background-color: white;
+    width: 30rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+}
+
+#employee-name-display{
+    position: relative;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 40px;
+    height: 5.2rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    text-decoration: underline;
+}
+
+#wedd-logo-display {
+    position: relative;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-image: url('C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\name-tag-jpg.jpg');
+    color: white;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 40px;
+}
