@@ -104,10 +104,7 @@ const App = () => {
         }/>
       </Routes>
     </Router>
-
     </>
-    
-
   );
 }
 

@@ -15,5 +15,3 @@ export default function Forgotpassword() {
  
   )
 }
-
-// export default Forgot-password

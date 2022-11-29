@@ -32,7 +32,6 @@ export default function Requests() {
                     <div className="starter">
                         {/* <p>Slide to drive</p>
                         <p><input type="range" value="0" className="pullee"/></p> */}
-
                         <div id="buttons">
                             <p><button id="dashboard-show-map" onClick={displayMap}>Show map</button></p>
                             <form action="/DriverAvailRequests" >
