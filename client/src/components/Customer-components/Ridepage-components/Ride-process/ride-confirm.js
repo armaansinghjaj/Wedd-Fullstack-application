@@ -1,18 +1,32 @@
 import React, {useEffect, useState} from "react";
 import Maps from "../Map/maps";
+import Loading from "./Loader";
 
 export default function RideConfirm() {
+	const [Loader, setLoader] = useState(false);
+	const [data, setData] = useState({name: "", email: "", phone: "", pickup: "", destination: ""});
 	useEffect(() => {
-		fetchData();
+		setLoader(true);
+		fetch("/api/ride/processing")
+			.then((res)=>res.json())
+			.then((data)=>{
+				setData(data);
+			})
+			.catch((err)=>{
+				console.log(err);
+			})
+			.finally(()=>{
+				setLoader(false);
+			});
+		// const result_data = 
+		// const data_items = result_data.json();
+		
+
+		
 	}, []);
-
-	const [data, setData] = useState([]);
-
-	const fetchData = async () => {
-		const result_data = await fetch("/api/ride/processing");
-		const data_items = await result_data.json();
-		setData(data_items);
-	};
+	if(Loader){
+		return<Loading/>;
+	}
 
 	return (
 		<>
@@ -25,9 +39,7 @@ export default function RideConfirm() {
 			routing success
 			<div id="map_div">
 				<Maps></Maps>
-				<div id="estimate">
-					<button id="getquote">Get Quote</button>
-				</div>
+				<div id="estimate"></div>
 			</div>
 			<div id="info_div">
 				Please check these details
