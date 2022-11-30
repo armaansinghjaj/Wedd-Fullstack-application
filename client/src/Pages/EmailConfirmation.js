@@ -1,5 +1,5 @@
 import React from "react";
-import Connects from '../components/EmailConfirmation'
+import Connects from '../components/Common-components/EmailConfirmation'
 
 export default function EmailConfirmation() {
     return(
