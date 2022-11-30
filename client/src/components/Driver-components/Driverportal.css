@@ -21,6 +21,7 @@
     left: 12%;
     
 }
+
 #dtable{
     position: relative;
     display: flex;
@@ -44,6 +45,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #driver-2{
     position: relative;
     height: 48px;
@@ -52,6 +54,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #carid{
     position: relative;
     height: 48px;
@@ -60,6 +63,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #start-shift-submit{
     position: relative;
     top: 2rem;
