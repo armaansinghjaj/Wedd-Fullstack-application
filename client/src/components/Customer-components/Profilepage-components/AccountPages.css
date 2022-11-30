@@ -23,6 +23,8 @@
     border-radius: 1em;
     height: 190px;
     width: 160px;
+    position: relative;
+    right: 6rem;
 }
 
 .deleteacc{
