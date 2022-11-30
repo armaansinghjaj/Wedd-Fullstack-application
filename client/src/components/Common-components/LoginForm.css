@@ -128,7 +128,7 @@
 
 .login-form-submit{
   appearance: none;
-  margin: 0px;
+  margin-top: 2rem;
   overflow: visible;
   font-style: inherit;
   font-variant: inherit;
@@ -171,7 +171,7 @@
   border-top: 2px solid #f1f1f1;
   box-sizing: content-box;
   height: 0;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .link-container{

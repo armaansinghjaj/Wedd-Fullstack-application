@@ -3,96 +3,194 @@ const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
 const setProfilePicture = require("../modules/SetProfilePicture");
+const CustomerController = require("../src/controllers/CustomerController");
 const path = require("path");
 var fs = require("fs");
 const readFile = (filename) => fs.readFileSync(filename).toString("UTF8");
 
-router.get("/", (req, res) => {
-	loadDefaultValues(req);
+router.get("/:id", (req, res) => {
+	// loadDefaultValues(req);
+	
 	let sess = req.session;
+	
 	if(sess.access === 1 || sess.access === 2){
         return res.redirect("/employeeprofile");
     }
 
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-			con.release();
-			if(err) throw err;
+	CustomerController.getByID(req.params.id, (error, user)=>{
+		if(error){
+				
+			return res.status(error.errorDetails.errorCode).send(error);
+			
+		} else{
 
-			return res.render("profile-customer", {customer_account: account[0], page: null});
-		});
-	});
+			return res.status(200).send({
+				email: user.getEmail(),
+				name: user.getName(),
+				home_address: user.getHomeAddress(),
+				car_name: user.getCarName(),
+				picture_path: user.getProfilePicture()
+			})
+
+		}
+	})
+
+	// pool.getConnection((err, con) => {
+	// 	if (err) throw err;
+	// 	con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
+	// 		con.release();
+	// 		if(err) throw err;
+
+	// 		return res.render("profile-customer", {customer_account: account[0], page: null});
+	// 	});
+	// });
+
+
 });
-router.get("/profile", (req, res) => {
-	loadDefaultValues(req);
+router.get("/profile/:id", (req, res) => {
+	// loadDefaultValues(req);
 	let sess = req.session;
 
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-			con.release();
-			if(err) throw err;
+	if(sess.access === 1 || sess.access === 2){
+        return res.redirect("/employeeprofile");
+    }
 
-			return res.render("profile-customer", {customer_account: account[0], page: "account"});
-		});
-	});
+	// pool.getConnection((err, con) => {
+	// 	if (err) throw err;
+	// 	con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
+	// 		con.release();
+	// 		if(err) throw err;
+
+	// 		return res.render("profile-customer", {customer_account: account[0], page: "account"});
+	// 	});
+	// });
+
+	CustomerController.getByID(req.params.id, (error, user)=>{
+		if(error){
+				
+			return res.status(error.errorDetails.errorCode).send(error);
+			
+		} else{
+
+			return res.status(200).send({
+				email: user.getEmail(),
+				name: user.getName(),
+				home_address: user.getHomeAddress(),
+				car_name: user.getCarName(),
+				picture_path: user.getProfilePicture()
+			})
+
+		}
+	})
 });
-router.get("/support", (req, res) => {
-	loadDefaultValues(req);
-	let sess = req.session;
+// router.get("/support", (req, res) => {
+// 	loadDefaultValues(req);
+// 	let sess = req.session;
 
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-			con.release();
-			if(err) throw err;
+// 	pool.getConnection((err, con) => {
+// 		if (err) throw err;
+// 		con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
+// 			con.release();
+// 			if(err) throw err;
 
-			return res.render("profile-customer", {customer_account: account[0], page: "support"});
-		});
-	});
-});
+// 			return res.render("profile-customer", {customer_account: account[0], page: "support"});
+// 		});
+// 	});
+// });
 
-router.post("/profile", setProfilePicture.single("image"), (req, res) => {
-	loadDefaultValues(req);
+router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
+	// loadDefaultValues(req);
 	let sess = req.session;
 
 	if (req.query.option === "details") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`UPDATE customer SET customer_pp = '', name = '${req.body.customer_name}', email = '${req.body.customer_email}', home_address = '${req.body.home_address}', customer_car = '${req.body.customer_car}' where email = '${sess.user}'`, function (err, result, fields) {
-				con.release();
-				if (err) throw err;
 
-				return res.redirect("/profile/account");
-			});
-		});
-	} else if (req.query.option === "password") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`SELECT password FROM customer where email = '${sess.user}'`, function (err, user_password, fields) {
-				con.release();
-				if(err) throw err;
+		CustomerController.updateInfo(req.params.id, req.body.customer_email, req.body.customer_name, req.body.customer_car, req.body.home_address, (error, user)=>{
+			if(error){
+				
+				return res.status(error.errorDetails.errorCode).send(error);
+				
+			} else{
 	
-				if(req.body.customer_password.old === user_password[0].password){
-					if(req.body.customer_password.new === req.body.customer_password.confirm){
-						pool.getConnection((err, con) => {
-							if (err) throw err;
-							con.query(`UPDATE customer SET password = '${req.body.customer.new_password}' where email = '${sess.user}'`, function (err, result, fields) {
-								con.release();
-								if (err) throw err;
+				return res.status(200).send({
+					message: "Information updated successfully"
+				})
+	
+			}
+		})
 
-								return res.redirect("/profile/account");
-							});
-						});
-					} else {
-						res.send("Values didn't matched!");
+
+		// pool.getConnection((err, con) => {
+		// 	if (err) throw err;
+		// 	con.query(`UPDATE customer SET customer_pp = '', name = '${req.body.customer_name}', email = '${req.body.customer_email}', home_address = '${req.body.home_address}', customer_car = '${req.body.customer_car}' where email = '${sess.user}'`, function (err, result, fields) {
+		// 		con.release();
+		// 		if (err) throw err;
+
+		// 		return res.redirect("/profile/account");
+		// 	});
+		// });
+	} else if (req.query.option === "password") {
+
+		CustomerController.getByID(req.params.id, (error, user)=>{
+			if(error){
+					
+				return res.status(error.errorDetails.errorCode).send(error);
+				
+			} else{
+	
+				if(req.body.customer_password.old === user.getPassword()){
+					if(req.body.customer_password.new === req.body.customer_password.confirm){
+						CustomerController.updatePassword(req.params.id, req.body.customer.new_password, (error, user)=>{
+							if(error){
+								
+								return res.status(error.errorDetails.errorCode).send(error);
+								
+							} else{
+					
+								return res.status(200).send({
+									message: "Password changed successfully"
+								})
+					
+							}
+						})
+					} else{
+						return res.status(403).send({
+							message: "Passwords do not match."
+						})
 					}
-				} else {
-					res.send("Values didn't matched!");
+				} else{
+					return res.status(403).send({
+						message: "Passwords do not match."
+					})
 				}
-			});
-		});
+	
+			}
+		})
+
+		// pool.getConnection((err, con) => {
+		// 	if (err) throw err;
+		// 	con.query(`SELECT password FROM customer where email = '${sess.user}'`, function (err, user_password, fields) {
+		// 		con.release();
+		// 		if(err) throw err;
+	
+		// 		if(req.body.customer_password.old === user_password[0].password){
+		// 			if(req.body.customer_password.new === req.body.customer_password.confirm){
+		// 				pool.getConnection((err, con) => {
+		// 					if (err) throw err;
+		// 					con.query(`UPDATE customer SET password = '${req.body.customer.new_password}' where email = '${sess.user}'`, function (err, result, fields) {
+		// 						con.release();
+		// 						if (err) throw err;
+
+		// 						return res.redirect("/profile/account");
+		// 					});
+		// 				});
+		// 			} else {
+		// 				res.send("Values didn't matched!");
+		// 			}
+		// 		} else {
+		// 			res.send("Values didn't matched!");
+		// 		}
+		// 	});
+		// });
 	} else if (req.query.option === "profilepicture") {
 		let imageName = "/profile_pictures/" + readFile(path.join(__dirname, "../", "server-side files", "temporary text files", "profile picture temporary data", `${sess.user}.txt`));
 

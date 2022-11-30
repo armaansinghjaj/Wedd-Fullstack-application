@@ -20,7 +20,7 @@
     margin-left: 7rem;
   }
 
-  input[type=text] {
+  /* input[type=text] {
     width: 100%;
     padding: 8px 20px;
     margin: 8px 0;
@@ -29,7 +29,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: -2px;
-  }
+  } */
 
   input[type=color] {
     width: 100%;

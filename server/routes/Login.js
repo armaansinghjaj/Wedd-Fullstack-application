@@ -1,79 +1,98 @@
 const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
-const pool = require("../modules/SQLconnectionpool");
-const {loginSessionID} = require("../modules/GenerateSessionID");
+const LoginController = require("../src/controllers/LoginController");
 
 router.get("/", (req, res) => {
-	loadDefaultValues(req);
+	
 	let sess = req.session;
+
 	if (sess.access) {
-		res.redirect("/profile");
+
+		return res.status(200).redirect("/api/profile");
+
 	} else {
-		res.render("login", {year: new Date().getFullYear(), title: "Login"});
+		return res.render("login", {year: new Date().getFullYear(), title: "Login"});
+		
+		// return res.status(200).send({
+		// 	redirect: "/login"
+		// });
 	}
 });
 
 router.post("/", (req, res) => {
-	loadDefaultValues(req);
+	
 	let sess = req.session;
+	
 	if (sess.access) {
-		res.redirect("/profile");
-	} else if (req.body.email === "" || req.body.password === "") {
-		res.send("error");
-	} else {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`SELECT customer_id, email, password, role, name FROM customer WHERE email = '${req.body.email}' union all SELECT employee_id, email, password, role, name FROM employees WHERE email = '${req.body.email}'`, function (err, result, fields) {
-				con.release();
 
-				if (err) res.send("backend error");
-				
-				if (result.length > 0) {
-					if (result[0].password === req.body.password) {
-						
-						sess.useremail = req.body.email;
-						sess.user = result[0].email;
+		return res.status(200).send({
+			redirect: "/profile"
+		}).redirect("/api/profile");
 
-						// console.log(sess.user);
-						
-						if (result[0].role === 3) {
-							sess.access = 3;
-							loginSessionID(req);
-							return res.send({
-								user: result[0].email,
-								name: result[0].name,
-								sessionID: sess.sessionID,
-								accessPath: "/customer"
-							});
-							// return res.redirect("/");
-						} else if (result[0].role === 2) {
-							sess.access = 2;
-							return res.send({
-								user: result[0].email,
-								name: result[0].name,
-								// sessionID: sess.sessionID,
-								accessPath: "/driver"
-							});
-							// return res.redirect("/driver");
-						} else if (result[0].role === 1) {
-							sess.access = 1;
-							return res.send({
-								user: result[0].email,
-								name: result[0].name,
-								// sessionID: sess.sessionID,
-								accessPath: "/admin"
-							});
-							// return res.redirect("/admin");
-						}
-					} else {
-						res.send("invalid password");
-					}
-				} else {
-					res.send("invalid email");
-				}
-			});
+	} else if (req.body.email === undefined || req.body.password === undefined) {
+
+		return res.status(400).send({
+			error: true,
+			errorDetails: {
+				errorCode: 400,
+				errorMsg: "Email or password cannot be empty.",
+			}
 		});
+
+	} else {
+
+		LoginController.getByEmail(req.body.email, (error, user)=>{
+			if(error){
+
+				return res.status(error.errorDetails.errorCode).send(error)
+
+			} else {
+				if(user.getPassword() === req.body.password){ // use bycrypt here
+					
+					// set user's id into the session
+					sess._uid = user.getId();
+
+					if(user.getRoleID() === 1){
+
+						sess.access = 1;
+						return res.status(200).send({
+							user: {
+								userEmail: user.getEmail(),
+								userName: user.getName()
+							},
+							sessionID: user.getId(),
+							accessPath: "/admin"
+						});
+						
+
+					} else if(user.getRoleID() === 2){
+
+						sess.access = 2;
+						return res.status(200).send({
+							user: {
+								userEmail: user.getEmail(),
+								userName: user.getName()
+							},
+							sessionID: user.getId(),
+							accessPath: "/driver"
+						});
+
+					} else if(user.getRoleID() === 3){
+
+						sess.access = 3;
+						return res.status(200).send({
+							user: {
+								userEmail: user.getEmail(),
+								userName: user.getName()
+							},
+							sessionID: user.getId(),
+							accessPath: "/customer"
+						});
+					}
+				}
+			}
+		})
 	}
 });
 

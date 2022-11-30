@@ -1,5 +1,5 @@
 "use strict";
-module.exports = class Customer {
+module.exports = class Employee {
 
     constructor(_id, email, name, password, roleId){
         this._id = _id;
@@ -30,23 +30,11 @@ module.exports = class Customer {
         return this.roleID;
     }
 
-    getHomeAddress(){
-        return this.home_address;
-    }
-
-    getProfilePicture(){
-        return this.customer_pp;
-    }
-
-    getCarName(){
-        return this.carName;
-    }
-
-    getResetPasswordUUID(){
+    getResetPasswordUUID(newUUID){
         return this._resetPassworduuid;
     }
 
-    getRegisterAccountUUID(){
+    getRegisterAccountUUID(newUUID){
         return this._registerAccountuuid;
     }
 
@@ -72,33 +60,6 @@ module.exports = class Customer {
     setPassword(newPassword){
         try{
             this.password = newPassword;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setProfilePicture(picturePath){
-        try{
-            this.customer_pp = picturePath;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setCarName(carName){
-        try{
-            this.carName = carName;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setHomeAddress(address){
-        try{
-            this.home_address = address;
             return true;
         } catch(err){
             return false;
