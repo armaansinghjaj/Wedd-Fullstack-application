@@ -34,12 +34,13 @@ export default function DProfile() {
         setDeleteAccount(!deleteAccount)
     }
 
-
-    
     return(
         <>
         {/* Display drivers name */}
-        <Drivernametag/>
+        <Drivernametag
+        employee="Driver"
+        text={driverName}
+        />
 
         {/* Display drivers profile info */}
         <div className="Driver-settings-display">

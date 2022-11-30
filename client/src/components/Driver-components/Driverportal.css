@@ -6,7 +6,7 @@
     top: 10%;
     background: white;
     width: 20vw;
-    height: 45vh;
+    height: 28rem;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgba(91, 105, 135, 0.22);
@@ -21,6 +21,7 @@
     left: 12%;
     
 }
+
 #dtable{
     position: relative;
     display: flex;
@@ -44,6 +45,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #driver-2{
     position: relative;
     height: 48px;
@@ -52,6 +54,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #carid{
     position: relative;
     height: 48px;
@@ -60,6 +63,7 @@
     border-left:none;
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
+
 #start-shift-submit{
     position: relative;
     top: 2rem;
@@ -110,10 +114,27 @@
     color: #fff;
     transition: 250ms;
 }
+
+@media screen and (max-width:1680px) { 
+    
+    #start-shift-container{
+        left: 11%;
+        width: 25rem;
+    }
+}
+
 @media screen and (max-width:1600px) { 
     
     #start-shift-container{
         left: 11%;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width:1440px) { 
+    
+    #start-shift-container{
+        left: 14%;
         width: 25rem;
     }
 }

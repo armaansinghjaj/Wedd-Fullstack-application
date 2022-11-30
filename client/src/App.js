@@ -110,10 +110,7 @@ const App = () => {
         }/>
       </Routes>
     </Router>
-
     </>
-    
-
   );
 }
 
