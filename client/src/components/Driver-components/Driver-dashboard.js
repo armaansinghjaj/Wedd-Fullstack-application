@@ -34,10 +34,10 @@ export default function Requests() {
                         <p><input type="range" value="0" className="pullee"/></p> */}
                         <div id="buttons">
                             <p><button id="dashboard-show-map" onClick={displayMap}>Show map</button></p>
-                            <form action="/DriverAvailRequests" >
+                            <form action="/driver/availrequests" >
                                 <input type="submit" id="dashboard-complete-ride" value="Complete Ride"/>
                             </form>
-                            <form action="/DriverAvailRequests">
+                            <form action="/driver/availrequests">
                                 <input type="submit"  id="dashboard-cancel-ride" value="Cancel Ride"/>
                             </form>
                         </div>

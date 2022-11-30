@@ -6,7 +6,7 @@
     top: 10%;
     background: white;
     width: 20vw;
-    height: 45vh;
+    height: 28rem;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgba(91, 105, 135, 0.22);
@@ -110,10 +110,27 @@
     color: #fff;
     transition: 250ms;
 }
+
+@media screen and (max-width:1680px) { 
+    
+    #start-shift-container{
+        left: 11%;
+        width: 25rem;
+    }
+}
+
 @media screen and (max-width:1600px) { 
     
     #start-shift-container{
         left: 11%;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width:1440px) { 
+    
+    #start-shift-container{
+        left: 14%;
         width: 25rem;
     }
 }
