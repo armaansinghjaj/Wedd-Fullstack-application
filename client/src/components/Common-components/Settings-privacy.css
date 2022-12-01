@@ -70,10 +70,62 @@
     height: 2px;
 }
 
+
+#Driver-employee-email1, #Driver-employee-name1 {
+    position: relative;
+    min-height: 48px;
+    min-width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background: none;
+    /* margin: 0 0.8rem 0.5rem 0.8rem; */
+}
+
+.Driver-submit1{
+    position: relative;
+    left: 0.4rem;
+    margin-right: 1em;
+    color: rgb(255, 255, 255);
+    background: rgb(235 114 0 / 93%);
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    padding: 5px 5px;
+}
+
+#Driver-confirm-password1, #Driver-new-password1, #Driver-old-password1{
+    position: relative;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin: 0 0.8rem 0.5rem 0.8rem;
+}
+
+
+/* .Driver-submit2{
+    position: relative;
+    left: 0.4rem;
+    margin-right: 1em;
+    color: rgb(255, 255, 255);
+    background: rgb(235 114 0 / 93%);
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    padding: 5px 5px;
+} */
+
 .driver-profile-heading-general1{
     font-size: 17px;
     font-weight: 800;
 }
+
+
+/* ellipse menu */
 
 .ellipse-menu-container-1 {
     position: relative;
