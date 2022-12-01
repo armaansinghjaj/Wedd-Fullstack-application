@@ -111,7 +111,7 @@ function LoginForm() {
                         <div className='link-container'>
 
                             <div className="signup-link-container login-form-links">
-                                <Link to='/forget' className='forgot-route'>Forgot Password?</Link>
+                                <Link to='/forgot' className='forgot-route'>Forgot Password?</Link>
                             </div>
 
                             <div className="forgot-password-container login-form-links">
