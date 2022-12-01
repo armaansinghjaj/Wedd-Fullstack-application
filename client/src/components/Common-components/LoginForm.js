@@ -49,34 +49,19 @@ function LoginForm() {
             .then(login_response => login_response.json())
             .then(login_responseData => {
                 setAuthenticatedUser(login_responseData);
-                cookies.set('c_user', login_responseData.name, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                cookies.set('c_user', login_responseData.userName, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
                 cookies.set('__sid', login_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
             })
         }
     }
 
-        // *****DO NOT REMOVE******
-        // REDIRECT CODE USING IF FOR REFERENCE PURPOSE.
-        // if(data){
-        //     if(data.loginType === "customer"){
-        //         <Navigate to="/" replace={true}/>
-        //     } else if(data.loginType === "driver"){
-        //         <Navigate to="/driver" replace={true}/>
-        //     } else if(data.loginType === "admin"){
-        //         <Navigate to="/admin" replace={true}/>
-        //     }
-        //     else{
-        //         alert("Wrong username or password")
-        //     }
-        // }
-
     return (
         <>
         {/* Redirect to different portals when logged in */}
-        {userAuthenticated && <Navigate to={userAuthenticated.accessPath} replace={true}/>}
+        {userAuthenticated && (<Navigate to={userAuthenticated.accessPath} replace={true}/>)}
 
         {/* Redirect to ride if user comes to login page after logging in. */}
-        {(cookies.get('__uid') && cookies.get('__sid')) && <Navigate to="/ride" replace={true} />}
+        {(cookies.get('__uid') && cookies.get('__sid')) && (<Navigate to="/ride" replace={true} />)}
         
         <div className="login-parent-container">
 

@@ -66,13 +66,12 @@ function SignupForm() {
             })
             .then(signup_response => signup_response.json())
             .then(signup_responseData => {
-                console.log(signup_responseData)
                 if(signup_responseData.userCreate){
                     setVerifiedUser(signup_responseData.userCreate);
                     cookies.set('c_user', signup_responseData.name, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
                     cookies.set('__sid', signup_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
                 } else {
-                    alert(signup_responseData.signinErrorMessage)
+                    console.log(signup_responseData)
                 }
             })
         }
@@ -82,7 +81,7 @@ function SignupForm() {
         <>
         {userVerified && (<Navigate to="/ride" replace={true} />)}
 
-        {cookies.get('__sid') && <Navigate to="/ride" replace={true} />}
+        {cookies.get('__sid') && (<Navigate to="/ride" replace={true}/>)}
 
         <div className="signup-parent-container">
 
