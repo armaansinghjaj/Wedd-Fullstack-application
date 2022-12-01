@@ -4,7 +4,7 @@
     <ul>
         <li><p><img class="customer_pp" src="<%= customer_account.customer_pp %>"><i id="profile_picture_pencil" class="fa fa-pencil" aria-hidden="true"></i></p></li>
         <li class="picture_change_item" style="display: none;">
-            <form action="/profile/account?option=profilepicture" method="post" enctype="multipart/form-data">
+            <form action="/api/profile/account?option=profilepicture" method="put" enctype="multipart/form-data">
                 <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"> <br>
                 <input type="submit" value="Update profile picture">
             </form>
@@ -13,7 +13,7 @@
 </div>
 <h3>Change profile</h3>
 <hr>
-<form action="/profile/account?option=details" method="post">
+<form action="/api/profile/account?option=details" method="put">
     <ul>
         <li>Your name: <input type="text" name="customer_name" id="customer_name" value="<%= customer_account.name %>"></li>
         <li>Your email: <input type="email" name="customer_email" id="customer_email" value="<%= customer_account.email %>"></li>
@@ -24,7 +24,7 @@
 </form>
 <h3>Change password</h3>
 <hr>
-<form action="/profile/account?option=password" method="post">
+<form action="/api/profile/account?option=password" method="put">
     <ul>
         <li>Old password: <input type="password" name="customer_password[old]" id="old_password" value=""></li>
         <li>New password: <input type="password" name="customer_password[new]" id="new_password_field" value=""></li>
@@ -35,7 +35,7 @@
 <h3>Delete account</h3>
 <hr>
 <Button class="delete_account_btn">Delete account</Button>
-<form action="/profile/account?option=delete" method="post">
+<form action="/api/profile/account?option=delete" method="delete">
     <div class="delete_confirmation" style="display: none;">
         <p>Once you delete your account, there is no going back. Please be certain.</p>
         <input type="submit" value="Confirm"> <input type="reset" class="delete_account_btn" value="Cancel">

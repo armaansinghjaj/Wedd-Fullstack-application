@@ -15,6 +15,6 @@
 
 }
 
-.leaflet-touch .leaflet-control-geocoder {
+.leaflet-routing-container{
     visibility: hidden;
 }

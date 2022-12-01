@@ -7,7 +7,7 @@ export default function EmailConfirm() {
      <p>
         An email has been sent to you for password change.
      </p> 
-     <Link id="complete-link-1" to={'/Home'}><button>Exit</button></Link>
+     {/* <Link id="complete-link-1" to={'/Home'}><button>Exit</button></Link> */}
     </div>
   )
 }

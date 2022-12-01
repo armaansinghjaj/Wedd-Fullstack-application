@@ -59,6 +59,11 @@ function LeafletMaps() {
 				if (p && d) {
 					Routing.control({
 						waypoints: [L.latLng(p.center.lat, p.center.lng), L.latLng(d.center.lat, d.center.lng)],
+						draggableWaypoints: false,
+						routeWhileDragging: false,
+						lineOptions: {
+							addWaypoints: false,
+						},
 					})
 						.addTo(map)
 						.on("routesfound", function (e) {
@@ -68,6 +73,9 @@ function LeafletMaps() {
 							let minutes = Math.round((summary.totalTime % 3600) / 60);
 							let price = 28 + distance * 1.25 + minutes * 0.8;
 							document.getElementById("estimate").innerHTML = "Estimate: " + price + "$ (This is just an estimate the price may change)";
+							// e.waypoints[0].dragging.disable();
+							// e.waypoints[1].dragging.disable();
+							console.log(e);
 						});
 				}
 			});
@@ -109,7 +117,34 @@ function LeafletMaps() {
 		});
 	}
 	if (document.getElementById("map_state").value === "3") {
-		addRoute();
+		let geocoder = G.geocoders.nominatim();
+		geocoder.geocode(document.getElementById("hidden_pickup").value, (results) => {
+			var p = results[0];
+			console.log(p);
+			if (p) {
+				display_pickup = p.name;
+			}
+
+			geocoder.geocode(document.getElementById("hidden_destination").value, (results) => {
+
+
+				var d = results[0];
+				console.log(d);
+				if (d) {
+					display_destination = d.name;
+				}
+				if (p && d) {
+					Routing.control({
+						waypoints: [L.latLng(p.center.lat, p.center.lng), L.latLng(d.center.lat, d.center.lng)],
+						draggableWaypoints: false,
+						routeWhileDragging: false,
+						lineOptions: {
+							addWaypoints: false,
+						},
+					}).addTo(map);
+				}
+			});
+		});
 	}
 }
 export default function Maps() {

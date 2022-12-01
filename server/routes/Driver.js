@@ -12,7 +12,8 @@ router.get("/", (req, res) => {
 		return res.redirect("/");
 	}
 
-	if(sess.ride_allocated_session_id){ // if driver is active and is currently driving
+	if (sess.ride_allocated_session_id) {
+		// if driver is active and is currently driving
 		return pool.getConnection((err, con) => {
 			if (err) throw err;
 			con.query(`SELECT * FROM current_rides WHERE ride_allocated_session_id = '${sess.ride_allocated_session_id}'`, function (err, result, fields) {
@@ -22,12 +23,12 @@ router.get("/", (req, res) => {
 				return res.render("driver_dash-drive", {driver: "Driver", pickup_address: "46 Taravista", drop_address: "52 Del ray"});
 			});
 		});
-	}
-	else if(sess.driver_session_id){ // if driver is active, but has not rides
+	} else if (sess.driver_session_id) {
+		// if driver is active, but has not rides
 		let result = {
-			rides: undefined
+			rides: undefined,
 		};
-		return pool.getConnection( (err, con) => {
+		return pool.getConnection((err, con) => {
 			if (err) throw err;
 
 			con.query(`SELECT * FROM riderequests`, function (err, d_ride_requests, fields) {
@@ -115,6 +116,20 @@ router.post("/", (req, res) => {
 	} else if (req.query.daction === "rdec") {
 		// TO-DO, YET TO IMPLEMENT
 	}
+});
+
+router.get("/processing", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`SELECT * FROM current_rides WHERE ride_allocated_session_id = '${sess.ride_allocated_session_id}'`, function (err, result, fields) {
+			con.release();
+
+			if (err) return res.send("backend error");
+			return res.send({pickup_location: "Falbury Crescent NE, Falconridge, Calgary, Alberta, T3J 1B1, Canada",
+			drop_location: "SAIT,calgary"});
+		});
+	});
 });
 
 module.exports = router;

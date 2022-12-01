@@ -14,7 +14,6 @@ export default function Ride() {
 			{/* <Maps /> */}
 			<RideForm/>
 			<Footer />
-			
 		</div>
 	);
 }
