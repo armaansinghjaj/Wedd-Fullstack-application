@@ -9,7 +9,7 @@ import About from './Pages/About';
 import Services from './Pages/Services';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import Forgetpass from './Pages/Forgetpass'; 
+import Forgotpass from './Pages/Forgotpass'; 
 
 
 //Driver Page
@@ -63,7 +63,7 @@ const App = () => {
         <Route path= '/services'  element={<Services/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
-        <Route path= '/forget'  element={<Forgetpass/>}/>
+        <Route path= '/forgot'  element={<Forgotpass/>}/>
         <Route path= '/forgotpassword/:id/:token'  element={<ResetPassword/>}/>
         
         
