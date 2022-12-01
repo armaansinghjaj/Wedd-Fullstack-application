@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import {Navigate} from "react-router-dom";
 import "./Rideform.css";
-import taxiImg from "../../../../images/taxi.jpg";
+//import taxiImg from "../../../../images/taxi.jpg";
 import Cookies from "universal-cookie";
+import Maps from "../Map/maps";
 const cookies = new Cookies();
 
 function Rideform() {
@@ -109,10 +110,12 @@ function Rideform() {
 			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
 			<div className="master-container">
 				<figure>
-					<img src={taxiImg} className="ride-background-img" alt="ridebackground" />
+					{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}
 				</figure>
 				<div className="parent-container">
-					<div className="ride-conatiner-left child-container"></div>
+					<div className="ride-conatiner-left child-container">
+					<Maps />
+					</div>
 
 					<div className="ride-conatiner-right child-container">
 						<div className="ride-background">

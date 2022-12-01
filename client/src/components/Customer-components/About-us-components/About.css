@@ -7,8 +7,8 @@
     display: inline-block;
     position: fixed;
     margin-left: 4vw;
-    height: 30vh;
-    width: var(--side-bar-width);
+    min-height: 30vh;
+    min-width: var(--side-bar-width);
     max-width: 20vw;
     box-shadow: 0 8px 40px -1px #2b2b2b6b;
     -webkit-backdrop-filter: blur(8px);
@@ -27,7 +27,7 @@
 .about-sidebar-li-question{
     padding: 1rem 0;
     padding-left: 3rem;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     padding: 1rem 2rem;
     list-style: none;
 }

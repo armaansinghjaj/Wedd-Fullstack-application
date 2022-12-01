@@ -42,7 +42,6 @@ function NavBar() {
 	useEffect(() => {
 		const handleScroll = () => {
 			let moving = window.pageYOffset;
-
 			setVisible(position > moving);
 			setPosition(moving);
 		};
@@ -53,7 +52,7 @@ function NavBar() {
 	});
 
     // useEffect(() => {
-	// 	if(cookies.get('uid')){
+	// 	if(cookies.get('__uid')){
     //         document.getElementsByClassName("navbar-user-link")[0].style.display = "block";
     //         document.getElementsByClassName("navbar-buttons")[0].style.display = "none";
     //     }
@@ -101,11 +100,11 @@ function NavBar() {
                         </li>
                     </ul>
                     <div className="navbar-profile-menu">
-                        {cookies.get('uid') && <div className="navbar-user-link">
-                            <Link to={{javascript:void(0)}}>{cookies.get('uid').charAt(0).toUpperCase() + cookies.get('uid').slice(1)} <i className='fas fa-angle-down'></i><i className='fas fa-angle-up'></i></Link>
+                        {((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-user-link">
+                            <Link to={{javascript:void(0)}}>{cookies.get('c_user').charAt(0).toUpperCase() + cookies.get('c_user').slice(1)} <i className='fas fa-angle-down'></i><i className='fas fa-angle-up'></i></Link>
                             <Dropdown/>
                         </div>}
-                        {!cookies.get('uid') && <div className="navbar-buttons">
+                        {!((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-buttons">
                             {button && <Button onClick={scrollAndClose} buttonStyle='btn--outline'></Button>}
                         </div>}
                     </div>

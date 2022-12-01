@@ -10,11 +10,11 @@ function CardItem(props) {
     <>
       <li className='cards__item'>
         <Link className='cards__item__link' to={props.path} onClick={ScrollToTop}>
-          <h2 id='cards-h2'>{props.text}</h2>
-          <p id='cards-p'>{props.text2}</p>
-          <p id='cards-p2'>{props.text3}</p>
-          <br/>
-          <i className="fa-sharp fa-solid fa-arrow-right-long fa-2x"></i>
+            <h2 id='cards-h2'>{props.text}</h2>
+            <p id='cards-p'>{props.text2}</p>
+            <p id='cards-p2'>{props.text3}</p>
+            <br/>
+            <i className="fa-sharp fa-solid fa-arrow-right-long fa-2x"></i>
         </Link>
       </li>
     </>

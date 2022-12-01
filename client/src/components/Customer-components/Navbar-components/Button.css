@@ -1,4 +1,4 @@
-:root {
+  :root {
     --primary: #e64c1b;
   }
   
@@ -62,47 +62,50 @@
   
   @media screen and (max-width: 1366px) {
     .btn-mobile {
-      position: relative;
-      left: 78%;
-      padding-top: 0.5rem;
+      left: 98%;
     }
     .btn-mobile2 {
-      position: relative;
-      left: 78%;
-      padding-top: 0.5rem;
+      left: 98%;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .btn-mobile {
+      left: 98%;
+    }
+    .btn-mobile2 {
+      left: 98%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .btn-mobile {
+      left: 88%;
+    }
+    .btn-mobile2 {
+      left: 88%;
     }
   }
 
   @media screen and (max-width: 959px) {
     .btn-mobile {
-      position: relative;
       left: 78%;
-      padding-top: 0.5rem;
     }
     .btn-mobile2 {
-      position: relative;
       left: 78%;
-      padding-top: 0.5rem;
     }
   }
 
   @media screen and (max-width:768px ) and (min-width: 480px) {
     .btn-mobile {
-      position: relative;
       left: 45%;
-      padding-top: 0.5rem;
     }
     .btn-mobile2 {
-      position: relative;
       left: 45%;
-      padding-top: 0.5rem;
     }
   }
 
-
   @media screen and (max-width: 479px) {
-
-
 
     .btn-mobile {
       display: none;

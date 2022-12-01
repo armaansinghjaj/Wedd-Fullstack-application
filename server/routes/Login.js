@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
+const {loginSessionID} = require("../modules/GenerateSessionID");
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -34,15 +35,16 @@ router.post("/", (req, res) => {
 						sess.useremail = req.body.email;
 						sess.user = result[0].email;
 
-						console.log(sess.user);
+						// console.log(sess.user);
 						
 						if (result[0].role === 3) {
 							sess.access = 3;
+							loginSessionID(req);
 							return res.send({
 								user: result[0].email,
 								name: result[0].name,
-								// login: true,
-								loginType: "customer"
+								sessionID: sess.sessionID,
+								accessPath: "/customer"
 							});
 							// return res.redirect("/");
 						} else if (result[0].role === 2) {
@@ -50,8 +52,8 @@ router.post("/", (req, res) => {
 							return res.send({
 								user: result[0].email,
 								name: result[0].name,
-								// login: true,
-								loginType: "driver"
+								// sessionID: sess.sessionID,
+								accessPath: "/driver"
 							});
 							// return res.redirect("/driver");
 						} else if (result[0].role === 1) {
@@ -59,8 +61,8 @@ router.post("/", (req, res) => {
 							return res.send({
 								user: result[0].email,
 								name: result[0].name,
-								// login: true,
-								loginType: "admin"
+								// sessionID: sess.sessionID,
+								accessPath: "/admin"
 							});
 							// return res.redirect("/admin");
 						}

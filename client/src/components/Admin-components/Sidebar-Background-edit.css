@@ -124,6 +124,7 @@ display: none;
 
 #h-logo {
     display: none;
+
 }
 
 .h-wrapper {
@@ -137,6 +138,16 @@ display: none;
 
     .driver-link-wrapper {
         display: none;
+    }
+
+    #h-logo {
+        display: initial;
+        position: relative;
+        font-size: 32px;
+        color: #ff7248;
+        left: 40%;
+        top: 22%;
+        text-decoration: none;
     }
 
     .vertical-navbar {

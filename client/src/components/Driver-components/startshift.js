@@ -8,13 +8,12 @@ export default function DriverHome() {
     const move = useNavigate();
 
     const toRequests = () => {
-        move("/DriverAvailRequests");
+        move("/driver/availrequests");
     }
-
-
+    
     return(
         <>
-            <Drivernametag/>
+            <Drivernametag text={"Driver Name"} employee={"Driver"}/>
             <div id='start-shift-container'>
                 <h2 id='driver2'>Please enter driver ID</h2>
                 <form id="dtable">

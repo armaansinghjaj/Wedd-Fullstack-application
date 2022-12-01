@@ -1,5 +1,5 @@
 import React from 'react'
-import Forgotpassword from '../Common-components/Forgot-password.css'
+import Forgotpassword from '../Common-components/Forgot-password'
 
 
 function BackgroundForget() {
@@ -12,4 +12,4 @@ function BackgroundForget() {
   )
 }
 
-export default BackgroundForget
+export default BackgroundForget;
