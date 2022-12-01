@@ -11,7 +11,6 @@ export default function BackgroundContact() {
         <>
         <VerticalNavbar/>
             <div className="bgcontact-container">
-            
                 <table id="homepage">
                     {/* <% images.forEach(image => { %> */}
                         <tr>
