@@ -29,10 +29,7 @@ const Driver = () => {
         <Route path='/logout' element={<Logout/>}/>
       </Routes>
     </Router>
-
     </>
-    
-
   );
 }
 
