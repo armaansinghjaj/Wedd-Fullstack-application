@@ -11,7 +11,6 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import Forgotpass from './Pages/Forgotpass'; 
 
-
 //Driver Page
 import DriverProfile from './Pages/DriverProfile';
 import Driver from './Pages/Driver';

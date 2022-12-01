@@ -168,7 +168,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Edit background */
@@ -176,7 +176,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Roles background */
@@ -184,14 +184,14 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 /* Admin News background */
 .AdminNews-container {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Drivers edit background */
@@ -199,7 +199,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin ride requests container */
@@ -207,7 +207,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin contact requests container */
@@ -215,7 +215,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Account page background */
@@ -223,7 +223,7 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url("C:\CAPSTONE\Wedd-Fullstack-application\client\src\images\25100.jpg");
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Background edit background */
