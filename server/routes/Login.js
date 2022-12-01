@@ -3,34 +3,19 @@ const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
 const LoginController = require("../src/controllers/LoginController");
 
-router.get("/", (req, res) => {
-	
-	let sess = req.session;
-
-	if (sess.access) {
-
-		return res.status(200).redirect("/api/profile");
-
-	} else {
-		return res.render("login", {year: new Date().getFullYear(), title: "Login"});
-		
-		// return res.status(200).send({
-		// 	redirect: "/login"
-		// });
-	}
-});
+router.get("/", (req, res) => {});
 
 router.post("/", (req, res) => {
 	
 	let sess = req.session;
 	
-	if (sess.access) {
+	// if (sess.access) {
+	// 	return res.status(403).send({
+	// 		redirect: "/profile"
+	// 	});
 
-		return res.status(200).send({
-			redirect: "/profile"
-		}).redirect("/api/profile");
-
-	} else if (req.body.email === undefined || req.body.password === undefined) {
+	// } else 
+	if (req.body.email === undefined || req.body.password === undefined) {
 
 		return res.status(400).send({
 			error: true,
@@ -57,23 +42,16 @@ router.post("/", (req, res) => {
 
 						sess.access = 1;
 						return res.status(200).send({
-							user: {
-								userEmail: user.getEmail(),
-								userName: user.getName()
-							},
+							userName: user.getName(),
 							sessionID: user.getId(),
 							accessPath: "/admin"
 						});
-						
 
 					} else if(user.getRoleID() === 2){
 
 						sess.access = 2;
 						return res.status(200).send({
-							user: {
-								userEmail: user.getEmail(),
-								userName: user.getName()
-							},
+							userName: user.getName(),
 							sessionID: user.getId(),
 							accessPath: "/driver"
 						});
@@ -82,14 +60,16 @@ router.post("/", (req, res) => {
 
 						sess.access = 3;
 						return res.status(200).send({
-							user: {
-								userEmail: user.getEmail(),
-								userName: user.getName()
-							},
+							userName: user.getName(),
 							sessionID: user.getId(),
 							accessPath: "/customer"
 						});
 					}
+				} else{
+					return res.status(403).send({
+						error: true,
+						message: "Username or password might be wrong."
+					});
 				}
 			}
 		})

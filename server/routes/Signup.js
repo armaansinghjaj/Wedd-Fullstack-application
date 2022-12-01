@@ -28,13 +28,13 @@ router.post("/", (req, res) => {
 
 	let sess = req.session;
 
-	if (sess.access) {
+	// if (sess.access) {
 		
-		return res.status(200).send({
-			redirect: "/profile"
-		}).redirect("/api/profile");
-	}
-	else if (req.body.name === undefined || req.body.email === undefined || req.body.password === undefined) {
+	// 	return res.status(200).send({
+	// 		redirect: "/profile"
+	// 	});
+	// }else 
+	if (req.body.name === undefined || req.body.email === undefined || req.body.password === undefined) {
 		
 		return res.status(400).send({
 			error: true,

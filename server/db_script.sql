@@ -218,7 +218,8 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`supportRequests` (
   `email` VARCHAR(50) NOT NULL,
   `reason` VARCHAR(20) NOT NULL,
   `description` VARCHAR(30) NOT NULL,
-  `comments` VARCHAR(500)
+  `comments` VARCHAR(500),
+  PRIMARY KEY (`email`)
 );
 
 -- -----------------------------------------------------
