@@ -1,5 +1,5 @@
 import React from "react";
-import loading from "../../../../images/map_loader.gif"
+import loading from "../../images/map_loader.gif"
 
 export default function mapLoader() {
 	return (

@@ -20,10 +20,10 @@ import '../Admin-components/Sidebar-Background-edit.css';
 
         <ul className='driver-link-wrapper'>
             <li>
-                    <Link className={location.pathname === 'driver-Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Driver/Profile'>Profile</Link>
+                    <Link className={location.pathname === '/driver/Profile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver/Profile'>Profile</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/driver-dashboard'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver'>Start Shift</Link>
+                    <Link className={location.pathname === '/driver'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/driver'>Start Shift</Link>
                 </li>
             </ul>
         <div className='logout-wrapper'>
@@ -42,7 +42,7 @@ import '../Admin-components/Sidebar-Background-edit.css';
         </div>
         <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
             <li>
-                <Link className='h-nav-links' to='/driver-profile' onClick={closeMobileMenu}>Profile</Link>
+                <Link className='h-nav-links' to='/driver/Profile' onClick={closeMobileMenu}>Profile</Link>
             </li>
             <li>
                 <Link className='h-nav-links' to='/driver' onClick={closeMobileMenu}>Start Shift</Link>

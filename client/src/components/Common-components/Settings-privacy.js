@@ -188,10 +188,7 @@ export default function Settings() {
                 <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
                     <input type="submit" id="submit" value="Confirm"/> 
                 </div>
-            </form>
-            <button id="cancel-end-shift-btn" onClick={displayButton}>Close</button>
             </div>
-        </div>
         </>
     )
 }

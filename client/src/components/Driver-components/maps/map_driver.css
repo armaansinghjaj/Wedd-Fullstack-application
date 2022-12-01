@@ -1,0 +1,17 @@
+@import url('https://unpkg.com/leaflet@1.9.2/dist/leaflet.css');
+@import url('https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css');
+@import url('https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css');
+@import url('https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css');
+
+#map_driver {
+    /* position: relative; */
+    height: 30rem;
+    width: 36rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.leaflet-touch .leaflet-control-geocoder {
+    visibility: hidden;
+}

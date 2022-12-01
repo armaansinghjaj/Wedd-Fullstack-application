@@ -22,7 +22,7 @@ export default function Dashboard() {
 
     return(
         <>
-        <Drivernametag/>
+        <Drivernametag text={"Driver Name"} employee={"Driver"}/>
         <div id="DriverRequests-container">
             <div id="Driver-requests-table">
             {/* <% if (rides.length > 0) { %> */}
@@ -46,14 +46,14 @@ export default function Dashboard() {
                         <td>{ridePickup}</td>
                         <td>{rideDropoff}</td>
                         <td>
-                            <form action='/DriverDashboard'>
+                            <form action='/driver/dashboard'>
                                 <input id="requests-accept-btn" type='submit' value='Accept' name='accept'/>
                                 <input type='hidden' name='selected' value={rideRequestID}/>
                                 <input type='hidden' name='action' value='accept'/>
                             </form>
                         </td>
                         <td>
-                            <form action='/DriverAvailRequests' >
+                            <form action='/driver/availrequests' >
                                 <input id="requests-decline-btn" type='submit' value='Decline' name='decline'/>
                                 <input type='hidden' name='selected' value={rideRequestID}/>
                                 <input type='hidden' name='action' value='Decline'/>

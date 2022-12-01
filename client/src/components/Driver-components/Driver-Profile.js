@@ -66,10 +66,6 @@ export default function DProfile() {
         setDeleteAccount(!deleteAccount)
     }
 
-    const handleRedirect = (path) =>{
-        
-    }
-    
     return(
         <>
 

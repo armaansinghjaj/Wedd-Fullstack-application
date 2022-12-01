@@ -9,7 +9,8 @@ import About from './Pages/About';
 import Services from './Pages/Services';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import Forgetpass from './Pages/Forgetpass';
+import Forgetpass from './Pages/Forgetpass'; 
+
 
 //Driver Page
 import DriverProfile from './Pages/DriverProfile';
@@ -44,8 +45,11 @@ import TripHistory from './Pages/TripHistory';
 import HelpAndSupport from './Pages/HelpAndSupport';
 import FaQuestions from './Pages/FAQ';
 
+
 // Common pages
 import Logout from './components/Common-components/Logout'
+import ResetPassword from './components/Common-components/ResetPassword';
+// import EmailConfirmation from './Pages/EmailConfirmation';
 
 const App = () => {
   
@@ -60,6 +64,8 @@ const App = () => {
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
         <Route path= '/forget'  element={<Forgetpass/>}/>
+        <Route path= '/forgotpassword/:id/:token'  element={<ResetPassword/>}/>
+        
         
         {/* Ride Pages is pending yet */}
         <Route path= '/ride'  element={<Ride/>}/> 
@@ -104,10 +110,7 @@ const App = () => {
         }/>
       </Routes>
     </Router>
-
     </>
-    
-
   );
 }
 

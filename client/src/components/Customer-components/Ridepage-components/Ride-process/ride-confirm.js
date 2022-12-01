@@ -18,8 +18,6 @@ export default function RideConfirm() {
 			.finally(()=>{
 				setLoader(false);
 			});
-		// const result_data = 
-		// const data_items = result_data.json();
 		
 
 		
