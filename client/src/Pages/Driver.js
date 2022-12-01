@@ -6,11 +6,10 @@ import StartShift from '../components/Driver-components/startshift';
 export default function Driver() {
   return (
     <>
-    <div id='driver-home-background'>
-      <DriverNavbar/>
-      <StartShift/>
-    </div>
-
+      <div id='driver-home-background'>
+        <DriverNavbar/>
+        <StartShift/>
+      </div>
     </>
   )
 }
