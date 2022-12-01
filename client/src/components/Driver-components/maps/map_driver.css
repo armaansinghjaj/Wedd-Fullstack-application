@@ -4,11 +4,14 @@
 @import url('https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css');
 
-#map {
-    height: 50vh;
-    width: 50vw;
+#map_driver {
+    /* position: relative; */
+    height: 30rem;
+    width: 36rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
 }
 
-.leaflet-routing-container{
+.leaflet-touch .leaflet-control-geocoder {
     visibility: hidden;
 }
