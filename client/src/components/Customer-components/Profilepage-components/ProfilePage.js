@@ -13,8 +13,7 @@ export default function ProfilePage() {
                     <img src={profileImage} id='profile-image'/>
                 </figure>
                 <figcaption>{customer_account_name}</figcaption>
-
-
+                
                 <ul>
                     <li><p><img class="customer_pp" src=''/><i id="profile_picture_pencil" className="fa fa-pencil" aria-hidden="true"></i></p></li>
                     <li class="picture_change_item">

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './Driver-requests.css';
-import Drivernametag from "./Driver-nametag";
+import Nametag from "../Common-components/Nametag";
 
 
 export default function Dashboard() {
@@ -22,7 +22,7 @@ export default function Dashboard() {
 
     return(
         <>
-        <Drivernametag text={"Driver Name"} employee={"Driver"}/>
+        <Nametag id1="employee-name-tag" id2="wedd-logo-display" id3="employee-name-display" text={"Driver Name"} employee={"Driver"}/>
         <div id="DriverRequests-container">
             <div id="Driver-requests-table">
             {/* <% if (rides.length > 0) { %> */}

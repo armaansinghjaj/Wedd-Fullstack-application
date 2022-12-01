@@ -8,7 +8,6 @@ function newbackground() {
         <>
             <div className='Background-contact-container'>
                 <div className='title-container'>
-                    
                 </div>
             </div>
         </>

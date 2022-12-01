@@ -19,13 +19,13 @@ export default function VerticalNavbar() {
 
             <ul className='link-wrapper'>
                 <li>
-                    <Link className={location.pathname === '/BackgroundEditHome'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditHome'>Edit Home Page</Link>
+                    <Link className={location.pathname === '/backgroundedithome'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/backgroundedithome'>Edit Home Page</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/BackgroundEditAbout'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditAbout'>Edit About us page</Link>
+                    <Link className={location.pathname === '/backgroundeditabout'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/backgroundeditabout'>Edit About us page</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/BackgroundEditContact'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditContact'>Edit Contact us page</Link>
+                    <Link className={location.pathname === '/backgroundeditcontact'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/backgroundeditcontact'>Edit Contact us page</Link>
                 </li>
                 <li>
                     <Link className='Vert-Nav-Links' to='/Admin'>Admin home page</Link>

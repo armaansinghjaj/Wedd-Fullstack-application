@@ -167,6 +167,7 @@ input[id='home-ride-input']{
 .admin-home-container {
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Edit background */
@@ -174,28 +175,58 @@ input[id='home-ride-input']{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-color: rgb(241, 241, 241);
+  background-image: url("../../images/25100.jpg");
 }
-
 
 /* Admin Roles background */
 .AdminRoles-container {
+  position: fixed;
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 /* Admin News background */
 .AdminNews-container {
+  position: fixed;
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
+}
+
+/* Admin Drivers edit background */
+#driver-edit-background{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/25100.jpg");
+}
+
+/* Admin ride requests container */
+.ride-request-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/25100.jpg");
+}
+
+/* Admin contact requests container */
+.contactRequest-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/25100.jpg");
+}
+
+/* Account page background */
+.Account-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Background edit background */
 .AdminBackgroundEdit-container {
-  width: 100%;
-  height: 100vh;
-}
-/* Account page background */
-.Account-container{
   width: 100%;
   height: 100vh;
 }
@@ -269,13 +300,6 @@ input[id='home-ride-input']{
 
 @media only screen and (max-device-width: 767px){
 
-
-
-  h3{
-  
-    font-size: 2rem;
-  }
-  
   .submit-btn input{
     padding: 12px 18px;
     border-radius: 7px;

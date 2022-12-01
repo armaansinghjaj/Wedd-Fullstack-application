@@ -225,6 +225,10 @@ display: none;
         text-decoration: none;
     }
 
+    #h-logo{
+        left: 70%;
+    }
+
 
 }
 
@@ -233,11 +237,17 @@ display: none;
     #h-profile {
         left: 60%;
     }
+    #h-logo{
+        left: 60%;
+    }
 }
 
 @media screen and (max-width:375px) {
     .h-wrapper-active {
         top: 11.2%;
     }
-    
+    #h-logo{
+        left: 60%;
+    }
+
 }

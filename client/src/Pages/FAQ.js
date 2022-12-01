@@ -6,12 +6,10 @@ export default function FrequentlyAskedQuestions() {
 
     return(
         <>
-        
-        <div className="Faq-container">
-            <AccountNavbar/>
-            <Faq/>
-        </div>
-
+            <div className="Faq-container">
+                <AccountNavbar/>
+                <Faq/>
+            </div>
         </>
     )
 }
