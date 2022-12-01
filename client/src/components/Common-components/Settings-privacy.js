@@ -181,12 +181,14 @@ export default function Settings() {
         <h3 id="profile-h3">Delete account</h3>
         <button class="delete_account_btn" id="submit" onClick={displayButton}>Delete account</button>
 
-        </div>
-        <div className={displayConfirm}>
-            <form method="delete" onSubmit={handleDeleteForm}>
-                <div class="delete_confirmation" >
-                <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
-                    <input type="submit" id="submit" value="Confirm"/> 
+            </div>
+                <div className={displayConfirm}>
+                    <form method="delete" onSubmit={handleDeleteForm}>
+                        <div class="delete_confirmation" >
+                        <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
+                            <input type="submit" id="submit" value="Confirm"/> 
+                        </div>
+                    </form>
                 </div>
             </div>
         </>
