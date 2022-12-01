@@ -4,7 +4,6 @@
     font-size: 3rem;
     font-weight: 200;
     margin-top: 3%;
-
     margin-left: 7rem;
   }
 
@@ -119,24 +118,7 @@
   }
 
   /* Admin list edit css */
-  .AdminEdit-container {
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    height: 100vh;
-    left: 20%;
-  }
 
-  .Admintable {
-    position: relative;
-  }
-
-  .addAdmin-container{
-    position: relative;
-    height: 30vh;
-    width: 15rem;
-    left: 20%;
-  }
 
   /* Admin roles edit css */
   .AdminRoles-container{
