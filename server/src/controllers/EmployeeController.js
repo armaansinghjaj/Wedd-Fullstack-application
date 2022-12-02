@@ -54,9 +54,12 @@ function update(_id, email, name, flag, password, callback) {
                 employee.setPassword(password);
             }	
         	EmployeeDB.update(employee, (error, user) => {
-		callback(error, user);
+		        callback(error, user);
+            });
+        }
 	});
 }
+
 function updateResetUUID(employee, callback) {
 	getByID(employee.getId(), (error, user) => {
 		if (error) {
@@ -67,8 +70,6 @@ function updateResetUUID(employee, callback) {
 			});
 		}
 	});
-        }
-    })
 }
 
 function remove(employee_id, callback){

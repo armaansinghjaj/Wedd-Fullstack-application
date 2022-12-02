@@ -78,7 +78,7 @@ export default function AdminEdit() {
                         </tr>
                     </thead>
 
-                    {items.map(item =>{
+                    {admins.map(item =>{
                         return <tbody>
                             <tr>
                                 <td>{item.employee_id}</td>

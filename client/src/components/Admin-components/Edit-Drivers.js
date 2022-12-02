@@ -153,7 +153,8 @@ export default function AdminDriversEdit() {
         }
     }
 
-    const handleDriverDeleteForm = () => {
+    const handleDriverDeleteForm = (e) => {
+        e.preventDefault();
         setLoader(true);
         
         if(deleteDriverId !== ""){
@@ -170,8 +171,8 @@ export default function AdminDriversEdit() {
                 window.confirm(deleteDriver_response.message);
 
                 // TO-DO: COLSE THE DELETE OVERLAY HERE AFTER PROCESSING THE REQUEST
-                
                 setLoader(false);
+                setVisibleDelete(!visibleDelete);
                 fetchDrivers();
             })
         }
@@ -275,43 +276,6 @@ export default function AdminDriversEdit() {
 
     return(
         <>
-        {/*Display Drivers List */}
-        <div className='DriversEdit-container'>
-        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
-        <h1 id='driver-edit-h1'>Edit Drivers</h1>
-            <table className='edit-driver-table' >
-                <thead>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>Name</th>
-                        <th>E-mail</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                    {items.map(item => {
-                        return <tbody>
-                            <tr>
-                                <td>{item.employee_id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.email}</td>
-                                <td>
-                                    <button onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
-                                    {/* <input type='submit' value='edit' className='edit' name='edit'/>*/}
-                                </td>
-                                <td>
-                                    <form action='/drivers' method='post'>
-                                        <button><i className="fa-solid fa-x"></i></button>
-                                        {/* <input type='submit' value='delete' className='delete' name='delete'/>*/}
-                                        <input type='hidden' name='selected' value={employee_id}/>
-                                        <input type='hidden' name='action'  value='delete'/>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    })}
-            </table>
-        </div>
         {/* Loader component */}
         {loader && <Loader/>}
 
@@ -411,6 +375,7 @@ export default function AdminDriversEdit() {
 
         {/*Display Drivers List */}
         <div className='DriversEdit-container'>
+        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
         <h1 id='admin-h1'>Edit Drivers</h1>
             <table className='Drivertable' >
                 <thead>
