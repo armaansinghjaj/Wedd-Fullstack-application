@@ -326,7 +326,7 @@ input[id='home-ride-input']{
   z-index: 1;
 }
 
-@media only screen and (max-device-width: 767px){
+@media only screen and (max-width: 767px){
 
   .submit-btn input{
     padding: 12px 18px;

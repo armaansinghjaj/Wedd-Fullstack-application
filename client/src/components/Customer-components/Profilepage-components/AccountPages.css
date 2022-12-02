@@ -80,15 +80,6 @@
 }
 
 
-
-/* Customer account Help and Support css */
-.help-container {
-    position: relative;
-    left: 25%;
-    width: 80%;
-    height: 100vh;
-}
-
 .FAQ{
     position: relative;
     top: 5%;
@@ -110,7 +101,6 @@
 }
 li{
     list-style: none;
-    
 }
 #submit{
     position: relative;
@@ -136,34 +126,5 @@ li{
 }
 
 @media screen and (max-device-width: 390px){
-    .trip-container {
-        position: relative;
-        left: -13.25%;
-        margin-top: 20%;
-    
-    }
-    .trip-table {
-        top: 10%;
-        border-radius: 5px
-    }
 
-    h2{
-        margin-left: 90px;
-    }
-
-    .settings-container{
-       margin-top: 15%;
-       left: 2%;
-       width: 90%;
-       height: 100vh; 
-       margin-left: auto;
-       margin-right: auto;
-    }
-
-    #profile-h3 {
-        position: relative;
-        color: black;
-        font-size: 2ch;  
-    }
- 
 }

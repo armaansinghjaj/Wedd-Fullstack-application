@@ -69,8 +69,6 @@
     font-size: 40px;
 }
 
-
-
 /* Customer Account Nametag */
 #account-name-tag{
     position: relative;
@@ -106,6 +104,12 @@
     font-size: 40px;
 }
 
+#driver2{
+    position: relative;
+    top: 10%;
+    left: 20%;
+}
+
 @media screen and (max-width:1280px){
     #employee-name-tag{
         left: 45.5%;
@@ -139,15 +143,9 @@
     }
 }
 @media screen and (max-width:390px){
-    #employee-name-tag, #admin-name-tag {
+    #employee-name-tag, #admin-name-tag, #account-name-tag {
         left: 9%;
         top: 15%;
-        width: 20rem;
-        height: 8rem;
-    }
-    #account-name-tag {
-        left: 22%;
-        top: 6%;
         width: 20rem;
         height: 8rem;
     }

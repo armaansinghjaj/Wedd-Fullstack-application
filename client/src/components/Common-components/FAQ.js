@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { Link } from 'react-router-dom';
-import '../Common-components/Help-support.css';
-// import {questions} from '../Common-components/api';
-// import Myaccordian from '../Common-components/Myaccordian';
+import '../Common-components/FAQ.css';
+
 
 export default function FAQ() {
    
