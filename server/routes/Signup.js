@@ -53,7 +53,7 @@ router.post("/", (req, res) => {
 				
 			} else{
 
-				const customer = new Customer(generateUserID(), req.body.email, req.body.name, req.body.password, 3);
+				// const customer = new Customer(generateUserID(), req.body.email, req.body.name, req.body.password, 3);
 
 				CustomerController.insert(generateUserID(), req.body.email, req.body.name, req.body.password, 3, null, null, null, (error, user)=>{
 					if(error){

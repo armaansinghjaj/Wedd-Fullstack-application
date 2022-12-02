@@ -35,18 +35,6 @@ router.get("/:id", (req, res) => {
 
 		}
 	})
-
-	// pool.getConnection((err, con) => {
-	// 	if (err) throw err;
-	// 	con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-	// 		con.release();
-	// 		if(err) throw err;
-
-	// 		return res.render("profile-customer", {customer_account: account[0], page: null});
-	// 	});
-	// });
-
-
 });
 router.get("/profile/:id", (req, res) => {
 	// loadDefaultValues(req);
@@ -55,16 +43,6 @@ router.get("/profile/:id", (req, res) => {
 	if(sess.access === 1 || sess.access === 2){
         return res.redirect("/employeeprofile");
     }
-
-	// pool.getConnection((err, con) => {
-	// 	if (err) throw err;
-	// 	con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-	// 		con.release();
-	// 		if(err) throw err;
-
-	// 		return res.render("profile-customer", {customer_account: account[0], page: "account"});
-	// 	});
-	// });
 
 	CustomerController.getByID(req.params.id, (error, user)=>{
 		if(error){
@@ -85,18 +63,6 @@ router.get("/profile/:id", (req, res) => {
 	})
 });
 router.get("/support", (req, res) => {
-	// loadDefaultValues(req);
-	// let sess = req.session;
-
-	// pool.getConnection((err, con) => {
-	// 	if (err) throw err;
-	// 	con.query(`SELECT * FROM customer where email = '${sess.user}'`, function (err, account, fields) {
-	// 		con.release();
-	// 		if(err) throw err;
-
-	// 		return res.render("profile-customer", {customer_account: account[0], page: "support"});
-	// 	});
-	// });
 	return res.status(200).send({
 		message: "Get works fine"
 	})
@@ -122,16 +88,6 @@ router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 			}
 		})
 
-
-		// pool.getConnection((err, con) => {
-		// 	if (err) throw err;
-		// 	con.query(`UPDATE customer SET customer_pp = '', name = '${req.body.customer_name}', email = '${req.body.customer_email}', home_address = '${req.body.home_address}', customer_car = '${req.body.customer_car}' where email = '${sess.user}'`, function (err, result, fields) {
-		// 		con.release();
-		// 		if (err) throw err;
-
-		// 		return res.redirect("/profile/account");
-		// 	});
-		// });
 	} else if (req.query.option === "password") {
 
 		console.log(1)
@@ -167,31 +123,6 @@ router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 			}
 		})
 
-		// pool.getConnection((err, con) => {
-		// 	if (err) throw err;
-		// 	con.query(`SELECT password FROM customer where email = '${sess.user}'`, function (err, user_password, fields) {
-		// 		con.release();
-		// 		if(err) throw err;
-	
-		// 		if(req.body.customer_password.old === user_password[0].password){
-		// 			if(req.body.customer_password.new === req.body.customer_password.confirm){
-		// 				pool.getConnection((err, con) => {
-		// 					if (err) throw err;
-		// 					con.query(`UPDATE customer SET password = '${req.body.customer.new_password}' where email = '${sess.user}'`, function (err, result, fields) {
-		// 						con.release();
-		// 						if (err) throw err;
-
-		// 						return res.redirect("/profile/account");
-		// 					});
-		// 				});
-		// 			} else {
-		// 				res.send("Values didn't matched!");
-		// 			}
-		// 		} else {
-		// 			res.send("Values didn't matched!");
-		// 		}
-		// 	});
-		// });
 	} else if (req.query.option === "profilepicture") {
 		let imageName = "/profile_pictures/" + readFile(path.join(__dirname, "../", "server-side files", "temporary text files", "profile picture temporary data", `${sess.user}.txt`));
 
@@ -228,16 +159,6 @@ router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 				return res.redirect("/profile/account");
 			});
 		});
-
-		// pool.getConnection((err, con) => {
-		// 	if (err) throw err;
-		// 	con.query(`DELETE FROM customer where email = '${sess.user}'`, function (err, result, fields) {
-		// 		con.release();
-		// 		if (err) throw err;
-
-		// 		return res.redirect("/");
-		// 	});
-		// });
 	}
 });
 router.delete("/profile/:id", (req, res)=>{
@@ -260,7 +181,7 @@ router.delete("/profile/:id", (req, res)=>{
 	})
 })
 
-router.post("/support", (req, res) => {
+router.put("/support", (req, res) => {
 
 	SupportController.insert(req.body.customer_email, req.body.reason, req.body.description, req.body.comments, (error, result)=>{
 		if(error){
@@ -273,16 +194,6 @@ router.post("/support", (req, res) => {
 
 		}
 	})
-
-	// pool.getConnection((err, con) => {
-	// 	if (err) throw err;
-	// 	con.query(`INSERT INTO supportRequests (email, reason, description, comments) VALUES ('${req.body.customer_email}', '${req.body.problem.reason}', '${req.body.problem.brief_description}', '${req.body.problem.comments}')`, function (err, result, fields) {
-	// 		con.release();
-	// 		if (err) throw err;
-
-	// 		return res.redirect("/profile");
-	// 	});
-	// });
 });
 
 module.exports = router;

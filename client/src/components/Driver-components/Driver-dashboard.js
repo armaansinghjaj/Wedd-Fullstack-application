@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./Driver-dashboard.css";
 import Map from "./maps/driver_maps";
-import Loading from "./Loader";
+
 export default function Requests() {
 	const pickupAddress = "Pickup Address";
 	const dropoffAddress = "Dropoff Address";
@@ -23,9 +23,6 @@ export default function Requests() {
 				setLoader(false);
 			});
 	}, []);
-	if (Loader) {
-		return <Loading />;
-	}
 
 	const displayMap = () => {
 		setVisibleMap(!visibleMap);
