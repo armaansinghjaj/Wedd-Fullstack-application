@@ -14,7 +14,7 @@ import AdminRideRequests from './Pages/RideRequests';
 // Background edit pages
 import BgHome from './components/Admin-components/Edit-Background-Home';
 import BgAbout from './components/Admin-components/Edit-Background-About';
-import BgContact from './components/Admin-components/Edit-Background-About'
+import BgContact from './components/Admin-components/Edit-Background-Contact'
 
 // Common pages
 import Logout from './components/Common-components/Logout'

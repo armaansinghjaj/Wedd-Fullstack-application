@@ -1,6 +1,5 @@
 import React from "react";
-import VerticalNavbar from "../components/VerticalNavbar";
-import '../App.css';
+import VerticalNavbar from "../Admin-components/Sidebar-Background-edit";
 
 
 export default function BackgroundContact() {
@@ -11,7 +10,6 @@ export default function BackgroundContact() {
         <>
         <VerticalNavbar/>
             <div className="bgcontact-container">
-            
                 <table id="homepage">
                     {/* <% images.forEach(image => { %> */}
                         <tr>

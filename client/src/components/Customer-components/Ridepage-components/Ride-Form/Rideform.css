@@ -142,7 +142,6 @@ input[id="ride-submit"] {
   appearance: none;
   margin: 0px;
   overflow: visible;
-  
   font-variant: inherit;
   font-stretch: inherit;
   font-family: inherit;
@@ -171,7 +170,8 @@ input[id="ride-submit"] {
   border-style: solid;
   border-color: transparent;
   width: 100%;
- 
+  top: 50%;
+  
   }
 
   #ride-submit:hover{
@@ -202,6 +202,7 @@ input[id="ride-submit"] {
 
 .car-type{
   position:relative;
+  top: -60%;
   color: black;  
   margin: 0 0 0.0rem 0;
   font-weight: 500;
@@ -263,7 +264,8 @@ input[id="ride-submit"] {
   position: relative;
   width: 3em;
   margin-left: 2em;
-  /* top:-90px;
+  /*
+   top:-90px;
   bottom: 20px;
   left: 20%;
   margin-right: 10px; */
@@ -284,7 +286,7 @@ input[id="ride-submit"] {
 
 input[id="ride-submit"] {
   position: absolute;
-  top: 100px;
+  
   /* right: 205px; */
 }
 
@@ -313,22 +315,29 @@ input[id="ride-submit"] {
   margin-top: 0ch;
 }
 
-#car,#car1{
-  margin-top: 5ch;
+#car1{
+  position: relative;
+  top: -50%;
 }
 #car2{
 position: relative;
-top: -2.5ch;
+top: -2.5rem;
 left: 0.5ch;
+}
+#car-label{
+  position: relative;
+  left:7ch;
+  top:-98%;
 }
 #car-label1{
   position: relative;
   left:7ch;
-  top:-4ch;
+  top:-144%;
 }
 
 #ride-submit{
-  margin-top: 4ch;
+  position: relative;
+  
 }
 
 .paymenterror-msg {
@@ -393,12 +402,12 @@ input[id="ride-submit"] {
   height: 1.8rem;
   font-weight: 300;
   font-size: 1rem;
-  top: 70px;;
+  top: 70%;
   
 }
 .car-type{
   position: relative;
- margin-top: -4%; 
+ 
 }
 
 }
