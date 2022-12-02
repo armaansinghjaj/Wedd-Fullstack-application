@@ -83,6 +83,8 @@ function LeafletMaps() {
 	}
 
 	if (document.getElementById("map_state").value === "1") {
+		document.getElementById("userlat").value= userlocationlat;
+		document.getElementById("userlng").value= userlocationlng;
 		G.geocoder().addTo(map);
 
 		if (!navigator.geolocation) {
