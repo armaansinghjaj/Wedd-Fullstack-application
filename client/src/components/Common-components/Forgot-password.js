@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import {ToastContainer, toast} from "react-toastify";
 import "./Forgot-password.css";
-import {Navigate} from "react-router-dom";
 
 export default function Forgotpassword() {
 	const [email, setEmail] = useState("");
@@ -12,43 +10,39 @@ export default function Forgotpassword() {
 		setEmail(e.target.value);
 	};
 
-	const sendLink = async (e) => {
+	const sendLink = (e) => {
 		e.preventDefault();
-
-		const res = await fetch("/sendpasswordlink", {
-			method: "POST",
+		const forgot_password_data = {
+			email: email,
+		};
+		fetch("/api/forgot", {
+			credentials: "same-origin",
+			mode: "cors",
+			method: "put",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({email}),
-		});
+			body: JSON.stringify(forgot_password_data),
+		})
+			.then((response) => response.json())
+			.then((responsedata) => {
 
-		const data = await res.json();
-
-		if (data.status == 201) {
-			setEmail("");
-			setMessage(true);
-		} else {
-			toast.error("Invalid user");
-		}
-		const handleFormSubmit = (e) => {
-			const forgot_password_data = {
-				email: email,
-			};
-			fetch("/api/forgot", {
-				credentials: "same-origin",
-				mode: "cors",
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(forgot_password_data),
-			})
-				.then((response) => response.json())
-				.then((responsedata) => {
-					<Navigate to="/ride/confirm" replace={true} />;
-				});
-		};
+				if (responsedata.status) {
+					setMessage(
+						<div className="messageBox">
+							{" "}
+							<p>Email Sent successfully </p>{" "}
+						</div>
+					);
+				} else {
+					setMessage(
+						<div className="messageBox">
+							{" "}
+							<p>Account Not Found </p>{" "}
+						</div>
+					);
+				}
+			});
 	};
 
 	return (
@@ -56,7 +50,7 @@ export default function Forgotpassword() {
 			<div className="body">
 				<div className="parent">
 					<div className="container">
-						<form action="reset" method="POST">
+						<form onSubmit={sendLink}>
 							<table className="reset_box">
 								<tbody>
 									<tr>
@@ -85,9 +79,7 @@ export default function Forgotpassword() {
 															<div className="fieldDiv formContainer">
 																<input type="email" className="fields" value={email} name="userEmail" placeholder="Email address" onChange={setVal} />
 															</div>
-															<div className="messageBox">
-																<p></p>
-															</div>
+															{message && message}
 														</td>
 													</tr>
 												</tbody>
@@ -111,7 +103,7 @@ export default function Forgotpassword() {
 					</div>
 				</div>
 				<div className="loginLinkBox">
-					<Link className="loginLink" href="login">
+					<Link className="loginLink" to="/login">
 						Login
 					</Link>
 				</div>

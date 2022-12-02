@@ -96,7 +96,7 @@ function Rideform() {
 			.then((response) => response.json())
 			.then((responsedata) => {
 				cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
-				<Navigate to="/ride/confirm" replace={true} />;
+				window.location.reload();
 			});
 	};
 

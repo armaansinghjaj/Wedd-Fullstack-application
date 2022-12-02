@@ -2,61 +2,123 @@ const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/loadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
+const LoginController = require("../src/controllers/LoginController");
+const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
+const {text} = require("body-parser");
+require("dotenv").config();
+const {v4: uuidv4} = require("uuid");
+const CustomerController = require("../src/controllers/CustomerController");
+const EmployeeController = require("../src/controllers/EmployeeController");
 
-// router.get("/", (req, res) => {
-//     loadDefaultValues(req);
+const transporter = nodemailer.createTransport({
+	service: "gmail",
+	auth: {
+		user: process.env.MAIL,
+		pass: process.env.PASS,
+	},
+});
+router.put("/", (req, res) => {
+	LoginController.getByEmail(req.body.email, (error, user) => {
+		if (error) {
+			return res.status(error.errorDetails.errorCode).send({
+				status: false,
+			});
+		} else {
+			user.setResetPasswordUUID(uuidv4());
+			if (user.getRoleID() === 3) {
+				CustomerController.updateResetUUID(user, (error, result) => {
+					if (error) {
+						console.log("error", error);
+						res.status(401).send({status: 401, message: "email not send"});
+					} else {
+						const mailOptions = {
+							from: process.env.MAIL,
+							to: "vaibhavaneja805@gmail.com",
+							Subject: "Password Reset Link",
+							text: `This link is valid for 24 hours only: http://localhost:3000/forgot/reset/${user.getResetPasswordUUID()}`,
+						};
 
-//     let sess = req.session;
+						transporter.sendMail(mailOptions, (error, info) => {
+							if (error) {
+								console.log("error", error);
+								res.status(401).json({status: 401, message: "email not send"});
+							} else {
+								console.log("Email sent", info.response);
+								res.status(201).json({status: 201, message: "Email sent Succsfully"}).send({
+									status: true,
+								});
+							}
+						});
 
-//     if (sess.access != 2) {
-//         return res.redirect("/");
-//     }
+						return res.status(200).send({
+							status: 200,
+							message: "UUID Added to database",
+						});
+					}
+				});
+			} else {
+				EmployeeController.updateResetUUID(user, (error, result) => {
+					if (error) {
+						console.log("error", error);
+						res.status(401).send({status: 401, message: "email not send"});
+					} else {
+						const mailOptions = {
+							from: process.env.MAIL,
+							to: "vaibhavaneja805@gmail.com",
+							Subject: "Password Reset Link",
+							text: `This link is valid for 24 hours only: http://localhost:3000/forgot/reset/${user.getResetPasswordUUID()}`,
+						};
 
-//     if (sess.ride_allocated_session_id) {
-//         // if driver is active and is currently driving
-//         return pool.getConnection((err, con) => {
-//             if (err) throw err;
-//             con.query(`SELECT * FROM current_rides WHERE ride_allocated_session_id = '${sess.ride_allocated_session_id}'`, function (err, result, fields) {
-//                 con.release();
+						transporter.sendMail(mailOptions, (error, info) => {
+							if (error) {
+								console.log("error", error);
+								res.status(401).json({status: 401, message: "email not send"});
+							} else {
+								console.log("Email sent", info.response);
+								res.status(201).json({status: 201, message: "Email sent Succsfully"}).send({
+									status: true,
+								});
+							}
+						});
 
-//                 if (err) throw err; // remove on build
-//                 return res.render("driver_dash-drive", {driver: "Driver", pickup_address: "46 Taravista", drop_address: "52 Del ray"});
-//             });
-//         });
-//     } else if (sess.driver_session_id) {
-//         // if driver is active, but has not rides
-//         let result = {
-//             rides: undefined,
-//         };
-//         return pool.getConnection((err, con) => {
-//             if (err) throw err;
-
-//             con.query(`SELECT * FROM riderequests`, function (err, d_ride_requests, fields) {
-//                 con.release();
-
-//                 if (err) throw err; // remove on build
-
-//                 result.rides = d_ride_requests;
-//                 return res.render("driver_dash-avail_requests", result);
-//             });
-//         });
-//     } else {
-//         return res.render("driver_dashboard");
-//     }
-// });
-router.post("/", (req, res) => {
-	let sess = req.session;
-
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM temp_ride WHERE temp_ride_session = '${sess.temp_session_id}'`, function (err, result, fields) {
-			con.release();
-
-			if (err) return res.send("backend error");
-			console.log(result);
-			return res.send(result[0]);
-		});
+						return res.status(200).send({
+							status: 200,
+							message: "UUID Added to database",
+						});
+					}
+				});
+			}
+		}
 	});
 });
-
+router.post("/reset/:token", (req, res) => {
+	const {token} = req.params;
+	LoginController.getByresetUUID(token, (error, user) => {
+		if (error) {
+			console.log("error,", error);
+		} else {
+			if (user.getRoleID() === 3) {
+				CustomerController.updatePassword(user.getId(), req.body.newPassword, (error, user) => {
+					if (error) {
+						res.send({message: "Something Went Wrong."});
+					} else {
+						res.send({message: "Password changed successfully", status: 200});
+					}
+				});
+			} else {
+				EmployeeController.update(user.getId(), user.getEmail(), user.getName(), req.body.newPassword, (error, user) => {
+					if (error) {
+						res.send({error: error});
+					} else {
+						res.send({
+							message: "Password changed successfully",
+							status: 200,
+						});
+					}
+				});
+			}
+		}
+	});
+});
 module.exports = router;

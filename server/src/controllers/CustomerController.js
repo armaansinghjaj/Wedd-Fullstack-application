@@ -31,6 +31,16 @@ function updateInfo(_id, email, name, carName, home_address, callback){
     })
 }
 
+function updateResetUUID(customer,callback){
+    getByID(customer.getId(), (error, user)=>{
+        if(error){
+            callback(error, null);
+        } else {
+            CustomerDB.updateResetUUID(customer, (error, user)=>{callback(error, user)});
+        }
+    })
+}
+
 function updatePassword(_id, password, callback){
     getByID(_id, (error, user)=>{
         if(error){
@@ -55,4 +65,4 @@ function remove(customer_id, callback){
     CustomerDB.remove(customer_id, (error, user)=>{callback(error, user)});
 }
 
-module.exports = {insert, getByID, getByEmail, updateInfo, updatePassword, updatePicture, remove};
+module.exports = {insert, getByID, getByEmail, updateInfo, updatePassword, updatePicture, remove,updateResetUUID};
