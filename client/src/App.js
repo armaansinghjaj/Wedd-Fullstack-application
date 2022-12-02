@@ -64,7 +64,7 @@ const App = () => {
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
         <Route path= '/forgot'  element={<Forgotpass/>}/>
-        <Route path= '/forgotpassword/:id/:token'  element={<ResetPassword/>}/>
+        <Route path= '/forgot/reset/:token'  element={<ResetPassword/>}/>
         
         
         {/* Ride Pages is pending yet */}
