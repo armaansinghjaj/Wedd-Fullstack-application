@@ -158,3 +158,14 @@
 		margin-bottom: 10vh;
 	}
 }
+@media screen and (max-width: 390px) {
+	.signup-parent-container {
+		padding-top: 1vh;
+	}
+	.signup-container-form {
+		margin-left: 1.2rem;
+		width: 90vw;
+		margin-top: 15vh;
+		margin-bottom: 10vh;
+	}
+}
