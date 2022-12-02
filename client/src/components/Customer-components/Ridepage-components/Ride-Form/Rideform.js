@@ -130,11 +130,11 @@ function Rideform() {
 			<div className="master-container">
 				<figure>{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}</figure>
 				<div className="parent-container">
-					<div className="ride-conatiner-left child-container">
+					<div className="ride-container-left child-container">
 						<Maps />
 					</div>
 
-					<div className="ride-conatiner-right child-container">
+					<div className="ride-container-right child-container">
 						<div className="ride-background">
 							<div className="ride-container">
 								<form onSubmit={handleFormSubmit}>

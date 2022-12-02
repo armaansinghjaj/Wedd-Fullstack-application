@@ -29,9 +29,9 @@ export default function AccountNavbar() {
                         <li>
                             <Link className={location.pathname === '/helpandsupport'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/helpandsupport'>Help and Support</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={location.pathname === '/faq'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/faq'>Frequently Asked Questions</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className='logout-wrapper'>
@@ -59,9 +59,9 @@ export default function AccountNavbar() {
                         <li>
                             <Link className={'h-nav-links'} to='/helpandsupport' onClick={closeMobileMenu}>Help and Support</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={'h-nav-links'} to='/faq' onClick={closeMobileMenu}>Frequently Asked Questions</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={'h-nav-links'} to='/Home' onClick={closeMobileMenu}>Log Out</Link>
                         </li>

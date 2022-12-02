@@ -27,7 +27,7 @@
 } */
 #ride-with{
     position: relative;
-    margin-top: -13%;
+    margin-top: 0%;
     font-size: 5rem;
     color: rgb(5, 5, 5);
     font-weight: 500;
@@ -67,14 +67,14 @@
     background-position: center;
 }
 
-.ride-bottom {
-  position: relative;
-  bottom: 27.5rem;
-  margin-top:-25%;
-  left: -3rem;
-  height: 19vh;
-  width: 86%;
-}
+  .ride-bottom {
+    position: relative;
+    bottom: 27.5rem;
+    margin-top:-25%;
+    left: -3rem;
+    height: 19vh;
+    width: 86%;
+  }
 
   #ride-contact {
     color: rgb(5, 5, 5);  
@@ -218,17 +218,14 @@ input[id="ride-submit"] {
     height: 4rem;
     bottom: 4rem;
     left: 57%;
-    
 }
 
 .payment-right {
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 0ch;
- 
 }
 
 .car-left {
@@ -239,7 +236,6 @@ input[id="ride-submit"] {
   margin-top: 0ch;
   position: relative;
   margin-left: 8rem;
-
 }
 
 .car-left {
@@ -260,13 +256,7 @@ input[id="ride-submit"] {
 .car-checklist {
   position: relative;
   width: 3em;
-  margin-left: 2em;
-  /*
-   top:-90px;
-  bottom: 20px;
-  left: 20%;
-  margin-right: 10px; */
-  
+  margin-left: 2em;  
 }
 
 #payment-label {
@@ -346,9 +336,6 @@ left: 0.5ch;
   right:5%
 }
 
-
-
-
 .payment-type {
    position: relative;
   margin-top: -18%;
@@ -391,7 +378,7 @@ input[id="ride-submit"] {
 
 }
 
-@media screen and (max-device-width:479px){
+@media screen and (max-device-width:467px){
   
   .ride-container {
     margin: 30% auto;
@@ -626,7 +613,7 @@ input[id="ride-input"] {
       backdrop-filter: blur(16px);
     }  */
 
-  .ride-conatiner-left r{
+  .ride-container-left {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(16px);
   }

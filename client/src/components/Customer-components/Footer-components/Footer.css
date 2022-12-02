@@ -37,8 +37,9 @@
 .footer-link-items {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   align-items: flex-start;
-  margin: 16px;
+  margin: 10px 80px 10px 80px;
   text-align: left;
   width: 160px;
   box-sizing: border-box;
@@ -131,6 +132,8 @@
   .social-media-wrap {
     flex-direction: column;
   }
+
+
 }
 
 @media screen and (max-width:767px){
@@ -216,12 +219,19 @@
     bottom: 2rem;
   }
 
-
   #social-media-links{
     display: none;
   }
   .website-rights {
     display: none;
+  }
+
+  .footer-link-items{
+    margin: 0 0 0 0;
+  }
+  .social-media-wrap{
+    position: relative;
+    top: 55%;
   }
   
 }
@@ -235,31 +245,27 @@
     position: relative;
   }
 
-  .footer-link-items {
-    margin: 0;
-  }
-
   .footer-link-items > h2 {
     position: relative;
     top: 5%;
-    right: 25%;
+    left: 22%;
     font-size: 1.2rem;
   }
   #footer-address, #footer-phone, #footer-email {
     position: relative;
-    left: 14%;
+    left: 16%;
     font-size: 0.8rem;
   }
 
   #footer-about-links{
     font-size: 0.8rem;
     position: relative;
-    left: 20%;
+    left: 16.5%;
   }
   
   .footer-logo {
     position: relative;
-    left: -15px;
+    bottom: -10%;
   }
 
   .social-icons{

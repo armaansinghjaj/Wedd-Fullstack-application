@@ -58,7 +58,7 @@ function Footer() {
             <a href='https://www.linkedin.com' target="_blank" rel="noopener noreferrer">linked-In</a>
           </div>
           <div className='footer-link-items'>
-            <h2>Contact</h2>
+            <h2>Contact us</h2>
             <Link id='footer-address' to='/About' onClick={ScrollToTop}>Address Placeholder</Link>
             <Link id='footer-phone' to='/About' onClick={ScrollToTop}>(403)-201-8223</Link>
             <Link id='footer-email' to='/Ride' onClick={ScrollToTop} >WeDD@gmail.com</Link>

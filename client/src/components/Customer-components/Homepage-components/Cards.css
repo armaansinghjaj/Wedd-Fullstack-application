@@ -71,11 +71,11 @@
     text-decoration: none;
   }
   
-  
   #cards-p-main{
     position: relative;
     margin-top: 2rem;
     text-align: center;
+    font-size: 25px;
   }
   
   .cards__item__link:hover {

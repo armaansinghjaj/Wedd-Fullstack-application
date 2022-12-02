@@ -144,6 +144,9 @@
     border: none;
     cursor: pointer;
 }
+#display-contact-form{
+    display: none;
+}
 
 @media screen and (max-width:1600px){
     #help-container-descriptions{
@@ -194,6 +197,7 @@
 
     #display-contact-form{
         position: relative;
+        display: initial;
         top: 5%;
         left: 38%;
         padding: 0.3rem 0.3rem 0.3rem 0.3rem;
