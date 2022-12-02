@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-
-import './AdminPages.css';
+import Nametag from "../Common-components/Nametag";
+import './Ride-requests.css'
 
 export default function RequestTable() {
 
@@ -20,6 +20,51 @@ export default function RequestTable() {
 
     return(
         <> 
+        <div className="ride-request-container">
+            <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
+            <div className="requesttable-container">
+                <h1 id='ride-requests-h1'>Ride Requests</h1>
+                <table className='ride-requests-table'>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Phone</th>
+                        <th>Pick-up Address</th>
+                        <th>Destination</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                {/* <% rides.forEach(ride => { %> */}
+                    <tr>
+                        <td>{ride_request_id}</td>
+                        <td>{ride_name}</td>
+                        <td>{ride_email}</td>
+                        <td>{ride_phone}</td>
+                        <td>{ride_pickup_address}</td>
+                        <td>{ride_destination}</td>
+                        <td>
+                                
+                            <button onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
+                        {/* <input type='submit' value='edit' name='edit'/>*/}
+                                <input type='hidden' name='selected' value={ride_request_id}/>
+                                <input type='hidden' name='action' value='edit'/>
+                        </td>
+                        <td>
+                            <form action='/rides' method='post'>
+
+                            <button><i class="fa-solid fa-x"></i></button>
+                            {/* <input type='submit' value='delete' name='delete'/>*/}
+                                <input type='hidden' name='selected' value={ride_request_id}/>
+                                <input type='hidden' name='action'value='delete'/>
+                            </form>
+                        </td>
+                    </tr>
+                {/* <% }) %> */}
+                </table>
+            </div>
+        </div>
+
          {/*edit ride requests form*/}
         <div className={overlayEdit}>
             <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
@@ -59,51 +104,6 @@ export default function RequestTable() {
                
                 </form>
             </div>
-        </div>
-
-
-<div className="ride-request-container">
-        <div className="requesttable-container">
-            <h2>Ride Requests</h2>
-            <table className='Drivertablei'>
-                <tr>
-                    <th>Request ID</th>
-                    <th>Name</th>
-                    <th>E-mail</th>
-                    <th>Phone</th>
-                    <th>Pick-up Address</th>
-                    <th>Destination</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            {/* <% rides.forEach(ride => { %> */}
-                <tr>
-                    <td>{ride_request_id}</td>
-                    <td>{ride_name}</td>
-                    <td>{ride_email}</td>
-                    <td>{ride_phone}</td>
-                    <td>{ride_pickup_address}</td>
-                    <td>{ride_destination}</td>
-                    <td>
-                            
-                        <button onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
-                    {/* <input type='submit' value='edit' name='edit'/>*/}
-                            <input type='hidden' name='selected' value={ride_request_id}/>
-                            <input type='hidden' name='action' value='edit'/>
-                    </td>
-                    <td>
-                        <form action='/rides' method='post'>
-
-                        <button><i class="fa-solid fa-x"></i></button>
-                        {/* <input type='submit' value='delete' name='delete'/>*/}
-                            <input type='hidden' name='selected' value={ride_request_id}/>
-                            <input type='hidden' name='action'value='delete'/>
-                        </form>
-                    </td>
-                </tr>
-            {/* <% }) %> */}
-            </table>
-        </div>
         </div>
         </>
         

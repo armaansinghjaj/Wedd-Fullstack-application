@@ -208,13 +208,13 @@ function getByEmail(email, callback){
 }
 
 // UPDATE
-function update(employee, callback){
-
-    let put  = {
-        email: employee.getEmail(),
-        name: employee.getName(),
-        password: employee.getPassword()
-    };
+function update(employee, callback) {
+	let put = {
+		email: employee.getEmail(),
+		name: employee.getName(),
+		password: employee.getPassword(),
+		reset_password_uuid:null,
+	};
 
     pool.getConnection((err, con) => {
         if (err) {
@@ -242,7 +242,42 @@ function update(employee, callback){
         })
     })
 }
+function updateResetUUID(employee, callback) {
+	pool.getConnection((err, con) => {
+		if (err) {
+			con.release();
+			callback(
+				{
+					error: true,
+					errorDetails: {
+						errorCode: 408,
+						errorMsg: "Connection timed out. Please try again.",
+					},
+				},
+				null
+			);
+		}
+		con.query("UPDATE employee SET reset_password_uuid = ? WHERE employee_id = ?", [employee.getResetPasswordUUID(), employee.getId()], function (err, queryResult, fields) {
+			con.release();
 
+			if (err) {
+				callback(
+					{
+						error: true,
+						errorDetails: {
+							errorCode: 500,
+							errorMsg: "Internal Server Error. Please try again.",
+						},
+					},
+					null
+				);
+			} else {
+				// console.log(queryResult);
+				callback(null, queryResult);
+			}
+		});
+	});
+}
 // DELETE
 function remove(employee_id, callback){
     pool.getConnection((err, con) => {
@@ -272,4 +307,4 @@ function remove(employee_id, callback){
     })
 }
 
-module.exports = {getAll, insert, getAllAdmins, getAllDrivers, getByID, getByEmail, update, remove};
+module.exports = {getAll, insert, getAllAdmins, getAllDrivers, getByID, getByEmail, update, remove,updateResetUUID};

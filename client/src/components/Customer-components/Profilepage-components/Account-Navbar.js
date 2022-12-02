@@ -42,7 +42,7 @@ export default function AccountNavbar() {
 
                 <div className='h-navbar'>
                     <div id='logo-wrapper'>
-                        <Link id='h-profile' to={'/profile'}>Client Name</Link>
+                        <Link id='h-profile' to={'/profile'}>WeDD</Link>
                     </div>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -51,7 +51,7 @@ export default function AccountNavbar() {
 
                 <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
                         <li>
-                            <Link className={'h-nav-links'} to='/customerprofile' onClick={closeMobileMenu}>Settings and Profile</Link>
+                            <Link className={'h-nav-links'} to='/Account' onClick={closeMobileMenu}>Settings and Profile</Link>
                         </li>
                         <li>
                             <Link className={'h-nav-links'} to='/triphistory' onClick={closeMobileMenu}>Trip History</Link>

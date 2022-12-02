@@ -31,16 +31,20 @@ function getAllAdmins(callback){
     EmployeeDB.getAllAdmins((error, user)=>{callback(error, user)});
 }
 
-function getByID(employee_id, callback){
-    EmployeeDB.getByID(employee_id, (error, user)=>{callback(error, user)});
+function getByID(employee_id, callback) {
+	EmployeeDB.getByID(employee_id, (error, user) => {
+		callback(error, user);
+	});
 }
 
-function getByEmail(email, callback){
-    EmployeeDB.getByEmail(email, (error, user)=>{callback(error, user)});
+function getByEmail(email, callback) {
+	EmployeeDB.getByEmail(email, (error, user) => {
+		callback(error, user);
+	});
 }
 
-function update(_id, email, name, flag, password, callback){
-    getByID(_id, (error, employee)=>{
+function update(_id, email, name, flag, password, callback) {
+	getByID(_id, (error, employee)=>{
         if(error){
             callback(error, null);
         } else {
@@ -48,8 +52,21 @@ function update(_id, email, name, flag, password, callback){
             employee.setName(name);
             if(flag === 1){
                 employee.setPassword(password);
-            }
-            EmployeeDB.update(employee, (error, user)=>{callback(error, user)});
+            }	
+        	EmployeeDB.update(employee, (error, user) => {
+		callback(error, user);
+	});
+}
+function updateResetUUID(employee, callback) {
+	getByID(employee.getId(), (error, user) => {
+		if (error) {
+			callback(error, null);
+		} else {
+			EmployeeDB.updateResetUUID(employee, (error, user) => {
+				callback(error, user);
+			});
+		}
+	});
         }
     })
 }
@@ -68,4 +85,4 @@ function remove(employee_id, callback){
     })
 }
 
-module.exports = {getAll, insert, getAllAdmins, getAllDrivers, getByID, getByEmail, update, remove};
+module.exports = {getAll, insert, getAllAdmins, getAllDrivers, getByID, getByEmail, update, remove, updateResetUUID};

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useNavigate} from 'react-router'
 import {Navigate} from "react-router-dom";
 import "./Rideform.css";
 //import taxiImg from "../../../../images/taxi.jpg";
@@ -18,16 +19,10 @@ function Rideform() {
 	const [DropoffError, setDropoffError] = useState("");
 	const [Pickup, setPickup] = useState("");
 	const [PickupError, setPickupError] = useState("");
-
 	const [Payment, setPayment] = useState("");
-
-	// const [Debit, setDebit] = useState("");
-
-	// const [Apple, setApple] = useState("");
-
-	// const [Paypal, setPaypal] = useState("");
-
 	const [PaymentError, setPaymentError] = useState("");
+
+	let move = useNavigate();
 
 	const handleNameChange = (e) => {
 		setNameError("");
@@ -101,7 +96,7 @@ function Rideform() {
 			.then((response) => response.json())
 			.then((responsedata) => {
 				cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
-				<Navigate to="/ride/confirm" replace={true} />;
+				window.location.reload();
 			});
 	};
 

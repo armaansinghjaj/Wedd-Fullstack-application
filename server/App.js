@@ -63,6 +63,7 @@ const adminBackgroundRoute = require("./routes/Admin-Background");
 const adminAdminListRoute = require("./routes/Admin-AdminList");
 const adminDriverListRoute = require("./routes/Admin-DriverList");
 const employeeRoute = require("./routes/EmployeeProfile");
+const forgotPassword = require("./routes/Forgot")
 
 // SET-UP ROUTES USING MODULE------------------------------------------
 
@@ -81,6 +82,7 @@ app.use("/api/admin/background", adminBackgroundRoute);
 app.use("/api/admin/adminlist", adminAdminListRoute);
 app.use("/api/admin/driverlist", adminDriverListRoute);
 app.use("/api/employeeprofile", employeeRoute);
+app.use("/api/forgot", forgotPassword)
 
 // handling status errors
 app.use((req, res) => {

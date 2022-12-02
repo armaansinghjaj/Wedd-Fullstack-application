@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import '../Customer-components/Profilepage-components/Profile.css';
 import './Driver-ellipse-menu.css'
 import './Driver-Profile.css'
-import {Navigate} from "react-router-dom";
 
 export default function DProfile() {
     const driverName = 'Drivers name';
@@ -12,7 +11,6 @@ export default function DProfile() {
     const [changePassword, setChangePassword] = useState(false);
     const [deleteAccount, setDeleteAccount] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-
 
     useEffect( () => {
         fetchDriverDetails();
@@ -99,7 +97,7 @@ export default function DProfile() {
                 Profile Settings
             </h1>
             <div className="driver-general-settings">
-            <p className="driver-profile-heading-general">General Settings</p>
+            <p className="driver-profile-heading-general" id="general-settings-header">General Settings</p>
                 <ul id="drivers-edit-profile-ul">
                     <li>
                         <p><span className="driver-first-word">Name:</span> {driverName}</p>

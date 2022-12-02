@@ -1,0 +1,77 @@
+/* Drivers list edit css */
+.DriversEdit-container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+
+.edit-driver-table{
+    position: relative;
+    width: 50rem;
+    background-color: white;
+    border-radius: 1em;
+    text-align: center;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 7%;
+    border: solid; 
+}
+
+#driver-edit-h1 {
+    position: relative;
+    left: 44%;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-top: 3%;
+    margin-left: 7rem;
+}
+
+@media screen and (max-width:1366px){
+    .edit-driver-table{
+        left: 11%;
+    }
+}
+@media screen and (max-width:1280px){
+    .edit-driver-table{
+        left: 13%;
+    }
+}
+@media screen and (max-width:1024px){
+    .edit-driver-table{
+        left: 18%;
+        width: 40rem;
+    }
+}
+@media screen and (max-width:767px){
+    .edit-driver-table{
+        left: 18%;
+        font-size: 12px;
+        width: 30rem;
+    }
+}
+@media screen and (max-width: 414px){
+    #driver-edit-h1 {
+        position: relative;
+        top: 14%;
+        left: -13%;
+        font-size: 2rem;
+        font-weight: 200;
+        text-align: center;
+    }
+    .edit-driver-table{
+        top: 14%;
+        left: 0;
+        width: 25.5rem;
+    }
+}
+@media screen and (max-width:390px){
+    .edit-driver-table{
+        width: 24.2rem;
+    }
+}
+@media screen and (max-width:375px){
+    .edit-driver-table{
+        width: 23.3rem;
+    }
+}

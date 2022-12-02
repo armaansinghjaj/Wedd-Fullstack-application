@@ -87,7 +87,7 @@ function LoginForm() {
                                     <input type="password" className='login-form-fields login-form-inputs login-form-inside-contents' name="password" placeholder="Enter your password" id='login-password' onChange={handlePasswordChange} value={password}/>
                                     {passwordError&&<div className='error-msg'>{passwordError}</div>}
                                     
-                                    <input type="submit" className='login-form-submit login-form-inputs login-form-inside-contents' name="login_submit" value="Login" id='login-submit'/>                
+                                    <input type="submit" className='login-form-submit login-form-inputs login-form-inside-contents' name="login_submit" value="Login" id='new-login-submit'/>                
                                 </div>
                             </form>
                         </div>
@@ -97,7 +97,7 @@ function LoginForm() {
                         <div className='link-container'>
 
                             <div className="signup-link-container login-form-links">
-                                <Link to='/forget' className='forgot-route'>Forgot Password?</Link>
+                                <Link to='/forgot' className='forgot-route'>Forgot Password?</Link>
                             </div>
 
                             <div className="forgot-password-container login-form-links">

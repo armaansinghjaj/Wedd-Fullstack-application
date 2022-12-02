@@ -1,0 +1,73 @@
+#admin-edit-h1 {
+    position: relative;
+    left: 44%;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-top: 3%;
+    margin-left: 7rem;
+}
+
+.edit-admin-table{
+    position: relative;
+    width: 50rem;
+    background-color: white;
+    border-radius: 1em;
+    text-align: center;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 7%;
+    border: solid; 
+}
+
+@media screen and (max-width:1366px){
+    .edit-admin-table{
+        left: 11%;
+    }
+}
+
+@media screen and (max-width:1280px){
+    .edit-admin-table{
+        left: 13%;
+    }
+}
+@media screen and (max-width:1024px){
+    .edit-admin-table{
+        left: 18%;
+        width: 40rem;
+    }
+}
+@media screen and (max-width:767px){
+    .edit-admin-table{
+        left: 18%;
+        font-size: 12px;
+        width: 30rem;
+    }
+}
+@media screen and (max-width: 414px){
+    #admin-edit-h1 {
+        position: relative;
+        left: -13%;
+        font-size: 2rem;
+        font-weight: 200;
+        text-align: center;
+    }
+    .Admintable{
+        position: relative;
+        top: 14%;
+    }
+    .edit-admin-table{
+        left: 0;
+        width: 25.5rem;
+    }
+}
+@media screen and (max-width:390px){
+    .edit-admin-table{
+        width: 24.2rem;
+    }
+}
+@media screen and (max-width:375px){
+    .edit-admin-table{
+        width: 23.3rem;
+    }
+}

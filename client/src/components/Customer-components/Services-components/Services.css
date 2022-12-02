@@ -10,8 +10,9 @@
     font-size: 30px;
 }
 
-
 #font-formats  {
+    position: relative;
+    
     color: orangered;
     font-weight: 400;
     font-size: 30px;
@@ -21,6 +22,7 @@
     font-weight: 400;
     font-size: 30px;
 }
+
 #font-formata {
     color: orangered;
     font-weight: 400;
@@ -33,7 +35,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    height: 75vh;
+    height: 68vh;
     background: #FFF;
     border-radius: 1.2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -41,9 +43,7 @@
 .service-parent-conatiner{
     background-color: rgb(255, 200, 172);
     position: relative;
-padding-top: 8%;
-
-
+    padding-top: 8%;
 }
 #service-top{
     position: relative;
@@ -81,6 +81,7 @@ padding-top: 8%;
     align-items: center;
     justify-content: center;
     padding: 0.957rem 0;
+    position: relative;
 }
 
 #service-info {
@@ -116,54 +117,50 @@ input[class="service-input"]:focus {
   transition: 0.2s ease;
 }
 
-
-
 #service-submit{
-        appearance: none;
-        margin: 0px;
-        overflow: visible;
-        font-style: inherit;
-        font-variant: inherit;
-        font-stretch: inherit;
-        font-family: inherit;
-        font-weight: 600;
-        color: rgb(255, 255, 255);
-        text-transform: none;
-        display: inline-flex;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        justify-content: center;
-        position: relative;
-        padding: 0px 0.5rem;
-        background: #032d60;
-        vertical-align: middle;
-        cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-        line-height: 44px;
-        height: 48px;
-        min-width: 40px;
-        max-width: none;
-        font-size: 16px;
-        text-decoration: none;
-        text-align: center;
-        white-space: nowrap;
-        border-width: 2px;
-        border-style: solid;
-        border-color: transparent;
-        width: 30%;
-        left: 60%;
-        top:-45%;
+    appearance: none;
+    margin: 0px;
+    overflow: visible;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-transform: none;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    padding: 0px 0.5rem;
+    background:rgb(235 114 0 / 93%);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    line-height: 44px;
+    height: 48px;
+    min-width: 40px;
+    max-width: none;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    width: 30%;
+    left: 60%;
+    top:-40%;
       
 }
   
 #service-submit:hover{
     cursor: pointer;
     background: rgb(212 103 0 / 93%);
-  }
+}
   
-
-
 .service-error-msg {
     position: relative;
     top: 10%;
@@ -172,10 +169,12 @@ input[class="service-input"]:focus {
     color: red;
 }
 #contactus-form{
-    height: 100%;
+    height: 80%;
 }
 #commenti{
     border-radius: 5px;
+    position: relative;
+    top: 1rem;
     border: 1px solid #242424;
 }
 #service-label{
@@ -230,7 +229,6 @@ input[id="service-submit"] {
         margin: 20% auto;
         width: 65vw;
         height: 150vh;
-       
     }
     #font-format  {
         font-weight: 300;
@@ -368,12 +366,12 @@ input[id="service-submit"] {
         top:-65%;
     }
     #font-formats{
-
         position: relative;
         right: 28%;
         color: orangered;
         font-weight: 300;
         font-size: 1.4em;
+        top: -25%;
     }
     #service-bottom{
         position: relative;

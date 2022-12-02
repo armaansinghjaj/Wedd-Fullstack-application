@@ -184,7 +184,7 @@
   padding-top: 1rem;
 }
 
-@media screen and (max-width:768px ){
+@media screen and (max-width:767px ){
   .login-parent-container{
     flex-wrap: wrap;
   }
@@ -195,5 +195,60 @@
     width: 90vw;
     margin-top: 15vh;
     margin-bottom: 10vh;
+  }
+}
+@media screen and (max-width:390px ){
+  .login-parent-container{
+    flex-wrap: wrap;
+  }
+  .login-child-containers{
+    width: 100vw;
+  }
+  .login-container-form{
+    width: 90vw;
+    height: 70vh;
+    margin-left: 1.2rem;
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+  }
+  .login-form-submit:hover{
+    cursor: pointer;
+    background: rgb(212 103 0 / 93%);
+  }
+  .login-form-submit{
+    appearance: none;
+    margin-top: 2rem;
+    overflow: visible;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-transform: none;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    padding: 0px 1rem;
+    background: rgb(235 114 0 / 93%);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    line-height: 44px;
+    height: 48px;
+    min-width: 40px;
+    max-width: none;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    width: 100%;
+   
   }
 }

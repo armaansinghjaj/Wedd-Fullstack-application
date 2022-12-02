@@ -5,9 +5,7 @@ import AccountNavbar from "../components/Customer-components/Profilepage-compone
 export default function AccountSettings() {
     return(
         <>
-        <div className="Account-settings-container">
             <Settings/>
-        </div>
         </>
     )
 }

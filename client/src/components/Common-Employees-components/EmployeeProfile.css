@@ -1,0 +1,393 @@
+/* display admin profile settings */
+.admin-settings-display{
+    position: relative;
+    top: 6%;
+    left: 17%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35rem;
+    min-height: 30rem;
+    background: white;
+    border-radius: 1em;
+    border: 1px solid rgba(91, 105, 135, 0.22);
+    border-radius: 24px;
+    box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#admin-edit-profile-ul {
+    width: 24rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#admin-edit-profile-ul > li{
+    position: relative;
+    left: 5%;
+    width: 20rem;
+    height: 3rem;
+    padding:0.2em 0 0.2em 0;
+    float: left;
+}
+
+.admin-general-settings{
+    padding-top: 1rem;
+}
+
+.admin-password-change{
+    position: relative;
+    padding-top: 1rem;
+}
+
+.admin-password-change ul li{
+    margin-top: 10%;
+}
+
+.admin-profile-heading-general{
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.admin-first-word{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.admin-edit-button {
+    position: relative;
+    left: 1em;
+    padding-right: 0;
+    color: rgb(255, 255, 255);
+    background: rgb(235 114 0 / 93%);
+    vertical-align: middle;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    padding: 5px 15px;
+}
+
+.admin-edit-button:hover {
+    background: rgba(189, 91, 0, 0.93);
+}
+
+.admin-change {
+    position: relative;
+    top: 15%;
+}
+
+.divider-delete-btn{
+    position: relative;
+    /* margin-left: auto;
+    margin-right: auto; */
+    top: 10%;
+    width: 100%;
+    height: 30%;
+    border: 2px solid black;
+}
+
+#divider {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 40%;
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: black;
+    height: 2px;
+}
+
+.admin-edit-profile-btns{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33%;
+    margin-top: 1rem;
+}
+
+.admin-submit{
+    position: relative;
+    left: 0.4rem;
+    margin-right: 1em;
+    color: rgb(255, 255, 255);
+    background: rgb(235 114 0 / 93%);
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    padding: 5px 5px;
+}
+
+/* admin delete account form */
+#admin-delete-profile-form-active{
+    position: relative;
+    top: 35%;
+    left: 2.5%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+    border-radius: 1em;
+    padding: 2em 1em 2em 1em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20rem;
+    height: 10rem;
+    transition: all ease-in 0.5s;
+    text-align: center;
+}
+
+#admin-delete-profile-form{
+    display: none;
+    transition: all ease-in 0.5s;
+}
+
+.admin-delete-account-btn {
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgba(235, 35, 0, 0.93);
+    margin-top: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.admin-delete-account-btn:hover, #admin-submit-cancel:hover, #admin-submit-confirm:hover{
+    background: rgba(187, 28, 0, 0.93);
+}
+
+#admin-submit-confirm{
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgba(235, 35, 0, 0.93);
+    vertical-align: middle;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+#admin-submit-cancel{
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgba(235, 35, 0, 0.93);
+    vertical-align: middle;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
+
+
+#admin-delete-account-overlay {
+    position: fixed;
+    left: 13.8%;
+    bottom: 200%;
+    width: 86.1%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.007);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    box-shadow: 0px 10px 10px 0px #2b2b2bd1;
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
+}
+
+#admin-delete-account-overlay-active {
+    position: fixed;
+    left: 13.8%;
+    bottom: 1%;
+    width: 86.1%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.007);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    box-shadow: 0px 10px 10px 0px #2b2b2bd1;
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
+}
+
+/* admin edit name form */
+#admin-edit-form-active {
+    position: relative;
+    top: 35%;
+    left: 2.5%;
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+    border-radius: 1em;
+    padding: 2em 1em 2em 1em;
+    margin-right: 33%;
+    margin-left: 33%;
+    min-width: 20rem;
+    min-height: 15rem;
+    transition: all ease-in 0.5s;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.447);
+}
+#admin-edit-form {
+    display: none;
+    transition: all ease-in 0.5s;
+}
+
+#admin-employee-email, #admin-employee-name {
+    position: relative;
+    min-height: 48px;
+    min-width: 100%;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background: none;
+    /* margin: 0 0.8rem 0.5rem 0.8rem; */
+}
+
+/* admin change password form */
+.admin-password-form-active {
+    position: relative;
+    top: 35%;
+    left: 2.5%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+    border-radius: 1em;
+    padding: 2em 1em 2em 1em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20rem;
+    height: 18rem;
+    transition: all ease-in 0.5s;
+    text-align: center;
+}
+
+.admin-password-form {
+    display: none;
+}
+
+#profile-settings-h1{
+    margin: 1rem 0 1rem 0;
+    font-size: 45px;
+
+}
+
+#admin-profile-form{
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-change{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#admin-confirm-password, #admin-new-password, #admin-old-password{
+    position: relative;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin: 0 0.8rem 0.5rem 0.8rem;
+}
+
+@media screen and (max-width:1366px){
+    .admin-settings-display{
+        top: 14%;
+    }
+}
+
+@media screen and (max-width:1280px){
+
+    .admin-settings-display{
+        left: 20%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        left: 20%;
+    }
+
+}
+@media screen and (max-width:1024px){
+
+    .admin-settings-display{
+        left: 22.5%;
+    }
+
+    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
+        left: -4%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        left: 25%;
+    }
+}
+@media screen and (max-width:767px){
+
+    .admin-settings-display{
+        left: 28.6%;
+        width: 30rem;
+    }
+
+}
+@media screen and (max-width: 414px){
+    .admin-settings-display{
+        left: 0%;
+        top: 10%;
+        width: 25rem;
+    }
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        width: 26rem;
+        left: 0%;
+    }
+
+    .admin-password-form-active, #admin-delete-profile-form-active, #admin-edit-form-active{
+        left: 0%;
+    }
+
+}
+@media screen and (max-width:390px){
+    .admin-settings-display{
+        top: 12%;
+        width: 24.5rem;
+    }
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        width: 24.5rem;
+        left: 0%;
+    }
+
+    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
+        left: 0%;
+    }
+
+}
+@media screen and (max-width:375px){
+    .admin-settings-display{
+        top: 15%;
+        width: 23rem;
+    }
+
+    #general-settings-header{
+        position: relative;
+        left: 4%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        width: 23.5rem;
+        left: 0%;
+    }
+
+    .admin-password-form-active, #admin-delete-profile-form-active, #admin-edit-form-active{
+        left: 0%;
+    }
+
+}

@@ -1,0 +1,94 @@
+#services-request-container{
+    position: relative;
+}
+.contact-request-table{
+    position: relative;
+    width: 50rem;
+    background-color: white;
+    border-radius: 1em;
+    text-align: center;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 7%;
+    border: solid; 
+}
+
+#contact-request-h1{
+    position: relative;
+    left: 40.7%;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-top: 3%;
+    margin-left: 7rem;
+}
+@media screen and (max-width:1600px){
+    .contact-request-table{
+        left: 9%;
+    }
+    #contact-request-h1{
+        left: 40.1%;
+    }
+}
+@media screen and (max-width:1366px){
+    .contact-request-table{
+        left: 11.5%;
+    }
+    #contact-request-h1{
+        left: 40.1%;
+    }
+}
+@media screen and (max-width:1280px){
+    .contact-request-table{
+        left: 13%;
+    }
+    #contact-request-h1{
+        left: 39.5%;
+    }
+}
+@media screen and (max-width:1024px){
+    .contact-request-table{
+        left: 13%;
+        width: 47rem;
+    }
+    #contact-request-h1{
+        left: 33.5%;
+    }
+}
+@media screen and (max-width: 414px){
+    #services-request-container{
+        position: relative;
+        top: 15%;
+    }
+    .contact-request-table{
+        left: 0%;
+        width: 25.5rem;
+        font-size: 8px;
+    }
+    #contact-request-h1{
+        left: -11%;
+        font-size: 35px;
+    }
+}
+@media screen and (max-width:390px){
+
+    .contact-request-table{
+        left: 0%;
+        width: 24.2rem;
+        font-size: 8px;
+    }
+    #contact-request-h1{
+        left: -14%;
+        width: 100%;
+    }
+}
+@media screen and (max-width:375px){
+    .contact-request-table{
+        width: 23rem;
+    }
+    #contact-request-h1{
+        left: -16.5%;
+        width: 100%;
+    }
+
+}

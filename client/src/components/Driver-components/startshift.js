@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
-import Drivernametag from "./Driver-nametag";
+import Nametag from "../Common-components/Nametag";
 import './Driverportal.css';
 
 export default function DriverHome() {
@@ -13,7 +13,7 @@ export default function DriverHome() {
     
     return(
         <>
-            <Drivernametag text={"Driver Name"} employee={"Driver"}/>
+            <Nametag id1="employee-name-tag" id2="wedd-logo-display" id3="employee-name-display" text={"Driver Name"} employee={"Driver"}/>
             <div id='start-shift-container'>
                 <h2 id='driver2'>Please enter driver ID</h2>
                 <form id="dtable">

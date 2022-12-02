@@ -80,6 +80,48 @@ function getByID(customer_id, callback){
         })
     })
 }
+function getByresetUUID(UUID, callback){
+    pool.getConnection((err, con) => {
+        if (err) {
+            con.release();
+            callback({
+                error: true,
+                errorDetails: {
+                    errorCode: 408,
+                    errorMsg: "Connection timed out. Please try again.",
+                }
+            }, null);
+        }
+        
+        con.query('SELECT * FROM customer WHERE reset_password_UUID = ?', [UUID], function (err, users, fields) {
+            con.release();
+
+            if (err) {
+                callback({
+                    error: true,
+                    errorDetails: {
+                        errorCode: 500,
+                        errorMsg: "Internal Server Error. Please try again.",
+                    }
+                }, null);
+            } else{
+                if(users[0] === undefined){
+                    callback({
+                        error: true,
+                        errorDetails: {
+                            errorCode: 404,
+                            errorMsg: "No user found. Please try changing your email and password.",
+                        }
+                    }, null);
+                }
+                else{
+                    callback(null, new Customer(users[0].customer_id, users[0].email, users[0].name, users[0].password, users[0].role));
+                }
+            }
+        })
+    })
+}
+
 function getByEmail(email, callback){
     pool.getConnection((err, con) => {
         if (err) {
@@ -161,6 +203,39 @@ function updateInfo(customer, callback){
         })
     })
 }
+function updateResetUUID(customer, callback){
+
+    pool.getConnection((err, con) => {
+        if (err) {
+            con.release();
+            callback({
+                error: true,
+                errorDetails: {
+                    errorCode: 408,
+                    errorMsg: "Connection timed out. Please try again.",
+                }
+            }, null);
+        }
+        console.log(customer.getId())
+        console.log(customer.getResetPasswordUUID())
+        con.query('UPDATE customer SET reset_password_uuid = ? WHERE customer_id = ?', [customer.getResetPasswordUUID(), customer.getId()], function (err, queryResult, fields) {
+            con.release();
+
+            if (err) {
+                callback({
+                    error: true,
+                    errorDetails: {
+                        errorCode: 500,
+                        errorMsg: "Internal Server Error. Please try again.",
+                    }
+                }, null);
+            } else{
+                console.log(queryResult);
+                callback(null, queryResult);
+            }
+        })
+    })
+}
 function updatePassword(customer, callback){
 
     pool.getConnection((err, con) => {
@@ -175,7 +250,7 @@ function updatePassword(customer, callback){
             }, null);
         }
         
-        con.query('UPDATE customer SET password = ? WHERE customer_id = ?', [customer.getPassword(), customer.getId()], function (err, queryResult, fields) {
+        con.query('UPDATE customer SET password = ?, reset_password_uuid = ? WHERE customer_id = ?', [customer.getPassword(),null, customer.getId()], function (err, queryResult, fields) {
             con.release();
 
             if (err) {
@@ -256,4 +331,4 @@ function remove(customer_id, callback){
     })
 }
 
-module.exports = {insert, getByID, getByEmail, updateInfo, updatePicture, updatePassword, remove};
+module.exports = {insert, getByID, getByEmail, updateInfo, updatePicture, updatePassword, remove, updateResetUUID};

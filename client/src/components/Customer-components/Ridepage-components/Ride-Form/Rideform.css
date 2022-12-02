@@ -8,7 +8,6 @@
   background-color: rgb(239, 242, 251);;
 }
 .child-container{
-    top: 0;
     display: block;
     width:50vw;
     height: 100%;
@@ -21,7 +20,7 @@
     height: 100vh;
     object-fit: cover;
 }
-/* .ride-conatiner-right{
+/* .ride-container-right{
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(16px);
     background-color: #ffffff85;
@@ -31,7 +30,7 @@
     margin-top: -13%;
     font-size: 5rem;
     color: rgb(5, 5, 5);
-     font-weight: 500;
+    font-weight: 500;
 }
 
 .ride-container {
@@ -40,8 +39,6 @@
     width: 37.5rem;
     height: 38rem;
     background: none;
-    
-   
   }
 
   .ride-background {
@@ -139,10 +136,10 @@ input[id="ride-input"]:focus{
 }
 
 input[id="ride-submit"] {
+  position: relative;
   appearance: none;
   margin: 0px;
   overflow: visible;
-  
   font-variant: inherit;
   font-stretch: inherit;
   font-family: inherit;
@@ -171,8 +168,8 @@ input[id="ride-submit"] {
   border-style: solid;
   border-color: transparent;
   width: 100%;
- 
-  }
+  top: 50%;
+}
 
   #ride-submit:hover{
     cursor: pointer;
@@ -202,6 +199,7 @@ input[id="ride-submit"] {
 
 .car-type{
   position:relative;
+  top: -60%;
   color: black;  
   margin: 0 0 0.0rem 0;
   font-weight: 500;
@@ -263,7 +261,8 @@ input[id="ride-submit"] {
   position: relative;
   width: 3em;
   margin-left: 2em;
-  /* top:-90px;
+  /*
+   top:-90px;
   bottom: 20px;
   left: 20%;
   margin-right: 10px; */
@@ -282,11 +281,6 @@ input[id="ride-submit"] {
   left: 4rem;
 }
 
-input[id="ride-submit"] {
-  position: absolute;
-  top: 100px;
-  /* right: 205px; */
-}
 
 #discount_code{
   position: relative;
@@ -313,22 +307,24 @@ input[id="ride-submit"] {
   margin-top: 0ch;
 }
 
-#car,#car1{
-  margin-top: 5ch;
+#car1{
+  position: relative;
+  top: -50%;
 }
 #car2{
 position: relative;
-top: -2.5ch;
+top: -2.5rem;
 left: 0.5ch;
+}
+#car-label{
+  position: relative;
+  left:7ch;
+  top:-98%;
 }
 #car-label1{
   position: relative;
   left:7ch;
-  top:-4ch;
-}
-
-#ride-submit{
-  margin-top: 4ch;
+  top:-144%;
 }
 
 .paymenterror-msg {
@@ -341,11 +337,9 @@ left: 0.5ch;
 
   
 .ride-container {
-  position: relative;
   margin: 25% auto;
   width: 29.5rem;
   height: 35rem;
-  
 }
 #discount_code{
   width: 7rem;
@@ -376,29 +370,23 @@ left: 0.5ch;
 
 
 .payment-left {
-
   display: flex;
-  
   flex-direction: column;
   justify-content: space-around;
   align-items: initial;
-  
 } 
 
 input[id="ride-submit"] {
-  
   left: 55%;
   width: 7em;
   color: white;
   height: 1.8rem;
   font-weight: 300;
   font-size: 1rem;
-  top: 70px;;
-  
+  top: 70%;
 }
 .car-type{
   position: relative;
- margin-top: -4%; 
 }
 
 }
@@ -406,49 +394,43 @@ input[id="ride-submit"] {
 @media screen and (max-device-width:479px){
   
   .ride-container {
-    position: relative;
     margin: 30% auto;
     width: 32rem;
     height: 35rem;
-    
   }
 
   .ride-location {
-  
     font-size: 1.4rem;
     color: black;
     font-weight: 400;
-   
   }
 
   input[id="ride-input"] {
- 
     margin-bottom: 1rem;
     padding: 0%;
     width: 7.75rem;
     height: 1rem;
     font-weight: 200;
-
   }
 
  .payment-type {
-  color: black;  
-  margin: 0 0 1rem 0;
-  font-weight: 500;
-  font-size: 1.4rem;
-  text-align: left;
-  left: 2%;
-}
+    color: black;  
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: left;
+    left: 2%;
+  }
 
 
   .car-type{
-  color: black;  
-  margin: 0 0 1rem 0;
-  font-weight: 200;
-  font-size: 1.20rem;
-  text-align: right;
-  right: 25%;
-  bottom: 81%;
+    color: black;  
+    margin: 0 0 1rem 0;
+    font-weight: 200;
+    font-size: 1.20rem;
+    text-align: right;
+    right: 25%;
+    bottom: 81%;
   }
 
 .payment-right {
@@ -482,18 +464,11 @@ input[id="ride-submit"] {
  
 }
 
-input[id="ride-submit"] {
-  
-  left: 34%;
-  top: 20px;;
-  
-}
 #discount_code{
   width: 6rem;
   right:4%;
   top: -30px;
 }
-
 
 }
 
@@ -512,9 +487,7 @@ input[id="ride-submit"] {
     display: block;
     width:100vw;
     height: 100vh;
-    top: 0;
     position: absolute;
-   
   }
 
   #ride-with{
@@ -599,7 +572,6 @@ input[id="ride-submit"] {
   margin-left: 25%;
 }
 #ride-submit{
-  position: relative;
   top: 5ch;
   margin-left: 4.5rem;
 }
@@ -744,7 +716,7 @@ input[id="ride-input"] {
   position: relative;
   margin-left: 15%;
   width: 7rem;
- background-color: white;
+  background-color: white;
   border: 1px solid white;
   padding: 7px 0;
   top:-3rem;

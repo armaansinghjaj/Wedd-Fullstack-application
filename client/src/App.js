@@ -9,8 +9,7 @@ import About from './Pages/About';
 import Services from './Pages/Services';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import Forgetpass from './Pages/Forgetpass'; 
-
+import Forgotpass from './Pages/Forgotpass'; 
 
 //Driver Page
 import DriverProfile from './Pages/DriverProfile';
@@ -36,15 +35,14 @@ import AdminRideRequests from './Pages/RideRequests';
 
 // Background edit pages
 import BgHome from './components/Admin-components/Edit-Background-Home';
-import BgAbout from './components/Admin-components/Edit-Background-About';
-import BgContact from './components/Admin-components/Edit-Background-About'
+import BgAbout from '../src/components/Admin-components/Edit-Background-About';
+import BgContact from '../src/components/Admin-components/Edit-Background-Contact'
 
 // Customer account pages
 import CustomerProfile from './Pages/Account';
 import TripHistory from './Pages/TripHistory';
 import HelpAndSupport from './Pages/HelpAndSupport';
 import FaQuestions from './Pages/FAQ';
-
 
 // Common pages
 import Logout from './components/Common-components/Logout'
@@ -63,8 +61,8 @@ const App = () => {
         <Route path= '/services'  element={<Services/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
         <Route path= '/signup'  element={<Signup/>}/>
-        <Route path= '/forget'  element={<Forgetpass/>}/>
-        <Route path= '/forgotpassword/:id/:token'  element={<ResetPassword/>}/>
+        <Route path= '/forgot'  element={<Forgotpass/>}/>
+        <Route path= '/forgot/reset/:token'  element={<ResetPassword/>}/>
         
         
         {/* Ride Pages is pending yet */}
