@@ -10,7 +10,7 @@ export default function BackgroundContact() {
         <>
         <VerticalNavbar/>
             <div className="bgcontact-container">
-                <table id="homepage">
+                <table id="contactpage-file-table">
                     {/* <% images.forEach(image => { %> */}
                         <tr>
                             <th>Contact page</th>

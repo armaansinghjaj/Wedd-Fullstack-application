@@ -1,0 +1,19 @@
+#edit-homepage-table{
+    border-collapse: collapse;
+    width: 20%;
+    height: 18.5vh;
+}
+
+#edit-homepage-table td, #edit-homepage-tables th {
+    border: 1px solid #ddd;
+    padding: 10px;
+} 
+
+@media screen and (max-width:1600px){}
+@media screen and (max-width:1366px){}
+@media screen and (max-width:1280px){}
+@media screen and (max-width:1024px){}
+@media screen and (max-width:767px){}
+@media screen and (max-width: 414px){}
+@media screen and (max-width:390px){}
+@media screen and (max-width:375px){}

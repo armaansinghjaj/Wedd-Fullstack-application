@@ -98,17 +98,6 @@
     right: 1%;
   }
 
-  #homepage{
-    border-collapse: collapse;
-    width: 20%;
-    height: 18.5vh;
-  
-  }
-
-  #homepage td, #homepage th {
-    border: 1px solid #ddd;
-    padding: 10px;
-  } 
   #file-typ{
     margin-left: 3rem;
   }
@@ -134,34 +123,6 @@
     height: 2rem;
   }
 
-  /* Background edit home */
-  .bghome-container {
-    position: relative;
-    display: inline-block;
-    width: 80vw;
-    height: 100vh;
-    left: 25rem;
-    margin-top: 10rem;
-  }
-
-  /* Background about home */
-
-  .bgabout-container{
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    height: 100vh;
-    left: 20%;
-  }
-
-  /* Background contact home */
-  .bgcontact-container {
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    height: 100vh;
-    left: 20%;
-  }
   
   .Drivertable{
     width: 70%;
