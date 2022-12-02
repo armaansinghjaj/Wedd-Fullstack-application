@@ -1,7 +1,6 @@
   /* Admin roles edit css */
   #edit-roles-table-container{
     position: relative;
-    top: 2%;
   }
   .edit-roles-table{
     position: relative;
@@ -77,15 +76,16 @@
 }
 @media screen and (max-width:375px){
   #edit-roles-table-container{
-    top: 16%;
+    top: 14%;
   }
   .edit-roles-table{
     width: 23rem;
     left: 0;
   }
   #edit-roles-h1{
-    font-size: 20px;
-    left: -1%;
+    font-size: 30px;
+    width: 100%;
+    left: 2%;
   }
 }
 

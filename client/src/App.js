@@ -35,15 +35,14 @@ import AdminRideRequests from './Pages/RideRequests';
 
 // Background edit pages
 import BgHome from './components/Admin-components/Edit-Background-Home';
-import BgAbout from './components/Admin-components/Edit-Background-About';
-import BgContact from './components/Admin-components/Edit-Background-About'
+import BgAbout from '../src/components/Admin-components/Edit-Background-About';
+import BgContact from '../src/components/Admin-components/Edit-Background-Contact'
 
 // Customer account pages
 import CustomerProfile from './Pages/Account';
 import TripHistory from './Pages/TripHistory';
 import HelpAndSupport from './Pages/HelpAndSupport';
 import FaQuestions from './Pages/FAQ';
-
 
 // Common pages
 import Logout from './components/Common-components/Logout'

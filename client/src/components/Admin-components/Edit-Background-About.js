@@ -1,6 +1,5 @@
 import React from "react";
-import VerticalNavbar from "../Admin-components/Sidebar-Background-edit.css";
-import '../../App.css';
+import VerticalNavbar from "../Admin-components/Sidebar-Background-edit";
 
 export default function BackgroundAbout() {
 

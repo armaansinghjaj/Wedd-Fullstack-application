@@ -1,13 +1,22 @@
 import React from "react";
+import { Link, useLocation } from 'react-router-dom';
 
 export default function ProfilePage() {
 
-    const profileImage= require("../../../images/Profile-picture.png");
-    const customer_account_name='Customer name';
+    // const profileImage= require("../../../images/Profile-picture.png");
+    // const customer_account_name='Customer name';
 
     return(
-        <>  
-        <div className="profile-container">
+        <> 
+
+
+         <div className='vertical-navbar'>
+            <div id='logo-wrapper'>
+                <Link id='vert-logo' to={'/account'}>WeDD</Link>
+            </div>
+        </div>
+
+        {/* <div className="profile-container">
             <div id="picture-container">
                 <figure id="profile-image-wrapper">
                     <img src={profileImage} id='profile-image'/>
@@ -24,7 +33,12 @@ export default function ProfilePage() {
                     </li>
                 </ul>
             </div>
-        </div>
+
+        </div> */}
+
+
+
+
 
         </>
 

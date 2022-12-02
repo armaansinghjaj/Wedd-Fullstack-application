@@ -12,17 +12,17 @@ export default function EmployeeProfile() {
     const [deleteAccount, setDeleteAccount] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
-    useEffect( () => {
-        fetchAdminDetails();
-    }, []);
+    // useEffect( () => {
+    //     fetchAdminDetails();
+    // }, []);
 
     const [adminDetails, setAdminDetails] = useState([]);
 
-    const fetchAdminDetails = async () => {
-        const data = await fetch('/api/employeeprofile/');
-        const adminDetails = await data.json();
-        setAdminDetails(adminDetails);
-    };
+    // const fetchAdminDetails = async () => {
+    //     const data = await fetch('/api/employeeprofile/');
+    //     const adminDetails = await data.json();
+    //     setAdminDetails(adminDetails);
+    // };
 
     // Functions
     const closeAllOverlays = () =>{
@@ -96,7 +96,7 @@ export default function EmployeeProfile() {
                 Profile Settings
             </h1>
             <div className="admin-general-settings">
-            <p className="admin-profile-heading-general">General Settings</p>
+            <p className="admin-profile-heading-general" id="general-settings-header">General Settings</p>
                 <ul id="admin-edit-profile-ul">
                     <li>
                         <p><span className="admin-first-word">Name:</span> {adminName}</p>

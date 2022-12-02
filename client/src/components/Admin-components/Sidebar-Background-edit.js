@@ -56,7 +56,7 @@ export default function VerticalNavbar() {
                     <Link className={'h-nav-links'} to='/BackgroundEditAbout' onClick={closeMobileMenu}>Edit About us page</Link>
                 </li>
                 <li>
-                    <Link className={'h-nav-links'} to='/BackgroundEditContact' onClick={closeMobileMenu}>Edit Contact us page</Link>
+                    <Link className={'h-nav-links'} to='/backgroundeditcontact' onClick={closeMobileMenu}>Edit Contact us page</Link>
                 </li>
                 <li>
                     <Link className='h-nav-links' to='/Admin' onClick={closeMobileMenu}>Admin home page</Link>
