@@ -41,7 +41,7 @@ function getByEmail(email, callback){
                     callback(null, 
                         (users[0].role === 3) ?
                             (new Customer(users[0].customer_id, users[0].email, users[0].name, users[0].password, users[0].role)):
-                            (new Employee(users[0].employee_id, users[0].email, users[0].name, users[0].password, users[0].role))
+                            (new Employee(users[0].customer_id, users[0].email, users[0].name, users[0].password, users[0].role))
                     );
                 }
             }

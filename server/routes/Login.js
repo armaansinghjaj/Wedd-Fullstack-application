@@ -68,7 +68,7 @@ router.post("/", (req, res) => {
 				} else{
 					return res.status(403).send({
 						error: true,
-						message: "Username or password might be wrong."
+						message: "No user found. Please try changing your email and password."
 					});
 				}
 			}

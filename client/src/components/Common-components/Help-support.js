@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate} from "react-router-dom";
 import '../Common-components/Help-support.css';
 
 export default function Help() {
@@ -7,6 +8,7 @@ export default function Help() {
     const [reason, setReason]=useState('');
     const [description, setDescription]=useState('');
     const [comments, setComments]=useState('');
+    const [confirmation, setConfirmation]=useState(false);
 
     const handleSupportEmailChange=(e)=>{
         setEmail(e.target.value);
@@ -37,7 +39,7 @@ export default function Help() {
             fetch(`/api/account/support`, {
                 credentials: 'same-origin',
                 mode: 'cors',
-                method: 'POST',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -46,10 +48,9 @@ export default function Help() {
             .then(support_response => support_response.json())
             .then(support_response => {
                 if(support_response.status === 200){
-                    
+                    setConfirmation(true);
                     alert(support_response.message);
                 }
-                console.log(support_response);
             })
         }
     }
@@ -59,7 +60,7 @@ export default function Help() {
         <div className="help-container">
         <h2 className= "support-h2">Get in touch</h2>
             
-            <form id="support_form" method="post" onSubmit={handleSupportForm}>
+            <form id="support_form" method="put" onSubmit={handleSupportForm}>
                 <div className="user">
                 <label>User email:</label><br>
                 </br>

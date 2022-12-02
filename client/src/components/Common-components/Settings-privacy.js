@@ -142,52 +142,53 @@ export default function Settings() {
     }
 
     return(
-
         <>
 
-        {(accountDeleted === true) && <Navigate to="/login" replace={true}/>}
-        {(passwordChanged === true) && <Navigate to="/account" replace={true}/>}
+            {(accountDeleted === true) && <Navigate to="/login" replace={true}/>}
+            {(passwordChanged === true) && <Navigate to="/account" replace={true}/>}
 
-        <div className="settings-container">
-            <h1>General Settings</h1>
-            <div className="Profile-container">
-        <hr />
-        </div>
-        <h3 id="profile-h3">Change profile</h3>
-
-        <form method="put" onSubmit={handleDetailsForm}>
-            <ul>
-                <li id="vert-navbar-li">Your name: <input type="text" name="customer_name" id="customer_name" onChange={handleProfileDetailsNameChange} value={customerDetails.name}/></li>
-                <li id="vert-navbar-li">Your email: <input type="email" name="customer_email" id="customer_email" onChange={handleProfileDetailsEmailChange} value={customerDetails.email}/></li>
-                <li id="vert-navbar-li">Your home address: <input type="text" name="home_address" id="home_address" onChange={handleProfileDetailsAddressChange} value={customerDetails.home_address}/></li>
-                <li id="vert-navbar-li">Your car: <input type="text" name="customer_car" id="customer_car" onChange={handleProfileDetailsCarChange} value={customerDetails.car_name}/></li>
-                <input type="submit" id="submit" value="Update account"/>
-            </ul>
-        </form>
-        <div className="changepass">
-        <h3 id="profile-h3">Change password</h3>
-
-        <form method="put" onSubmit={handlePasswordForm}>
-            <ul>
-                <li>Old password: <input type="password" name="customer_password[old]" id="old_password" onChange={handleProfileOldPassword} value={profileOldPassword}/></li>
-                <li>New password: <input type="password" name="customer_password[new]" id="new_password_field" onChange={handleprofileNewPassword} value={profileNewPassword}/></li>
-                <li>Confirm password: <input type="password" name="customer_password[confirm]" id="confirm_password" onChange={handleprofileNewPassword_confirm} value={profileNewPassword_confirm}/></li>
-                <input type="submit" id="submit" value="Update password"/>
-            </ul>
-        </form>
-        </div>
-
-        <div className="deleteacc">
-        <h3 id="profile-h3">Delete account</h3>
-        <button class="delete_account_btn" id="submit" onClick={displayButton}>Delete account</button>
-
-        </div>
-        <div className={displayConfirm}>
-            <form method="delete" onSubmit={handleDeleteForm}>
-                <div class="delete_confirmation" >
-                <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
-                    <input type="submit" id="submit" value="Confirm"/> 
+            <div className="settings-container">
+                <h1>General Settings</h1>
+                <div className="Profile-container">
+                    <hr />
                 </div>
+            <h3 id="profile-h3">Change profile</h3>
+
+            <form method="put" onSubmit={handleDetailsForm}>
+                <ul>
+                    <li id="vert-navbar-li">Your name: <input type="text" name="customer_name" id="customer_name" onChange={handleProfileDetailsNameChange} value={customerDetails.name}/></li>
+                    <li id="vert-navbar-li">Your email: <input type="email" name="customer_email" id="customer_email" onChange={handleProfileDetailsEmailChange} value={customerDetails.email}/></li>
+                    <li id="vert-navbar-li">Your home address: <input type="text" name="home_address" id="home_address" onChange={handleProfileDetailsAddressChange} value={customerDetails.home_address}/></li>
+                    <li id="vert-navbar-li">Your car: <input type="text" name="customer_car" id="customer_car" onChange={handleProfileDetailsCarChange} value={customerDetails.car_name}/></li>
+                    <input type="submit" id="submit" value="Update account"/>
+                </ul>
+            </form>
+            <div className="changepass">
+                <h3 id="profile-h3">Change password</h3>
+
+                <form method="put" onSubmit={handlePasswordForm}>
+                    <ul>
+                        <li>Old password: <input type="password" name="customer_password[old]" id="old_password" onChange={handleProfileOldPassword} value={profileOldPassword}/></li>
+                        <li>New password: <input type="password" name="customer_password[new]" id="new_password_field" onChange={handleprofileNewPassword} value={profileNewPassword}/></li>
+                        <li>Confirm password: <input type="password" name="customer_password[confirm]" id="confirm_password" onChange={handleprofileNewPassword_confirm} value={profileNewPassword_confirm}/></li>
+                        <input type="submit" id="submit" value="Update password"/>
+                    </ul>
+                </form>
+            </div>
+
+            <div className="deleteacc">
+                <h3 id="profile-h3">Delete account</h3>
+                <button class="delete_account_btn" id="submit" onClick={displayButton}>Delete account</button>
+            </div>
+
+            <div className={displayConfirm}>
+                <form method="delete" onSubmit={handleDeleteForm}>
+                    <div class="delete_confirmation" >
+                    <p id="line">Once you delete your account, there is no going back. Please be certain.</p>
+                        <input type="submit" id="submit" value="Confirm"/> 
+                    </div>
+                </form>
+            </div>
             </div>
         </>
     )

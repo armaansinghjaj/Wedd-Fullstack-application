@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Loader from '../Common-components/Loader';
 import './AdminPages.css';
 
 export default function AdminEdit() {
@@ -9,16 +10,43 @@ export default function AdminEdit() {
     const admin_edit_email='Admin name';
     const admin_edit_name='email@email.com';
 
+    const [loader, setLoader] = useState(false);
+
     useEffect( () => {
-        fetchItems();
+        fetchAdmins();
     }, []);
 
-    const [items, setItems] = useState([]);
+    const [admins, setItems] = useState([]);
 
-    const fetchItems = async () => {
-        const data = await fetch('/api/admin/adminlist');
-        const items = await data.json();
-        setItems(items);
+    const fetchAdmins = () => {
+
+        setLoader(true);
+
+        // fetch('/api/admin/driverlist', {
+        //     credentials: 'same-origin',
+        //     mode: 'cors',
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // })
+        // .then(drivers => drivers.json())
+        // .then(drivers => {
+        //     if(drivers.status === 403){
+        //         setAccessForbidden(true);
+        //         alert(drivers.message);
+        //     }
+        //     else if(drivers.status === 404){
+        //         setDrivers([]);
+        //     } else{
+        //         setDrivers(drivers);
+        //     }
+        //     setLoader(false);
+        // })
+
+        const data = fetch('/api/admin/adminlist');
+        const admins = data.json();
+        setItems(admins);
     };
 
     const [visibleEdit, setVisibleEdit] = useState(false) 
@@ -35,6 +63,10 @@ export default function AdminEdit() {
 
     return(
         <>
+
+        {/* Loader component */}
+        {loader && <Loader/>}
+
             {/* edit Admin form */}
             <div className={overlayEdit}>
                 <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
@@ -130,7 +162,7 @@ export default function AdminEdit() {
                         </tr>
                     </thead>
 
-                    {items.map(item =>{
+                    {admins.map(item =>{
                         return <tbody>
                             <tr>
                                 <td>{item.employee_id}</td>

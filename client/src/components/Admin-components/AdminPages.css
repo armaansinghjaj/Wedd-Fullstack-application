@@ -268,7 +268,7 @@
   }
 
    /* overlay form */
-   .overlay-visibleEdit{
+   .overlay-visibleEdit, .overlay-visibleDelete{
     position: fixed;
     box-shadow: 0px 10px 10px 0px #2b2b2bd1;
     backdrop-filter: blur(10px);
@@ -280,7 +280,7 @@
     transition: all 0.5s ease;
     z-index: 999;
   }
-  .overlay-hiddenEdit{
+  .overlay-hiddenEdit, .overlay-hiddenDelete{
     position: fixed;
     height: 0;
     width: 86%;
@@ -364,7 +364,7 @@
   z-index: 999;
 }
 
-.edit-role-hidden{
+.edit-role-hidden, .delete-driver-hidden{
   position: relative;
   width: 20rem;
   top: -40vh;
@@ -374,7 +374,7 @@
   transition: all 0.5s ease;
   z-index: 999;
 }
-.edit-role{
+.edit-role, .delete-driver{
   position: relative;
   width: 20rem;
   top: 30vh;
