@@ -1,34 +1,9 @@
 import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
-
-  const FbRedirect = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
-  const TwitRedirect = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
-  const YouRedirect = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
-  const InstRedirect = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
-  const LinkRedirect = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
 
   // On button press for page change scroll page to top
   const ScrollToTop = () => {
@@ -51,11 +26,11 @@ function Footer() {
         <div  className='footer-link-wrapper'>
           <div id='social-media-links'  className='footer-link-items'>
             <h2>Social Media</h2>
-            <a href='https://www.instagram.com' target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href='https://www.facebook.com' target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href='https://www.youtube.com' target="_blank" rel="noopener noreferrer">Youtube</a>
-            <a href='https://twitter.com' target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href='https://www.linkedin.com' target="_blank" rel="noopener noreferrer">linked-In</a>
+            <a href='http://www.instagram.com' target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href='http://www.facebook.com' target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href='http://www.youtube.com' target="_blank" rel="noopener noreferrer">Youtube</a>
+            <a href='http://twitter.com' target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href='http://www.linkedin.com' target="_blank" rel="noopener noreferrer">Linked-In</a>
           </div>
           <div className='footer-link-items'>
             <h2>Contact us</h2>
@@ -77,14 +52,14 @@ function Footer() {
           <div className='social-icons'>
             <a
               className='social-icon-link facebook'
-               href='/https://www.facebook.com' target="_blank" rel="noopener noreferrer"
+               href='http://www.facebook.com' target="_blank" rel="noopener noreferrer"
               aria-label='Facebook'
             >
               <i className='fab fa-facebook-f' />
             </a>
             <a
               className='social-icon-link instagram'
-              href='/https://www.instagram.com' target="_blank" rel="noopener noreferrer"
+              href='http://www.instagram.com' target="_blank" rel="noopener noreferrer"
 
               aria-label='Instagram'
             >
@@ -92,7 +67,7 @@ function Footer() {
             </a>
             <a
               className='social-icon-link youtube'
-              href='/https://www.youtube.com' target="_blank" rel="noopener noreferrer"
+              href='http://www.youtube.com' target="_blank" rel="noopener noreferrer"
 
               aria-label='Youtube'
             >
@@ -100,7 +75,7 @@ function Footer() {
             </a>
             <a
               className='social-icon-link twitter'
-              href='/https://twitter.com' target="_blank" rel="noopener noreferrer"
+              href='http://twitter.com' target="_blank" rel="noopener noreferrer"
 
               aria-label='Twitter'
             >
@@ -108,7 +83,7 @@ function Footer() {
             </a>
             <a
               className='social-icon-link twitter'
-              href='/https://www.linkedin.com' target="_blank" rel="noopener noreferrer"
+              href='http://www.linkedin.com' target="_blank" rel="noopener noreferrer"
 
               aria-label='LinkedIn'
             >
