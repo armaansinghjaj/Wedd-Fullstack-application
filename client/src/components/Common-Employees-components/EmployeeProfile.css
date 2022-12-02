@@ -2,7 +2,7 @@
 .admin-settings-display{
     position: relative;
     top: 6%;
-    left: 9%;
+    left: 19%;
     margin-left: auto;
     margin-right: auto;
     width: 35rem;
@@ -119,6 +119,7 @@
     border-radius: 0.2rem;
     padding: 5px 5px;
 }
+
 /* admin delete account form */
 #admin-delete-profile-form-active{
     position: relative;
@@ -299,108 +300,102 @@
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
 
+@media screen and (max-width:1366px){
+    .admin-settings-display{
+        top: 14%;
+    }
+}
+
 
 @media screen and (max-width:1280px){
 
     .admin-settings-display{
-        left: 14.5%;
-    }
-
-    #admin-delete-account-overlay {
         left: 20%;
     }
 
-    #admin-delete-account-overlay-active {
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
         left: 20%;
     }
+
 }
 @media screen and (max-width:1024px){
 
-    #admin-edit-form-active{
-        left: -4%;
-    }
-    .admin-password-form-active{
-        left: -4%;
-    }
-    #admin-delete-profile-form-active{
-        left: -4%;
-    }
-    #admin-delete-account-overlay {
-        left: 25%;
+    .admin-settings-display{
+        left: 22.5%;
     }
 
-    #admin-delete-account-overlay-active {
+    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
+        left: -4%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
+        left: 25%;
+    }
+}
+@media screen and (max-width:767px){
+
+    .admin-settings-display{
+        left: 28.6%;
+        width: 30rem;
+    }
+
+    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
+        left: -4%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
         left: 25%;
     }
 }
 @media screen and (max-width: 414px){
     .admin-settings-display{
         left: 0%;
-        top: 20%;
+        top: 10%;
         width: 25rem;
     }
-    #admin-delete-account-overlay {
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
         width: 26rem;
         left: 0%;
     }
 
-    #admin-delete-account-overlay-active {
-        width: 26rem;
+    .admin-password-form-active, #admin-delete-profile-form-active, #admin-edit-form-active{
         left: 0%;
     }
-    #admin-edit-form-active{
-        left: 0%;
-    }
-    .admin-password-form-active{
-        left: 0%;
-    }
-    #admin-delete-profile-form-active{
-        left: 0%;
-    }
+
 }
 @media screen and (max-width:390px){
     .admin-settings-display{
+        top: 12%;
         width: 24.5rem;
     }
-    #admin-delete-account-overlay {
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
         width: 24.5rem;
         left: 0%;
     }
 
-    #admin-delete-account-overlay-active {
-        width: 24.5rem;
+    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
         left: 0%;
     }
-    #admin-edit-form-active{
-        left: 0%;
-    }
-    .admin-password-form-active{
-        left: 0%;
-    }
-    #admin-delete-profile-form-active{
-        left: 0%;
-    }
+
 }
 @media screen and (max-width:375px){
     .admin-settings-display{
-        width: 23.5rem;
+        top: 15%;
+        width: 23rem;
     }
-    #admin-delete-account-overlay {
+
+    #general-settings-header{
+        position: relative;
+        left: 4%;
+    }
+
+    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
         width: 23.5rem;
         left: 0%;
     }
 
-    #admin-delete-account-overlay-active {
-        width: 23.5rem;
+    .admin-password-form-active, #admin-delete-profile-form-active, #admin-edit-form-active{
         left: 0%;
     }
-    #admin-edit-form-active{
-        left: 0%;
-    }
-    .admin-password-form-active{
-        left: 0%;
-    }
-    #admin-delete-profile-form-active{
-        left: 0%;
-    }
+
 }

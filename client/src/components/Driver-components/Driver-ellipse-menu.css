@@ -11,6 +11,8 @@
   background-color: white;
   border-radius: 7px;
   margin-top: 0.5%;
+  box-shadow: 0px 10px 30px 2px #2b2b2bd1;
+  backdrop-filter: blur(10px);
 }
 
 .ellipse-menu-user-name {
@@ -19,6 +21,7 @@
   padding: 10px 15px;
   min-width: 60%;
   font-size: 25px;
+  
 }
 
 .ellipse-menu {
@@ -28,6 +31,7 @@
   height: 109%;
   margin-left: 20%;
   margin-right: 0%;
+  
 }
 
 .ellipse-menu:hover {
@@ -35,6 +39,8 @@
 }
 
 .menu-parent-container {
+  position: relative;
+  top:5%;
   /*margin-left: 20vw; */
   display: "inline-block";
   position: absolute;
@@ -42,7 +48,6 @@
   /* right: 0; */
   right: 7px;
   /* margin-right: 16px; */
-  /* transform: translate3d(87rem, 0rem, 0);*/
   z-index: 2;
 }
 .menu-wrapper {
@@ -90,4 +95,35 @@
   margin-right: auto;
   margin-left: auto;
   padding-top: 2px;
+}
+
+@media screen and (max-width: 414px){
+  .ellipse-menu-container {
+    top: 9%;
+    right: 28%;
+  }
+  .menu-parent-container {
+    top: 15%;
+    right: 29.5%;
+  }
+}
+@media screen and (max-width:390px){
+  .ellipse-menu-container {
+    top: 10%;
+    right: 26%;
+  }
+  .menu-parent-container {
+    top: 15%;
+    right: 29.5%;
+  }
+}
+@media screen and (max-width:375px){
+  .ellipse-menu-container {
+    top: 12.5%;
+    right: 25.5%;
+  }
+  .menu-parent-container {
+    top: 20%;
+    right: 28%;
+  }
 }

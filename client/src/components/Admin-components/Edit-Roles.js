@@ -28,7 +28,7 @@ export default function AdminRoles() {
                 <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
                 {/* Edit employee roles page */}
                 <div id='edit-roles-table-container'>
-                    <h1 id='edit-roles-h1'>Edit Employee roles</h1>
+                    <h1 id='edit-roles-h1'>Edit Roles</h1>
                         <table className='edit-roles-table'>
                             <tr>
                                 <th>Role ID</th>
