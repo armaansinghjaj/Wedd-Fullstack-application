@@ -170,8 +170,8 @@ input[id="ride-submit"] {
   border-style: solid;
   border-color: transparent;
   width: 100%;
-  position: relative;
-  top: 8rem;
+  top: 50%;
+  
   }
 
   #ride-submit:hover{
@@ -286,7 +286,7 @@ input[id="ride-submit"] {
 
 input[id="ride-submit"] {
   position: absolute;
-  top: 100px;
+  
   /* right: 205px; */
 }
 
@@ -336,7 +336,8 @@ left: 0.5ch;
 }
 
 #ride-submit{
-  margin-top: 4ch;
+  position: relative;
+  
 }
 
 .paymenterror-msg {
@@ -401,7 +402,7 @@ input[id="ride-submit"] {
   height: 1.8rem;
   font-weight: 300;
   font-size: 1rem;
-  top: 70px;;
+  top: 70%;
   
 }
 .car-type{
