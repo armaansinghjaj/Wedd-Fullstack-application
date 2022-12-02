@@ -2,7 +2,7 @@
 .admin-settings-display{
     position: relative;
     top: 6%;
-    left: 19%;
+    left: 17%;
     margin-left: auto;
     margin-right: auto;
     width: 35rem;
@@ -306,7 +306,6 @@
     }
 }
 
-
 @media screen and (max-width:1280px){
 
     .admin-settings-display{
@@ -339,13 +338,6 @@
         width: 30rem;
     }
 
-    #admin-edit-form-active, #admin-delete-profile-form-active, .admin-password-form-active{
-        left: -4%;
-    }
-
-    #admin-delete-account-overlay, #admin-delete-account-overlay-active {
-        left: 25%;
-    }
 }
 @media screen and (max-width: 414px){
     .admin-settings-display{

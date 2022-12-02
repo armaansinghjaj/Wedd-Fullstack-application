@@ -22,7 +22,7 @@ export default function Settings() {
 
     const [editProfile, setEditProfile] = useState(false);
     const [changePassword, setChangePassword] = useState(false);
-    const [deleteAccount, setDeleteAccount1] = useState(false);
+    const [deleteAccount, setDeleteAccount] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
   
@@ -36,41 +36,41 @@ export default function Settings() {
     }
 
     // Open menu
-    const menuHandler1 = () => {
+    const menuHandler = () => {
         closeAllOverlays();
         setShowMenu(!showMenu);
     }
 
     // Open hidden forms
-    const profileEdit1 = () => {
+    const profileEdit = () => {
         closeAllOverlays();
         setEditProfile(!editProfile)
     }
-    const passwordChange1 = () => {
+    const passwordChange = () => {
         closeAllOverlays();
         setChangePassword(!changePassword)
     }
 
-    const remove1 = () => {
+    const remove = () => {
         closeAllOverlays();
         setDeleteAccount(!deleteAccount)
     }
 
     // Close hidden forms
-    const closeEdit1 = () => {
+    const closeEdit = () => {
         setEditProfile(!editProfile)
     }
-    const closeChange1 = () => {
+    const closeChange = () => {
         setChangePassword(!changePassword)
     }
-    const closeRemove1 = () => {
+    const closeRemove = () => {
         setDeleteAccount(!deleteAccount)
     }
 
 
     // REST API responses
     const [passwordChanged, setpasswordChanged] = useState(false);
-    const [accountDeleted, setDeleteAccount] = useState(false);
+    const [accountDeleted, setAccountDeleted] = useState(false);
 
     useEffect( () => {
         fetchCustomerDetails();
@@ -181,7 +181,7 @@ export default function Settings() {
     //         if(profile_delete_response.delete){
     //             cookies.remove('c_user');
     //             cookies.remove('__sid');
-    //             setDeleteAccount(true);
+    //             setAccountDeleted(true);
     //         }
     //     })
     // }
@@ -197,21 +197,21 @@ export default function Settings() {
 
         <>
 
-<div className='ellipse-menu-container-1' id='ellipse-menu-container-1'>
-            <div className='ellipse-menu-user-name-1'>Your Name</div>
-            <i className="fa fa-ellipsis-v ellipse-menu-1" onClick={menuHandler1} aria-hidden="true"></i>
+    <div className='ellipse-menu-container' id='ellipse-menu-container'>
+            <div className='ellipse-menu-user-name'>Clients Name</div>
+            <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
         </div>
         {(showMenu === true) ? (
-            <div className='menu-parent-container1' id='menu-parent-container1'>
-            <div className='menu-wrapper1'>
-                <div className='menu-list1'>
+            <div className='menu-parent-container' id='menu-parent-container'>
+            <div className='menu-wrapper'>
+                <div className='menu-list'>
                     {/* <div className='menu-list-item'>Dashboard</div>
                     <div className='menu-list-item-divider'></div> */}
 
-                    <div className='menu-list-item1'>Start Shift</div>
-                    <div className='menu-list-item-divider1'></div>
+                    {/* <div className='menu-list-item'>Start Shift</div>
+                    <div className='menu-list-item-divider'></div> */}
                     
-                    <div className='menu-list-item item-delete-account1' onClick={remove1}>Delete Account</div>
+                    <div className='menu-list-item item-delete-account' onClick={remove}>Delete Account</div>
                     
                     {/* <div className='menu-list-item-divider'></div> */}
                     {/* <div className='menu-list-item'>Signout</div> */}
@@ -226,30 +226,30 @@ export default function Settings() {
         {(passwordChanged === true) && <Navigate to="/account" replace={true}/>}
 
 
-        <div className="Driver-settings-display1">
-            <h1 id="profile-settings-h1-1">
+        <div className="Driver-settings-display">
+            <h1 id="profile-settings-h1">
                 Profile Settings
             </h1>
-            <div className="driver-general-settings1">
-            <p className="driver-profile-heading-general1">General Settings</p>
-                <ul id="drivers-edit-profile-ul1">
+            <div className="driver-general-settings">
+            <p className="driver-profile-heading-general" id="general-settings-header">General Settings</p>
+                <ul id="drivers-edit-profile-ul">
                     <li>
-                        <p><span className="driver-first-word1">Name:</span> {driverName1}</p>
+                        <p><span className="driver-first-word">Name:</span> {driverName1}</p>
                     </li>
                     <li>
-                        <p><span className="driver-first-word1">Email:</span> {driverEmail1}</p>
+                        <p><span className="driver-first-word">Email:</span> {driverEmail1}</p>
                     </li>
                 </ul>
-                <button className="driver-edit-button1" onClick={profileEdit1}>
+                <button className="driver-edit-button" onClick={profileEdit}>
                         Edit details
                 </button>
             </div>
-            <div id="divider1"/>
-            <div className="driver-password-change1">
-                <p className="driver-profile-heading-general1">Change password</p>
+            <div id="divider"/>
+            <div className="driver-password-change">
+                <p className="driver-profile-heading-general">Change password</p>
                 <ul>
                     <li>
-                        <button className="driver-edit-button1" onClick={passwordChange1}>Change Password</button>
+                        <button className="driver-edit-button" onClick={passwordChange}>Change Password</button>
                     </li>
                 </ul>
             </div>
@@ -271,7 +271,7 @@ export default function Settings() {
                         <h1 id="delete-warning1">WARNING!</h1>
                         <p>Once you delete your account, there is no going back. Please be certain.</p>
                         <input type="submit" id="Driver-submit-confirm1" value="Confirm"/> <input type="reset"  id="Driver-submit-cancel1"
-                         className="delete_account_btn1" value="Cancel" onClick={closeRemove1}/>
+                         className="delete_account_btn1" value="Cancel" onClick={closeRemove}/>
                     </div>
                 </form>
             </div>
@@ -288,7 +288,7 @@ export default function Settings() {
                             <li id="Driver-inputemail1"><input type="email" name="employee_email" id="Driver-employee-email1" value={driverEmail1}/></li>
                             <div className="driver-edit-profile-btns1">
                                 <input type="submit" className="Driver-submit1" value="Update"/>
-                                <input type="reset" className="Driver-submit1" value="Cancel" onClick={closeEdit1}/>
+                                <input type="reset" className="Driver-submit1" value="Cancel" onClick={closeEdit}/>
                             </div>
                         </ul>
                     </form>
@@ -305,7 +305,7 @@ export default function Settings() {
                             <li>New password: <br/><input type="password" name="employee_password[new]" id="Driver-new-password1" value=""/></li>
                             <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="Driver-confirm-password1" value=""/></li>
                             <input type="submit"  id="Driver-submit1" value="Update"/>
-                            <input type="reset"  id="Driver-submit1" value="cancel" onClick={closeChange1}/>
+                            <input type="reset"  id="Driver-submit1" value="cancel" onClick={closeChange}/>
                         </ul>
                     </form>
                 </div>

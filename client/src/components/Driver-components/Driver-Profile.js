@@ -97,7 +97,7 @@ export default function DProfile() {
                 Profile Settings
             </h1>
             <div className="driver-general-settings">
-            <p className="driver-profile-heading-general">General Settings</p>
+            <p className="driver-profile-heading-general" id="general-settings-header">General Settings</p>
                 <ul id="drivers-edit-profile-ul">
                     <li>
                         <p><span className="driver-first-word">Name:</span> {driverName}</p>

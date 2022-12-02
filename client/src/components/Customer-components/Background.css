@@ -411,9 +411,6 @@ input[id='home-ride-input']{
   position: relative;
   left: 4.5ch;
  }
- .Account-container {
-    height: 0;
- }
  .form-head {
   font-size: 2em;
   position: relative;
