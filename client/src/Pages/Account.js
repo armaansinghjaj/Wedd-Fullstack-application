@@ -6,7 +6,7 @@ import AccountNav from '../components/Customer-components/Profilepage-components
 export default function Account() {
   return (
      <div className='Account-container'>
-      <AccountNav/> 
+        <AccountNav/> 
         <AccountSettings/>
     </div>
   )

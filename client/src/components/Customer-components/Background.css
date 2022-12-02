@@ -162,6 +162,12 @@ input[id='home-ride-input']{
   background-size: cover;
 }
 
+/* driver pages background */
+#driver-home-background{
+  height: 100vh;
+  background-image: url("../../images/driver-background.jpg");
+  z-index: 1;
+}
 
 /* Admin home background */
 .admin-home-container {
@@ -217,14 +223,6 @@ input[id='home-ride-input']{
   background-image: url("../../images/25100.jpg");
 }
 
-/* Account page background */
-.Account-container{
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../../images/25100.jpg");
-}
-
 /* Admin Background edit background */
 .AdminBackgroundEdit-container {
   width: 100%;
@@ -253,11 +251,35 @@ input[id='home-ride-input']{
   background-image: url("../../images/25100.jpg");
 }
 
-/* driver pages background */
-#driver-home-background{
+/* Account page background */
+.Account-container{
+  position: fixed;
+  width: 100%;
   height: 100vh;
-  background-image: url("../../images/driver-background.jpg");
-  z-index: 1;
+  background-image: url("../../images/1550.jpg");
+}
+
+/* trip history background */
+.TripHistory-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/1550.jpg");
+}
+
+/* Faq background */
+.Faq-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/1550.jpg");
+}
+/* help and support background */
+.HelpAndSupport-container{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/1550.jpg");
 }
 
 .rideComplete-container {

@@ -6,11 +6,10 @@ export default function HelpAndSupport() {
     return(
 
         <>
-        
-        <div className="HelpAndSupport-container">
-            <AccountNav/>
-            <Help/>
-        </div>
+            <div className="HelpAndSupport-container">
+                <AccountNav/>
+                <Help/>
+            </div>
         </>
 
 
