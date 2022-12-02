@@ -228,7 +228,7 @@ input[id="service-submit"] {
         margin-top: 10%;
         margin: 20% auto;
         width: 65vw;
-        height: 150vh;
+        height: 85vh;
     }
     #font-format  {
         font-weight: 300;
@@ -390,4 +390,48 @@ input[id="service-submit"] {
         margin-right: 1ch;
         justify-content: center;
     }
+  }
+
+  @media only screen and (max-device-width: 390px){
+   
+    #service-info {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    #font-formatc, #font-formats,#font-formata {
+        font-size: 20px;
+    }
+    #service-top{
+        left:25%;
+    }
+    #service-location{
+        height: 19rem;
+        left: 25%;
+        top: -15%;
+    }
+    #service-label {
+        font-size: 12px;
+    }
+    #commenti {
+       width:14.5rem;
+       height: 4rem;
+        top: 0.5rem;
+    }
+    #service-middle {
+        height: 175px;
+        left: 3rem;
+        bottom: 35%; 
+    }
+    #service-bottom{
+        left: 0.5rem;
+        bottom: 47%;
+    }
+    #service-submit{
+        left: 4.5rem;
+       top: -42%;
+       height: 3rem;
+       width: 7rem;
+       
+    }
+   
   }
