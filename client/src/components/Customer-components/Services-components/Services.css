@@ -10,7 +10,6 @@
     font-size: 30px;
 }
 
-
 #font-formats  {
     position: relative;
     
@@ -23,6 +22,7 @@
     font-weight: 400;
     font-size: 30px;
 }
+
 #font-formata {
     color: orangered;
     font-weight: 400;
@@ -43,9 +43,7 @@
 .service-parent-conatiner{
     background-color: rgb(255, 200, 172);
     position: relative;
-padding-top: 8%;
-
-
+    padding-top: 8%;
 }
 #service-top{
     position: relative;
@@ -84,7 +82,6 @@ padding-top: 8%;
     justify-content: center;
     padding: 0.957rem 0;
     position: relative;
-   
 }
 
 #service-info {
@@ -120,54 +117,50 @@ input[class="service-input"]:focus {
   transition: 0.2s ease;
 }
 
-
-
 #service-submit{
-        appearance: none;
-        margin: 0px;
-        overflow: visible;
-        font-style: inherit;
-        font-variant: inherit;
-        font-stretch: inherit;
-        font-family: inherit;
-        font-weight: 600;
-        color: rgb(255, 255, 255);
-        text-transform: none;
-        display: inline-flex;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        justify-content: center;
-        position: relative;
-        padding: 0px 0.5rem;
-        background:rgb(235 114 0 / 93%);
-        vertical-align: middle;
-        cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-        line-height: 44px;
-        height: 48px;
-        min-width: 40px;
-        max-width: none;
-        font-size: 16px;
-        text-decoration: none;
-        text-align: center;
-        white-space: nowrap;
-        border-width: 2px;
-        border-style: solid;
-        border-color: transparent;
-        width: 30%;
-        left: 60%;
-        top:-40%;
+    appearance: none;
+    margin: 0px;
+    overflow: visible;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-transform: none;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    padding: 0px 0.5rem;
+    background:rgb(235 114 0 / 93%);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    line-height: 44px;
+    height: 48px;
+    min-width: 40px;
+    max-width: none;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    width: 30%;
+    left: 60%;
+    top:-40%;
       
 }
   
 #service-submit:hover{
     cursor: pointer;
     background: rgb(212 103 0 / 93%);
-  }
+}
   
-
-
 .service-error-msg {
     position: relative;
     top: 10%;
@@ -189,7 +182,6 @@ input[class="service-input"]:focus {
 }
 #service-bottom{
     position: relative;
-    
     left: 8%;
     bottom: 28%;
 }
@@ -237,7 +229,6 @@ input[id="service-submit"] {
         margin: 20% auto;
         width: 65vw;
         height: 150vh;
-       
     }
     #font-format  {
         font-weight: 300;
@@ -375,7 +366,6 @@ input[id="service-submit"] {
         top:-65%;
     }
     #font-formats{
-
         position: relative;
         right: 28%;
         color: orangered;

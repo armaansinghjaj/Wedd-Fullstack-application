@@ -184,7 +184,7 @@
   padding-top: 1rem;
 }
 
-@media screen and (max-width:768px ){
+@media screen and (max-width:767px ){
   .login-parent-container{
     flex-wrap: wrap;
   }

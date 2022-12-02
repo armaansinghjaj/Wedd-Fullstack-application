@@ -233,18 +233,24 @@ input[id='home-ride-input']{
 
 /* Admin Bg-about background */
 .bgabout-container{
+  position: fixed;
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 /* Admin Bg-home background */
 .bghome-container {
+  position: fixed;
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 /* Admin Bg-contact background */
 .bgcontact-container {
+  position: fixed;
   width: 100%;
   height: 100vh;
+  background-image: url("../../images/25100.jpg");
 }
 
 /* driver pages background */
