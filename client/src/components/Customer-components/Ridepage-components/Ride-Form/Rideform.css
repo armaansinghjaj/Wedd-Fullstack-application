@@ -83,7 +83,7 @@
     font-size: 1.4rem;
   }
 
-input[id="ride-input"] {
+#ride-input {
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -129,53 +129,29 @@ input[id="ride-input"] {
   background-color: rgb(235 114 0 / 93%);
   border-radius: 0.5rem;
 }
-input[id="ride-input"]:focus{
+#ride-input:focus{
   border-bottom: 0.125rem solid rgb(235 114 0 / 93%);
   color: rgb(235 114 0 / 93%);
   transition: 0.2s ease;
 }
 
-input[id="ride-submit"] {
+#ride-submit {
   position: relative;
-  appearance: none;
-  margin: 0px;
-  overflow: visible;
-  font-variant: inherit;
-  font-stretch: inherit;
-  font-family: inherit;
-  font-weight: 600;
   color: rgb(255, 255, 255);
-  text-transform: none;
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  position: relative;
   background: rgb(235 114 0 / 93%);
-  vertical-align: middle;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  line-height: 15px;
-  height: 48px;
-  min-width: 40px;
-  max-width: none;
   font-size: 16px;
-  text-decoration: none;
   text-align: center;
-  white-space: nowrap;
-  border-width: 2px;
   border-style: solid;
   border-color: transparent;
-  width: 100%;
-  top: 50%;
+  border-radius: 0.2rem;
 }
 
   #ride-submit:hover{
     cursor: pointer;
     background: rgb(212 103 0 / 93%);
   }
-
 
 .ride-location {
     position: relative;
@@ -290,7 +266,8 @@ input[id="ride-submit"] {
 
 .submit-btn-div{
   position: relative;
-  bottom: 50%;
+  top: 20%;
+  right: 1%;
 }
 
 #ride,#ride1,#ride3{

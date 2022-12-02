@@ -8,8 +8,8 @@
 	position: relative;
 	min-height: 100%;
 	min-width: 100%;
-	border-bottom-left-radius: 1.5rem;
-	border-bottom-right-radius: 1.5rem;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
 }
 
 .leaflet-routing-container{
