@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useNavigate} from 'react-router'
+import {useNavigate} from "react-router";
 import {Navigate} from "react-router-dom";
 import "./Rideform.css";
 //import taxiImg from "../../../../images/taxi.jpg";
@@ -21,6 +21,7 @@ function Rideform() {
 	const [PickupError, setPickupError] = useState("");
 	const [Payment, setPayment] = useState("");
 	const [PaymentError, setPaymentError] = useState("");
+	const [typing, setTyping] = useState(false);
 
 	let move = useNavigate();
 
@@ -42,7 +43,16 @@ function Rideform() {
 	};
 	const handlePickupChange = (e) => {
 		setPickupError("");
+		
 		setPickup(e.target.value);
+
+		// var url = "https://nominatim.openstreetmap.org/search/"+ e.target.value +"?format=json";
+		// // var xmldoc = null;
+		// return fetch(url)
+		// 	.then((response) => response.text())
+		// 	.then((str) => {
+		// 			console.log(JSON.parse(str))
+		// 	});
 	};
 
 	const handlePaymentChange = (e) => {
@@ -51,6 +61,18 @@ function Rideform() {
 		// setDebit(e.target.value);
 		// setPaypal(e.target.value);
 		// setApple(e.target.value);
+	};
+
+	const gps = () => {
+		let userlocationlat = document.getElementById("userlat").value;
+		let userlocationlng = document.getElementById("userlng").value;
+		var url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + userlocationlat + "&lon=" + userlocationlng;
+
+		return fetch(url)
+			.then((response) => response.text())
+			.then((str) => {
+				setPickup(JSON.parse(str).display_name);
+			});
 	};
 
 	const handleFormSubmit = (e) => {
@@ -103,13 +125,13 @@ function Rideform() {
 	return (
 		<>
 			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			<input type="hidden" id="userlat" />
+			<input type="hidden" id="userlng" />
 			<div className="master-container">
-				<figure>
-					{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}
-				</figure>
+				<figure>{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}</figure>
 				<div className="parent-container">
 					<div className="ride-conatiner-left child-container">
-					<Maps />
+						<Maps />
 					</div>
 
 					<div className="ride-conatiner-right child-container">
@@ -129,8 +151,11 @@ function Rideform() {
 
 									<div className="ride-right">
 										<h2 className="ride-location">Location</h2>
-										<input className="ride-Paddri" placeholder="Pick-up Location " id="picks" type="text" value={Pickup} onChange={handlePickupChange} />
-										<input type="button" value="GPS" id="gps" />
+										<div className="pickup_container">
+											<input className="ride-Paddri" placeholder="Pick-up Location " id="picks" type="text" value={Pickup} onChange={handlePickupChange} />
+											<div className="suggestions"></div>
+										</div>
+										<input type="button" value="GPS" id="gps" onClick={gps} />
 										{PickupError && <div className="error-msg">{PickupError}</div>}
 										<input className="ride-Daddri" placeholder="Drop-off Location" id="dest" type="text" value={Dropoff} onChange={handleDropoffChange} />
 										{DropoffError && <div className="error-msg">{DropoffError}</div>}
