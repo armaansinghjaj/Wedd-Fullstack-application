@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Navigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import ProfilePage from '../Customer-components/Profilepage-components/ProfilePage'
 import '../Customer-components/Profilepage-components/AccountPages.css';
 import '../Common-components/Settings-privacy.css';
 
@@ -197,8 +198,10 @@ export default function Settings() {
         <>
 
     <div className='ellipse-menu-container' id='ellipse-menu-container'>
-            <div className='ellipse-menu-user-name'>Clients Name</div>
+            <div className='ellipse-menu-user-name'>
+            <ProfilePage className="account-profile-class" imageSrc=""/></div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
+            
         </div>
         {(showMenu === true) ? (
             <div className='menu-parent-container' id='menu-parent-container'>
@@ -283,11 +286,11 @@ export default function Settings() {
                     <h1 id="Driver-change-profile1">Edit profile</h1>
                     <form action="/employeeprofile/account?option=details" method="post">
                         <ul>
-                            <li id="Driver-name1"><input type="text" name="employee_name" id="Driver-employee-name1" value={driverName1}/></li>
-                            <li id="Driver-inputemail1"><input type="email" name="employee_email" id="Driver-employee-email1" value={driverEmail1}/></li>
+                            <li id="Driver-name"><input type="text" name="employee_name" id="Driver-employee-name" value={driverName1}/></li>
+                            <li id="Driver-inputemail"><input type="email" name="employee_email" id="Driver-employee-email" value={driverEmail1}/></li>
                             <div className="driver-edit-profile-btns1">
-                                <input type="submit" className="Driver-submit1" value="Update"/>
-                                <input type="reset" className="Driver-submit1" value="Cancel" onClick={closeEdit}/>
+                                <input type="submit" className="Driver-submit" value="Update"/>
+                                <input type="reset" className="Driver-submit" value="Cancel" onClick={closeEdit}/>
                             </div>
                         </ul>
                     </form>
@@ -300,11 +303,11 @@ export default function Settings() {
                     <h1 id="Driver-change-profilec1">Change password</h1>
                     <form action="/Employeeprofile/account?option=password" method="post">
                         <ul>
-                            <li>Old password: <br/><input type="password" name="employee_password[old]" id="Driver-old-password1" value=""/></li>
-                            <li>New password: <br/><input type="password" name="employee_password[new]" id="Driver-new-password1" value=""/></li>
-                            <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="Driver-confirm-password1" value=""/></li>
-                            <input type="submit"  id="Driver-submit1" value="Update"/>
-                            <input type="reset"  id="Driver-submit1" value="cancel" onClick={closeChange}/>
+                            <li>Old password: <br/><input type="password" name="employee_password[old]" id="Driver-old-password" value=""/></li>
+                            <li>New password: <br/><input type="password" name="employee_password[new]" id="Driver-new-password" value=""/></li>
+                            <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="Driver-confirm-password" value=""/></li>
+                            <input type="submit"  className="Driver-submit" value="Update"/>
+                            <input type="reset"  className="Driver-submit" value="cancel" onClick={closeChange}/>
                         </ul>
                     </form>
                 </div>

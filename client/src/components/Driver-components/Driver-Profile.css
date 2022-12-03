@@ -320,7 +320,8 @@
 @media screen and (max-width:1024px){
 
     .Driver-settings-display{
-        left: 22.5%;
+
+        left: 12.5%;
     }
 
     #Driver-edit-form-active, #drivers-delete-profile-form-active, .Driver-password-form-active{

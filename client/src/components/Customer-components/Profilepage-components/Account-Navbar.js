@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link, useLocation } from 'react-router-dom';
-import ProfilePage from "./ProfilePage";
+// import ProfilePage from "./ProfilePage";
 import './Account-Navbar.css';
 
 export default function AccountNavbar() {
@@ -16,8 +16,10 @@ export default function AccountNavbar() {
             <>
                 <div className='vertical-navbar'>
                     <div id='logo-wrapper'>
-                        <ProfilePage/>
+                        {/* <ProfilePage/> */}
+                        <Link id='vert-logo' to={'/account'}>WeDD</Link>
                     </div>
+                    
 
                     <ul className='link-wrapper'>
                         <li>

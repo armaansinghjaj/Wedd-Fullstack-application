@@ -302,6 +302,7 @@
 
 @media screen and (max-width:1366px){
     .Driver-settings-display{
+        left: 16%;
         top: 14%;
     }
 }
@@ -320,7 +321,8 @@
 @media screen and (max-width:1024px){
 
     .Driver-settings-display{
-        left: 22.5%;
+        top: 25%;
+        left: 20%;
     }
 
     #Driver-edit-form-active, #drivers-delete-profile-form-active, .Driver-password-form-active{
@@ -333,16 +335,14 @@
 @media screen and (max-width:767px){
 
     .Driver-settings-display{
-        left: 28.6%;
+        left: 27%;
         width: 30rem;
     }
-
 }
-
 @media screen and (max-width: 414px){
     .Driver-settings-display{
         left: 0%;
-        top: 20%;
+        top: 15%;
         width: 25rem;
     }
     #driver-delete-account-overlay {

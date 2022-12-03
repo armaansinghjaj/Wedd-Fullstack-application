@@ -7,6 +7,7 @@ export default function Account() {
   return (
      <div className='Account-container'>
         <AccountNav/> 
+        
         <AccountSettings/>
     </div>
   )

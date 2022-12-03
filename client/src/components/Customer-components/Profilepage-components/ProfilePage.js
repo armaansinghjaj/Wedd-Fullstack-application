@@ -1,45 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useLocation } from 'react-router-dom';
+import './Profile.css';
 
-export default function ProfilePage() {
+export default function ProfilePage(props) {
 
-    // const profileImage= require("../../../images/Profile-picture.png");
-    // const customer_account_name='Customer name';
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => {
+        setClick(!click)
+    }
 
     return(
         <> 
-
-
-         <div className='vertical-navbar'>
-            <div id='logo-wrapper'>
-                <Link id='vert-logo' to={'/account'}>WeDD</Link>
-            </div>
-        </div>
-
-        {/* <div className="profile-container">
-            <div id="picture-container">
-                <figure id="profile-image-wrapper">
-                    <img src={profileImage} id='profile-image'/>
-                </figure>
-                <figcaption>{customer_account_name}</figcaption>
-                
-                <ul>
-                    <li><p><img class="customer_pp" src=''/><i id="profile_picture_pencil" className="fa fa-pencil" aria-hidden="true"></i></p></li>
-                    <li class="picture_change_item">
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/> <br/>
-                            <input type="submit" value="Update profile picture"/>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-
-        </div> */}
-
-
-
-
-
+                <div id="picture-container">
+                    <figure id="profile-image-wrapper">
+                        <img src={props.imageSrc} id='profile-image' className={props.profileClassname}/>
+                    </figure>
+                    <button id="show-profile-picture-form-button" onClick={handleClick}><i id="profile_picture_pencil" className="fa fa-pencil" aria-hidden="true"/></button>
+                    
+                </div>
+                <div className={click ?"form-visible" : "form-hidden"} id={props.profileFormId}>
+                    <ul id="profile-picture-ul">
+                        <li class="picture_change_item">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/><br/>
+                                <input type="submit" value="Update profile picture"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
         </>
 
     )

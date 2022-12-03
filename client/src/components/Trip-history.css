@@ -57,7 +57,12 @@
         left: 29.5%;
     }
 }
-@media screen and (max-width:767px){}
+@media screen and (max-width:767px){
+    #trip-history-wrapper{
+        top: 27%;
+        left: 29.5%;
+    }
+}
 @media screen and (max-width: 414px){
     #trip-history-wrapper{
         top: 35%;
