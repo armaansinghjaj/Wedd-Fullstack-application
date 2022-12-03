@@ -293,17 +293,12 @@ input[id="service-submit"] {
         font-size: 1rem;
         margin-bottom: 1rem;
     }
-
     #font-formatc,#font-formata,#font-formats{
         font-size: 20px;
     }
-   
-
     #service-label {
         font-size: 12px;
     }
-  
-
     #service-middle {
         height: 300px;
         left: 23%;
@@ -314,14 +309,12 @@ input[id="service-submit"] {
         left: 19%;
         bottom: 38%;
     }
-    
     #service-location{
         height: 19rem;
         left: 15%;
         top: 0.6%;
     }
     #service-submit{
-       
         left: -40%;
     }
     #service-top{
