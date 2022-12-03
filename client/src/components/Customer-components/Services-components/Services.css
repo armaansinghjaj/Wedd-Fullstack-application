@@ -298,26 +298,11 @@ input[id="service-submit"] {
         font-size: 20px;
     }
    
-    input[id="service-input"] {
-        margin-top: 4px;
-        width: 120px;
-        height: 15px;
-        font-weight: 400;
-        font-size: 10px;
-    }
 
     #service-label {
         font-size: 12px;
     }
-    
-    input[id="service-submit"] {
-        position: relative;
-        bottom: 33%;
-        right:44.7%;
-        padding: 4px 6px;
-        font-weight: 400;
-        
-    }
+  
 
     #service-middle {
         height: 300px;
