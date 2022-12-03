@@ -9,8 +9,8 @@ export default function Settings() {
 
     const cookies = new Cookies();
 
-    const driverName1 = 'Drivers name';
-    const driverEmail1 = 'DriversEmail@email.com';
+    const driverName1 = 'drivers name';
+    const driverEmail1 = 'driversEmail@email.com';
 
     // const [profileName, setprofileName]=useState('');
     // const [profileEmail, setprofileEmail]=useState('');
@@ -199,7 +199,7 @@ export default function Settings() {
 
     <div className='ellipse-menu-container' id='ellipse-menu-container'>
             <div className='ellipse-menu-user-name'>
-            <ProfilePage className="account-profile-class" imageSrc=""/></div>
+            <ProfilePage className="customer-account-profile-class" imageSrc=""/></div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
             
         </div>
@@ -228,7 +228,7 @@ export default function Settings() {
             {(passwordChanged === true) && <Navigate to="/account" replace={true}/>}
 
 
-        <div className="Driver-settings-display">
+        <div className="driver-settings-display">
             <h1 id="profile-settings-h1">
                 Profile Settings
             </h1>
@@ -257,9 +257,9 @@ export default function Settings() {
             </div>
             {/* <div className="divider-delete-btn"> */}
                 {/* <div id="divider"/> */}
-                {/* <div className="Driver-change"> */}
-                    {/* <h1 id="Driver-change-profilei">Delete account</h1> */}
-                    {/* <button className="Driver-delete-account-btn" onClick={remove}>Delete account</button> */}
+                {/* <div className="driver-change"> */}
+                    {/* <h1 id="driver-change-profilei">Delete account</h1> */}
+                    {/* <button className="driver-delete-account-btn" onClick={remove}>Delete account</button> */}
                 {/* </div> */}
             {/* </div> */}
         </div>
@@ -272,7 +272,7 @@ export default function Settings() {
                     <div className={"delete-confirmation1"}>
                         <h1 id="delete-warning1">WARNING!</h1>
                         <p>Once you delete your account, there is no going back. Please be certain.</p>
-                        <input type="submit" id="Driver-submit-confirm1" value="Confirm"/> <input type="reset"  id="Driver-submit-cancel1"
+                        <input type="submit" id="driver-submit-confirm1" value="Confirm"/> <input type="reset"  id="driver-submit-cancel1"
                          className="delete_account_btn1" value="Cancel" onClick={closeRemove}/>
                     </div>
                 </form>
@@ -282,15 +282,15 @@ export default function Settings() {
 
         {/* Hidden drivers name edit form */}
             <div id={editProfile ?"driver-delete-account-overlay-active" : "driver-delete-account-overlay"}>
-                <div id={editProfile ? "Driver-edit-form-active" :"Driver-edit-form"}>
-                    <h1 id="Driver-change-profile1">Edit profile</h1>
+                <div id={editProfile ? "driver-edit-form-active" :"driver-edit-form"}>
+                    <h1 id="driver-change-profile1">Edit profile</h1>
                     <form action="/employeeprofile/account?option=details" method="post">
                         <ul>
-                            <li id="Driver-name"><input type="text" name="employee_name" id="Driver-employee-name" value={driverName1}/></li>
-                            <li id="Driver-inputemail"><input type="email" name="employee_email" id="Driver-employee-email" value={driverEmail1}/></li>
+                            <li id="driver-name"><input type="text" name="employee_name" id="driver-employee-name" value={driverName1}/></li>
+                            <li id="driver-inputemail"><input type="email" name="employee_email" id="driver-employee-email" value={driverEmail1}/></li>
                             <div className="driver-edit-profile-btns1">
-                                <input type="submit" className="Driver-submit" value="Update"/>
-                                <input type="reset" className="Driver-submit" value="Cancel" onClick={closeEdit}/>
+                                <input type="submit" className="driver-submit" value="Update"/>
+                                <input type="reset" className="driver-submit" value="Cancel" onClick={closeEdit}/>
                             </div>
                         </ul>
                     </form>
@@ -299,15 +299,15 @@ export default function Settings() {
 
             {/* Hidden drivers password change form */}
             <div id={changePassword ?"driver-delete-account-overlay-active" : "driver-delete-account-overlay"}>
-                <div className={changePassword ? "Driver-password-form-active" : "Driver-password-form"}>
-                    <h1 id="Driver-change-profilec1">Change password</h1>
+                <div className={changePassword ? "driver-password-form-active" : "driver-password-form"}>
+                    <h1 id="driver-change-profilec1">Change password</h1>
                     <form action="/Employeeprofile/account?option=password" method="post">
                         <ul>
-                            <li>Old password: <br/><input type="password" name="employee_password[old]" id="Driver-old-password" value=""/></li>
-                            <li>New password: <br/><input type="password" name="employee_password[new]" id="Driver-new-password" value=""/></li>
-                            <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="Driver-confirm-password" value=""/></li>
-                            <input type="submit"  className="Driver-submit" value="Update"/>
-                            <input type="reset"  className="Driver-submit" value="cancel" onClick={closeChange}/>
+                            <li>Old password: <br/><input type="password" name="employee_password[old]" id="driver-old-password" value=""/></li>
+                            <li>New password: <br/><input type="password" name="employee_password[new]" id="driver-new-password" value=""/></li>
+                            <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="driver-confirm-password" value=""/></li>
+                            <input type="submit"  className="driver-submit" value="Update"/>
+                            <input type="reset"  className="driver-submit" value="cancel" onClick={closeChange}/>
                         </ul>
                     </form>
                 </div>

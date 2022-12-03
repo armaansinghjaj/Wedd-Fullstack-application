@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import ProfilePage from "../Customer-components/Profilepage-components/ProfilePage";
 import '../Customer-components/Profilepage-components/Profile.css';
 import './Driver-ellipse-menu.css'
 import './Driver-Profile.css'
@@ -68,7 +69,7 @@ export default function DProfile() {
         <>
 
         <div className='ellipse-menu-container' id='ellipse-menu-container'>
-            <div className='ellipse-menu-user-name'>Driver Name</div>
+            <div className='ellipse-menu-user-name'><ProfilePage className="driver-account-profile-class" imageSrc=""/></div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
         </div>
         {(showMenu === true) ? (
