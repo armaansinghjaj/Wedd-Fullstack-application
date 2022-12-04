@@ -4,6 +4,7 @@ const loadDefaultValues = require("../modules/loadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
 const crypto = require("crypto");
 const {response} = require("express");
+const geolib = require("geolib");
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -40,7 +41,6 @@ router.post("/processing", (req, res) => {
 		return res.send("error");
 	} else {
 		let temp_ride_session_id = crypto.randomBytes(8).toString("hex");
-
 		pool.getConnection((err, con) => {
 			if (err) throw err;
 			con.query(`INSERT INTO temp_ride (temp_ride_session, name, email, phone, pickup, destination, payment) VALUES ('${temp_ride_session_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pick}','${req.body.dest}','${req.body.pay_mode}')`, function (err, result, fields) {
@@ -48,7 +48,8 @@ router.post("/processing", (req, res) => {
 
 				if (err) return res.send("backend error");
 				sess.temp_session_id = temp_ride_session_id;
-
+				sess.customer_lat = req.body.picklat;
+				sess.customer_lng = req.body.picklng;
 				return res.send({
 					temp_session_id: temp_ride_session_id,
 				});
@@ -57,13 +58,60 @@ router.post("/processing", (req, res) => {
 	}
 });
 
+router.get("/searching", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`SELECT active_driver_session_id, driver_lat, driver_lng FROM available_drivers`, function (err, result, fields) {
+			con.release();
+			if (err) return res.send("backend error");
+			let closest_driver; 
+			let closest_distance;
+			if (result[0]) {
+				closest_driver = result[0].active_driver_session_id;
+				closest_distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[0].driver_lat, longitude: result[0].driver_lng});
+				for (i = 0; i < result.length; i++) {
+					let distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[i].driver_lat, longitude: result[i].driver_lng});
+					if (distance<closest_distance){
+						closest_distance = distance;
+						closest_driver = result[i].active_driver_session_id;
+					}
+				}
+				pool.getConnection((err, con) => {
+					if (err) throw err;
+					con.query(`UPDATE ride_requests SET active_driver_session_id = '${closest_driver}' WHERE customer_id = '${sess.customer_id}'`, function (err, result, fields) {
+						con.release();
+						if (err) return res.send("backend error");
+						
+					});
+				});
+			}
+		});
+	});
+
+	// pool.getConnection((err, con) => {
+	// 	if (err) throw err;
+	// 	con.query(`SELECT * FROM current_rides WHERE customer_id = '${req.body.customer_id}'`, function (err, result, fields) {
+	// 		con.release();
+	// 		if (err) return res.send("backend error");
+	// 		if (result[0]) {
+	// 			let ride_session = crypto.randomBytes(8).toString("hex");
+	// 			sess.ride_session = ride_session;
+	// 			return res.send({
+	// 				ride_session: ride_session,
+	// 			});
+	// 		}
+	// 	});
+	// });
+});
+
 router.put("/searching", (req, res) => {
 	let sess = req.session;
 	if (req.body.customer_id === "" || req.body.name === "" || req.body.email === "" || req.body.phone === "" || req.body.pickup === "" || req.body.destination === "" || req.body.payment === "" || req.body.customer_id === undefined || req.body.name === undefined || req.body.email === undefined || req.body.phone === undefined || req.body.pickup === undefined || req.body.destination === undefined || req.body.payment === undefined) {
 		return res.send("error");
 	} else {
 		let request_id = crypto.randomBytes(8).toString("hex");
-
+		let pickup_cus = req.body.pickup;
 		pool.getConnection((err, con) => {
 			if (err) throw err;
 			con.query(`INSERT INTO riderequests (request_id, customer_id, name, email, phone, pickup, destination, payment) VALUES ('${request_id}','${req.body.customer_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pickup}','${req.body.destination}','${req.body.payment}')`, function (err, result, fields) {
@@ -77,7 +125,7 @@ router.put("/searching", (req, res) => {
 						sess.temp_session_id = null;
 					});
 				});
-				if (err) return console.log(err)
+				if (err) return console.log(err);
 				sess.searching_session_id = request_id;
 
 				return res.send({

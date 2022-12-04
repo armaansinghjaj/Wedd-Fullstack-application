@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router";
 import {Navigate} from "react-router-dom";
 import "./Rideform.css";
+import * as G from "leaflet-control-geocoder";
 //import taxiImg from "../../../../images/taxi.jpg";
 import Cookies from "universal-cookie";
 import Maps from "../Map/maps";
@@ -21,7 +22,8 @@ function Rideform() {
 	const [PickupError, setPickupError] = useState("");
 	const [Payment, setPayment] = useState("");
 	const [PaymentError, setPaymentError] = useState("");
-	const [typing, setTyping] = useState(false);
+	const [Pickuplat, setPickuplat] = useState("");
+	const [Pickuplng, setPickuplng] = useState("");
 
 	let move = useNavigate();
 
@@ -68,6 +70,16 @@ function Rideform() {
 				setPickup(JSON.parse(str).display_name);
 			});
 	};
+	const pickupCoordinates = () => {
+		let pickuplocation = Pickup;
+		
+		let geocoder = G.geocoders.nominatim();
+		geocoder.geocode(document.getElementById("hidden_pickup").value, (results) => {
+			var pickupResult = results[0];
+			setPickuplat(pickupResult.center.lat);
+			setPickuplat(pickupResult.center.lng);
+	})
+}
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
@@ -91,7 +103,7 @@ function Rideform() {
 
 		//checking if Payment type is empty
 		// if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
-
+		pickupCoordinates();
 		const rideform_data = {
 			name: Name,
 			email: Email,
@@ -99,6 +111,8 @@ function Rideform() {
 			pick: Pickup,
 			dest: Dropoff,
 			pay_mode: Payment,
+			picklat:Pickuplat,
+			picklng:Pickuplng
 		};
 		fetch("/api/ride/processing", {
 			credentials: "same-origin",
