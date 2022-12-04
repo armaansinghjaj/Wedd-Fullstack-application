@@ -2,7 +2,7 @@
 .Driver-settings-display{
     position: relative;
     top: 6%;
-    left: 17%;
+    left: 14%;
     margin-left: auto;
     margin-right: auto;
     width: 35rem;
@@ -320,7 +320,7 @@
 @media screen and (max-width:1024px){
 
     .Driver-settings-display{
-        left: 22.5%;
+        left: 20.5%;
     }
 
     #Driver-edit-form-active, #drivers-delete-profile-form-active, .Driver-password-form-active{

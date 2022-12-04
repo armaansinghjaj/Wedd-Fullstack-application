@@ -70,7 +70,45 @@
 }
 
 /* Customer Account Nametag */
+#account-name-tag{
+    position: relative;
+    left: 44%;
+    top: 4%;
+    height: 10rem;
+    background-color: white;
+    width: 30rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0px 10px 45px 0px #2b2b2bd1;
+    background: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(8px);
+}
 
+#account-name-display{
+    position: relative;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 40px;
+    height: 5.2rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    text-decoration: underline;
+}
+
+#account-logo-display {
+    position: relative;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-image: url('../../images/name-tag-jpg.jpg');
+    color: white;
+    padding: 1rem 2rem 1rem 2rem;
+    font-size: 40px;
+}
+
+#driver2{
+    position: relative;
+    top: 10%;
+    left: 20%;
+}
 
 @media screen and (max-width:1280px){
     #employee-name-tag{
@@ -84,36 +122,42 @@
     #admin-name-tag{
         left: 39.5%;
     }
+    #account-name-tag{
+        left: 39.5%;
+    }
+    
 }
 @media screen and (max-width:767px){
-    #admin-name-tag{
+    #employee-name-tag, #admin-name-tag{
         left: 36%;
+    }
+    #account-name-tag{
+        left: 35.5%;
     }
 }
 @media screen and (max-width: 414px){
-    #employee-name-tag, #admin-name-tag{
+    #employee-name-tag, #admin-name-tag, #account-name-tag{
         left: 3.5%;
         top: 15%;
         width: 24rem;
     }
-
 }
 @media screen and (max-width:390px){
-    #employee-name-tag, #admin-name-tag{
+    #employee-name-tag, #admin-name-tag, #account-name-tag {
         left: 9%;
         top: 15%;
         width: 20rem;
         height: 8rem;
     }
 
-    #wedd-logo-display, #admin-logo-display {
+    #wedd-logo-display, #admin-logo-display, #account-logo-display {
         height: 4rem;
         font-size: 28px;
         width: 100%;
         margin-left: 0%;
     }
 
-    #employee-name-display, #admin-name-display{
+    #employee-name-display, #admin-name-display, #account-name-display{
         font-size: 28px;
         width: 100%;
         margin-left: 0%;
@@ -126,4 +170,5 @@
         width: 20rem;
         height: 8rem;
     }
+
 }

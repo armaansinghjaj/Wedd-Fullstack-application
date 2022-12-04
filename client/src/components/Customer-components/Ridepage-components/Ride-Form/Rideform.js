@@ -46,13 +46,7 @@ function Rideform() {
 		
 		setPickup(e.target.value);
 
-		// var url = "https://nominatim.openstreetmap.org/search/"+ e.target.value +"?format=json";
-		// // var xmldoc = null;
-		// return fetch(url)
-		// 	.then((response) => response.text())
-		// 	.then((str) => {
-		// 			console.log(JSON.parse(str))
-		// 	});
+		
 	};
 
 	const handlePaymentChange = (e) => {
@@ -125,16 +119,17 @@ function Rideform() {
 	return (
 		<>
 			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />}
 			<input type="hidden" id="userlat" />
 			<input type="hidden" id="userlng" />
 			<div className="master-container">
 				<figure>{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}</figure>
 				<div className="parent-container">
-					<div className="ride-conatiner-left child-container">
+					<div className="ride-container-left child-container">
 						<Maps />
 					</div>
 
-					<div className="ride-conatiner-right child-container">
+					<div className="ride-container-right child-container">
 						<div className="ride-background">
 							<div className="ride-container">
 								<form onSubmit={handleFormSubmit}>

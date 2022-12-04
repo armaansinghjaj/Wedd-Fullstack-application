@@ -12,13 +12,11 @@ export default function Dashboard() {
     const ridePickup = 'Pickup Address';
     const rideDropoff = 'Dropoff Address';
 
-
     const [endShift, setEndShift] = useState(false);
 
     const displayButton = () => {
         setEndShift(!endShift)
     }
-
 
     return(
         <>

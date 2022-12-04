@@ -1,0 +1,95 @@
+/* Customer account Trip history css */
+.trip-container {
+    position: fixed;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#trip-history-wrapper{
+    position: fixed;
+    text-align: center;
+    top: 22%;
+    left: 22%;
+    width: 80%;
+}
+#trip-history-h2{
+    position: relative;
+    font-size: 40px;
+    right: 6.5%;
+}
+.trip-table{
+    border-radius: 1em;
+    text-align: center;
+    background-color: white;
+    height: auto;
+    width: 80%;
+    position: relative;
+    left: 5%;
+    border: solid;
+}
+
+@media screen and (max-width:1600px){
+    #trip-history-wrapper{
+        top: 24%;
+        left: 24%;
+    }
+    .trip-table{
+        left: 4.5%;
+    }
+}
+@media screen and (max-width:1366px){
+    #trip-history-h2{
+        right: 3.5%;
+    }
+    .trip-table{
+        left: 6.5%;
+    }
+}
+@media screen and (max-width:1280px){
+    #trip-history-wrapper{
+        left: 26%;
+    }
+}
+@media screen and (max-width:1024px){
+    #trip-history-wrapper{
+        left: 29.5%;
+    }
+}
+@media screen and (max-width:767px){
+    #trip-history-wrapper{
+        top: 27%;
+        left: 29.5%;
+    }
+}
+@media screen and (max-width: 414px){
+    #trip-history-wrapper{
+        top: 35%;
+        left: -8%;
+        width: 32.2rem;
+    }
+    .trip-table th{
+        font-size: 14px;
+    } 
+    .trip-table td {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:390px){
+    #trip-history-wrapper{
+        width: 30.5rem;
+    }
+}
+@media screen and (max-width:375px){
+
+    #trip-history-h2{
+        right: 12%;
+    }
+
+    #trip-history-wrapper{
+        top: 38%;
+        width: 29.5rem;
+        left: -8.5%;
+    }
+}

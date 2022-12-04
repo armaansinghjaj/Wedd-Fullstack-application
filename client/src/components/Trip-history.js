@@ -1,4 +1,6 @@
 import React from "react";
+import Nametag from "./Common-components/Nametag";
+import './Trip-history.css'
 
 export default function History() {
 
@@ -11,8 +13,9 @@ export default function History() {
         <>
         
         <div className="trip-container">
-            <h2>Trip History</h2>
-            <div >
+        <Nametag id1="account-name-tag" id2="wedd-logo-display" id3="account-name-display" text={"Clients Name"}/>
+            <div id="trip-history-wrapper">
+            <h2 id="trip-history-h2">Trip History</h2>
                 <table className="trip-table">
                     <tr>
                         <th>Time</th>

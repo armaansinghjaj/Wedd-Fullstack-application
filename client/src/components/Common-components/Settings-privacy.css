@@ -1,8 +1,8 @@
-/* display Driver profile settings */
-.Driver-settings-display{
+/* display driver profile settings */
+.driver-settings-display{
     position: relative;
-    top: 6%;
-    left: 17%;
+    top: 13%;
+    left: 14%;
     margin-left: auto;
     margin-right: auto;
     width: 35rem;
@@ -73,7 +73,7 @@
     background: rgba(189, 91, 0, 0.93);
 }
 
-.Driver-change {
+.driver-change {
     position: relative;
     top: 15%;
 }
@@ -108,7 +108,7 @@
     margin-top: 1rem;
 }
 
-.Driver-submit{
+.driver-submit{
     position: relative;
     left: 0.4rem;
     margin-right: 1em;
@@ -120,7 +120,7 @@
     padding: 5px 5px;
 }
 
-/* Drivers delete account form */
+/* drivers delete account form */
 #drivers-delete-profile-form-active{
     position: relative;
     top: 35%;
@@ -144,7 +144,7 @@
     transition: all ease-in 0.5s;
 }
 
-.Driver-delete-account-btn {
+.driver-delete-account-btn {
     position: relative;
     color: rgb(255, 255, 255);
     background: rgba(235, 35, 0, 0.93);
@@ -155,11 +155,11 @@
     border-radius: 0.3rem;
 }
 
-.Driver-delete-account-btn:hover, #Driver-submit-cancel:hover, #Driver-submit-confirm:hover{
+.driver-delete-account-btn:hover, #driver-submit-cancel:hover, #driver-submit-confirm:hover{
     background: rgba(187, 28, 0, 0.93);
 }
 
-#Driver-submit-confirm{
+#driver-submit-confirm{
     position: relative;
     color: rgb(255, 255, 255);
     background: rgba(235, 35, 0, 0.93);
@@ -171,7 +171,7 @@
     border-radius: 0.2rem;
 }
 
-#Driver-submit-cancel{
+#driver-submit-cancel{
     position: relative;
     color: rgb(255, 255, 255);
     background: rgba(235, 35, 0, 0.93);
@@ -212,8 +212,8 @@
     transition: all 0.5s ease;
 }
 
-/* Drivers edit name form */
-#Driver-edit-form-active {
+/* drivers edit name form */
+#driver-edit-form-active {
     position: relative;
     top: 35%;
     left: 2.5%;
@@ -230,12 +230,12 @@
     text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.447);
 }
-#Driver-edit-form {
+#driver-edit-form {
     display: none;
     transition: all ease-in 0.5s;
 }
 
-#Driver-employee-email, #Driver-employee-name {
+#driver-employee-email, #driver-employee-name {
     position: relative;
     min-height: 48px;
     min-width: 100%;
@@ -249,8 +249,8 @@
     /* margin: 0 0.8rem 0.5rem 0.8rem; */
 }
 
-/* Drivers change password form */
-.Driver-password-form-active {
+/* drivers change password form */
+.driver-password-form-active {
     position: relative;
     top: 35%;
     left: 2.5%;
@@ -268,7 +268,7 @@
     text-align: center;
 }
 
-.Driver-password-form {
+.driver-password-form {
     display: none;
 }
 
@@ -278,20 +278,20 @@
 
 }
 
-#Driver-profile-form{
+#driver-profile-form{
     margin: 1rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Driver-change{
+.driver-change{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#Driver-confirm-password, #Driver-new-password, #Driver-old-password{
+#driver-confirm-password, #driver-new-password, #driver-old-password{
     position: relative;
     height: 30px;
     border-top: none;
@@ -301,14 +301,15 @@
 }
 
 @media screen and (max-width:1366px){
-    .Driver-settings-display{
+    .driver-settings-display{
+        left: 16%;
         top: 14%;
     }
 }
 
 @media screen and (max-width:1280px){
 
-    .Driver-settings-display{
+    .driver-settings-display{
         left: 20%;
     }
 
@@ -319,11 +320,12 @@
 }
 @media screen and (max-width:1024px){
 
-    .Driver-settings-display{
-        left: 22.5%;
+    .driver-settings-display{
+        top: 25%;
+        left: 20%;
     }
 
-    #Driver-edit-form-active, #drivers-delete-profile-form-active, .Driver-password-form-active{
+    #driver-edit-form-active, #drivers-delete-profile-form-active, .driver-password-form-active{
         left: -4%;
     }
     #driver-delete-account-overlay, #driver-delete-account-overlay-active {
@@ -332,17 +334,15 @@
 }
 @media screen and (max-width:767px){
 
-    .Driver-settings-display{
-        left: 28.6%;
+    .driver-settings-display{
+        left: 27%;
         width: 30rem;
     }
-
 }
-
 @media screen and (max-width: 414px){
-    .Driver-settings-display{
+    .driver-settings-display{
         left: 0%;
-        top: 20%;
+        top: 15%;
         width: 25rem;
     }
     #driver-delete-account-overlay {
@@ -354,12 +354,12 @@
         width: 26rem;
         left: 0%;
     }
-    #Driver-edit-form-active, #drivers-delete-profile-form-active, .Driver-password-form-active{
+    #driver-edit-form-active, #drivers-delete-profile-form-active, .driver-password-form-active{
         left: 0%;
     }
 }
 @media screen and (max-width:390px){
-    .Driver-settings-display{
+    .driver-settings-display{
         top: 12%;
         width: 24.5rem;
     }
@@ -367,12 +367,12 @@
         width: 24.5rem;
         left: 0%;
     }
-    #Driver-edit-form-active,  #drivers-delete-profile-form-active, .Driver-password-form-active{
+    #driver-edit-form-active,  #drivers-delete-profile-form-active, .driver-password-form-active{
         left: 0%;
     }
 }
 @media screen and (max-width:375px){
-    .Driver-settings-display{
+    .driver-settings-display{
         top: 15%;
         width: 23rem;
     }
@@ -385,7 +385,7 @@
         left: 4%;
     }
 
-    #Driver-edit-form-active,  #drivers-delete-profile-form-active, .Driver-password-form-active{
+    #driver-edit-form-active,  #drivers-delete-profile-form-active, .driver-password-form-active{
         left: 0%;
     }
 }

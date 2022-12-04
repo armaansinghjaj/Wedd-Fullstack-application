@@ -27,7 +27,7 @@
 } */
 #ride-with{
     position: relative;
-    margin-top: -13%;
+    margin-top: 0%;
     font-size: 5rem;
     color: rgb(5, 5, 5);
     font-weight: 500;
@@ -67,14 +67,14 @@
     background-position: center;
 }
 
-.ride-bottom {
-  position: relative;
-  bottom: 27.5rem;
-  margin-top:-25%;
-  left: -3rem;
-  height: 19vh;
-  width: 86%;
-}
+  .ride-bottom {
+    position: relative;
+    bottom: 27.5rem;
+    margin-top:-25%;
+    left: -3rem;
+    height: 19vh;
+    width: 86%;
+  }
 
   #ride-contact {
     color: rgb(5, 5, 5);  
@@ -83,7 +83,7 @@
     font-size: 1.4rem;
   }
 
-input[id="ride-input"] {
+#ride-input {
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -129,53 +129,29 @@ input[id="ride-input"] {
   background-color: rgb(235 114 0 / 93%);
   border-radius: 0.5rem;
 }
-input[id="ride-input"]:focus{
+#ride-input:focus{
   border-bottom: 0.125rem solid rgb(235 114 0 / 93%);
   color: rgb(235 114 0 / 93%);
   transition: 0.2s ease;
 }
 
-input[id="ride-submit"] {
+#ride-submit {
   position: relative;
-  appearance: none;
-  margin: 0px;
-  overflow: visible;
-  font-variant: inherit;
-  font-stretch: inherit;
-  font-family: inherit;
-  font-weight: 600;
   color: rgb(255, 255, 255);
-  text-transform: none;
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  position: relative;
   background: rgb(235 114 0 / 93%);
-  vertical-align: middle;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-  line-height: 15px;
-  height: 48px;
-  min-width: 40px;
-  max-width: none;
   font-size: 16px;
-  text-decoration: none;
   text-align: center;
-  white-space: nowrap;
-  border-width: 2px;
   border-style: solid;
   border-color: transparent;
-  width: 100%;
-  top: 50%;
+  border-radius: 0.2rem;
 }
 
   #ride-submit:hover{
     cursor: pointer;
     background: rgb(212 103 0 / 93%);
   }
-
 
 .ride-location {
     position: relative;
@@ -218,17 +194,14 @@ input[id="ride-submit"] {
     height: 4rem;
     bottom: 4rem;
     left: 57%;
-    
 }
 
 .payment-right {
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 0ch;
- 
 }
 
 .car-left {
@@ -239,7 +212,6 @@ input[id="ride-submit"] {
   margin-top: 0ch;
   position: relative;
   margin-left: 8rem;
-
 }
 
 .car-left {
@@ -260,13 +232,7 @@ input[id="ride-submit"] {
 .car-checklist {
   position: relative;
   width: 3em;
-  margin-left: 2em;
-  /*
-   top:-90px;
-  bottom: 20px;
-  left: 20%;
-  margin-right: 10px; */
-  
+  margin-left: 2em;  
 }
 
 #payment-label {
@@ -300,7 +266,8 @@ input[id="ride-submit"] {
 
 .submit-btn-div{
   position: relative;
-  bottom: 50%;
+  top: 20%;
+  right: 1%;
 }
 
 #ride,#ride1,#ride3{
@@ -346,9 +313,6 @@ left: 0.5ch;
   right:5%
 }
 
-
-
-
 .payment-type {
    position: relative;
   margin-top: -18%;
@@ -391,7 +355,7 @@ input[id="ride-submit"] {
 
 }
 
-@media screen and (max-device-width:479px){
+@media screen and (max-device-width:467px){
   
   .ride-container {
     margin: 30% auto;
@@ -626,7 +590,7 @@ input[id="ride-input"] {
       backdrop-filter: blur(16px);
     }  */
 
-  .ride-conatiner-left r{
+  .ride-container-left {
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(16px);
   }

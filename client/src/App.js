@@ -104,6 +104,7 @@ const App = () => {
         <Route path='/customer' element={
           <Navigate replace to="/"/>
         }/>
+
       </Routes>
     </Router>
     </>

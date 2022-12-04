@@ -115,7 +115,8 @@ function LeafletMaps() {
 		document.getElementById("get_map").addEventListener("click", () => {
 			document.getElementById("map_div").style.visibility = "visible";
 			document.getElementById("info_div").style.visibility = "hidden";
-			document.getElementById("buttons").innerHTML = '<form method = "post"> <input type="submit" value="Confirm"> <input type="hidden" value="confirm" name="action"> </form> <br> <form action="ride"><input type="submit" value="Reset"></form>';
+			document.getElementById("buttons").innerHTML = '';
+			document.getElementById("confirm_container").innerHTML = '<input type="submit" value="Confirm">';
 		});
 	}
 	if (document.getElementById("map_state").value === "3") {

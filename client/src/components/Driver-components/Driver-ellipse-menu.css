@@ -1,13 +1,12 @@
 .ellipse-menu-container {
   position: relative;
-  /* display: inline-block; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   float: right;
-  min-width: 20vw;
+  min-width: 10vw;
   right: 0.5%;
-  min-height: 7vh;
+  min-height: 1vh;
   background-color: white;
   border-radius: 7px;
   margin-top: 0.5%;
@@ -19,7 +18,7 @@
   position: relative;
   display: inline-block;
   padding: 10px 15px;
-  min-width: 60%;
+  min-width: 65%;
   font-size: 25px;
   
 }
@@ -27,9 +26,9 @@
 .ellipse-menu {
   position: relative;
   margin-top: 16px;
-  width: 25%;
+  width: 10%;
   height: 109%;
-  margin-left: 20%;
+  margin-left: 10%;
   margin-right: 0%;
   
 }

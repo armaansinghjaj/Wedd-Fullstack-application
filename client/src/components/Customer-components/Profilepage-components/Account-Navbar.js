@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link, useLocation } from 'react-router-dom';
-import ProfilePage from "./ProfilePage";
+// import ProfilePage from "./ProfilePage";
 import './Account-Navbar.css';
 
 export default function AccountNavbar() {
@@ -16,8 +16,10 @@ export default function AccountNavbar() {
             <>
                 <div className='vertical-navbar'>
                     <div id='logo-wrapper'>
-                        <ProfilePage/>
+                        {/* <ProfilePage/> */}
+                        <Link id='vert-logo' to={'/account'}>WeDD</Link>
                     </div>
+                    
 
                     <ul className='link-wrapper'>
                         <li>
@@ -29,9 +31,9 @@ export default function AccountNavbar() {
                         <li>
                             <Link className={location.pathname === '/helpandsupport'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/helpandsupport'>Help and Support</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={location.pathname === '/faq'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/faq'>Frequently Asked Questions</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className='logout-wrapper'>
@@ -59,9 +61,9 @@ export default function AccountNavbar() {
                         <li>
                             <Link className={'h-nav-links'} to='/helpandsupport' onClick={closeMobileMenu}>Help and Support</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={'h-nav-links'} to='/faq' onClick={closeMobileMenu}>Frequently Asked Questions</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={'h-nav-links'} to='/Home' onClick={closeMobileMenu}>Log Out</Link>
                         </li>

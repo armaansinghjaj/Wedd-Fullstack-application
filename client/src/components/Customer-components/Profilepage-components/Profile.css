@@ -1,125 +1,53 @@
-.profile-container{
-   position: relative;
-   justify-content: center; 
-   margin-left: 10ch;
-  
-}
-#change-profile{
-    font-size: 3.5ch;
-}
-#change-profilei{
+#picture-container{
     position: relative;
-    font-size: 3.5ch;
-    top: 4.5ch;
-}
-#change-profilec{
-    position: relative;
-    font-size: 3.5ch;
-    top: 2ch;
-}
-#employee_name{
-    position: relative;
-    margin-left: 1.9ch;
-    top: 0.2ch;
-    width: 20%;
-  padding: 7px 15px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-#input{
-    margin-top: 2ch;
-}
-#inputemail{
-    position: relative;
-    /* margin-top: 0.2ch; */
-    
-}
-#employee_email{
-    position: relative;
-    /* bottom: 1ch; */
-    width: 20%;
-  padding: 7px 15px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-#submit{
-    position: relative;
-    top: 1rem;
-    left: 5rem;
-    padding: 8px 20px;
-    border-radius: 2px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    /* background-color: #2d15e2; */
+    background-color: grey;
+    margin-right: auto;
+    margin-left: auto;
+    height: 9rem;
+    width: 7.5rem;
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 1px;
 }
 
-#submit-profile{
+#show-profile-picture-form-button{
     position: relative;
-    top: 1rem;
-    left: 5.3rem;
-    padding: 8px 20px;
-    border-radius: 2px;
-    outline: none;
-    border: none;
+    padding: 2px;
+    border-style: none;
+    color: rgb(2, 2, 2);
+    background: rgb(255, 255, 255);
     cursor: pointer;
-    color: white;
-    background-color: #002d72;
+    top: 60%;
+    border-bottom-left-radius: 0.5rem;
+}
+.form-hidden{
+    display: none;
+}
+.form-visible{
+    position: fixed;
+    top: 105%;
+    right: 0%;
+    display: initial;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
 }
 
-#submit-pass{
-    position: relative;
-    top: 1rem;
-    left: 5rem;
-    padding: 8px 20px;
-    border-radius: 2px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color:white;
-    background-color: #002d72;
-    
+#profile-picture-ul{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0.5rem;
 }
 
- #submit-dlt{
-    position: relative;
-    top: 1rem;
-    left: 5.3rem;
-    padding: 8px 20px;
-    border-radius: 2px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background-color: #002d72;
-    margin-top: 2rem;
- }  
- 
- #submit-profile:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
- }
+@media screen and (max-width: 1600px){}
+@media screen and (max-width: 1366px){}
+@media screen and (max-width: 1280px){}
+@media screen and (max-width: 1080px){}
+@media screen and (max-width:767px){}
+@media screen and (max-width:414px){}
+@media screen and (max-width:390px){}
+@media screen and (max-width:375px){}
 
- #submit-pass:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
- }
- 
- #submit-dlt:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
- }
-#submit:hover{
-    transition: all 0.3s ease-out;
-    background: #ff7248;
-    color: #fff;
-    transition: 250ms;
-}
-.change{
-    position: relative;
-    top: 5ch;
-}
 

@@ -11,7 +11,7 @@
     background: white;
     border-radius: 1em;
     border: 1px solid rgba(91, 105, 135, 0.22);
-    border-radius: 24px;
+    border-radius: 1rem;
     box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;
     width: 40rem;
     height: 45.2rem;
@@ -26,16 +26,18 @@
     background-color: rgb(197, 197, 197);
     height: 34rem;
     width: 40rem;
-    border-bottom-left-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 #map_placeholder{
     position: relative;
     background-color: rgb(92, 92, 92);
-    height: 31.3rem;
-    width: 36rem;
-    margin: 1rem auto 1rem auto;
-    border-radius: 1.5rem;
+    height: 33.6rem;
+    width: 39.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin: .2rem 0.2rem 0.2rem 0.2rem;
+    border-radius: 1rem;
 }
 
 #map_hidden {
@@ -79,7 +81,6 @@
         height: 35.8rem;
     }
     .map {
-
         height: 25rem;
     }
     #map_placeholder{
@@ -92,6 +93,22 @@
         left: 12.5%;
     }
 }
+@media screen and (max-width:767px){
+    #dashboard-wrapper{
+        width: 31.2rem;
+        left: 16.7%;
+    }
+
+    .map {
+        height: 25rem;
+        width: 31rem;
+    }
+    #map_placeholder{
+        width: 30.5rem;
+        height: 22rem;
+    }
+}
+
 @media screen and (max-width: 414px){
     #dashboard-wrapper{
         top: 10%;
