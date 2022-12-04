@@ -28,9 +28,7 @@ router.get("/processing", (req, res) => {
 		if (err) throw err;
 		con.query(`SELECT * FROM temp_ride WHERE temp_ride_session = '${sess.temp_session_id}'`, function (err, result, fields) {
 			con.release();
-
 			if (err) return res.send("backend error");
-			console.log(result)
 			return res.send(result[0]);
 		});
 	});
@@ -41,7 +39,7 @@ router.post("/processing", (req, res) => {
 	if (req.body.name === "" || req.body.email === "" || req.body.phone === "" || req.body.pick === "" || req.body.dest === "" || req.body.pay_mode === "") {
 		return res.send("error");
 	} else {
-		temp_ride_session_id = crypto.randomBytes(8).toString("hex");
+		let temp_ride_session_id = crypto.randomBytes(8).toString("hex");
 
 		pool.getConnection((err, con) => {
 			if (err) throw err;
@@ -53,6 +51,37 @@ router.post("/processing", (req, res) => {
 
 				return res.send({
 					temp_session_id: temp_ride_session_id,
+				});
+			});
+		});
+	}
+});
+
+router.put("/searching", (req, res) => {
+	let sess = req.session;
+	if (req.body.customer_id === "" || req.body.name === "" || req.body.email === "" || req.body.phone === "" || req.body.pickup === "" || req.body.destination === "" || req.body.payment === "" || req.body.customer_id === undefined || req.body.name === undefined || req.body.email === undefined || req.body.phone === undefined || req.body.pickup === undefined || req.body.destination === undefined || req.body.payment === undefined) {
+		return res.send("error");
+	} else {
+		let request_id = crypto.randomBytes(8).toString("hex");
+
+		pool.getConnection((err, con) => {
+			if (err) throw err;
+			con.query(`INSERT INTO riderequests (request_id, customer_id, name, email, phone, pickup, destination, payment) VALUES ('${request_id}','${req.body.customer_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pickup}','${req.body.destination}','${req.body.payment}')`, function (err, result, fields) {
+				con.release();
+				pool.getConnection((err, con) => {
+					if (err) throw err;
+					con.query(`DELETE FROM temp_ride WHERE temp_ride_session = '${sess.temp_session_id}'`, function (err, result, fields) {
+						con.release();
+
+						if (err) return res.send("backend error");
+						sess.temp_session_id = null;
+					});
+				});
+				if (err) return console.log(err)
+				sess.searching_session_id = request_id;
+
+				return res.send({
+					searching_session_id: request_id,
 				});
 			});
 		});
