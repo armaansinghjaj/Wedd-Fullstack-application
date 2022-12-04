@@ -206,11 +206,16 @@ nav {
 
 }
 
-@media screen and (max-width:768px ) and (min-width: 480px) {
+@media screen and (max-width:767px ) {
   #navbar {
     width: 97%;
   }
-
+  .nav-menu.active{
+    right: 35%;
+    width: 99.9%;
+    border-radius: 1rem;
+    top: 4.2rem;
+  }
 }
 
 @media only screen and (max-width: 414px) {
@@ -284,7 +289,7 @@ nav {
     background: #242222;
     border-radius: 0.5em;
     height: 65vh;
-    width: 390px;
+    width: 391px;
     opacity: 1;
     transition: all 0.5s ease;
   }
@@ -314,7 +319,7 @@ nav {
 
   .nav-menu.active {
     height: 75vh;
-    width: 100vw;
+    width: 376px;
   }
 
   .nav-menu.active {
