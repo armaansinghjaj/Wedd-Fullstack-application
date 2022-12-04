@@ -127,17 +127,16 @@ function Rideform() {
 			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
 			<input type="hidden" id="userlat" />
 			<input type="hidden" id="userlng" />
-			<div className="master-container">
-				<figure>{/*<img src={taxiImg} className="ride-background-img" alt="ridebackground" />*/}</figure>
+
+				
 				<div className="parent-container">
-					<div className="ride-container-left child-container">
+					{/* Map div */}
+					<div className="ride-container-left">
 						<Maps />
 					</div>
 
-					<div className="ride-container-right child-container">
-						<div className="ride-background">
-							<div className="ride-container">
-								<form onSubmit={handleFormSubmit}>
+							<div className="ride-form-container">
+								<form id="ride-form" onSubmit={handleFormSubmit}>
 									<h1 id="ride-with">Ride With Us</h1>
 									<div className="ride-left">
 										<h2 id="ride-contact">Contact Information</h2>
@@ -151,65 +150,63 @@ function Rideform() {
 
 									<div className="ride-right">
 										<h2 className="ride-location">Location</h2>
-										<div className="pickup_container">
-											<input className="ride-Paddri" placeholder="Pick-up Location " id="picks" type="text" value={Pickup} onChange={handlePickupChange} />
+											<input className="ride-pickup-address" placeholder="Pick-up Location " id="ride-input" type="text" value={Pickup} onChange={handlePickupChange} />
 											<div className="suggestions"></div>
-										</div>
-										<input type="button" value="GPS" id="gps" onClick={gps} />
-										{PickupError && <div className="error-msg">{PickupError}</div>}
-										<input className="ride-Daddri" placeholder="Drop-off Location" id="dest" type="text" value={Dropoff} onChange={handleDropoffChange} />
-										{DropoffError && <div className="error-msg">{DropoffError}</div>}
+											{PickupError && <div className="error-msg">{PickupError}</div>}
+											<input className="ride-dropoff-address" placeholder="Drop-off Location" id="ride-input" type="text" value={Dropoff} onChange={handleDropoffChange} />
+											{DropoffError && <div className="error-msg">{DropoffError}</div>}
+											<br/>
+											<input type="button" value="GPS" id="gps" onClick={gps} />
 									</div>
 
 									<div className="ride-bottom">
+										
+										<div className="checklist-left">
 										<h2 className="payment-type">Payment Type:</h2>
-
-										<div className="payment-left">
 											<div id="ride-checklist">
+												<div id="checklist-item">
 												<input type="radio" name="r1" id="ride" className="ride-checklist" value="Cash" onChange={handlePaymentChange} />
 												<label id="payment-label" htmlFor="ride">
 													Cash
 												</label>
-											</div>
-
-											<div id="ride-checklist">
+												</div>
+												<div id="checklist-item">
 												<input type="radio" name="r1" id="ride1" className="ride-checklist" value="Credit" onChange={handlePaymentChange} />
 												<label id="payment-label" htmlFor="ride1">
 													Credit Card
 												</label>
-											</div>
-
-											<div id="ride-checklist">
-												<input type="radio" name="r1" id="ride3" className="ride-checklist" value="Debit" onChange={handlePaymentChange} />
-												<label id="payment-label" htmlFor="ride3">
+												</div>
+												<div id="checklist-item">
+												<input type="radio" name="r1" id="ride2" className="ride-checklist" value="Debit" onChange={handlePaymentChange} />
+												<label id="payment-label" htmlFor="ride2">
 													Debit card
 												</label>
+												</div>
 											</div>
 										</div>
 										<div>{PaymentError && <div className="paymenterror-msg">{PaymentError}</div>}</div>
 
-										<h2 className="car-type">Car Type:</h2>
-										<div className="car-left">
+										<div className="checklist-right">
+											<h2 className="car-type">Car Type:</h2>
 											<div id="car-checklist">
+												<div id="checklist-item">
 												<input type="radio" name="c1" id="car1" className="car-checklist" value="Manual" />
-												<label id="car-label" htmlFor="car">
+												<label id="car-label" htmlFor="car1">
 													Manual
 												</label>
-											</div>
-
-											<div id="car-checklist">
+												</div>
+												<div id="checklist-item">
 												<input type="radio" name="c1" id="car2" className="car-checklist" value="auto" />
-												<label id="car-label1" htmlFor="car1">
+												<label id="car-label1" htmlFor="car2">
 													Automatic
 												</label>
+												</div>
 											</div>
 										</div>
 
-										<div className="discount-code-div">
+										<div className="submit-div">
 											<input type="text" name="discount_code" id="discount_code" placeholder="Discount code" />
-										</div>
-
-										<div className="submit-btn-div">
+											<br/>
 											<input type="submit" id="ride-submit" value="Submit"></input>
 										</div>
 									</div>
@@ -220,14 +217,8 @@ function Rideform() {
 									<input type="hidden" id="action" name="action" value="request" />
 									<input type="hidden" value="1" id="map_state"></input>
 								</form>
-								{/* <div className="map-container">
-                <p>ide</p>
-                </div> */}
 							</div>
-						</div>
-					</div>
 				</div>
-			</div>
 		</>
 	);
 }

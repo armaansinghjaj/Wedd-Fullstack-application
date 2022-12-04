@@ -6,10 +6,9 @@
 
 #map {
 	position: relative;
-	top: 9rem;
 	min-height: 80vh;
 	min-width: 90%;
-	right: 5%;
+	left: 5%;
 	border-radius: 1rem;
 	border: 0.1rem solid grey;
 }

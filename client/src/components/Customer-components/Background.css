@@ -103,63 +103,11 @@ input[id='home-ride-input']{
   margin-bottom: -20px;
 }
 
-/* Login background */
-.login-container {
+/* ride page background */
+.ride-page-background{
   width: 100%;
-  margin-top: -2.3rem;
-  height: var(325vh);
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-
-.ride-container{
-  width: 100%;
-  margin-top: -2.3rem;
-  height: var(325vh);
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-
-/* signup background */
-
-.signup-container {
-  width: 100%;
-  margin-top: -2.3rem;
-  height: var(325vh);
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-
-
-/* About us background */
-.BackgroundAbout-container {
-  width: 100%;
-  margin-top: -2.3rem;
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-}
-/* Contact background */
-.Background-contact-container {
-  width: 100%;
-  margin-top: -2.3rem;
-  height: var(150vh);
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  height: 100%;
+  z-index: 1;
 }
 
 /* driver pages background */
@@ -274,6 +222,7 @@ input[id='home-ride-input']{
   height: 100vh;
   background-image: url("../../images/1550.jpg");
 }
+
 /* help and support background */
 .HelpAndSupport-container{
   position: fixed;
@@ -282,6 +231,7 @@ input[id='home-ride-input']{
   background-image: url("../../images/1550.jpg");
 }
 
+/* Ride complete container */
 .rideComplete-container {
   width: 100%;
   height: 120vh;
@@ -292,7 +242,7 @@ input[id='home-ride-input']{
   background-size: cover;
   z-index: 1;
 }
-
+/* Ride searching container */
 .rideSearching-container {
   width: 100%;
   height: 120vh;
@@ -303,7 +253,7 @@ input[id='home-ride-input']{
   background-size: cover;
   z-index: 1;
 }
-
+/* ride conecting container */
 .rideConnected-container {
   width: 100%;
   height: 120vh;
@@ -314,7 +264,7 @@ input[id='home-ride-input']{
   background-size: cover;
   z-index: 1;
 }
-
+/* ride confirmationcontainer */
 .rideConfirmation-container {
   width: 100%;
   height: 120vh;
