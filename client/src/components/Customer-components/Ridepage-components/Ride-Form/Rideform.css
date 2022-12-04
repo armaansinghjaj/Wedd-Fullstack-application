@@ -202,34 +202,68 @@
 }
 
 /* payment error divs */
+.error-msg{
+  color: red;
+}
 .paymenterror-msg {
   position: relative;
   color: red;
 }
 
-@media screen and (max-width:1600) {
+@media screen and (max-width:1600px) {
+  .parent-container {
+    margin-top: 6.8rem;
+  }
+}
+
+@media screen and (max-width:1366px) {
 
 }
 
-@media screen and (max-width:1366) {
+@media screen and (max-width:1280px) {
+
+}
+@media screen and (max-width:1024px) {
+  .parent-container {
+    margin-top: 6.8rem;
+  }
+  .ride-form-container{
+    width: 38rem;
+  }
+  .ride-left, .ride-right{
+    position: relative;
+    left: 19%;
+    height: 12rem;
+    float: none;
+  }
 
 }
 
-@media screen and (max-width:1280) {
-
+@media screen and (max-width:767px){
+  .ride-left, .ride-right{
+    left: 10%;
+  }
 }
-@media screen and (max-width:1024) {
 
-}
+@media screen and (max-device-width:414px){
+  .ride-container-left{
+    display: none;
+  }
 
-@media screen and (max-device-width:767px){
+  .ride-left, .ride-right{
+    left: 14%;
+  }
 
 }
 
 @media screen and (max-device-width:390px){
-
+  .ride-left, .ride-right{
+    left: 12%;
+  }
 }
 
 @media screen and (max-device-width: 375px){
-    
+  .ride-left, .ride-right{
+    left: 10%;
+  }
 }  

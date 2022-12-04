@@ -6,10 +6,13 @@ import RideForm from '../components/Customer-components/Ridepage-components/Ride
 
 export default function Ride() {
 	return (
+		<>
 		<div className='ride-page-background'>
 			<NavBar />
 			<RideForm/>
-			<Footer />
 		</div>
+		<Footer />
+		</>
+
 	);
 }

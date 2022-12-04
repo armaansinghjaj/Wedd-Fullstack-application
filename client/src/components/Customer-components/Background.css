@@ -106,7 +106,7 @@ input[id='home-ride-input']{
 /* ride page background */
 .ride-page-background{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 1;
 }
 
@@ -274,6 +274,12 @@ input[id='home-ride-input']{
   background-position: center;
   background-size: cover;
   z-index: 1;
+}
+
+@media only screen and (max-width: 1024px){
+  .ride-page-background{
+    height: 110vh;
+  }
 }
 
 @media only screen and (max-width: 767px){
