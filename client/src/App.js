@@ -28,7 +28,6 @@ import RideCompleted from './Pages/RideCompleted';
 import Admin from './Pages/Admin';
 import AdminEdit from './Pages/AdminEdit';
 import AdminNews from './Pages/AdminNews';
-import AdminRoles from './Pages/AdminRoles';
 import DriversEdit from './Pages/DriversEdit';
 import ContactRequests from './Pages/ContactRequests';
 import AdminRideRequests from './Pages/RideRequests';
@@ -75,8 +74,7 @@ const App = () => {
         {/* Admin Pages */}
         <Route path= '/admin'  element={<Admin/>}/> 
         <Route path= '/admin/adminlist'  element={<AdminEdit/>}/> 
-        <Route path= '/admin/news'  element={<AdminNews/>}/> 
-        <Route path= '/admin/roles'  element={<AdminRoles/>}/> 
+        <Route path= '/admin/news'  element={<AdminNews/>}/>
         <Route path= '/admin/driverlist'  element={<DriversEdit/>}/> 
         <Route path= '/admin/services' element={<ContactRequests/>}/>
         <Route path= '/admin/rides' element={<AdminRideRequests/>}/>

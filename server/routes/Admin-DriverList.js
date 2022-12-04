@@ -5,7 +5,6 @@ const EmployeeController = require("../src/controllers/EmployeeController");
 const generateUserID = require("../modules/GenerateUserID");
 
 router.get("/", (req, res) => {
-	loadDefaultValues(req);
 
 	let sess = req.session;
 
@@ -53,7 +52,7 @@ router.put("/:method/:id", (req, res)=>{
 			});
 
 		} else {
-			EmployeeController.update(req.params.id, req.body.edit_email, req.body.edit_name, 0, null, (error, result)=>{
+			EmployeeController.update(req.params.id, req.body.edit_email, req.body.edit_name, 0, null, req.body.flag, (error, result)=>{
 				if(error){
 					return res.status(error.status).send(error);
 				} else {
@@ -65,7 +64,7 @@ router.put("/:method/:id", (req, res)=>{
 
 	} else if(req.params.method === "post"){
 
-		if (req.body.new_name === undefined || req.body.new_email === undefined || req.body.new_password === undefined) {
+		if (req.body.new_name === undefined || req.body.new_email === undefined || req.body.new_password === undefined || req.body.new_name === "" || req.body.new_email === "" || req.body.new_password === "") {
 			
 			return res.status(202).send({
 				status: 202,

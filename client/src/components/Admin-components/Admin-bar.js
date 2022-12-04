@@ -31,9 +31,6 @@ import './Sidebar-Background-edit.css';
                     <Link className={location.pathname === '/admin/adminlist'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/adminlist'>Edit Admin list</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/admin/roles'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/roles'>Edit Employee Roles</Link>
-                </li>
-                <li>
                     <Link className={location.pathname === '/admin/news'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/news'>Edit News updates</Link>
                 </li>
                 <li>
@@ -69,9 +66,6 @@ import './Sidebar-Background-edit.css';
                 </li>
                 <li>
                     <Link className='h-nav-links' to='/admin/adminlist' onClick={closeMobileMenu}>Edit Admin list</Link>
-                </li>
-                <li>
-                    <Link className='h-nav-links' to='/admin/roles' onClick={closeMobileMenu}>Edit Employee Roles</Link>
                 </li>
                 <li>
                     <Link className='h-nav-links' to='/admin/news' onClick={closeMobileMenu}>Edit News updates</Link>

@@ -1,14 +1,13 @@
 -- wedddb is databse schema instead of wedddb
-
 DROP SCHEMA IF EXISTS `wedddb`;
-CREATE SCHEMA IF NOT EXISTS `wedddb` DEFAULT CHARACTER SET latin1;
-USE `wedddb`;
 
+CREATE SCHEMA IF NOT EXISTS `wedddb` DEFAULT CHARACTER SET latin1;
+
+USE `wedddb`;
 
 -- -----------------------------------------------------
 -- Table `wedddb`.`user_roles`
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS `wedddb`.`user_roles` (
   `role_id` INT(10) NOT NULL AUTO_INCREMENT,
   `role_title` VARCHAR(50) NOT NULL,
@@ -19,7 +18,6 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`user_roles` (
 -- Table `wedddb`.`customer_car`
 -- -----------------------------------------------------
 -- Deletes after every ride completion
-
 CREATE TABLE IF NOT EXISTS `wedddb`.`customer_car` (
   `customer_car_id` INT(10) NOT NULL AUTO_INCREMENT,
   `model_number` VARCHAR(50) NOT NULL,
@@ -30,13 +28,13 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`customer_car` (
   CONSTRAINT CHK_Type CHECK (car_type IN ('A', 'M')) -- Automatic or manual
 );
 
-
 -- -----------------------------------------------------
 -- Table `wedddb`.`customer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wedddb`.`customer` (
   `customer_id` VARCHAR(50) NOT NULL,
-  `customer_pp` VARCHAR(255), -- profile picture
+  `customer_pp` VARCHAR(255),
+  -- profile picture
   `email` VARCHAR(40) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
@@ -47,9 +45,7 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`customer` (
   `role` INT(2) NOT NULL DEFAULT 3,
   PRIMARY KEY (`customer_id`),
   INDEX `fk_c_role` (`role` ASC),
-  CONSTRAINT `fk_c_role`
-    FOREIGN KEY (`role`)
-    REFERENCES `wedddb`.`user_roles` (`role_id`)
+  CONSTRAINT `fk_c_role` FOREIGN KEY (`role`) REFERENCES `wedddb`.`user_roles` (`role_id`)
 );
 
 -- -----------------------------------------------------
@@ -65,11 +61,8 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`employee` (
   `role` INT(2) NOT NULL,
   PRIMARY KEY (`employee_id`),
   INDEX `fk_a_role` (`role` ASC),
-  CONSTRAINT `fk_a_role`
-    FOREIGN KEY (`role`)
-    REFERENCES `wedddb`.`user_roles` (`role_id`)
+  CONSTRAINT `fk_a_role` FOREIGN KEY (`role`) REFERENCES `wedddb`.`user_roles` (`role_id`)
 );
-
 
 -- -----------------------------------------------------
 -- Table `wedddb`.`driver_car`
@@ -88,60 +81,37 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`driver_car` (
 );
 
 -- -----------------------------------------------------
--- Table `wedddb`.`active_driver`
+-- Table `wedddb`.`available_driver`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wedddb`.`available_drivers` (
   `active_driver_session_id` VARCHAR(16) NOT NULL,
   `driver_1_id` VARCHAR(50) NOT NULL,
   `driver_2_id` VARCHAR(50),
   `car_id` INT(10) NOT NULL,
+  `driver_location` VARCHAR(50),
+  PRIMARY KEY (`active_driver_session_id`),
   INDEX `fk_driver_1_idx` (`driver_1_id` ASC),
-  CONSTRAINT `fk_driver_1_id`
-    FOREIGN KEY (`driver_1_id`)
-    REFERENCES `wedddb`.`employee` (`employee_id`),
+  CONSTRAINT `fk_driver_1_id` FOREIGN KEY (`driver_1_id`) REFERENCES `wedddb`.`employee` (`employee_id`),
   INDEX `fk_driver_2_idx` (`driver_2_id` ASC),
-  CONSTRAINT `fk_driver_2_id`
-    FOREIGN KEY (`driver_2_id`)
-    REFERENCES `wedddb`.`employee` (`employee_id`),
+  CONSTRAINT `fk_driver_2_id` FOREIGN KEY (`driver_2_id`) REFERENCES `wedddb`.`employee` (`employee_id`),
   INDEX `fk_d_car_idx` (`car_id` ASC),
-  CONSTRAINT `fk_d_car_id`
-    FOREIGN KEY (`car_id`)
-    REFERENCES `wedddb`.`driver_car` (`driver_car_id`)
+  CONSTRAINT `fk_d_car_id` FOREIGN KEY (`car_id`) REFERENCES `wedddb`.`driver_car` (`driver_car_id`)
 );
 
 -- -----------------------------------------------------
 -- Table `wedddb`.`current_rides`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wedddb`.`current_rides` (
-  `ride_allocated_session_id` VARCHAR(16) NOT NULL,
-  `ride_id` INT(10) NOT NULL AUTO_INCREMENT, -- driver 1 drives customer car
-  `driver_1_id` VARCHAR(50) NOT NULL, -- driver 1 drives customer car
-  `driver_2_id` VARCHAR(50), -- driver 2 drives customer car
-  `car_id` INT(10) NOT NULL,
+  `ride_id` VARCHAR(16) NOT NULL ,
+  `active_driver_session_id` VARCHAR(16) NOT NULL,
   `customer_id` VARCHAR(50) NOT NULL,
-  `pickup_location` VARCHAR(255) NOT NULL, -- latitude;longitude
-  `drop_location` VARCHAR(255) NOT NULL, -- latitude;longitude
-  `distance` DECIMAL(10,2) NOT NULL,
-  `est_time` INT(20) NOT NULL, -- speed from API to calculate time using distance
-  `est_cost` DECIMAL(10,2) NOT NULL,
-  `start_time` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `pickup_location` VARCHAR(255) NOT NULL,
+  `drop_location` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`ride_id`),
-  INDEX `fk_driver_1_id_idx` (`driver_1_id` ASC),
-  CONSTRAINT `fk_driver_1_cr_id`
-    FOREIGN KEY (`driver_1_id`)
-    REFERENCES `wedddb`.`employee` (`employee_id`),
-  INDEX `fk_driver_2_id_idx` (`driver_2_id` ASC),
-  CONSTRAINT `fk_driver_2_cr_id`
-    FOREIGN KEY (`driver_2_id`)
-    REFERENCES `wedddb`.`employee` (`employee_id`),
-  INDEX `fk_d_cr_car_idx` (`car_id` ASC),
-  CONSTRAINT `fk_d_cr_car_id`
-    FOREIGN KEY (`car_id`)
-    REFERENCES `wedddb`.`driver_car` (`driver_car_id`),
+  INDEX `fk_active_driver_session_idx` (`active_driver_session_id` ASC),
+  CONSTRAINT `fk_active_driver_session_id` FOREIGN KEY (`active_driver_session_id`) REFERENCES `wedddb`.`available_drivers` (`active_driver_session_id`),
   INDEX `fk_customer_idx` (`customer_id` ASC),
-  CONSTRAINT `fk_customer_id`
-    FOREIGN KEY (`customer_id`)
-    REFERENCES `wedddb`.`customer` (`customer_id`)
+  CONSTRAINT `fk_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `wedddb`.`customer` (`customer_id`)
 );
 
 -- -----------------------------------------------------
@@ -190,10 +160,11 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`requests` (
   `updates` TINYINT(1) NOT NULL,
   PRIMARY KEY (`request_id`),
   INDEX `fk_service_idx` (`service_id` ASC),
-  CONSTRAINT `fk_service_id`
-    FOREIGN KEY (`service_id`)
-    REFERENCES `wedddb`.`services` (`service_id`),
-  CONSTRAINT CHK_service_id CHECK (service_id >= 1 AND service_id <= 4),
+  CONSTRAINT `fk_service_id` FOREIGN KEY (`service_id`) REFERENCES `wedddb`.`services` (`service_id`),
+  CONSTRAINT CHK_service_id CHECK (
+    service_id >= 1
+    AND service_id <= 4
+  ),
   CONSTRAINT CHK_updates CHECK (updates IN ('0', '1'))
 );
 
@@ -201,7 +172,8 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`requests` (
 -- Table `wedddb`.`rideRequests`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wedddb`.`rideRequests` (
-  `request_id` INT(16) NOT NULL AUTO_INCREMENT,
+  `request_id` VARCHAR(16) NOT NULL,
+  `customer_id` VARCHAR(50) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `phone` VARCHAR(255) NOT NULL,
@@ -236,49 +208,149 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`temp_ride` (
   PRIMARY KEY (`temp_ride_session`)
 );
 
-INSERT INTO services (service_id, service_name)
-VALUES(1,"shuttle");
-INSERT INTO services (service_id, service_name)
-VALUES(2,"chauffeur");
-INSERT INTO services (service_id, service_name)
-VALUES(3,"drive");
-INSERT INTO services (service_id, service_name)
-VALUES(4,"own");
+INSERT INTO
+  services (service_id, service_name)
+VALUES
+(1, "shuttle");
 
-INSERT INTO user_roles (role_id, role_title)
-VALUES (0,'Administrator');
-INSERT INTO user_roles (role_id, role_title)
-VALUES (0,'Driver');
-INSERT INTO user_roles (role_id, role_title)
-VALUES (0,'Customer');
+INSERT INTO
+  services (service_id, service_name)
+VALUES
+(2, "chauffeur");
 
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(1,'admin1@gmail.com','Admin 1','password', 1);
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(2,'admin2@gmail.com','Admin 1','password', 1);
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(3,'admin3@gmail.com','Admin 1','password', 1);
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(4,'driver1@gmail.com','Driver 1','password', 2);
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(5,'driver2@gmail.com','Driver 1','password', 2);
-INSERT INTO employee (employee_id, email, name, password, role)
-VALUES(6,'driver3@gmail.com','Driver 1','password', 2);
+INSERT INTO
+  services (service_id, service_name)
+VALUES
+(3, "drive");
 
-INSERT INTO background
-VALUES ("image/homepage.jpg","image/aboutpage.jpg","image/contactpage.jpg","image/newspage.png");
+INSERT INTO
+  services (service_id, service_name)
+VALUES
+(4, "own");
 
-INSERT INTO customer (customer_id, email, name, password)
-VALUES(1,'armaan@gmail.com','armaan singh','password');
-INSERT INTO customer (customer_id, email, name, password)
-VALUES(2,'prince@gmail.com','prince agam','password');
-INSERT INTO customer (customer_id, email, name, password)
-VALUES(3,'daniel@gmail.com','daniel wong','password');
+INSERT INTO
+  user_roles (role_id, role_title)
+VALUES
+  (0, 'Administrator');
 
-INSERT INTO driver_car (driver_car_id, manufacturer, model, model_number, year, color, car_type, licence_plate)
-VALUES(NULL,'Honda', 'Civic', 'hcx-186bh', 2016, 'Pale yellow', 'A', 'CAR-2016');
+INSERT INTO user_roles (role_id, role_title) VALUES (0, 'Driver');
 
-INSERT INTO rideRequests VALUES (1, 'First', '1@gmail.com', 1111111111, '1233', '12333', 'CASH');
-INSERT INTO rideRequests VALUES (2, 'Second', '2@gmail.com', 1111111111, '1233', '12333', 'DEBIT');
+INSERT INTO
+  user_roles (role_id, role_title)
+VALUES
+  (0, 'Customer');
 
-INSERT INTO news (start_date, end_date, headline, message, color) VALUES ('2022-11-23T21:49', '2022-12-23T21:49', 'This is a test headline', 'This is a test message.This is a test message.This is a test message.', '#fff')
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(1, 'admin1@gmail.com', 'Admin 1', 'password', 1);
+
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(2, 'admin2@gmail.com', 'Admin 1', 'password', 1);
+
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(3, 'admin3@gmail.com', 'Admin 1', 'password', 1);
+
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(4, 'driver1@gmail.com', 'Driver 1', 'password', 2);
+
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(5, 'driver2@gmail.com', 'Driver 1', 'password', 2);
+
+INSERT INTO
+  employee (employee_id, email, name, password, role)
+VALUES
+(6, 'driver3@gmail.com', 'Driver 1', 'password', 2);
+
+INSERT INTO
+  background
+VALUES
+  (
+    "image/homepage.jpg",
+    "image/aboutpage.jpg",
+    "image/contactpage.jpg",
+    "image/newspage.png"
+  );
+
+INSERT INTO
+  customer (customer_id, email, name, password)
+VALUES
+(1, 'armaan@gmail.com', 'armaan singh', 'password');
+
+INSERT INTO
+  customer (customer_id, email, name, password)
+VALUES
+(2, 'prince@gmail.com', 'prince agam', 'password');
+
+INSERT INTO
+  customer (customer_id, email, name, password)
+VALUES
+(3, 'daniel@gmail.com', 'daniel wong', 'password');
+
+INSERT INTO
+  driver_car (
+    driver_car_id,
+    manufacturer,
+    model,
+    model_number,
+    year,
+    color,
+    car_type,
+    licence_plate
+  )
+VALUES
+(
+    NULL,
+    'Honda',
+    'Civic',
+    'hcx-186bh',
+    2016,
+    'Pale yellow',
+    'A',
+    'CAR-2016'
+  );
+
+INSERT INTO
+  rideRequests
+VALUES
+  (
+    0,1,
+    'First',
+    '1@gmail.com',
+    1111111111,
+    '1233',
+    '12333',
+    'CASH'
+  );
+
+INSERT INTO
+  rideRequests
+VALUES
+  (
+    1,2,
+    'Second',
+    '2@gmail.com',
+    1111111111,
+    '1233',
+    '12333',
+    'DEBIT'
+  );
+
+INSERT INTO
+  news (start_date, end_date, headline, message, color)
+VALUES
+  (
+    '2022-11-23T21:49',
+    '2022-12-23T21:49',
+    'This is a test headline',
+    'This is a test message.This is a test message.This is a test message.',
+    '#fff'
+  )

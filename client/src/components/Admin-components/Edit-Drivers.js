@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import Loader from '../Common-components/Loader';
 import Nametag from '../Common-components/Nametag';
+import Cookies from 'universal-cookie';
 import './Edit-Drivers.css';
 
 export default function AdminDriversEdit() {
+
+    //VVVV----------------------------INSTANTIATE------------------------------------------VVVV//
+    const cookie = new Cookies();
 
     //VVVV----------------------------STATES------------------------------------------VVVV//
 
@@ -44,7 +48,7 @@ export default function AdminDriversEdit() {
         setDeleteDriverId(e.target.value);
     }
 
-    //VVVV----------------------------FORM HANLERS------------------------------------------VVVV//
+    //VVVV----------------------------FORM HANLERS AND FETCH------------------------------------------VVVV//
 
     const [drivers, setDrivers] = useState([]);
     const [driverDetails, setDriverDetails] = useState([]);
@@ -97,8 +101,10 @@ export default function AdminDriversEdit() {
         else{
             const editDriver_data = {
                 edit_email: editEmail,
-                edit_name: editName
+                edit_name: editName,
+                flag: Number(cookie.get("_eemail") === editEmail)
             }
+            console.log(editDriver_data.flag);
             fetch(`/api/admin/driverlist/put/${editDriverId}`, {
                 credentials: 'same-origin',
                 mode: 'cors',
@@ -180,7 +186,7 @@ export default function AdminDriversEdit() {
 
     const getDataById = (id, flag) => {
         setLoader(true);
-        console.log(id);
+        
         fetch(`/api/admin/driverlist/${id}`, {
             credentials: 'same-origin',
             mode: 'cors',
@@ -193,8 +199,8 @@ export default function AdminDriversEdit() {
         .then(driverData => {
             switch(flag){
                 case 0: {
+                    cookie.set("_eemail", driverData.email, { path: '/admin/driverlist', maxAge: '3600', secure: false, sameSite: 'strict'});
                     setEditEmail(driverData.email)
-                    setEditName(driverData.name)
                     setEditName(driverData.name)
                     setEditDriverId(driverData._id);
                     setLoader(false);
@@ -347,12 +353,12 @@ export default function AdminDriversEdit() {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>Name</td>
-                                    <td><input type="text" name="new_name" onChange={handleNewNameInput} value={newName}/></td>
-                                </tr>
-                                <tr>
                                     <td>E-mail</td>
                                     <td><input type="email" name="new_email" onChange={handleNewEmailInput} value={newEmail}/></td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td><input type="text" name="new_name" onChange={handleNewNameInput} value={newName}/></td>
                                 </tr>
                                 <tr>
                                     <td>Password</td>
