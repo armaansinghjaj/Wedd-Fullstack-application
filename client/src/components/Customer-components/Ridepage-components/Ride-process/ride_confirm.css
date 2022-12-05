@@ -91,10 +91,10 @@
 @media only screen and (max-device-width: 390px){
 
     #my-ride{
-        width: 100vw;
+        width: 88vw;
         height: 50vh;
-        bottom: 30rem;
-        margin-left: 0rem;
+        bottom: 40rem;
+        margin-left: 1.5rem;
     }
     #details{
         font-size: 1.2rem;

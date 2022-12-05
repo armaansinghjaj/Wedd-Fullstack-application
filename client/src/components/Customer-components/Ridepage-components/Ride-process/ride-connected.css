@@ -35,4 +35,21 @@
     position: relative;
     top: 20%;
 }
+@media only screen and (max-device-width: 390px){
+    #connected-container{
+     width: 0vw;
+     height: 0vh;
 
+    }
+ #mapp{
+       display: none;
+    }
+    #wait-container{
+      position: relative;
+      margin-top: 5rem;
+      width: 80vw;
+      height: 35vh;
+      margin-left: 1.4rem;
+        
+    }
+}

@@ -31,3 +31,13 @@
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 
 }
+@media only screen and (max-device-width: 390px){
+   
+#ride-complete-container{
+ position: relative;
+ width:88vw;
+ left: 1.5rem;
+ 
+
+    }
+}
