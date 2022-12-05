@@ -20,7 +20,7 @@ const imageAboutPage = 'About us image file';
                                     <form action="/background?page=about" method="POST" enctype="multipart/form-data">
                                         <input type="file" id="file-typ" accept="image/x-png,image/gif,image/jpeg,image/jpg"   name="image"/>
                                         <input type="hidden" name="action" value="for_about"/>
-                                        <input type="submit" id="add-me"/>
+                                        <input type="submit" id="hit-me"/>
                                     </form>
                                 </td>
                             </tr>

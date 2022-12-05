@@ -19,7 +19,7 @@ export default function BackgroundHome() {
                         <tr>
                             <td>
                                 <form action="/background?page=home" method="POST" enctype="multipart/form-data">
-                                    <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg"  id="browse" name="image"/>
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg"  id="file-typ" name="image"/>
                                     <input type="hidden" name="action" value="for_home"/>
                                     <input id="hit-me" type="submit" />
                                 </form>
