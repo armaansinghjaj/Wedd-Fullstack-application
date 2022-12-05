@@ -73,9 +73,6 @@ function LeafletMaps() {
 							let minutes = Math.round((summary.totalTime % 3600) / 60);
 							let price = 28 + distance * 1.25 + minutes * 0.8;
 							document.getElementById("estimate").innerHTML = "Estimate: " + price + "$ (This is just an estimate the price may change)";
-							// e.waypoints[0].dragging.disable();
-							// e.waypoints[1].dragging.disable();
-							console.log(e);
 						});
 				}
 			});
