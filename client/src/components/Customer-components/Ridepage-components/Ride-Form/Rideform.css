@@ -252,6 +252,10 @@
     left: 14%;
   }
 
+  #gps{
+display: none;
+  }
+
 }
 
 @media screen and (max-device-width:390px){
