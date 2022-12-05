@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import ProfilePage from "../Customer-components/Profilepage-components/ProfilePage";
 import '../Customer-components/Profilepage-components/Profile.css';
 import './Driver-ellipse-menu.css'
@@ -79,7 +80,8 @@ export default function DProfile() {
                     {/* <div className='menu-list-item'>Dashboard</div>
                     <div className='menu-list-item-divider'></div> */}
 
-                    <div className='menu-list-item'>Start Shift</div>
+                    <Link to={"/driver"} className='menu-list-item item-start-shift'>Start Shift</Link>
+
                     <div className='menu-list-item-divider'></div>
                     
                     <div className='menu-list-item item-delete-account' onClick={remove}>Delete Account</div>

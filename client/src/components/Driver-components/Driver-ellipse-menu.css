@@ -49,7 +49,7 @@
   /* margin-right: 16px; */
   z-index: 2;
 }
-.menu-wrapper {
+.menu-wrapper, .item-start-shift {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@
   transition: 0.2s;
 }
 
-.menu-wrapper .menu-list .menu-list-item:hover {
+.menu-wrapper .menu-list .menu-list-item:hover{
   background-color: white;
   color: black;
   cursor: pointer;

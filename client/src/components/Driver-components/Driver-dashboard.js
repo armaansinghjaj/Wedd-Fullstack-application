@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import "./Driver-dashboard.css";
 import Map from "./maps/driver_maps";
 
 export default function Requests() {
+
+	// PLACEHOLDERS FOR ADDRESS
 	const pickupAddress = "Pickup Address";
 	const dropoffAddress = "Dropoff Address";
-
+	// FETCH API FOR BACKEND 
 	const [Loader, setLoader] = useState(false);
 	const [data, setData] = useState({name: "", email: "", phone: "", pickup: "", destination: ""});
 	useEffect(() => {
