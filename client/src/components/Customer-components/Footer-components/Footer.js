@@ -13,16 +13,19 @@ function Footer() {
   return (
     <div className='footer-container'>
       <div className='footer-links'>
+        {/* PAGE LINKS */}
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>About</h2>
             <Link id='footer-about-links' to='/About' onClick={ScrollToTop}>How it works</Link>
-            <Link id='footer-about-links' to='/Contact' onClick={ScrollToTop} >Contact</Link>
+            <Link id='footer-about-links' to='/Services' onClick={ScrollToTop} >Contact</Link>
             <Link id='footer-about-links' to='/Ride' onClick={ScrollToTop} >Ride with us</Link>
             <Link id='footer-about-links' to='/Login' onClick={ScrollToTop} >Login</Link>
             <Link id='footer-about-links' to='/Signup' onClick={ScrollToTop} >Sign up</Link>
           </div>
         </div>
+
+        {/* SOCIAL MEDIA LINKS */}
         <div  className='footer-link-wrapper'>
           <div id='social-media-links'  className='footer-link-items'>
             <h2>Social Media</h2>
@@ -49,6 +52,8 @@ function Footer() {
             </Link>
           </div>
           <small className='website-rights'>WeDD © 2022</small>
+
+          {/* SOCIAL MEDIA ICONS */}
           <div className='social-icons'>
             <a
               className='social-icon-link facebook'
