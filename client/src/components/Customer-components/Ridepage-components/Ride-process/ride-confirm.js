@@ -3,6 +3,7 @@ import Maps from "../Map/maps";
 import Loading from "./Loader";
 import Cookie from "universal-cookie";
 import {Navigate} from "react-router-dom";
+import './ride_confirm.css'
 
 export default function RideConfirm() {
 	const cookie = new Cookie();
@@ -85,8 +86,9 @@ export default function RideConfirm() {
 				<Maps />
 				<div id="estimate"></div>
 			</div>
+			<div id="my-ride">
 			<div id="info_div">
-				Please check these details
+				<p id="add-details">Please check these details</p>
 				<br />
 				<div id="details">
 					<p>Name: Vaibhav Kumar</p>
@@ -101,8 +103,9 @@ export default function RideConfirm() {
 				<input type="submit" value="Confirm" />
 			</form>
 			<form>
-				<input type="submit" value="Reset" />
+				<input id="reset-btn" type="submit" value="Reset" />
 			</form>
+			</div>
 		</>
 	);
 }

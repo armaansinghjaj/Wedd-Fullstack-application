@@ -25,11 +25,11 @@ export default function AdminNews() {
                             </tr>
                             <tr>
                                 <td>Headline</td>
-                                <td><input type="text" name="headline" /></td>
+                                <td><input type="text" id="t1" name="headline" /></td>
                             </tr>
                             <tr>
                                 <td>Message</td>
-                                <td><input type="text" name="message" /></td>
+                                <td><input type="text" id="t1"  name="message" /></td>
                             </tr>
                             <tr>
                                 <td>Color</td>

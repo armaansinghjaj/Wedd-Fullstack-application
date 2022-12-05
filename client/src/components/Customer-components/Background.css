@@ -112,8 +112,7 @@ input[id='home-ride-input']{
 
 /* driver pages background */
 #driver-home-background{
-  position: fixed;
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   background-image: url("../../images/driver-background.jpg");
   z-index: 1;
@@ -128,7 +127,6 @@ input[id='home-ride-input']{
 
 /* Admin Edit background */
 .AdminEdit-container {
-  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
@@ -136,30 +134,26 @@ input[id='home-ride-input']{
 
 /* Admin Roles background */
 .AdminRoles-container {
-  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
 }
 /* Admin News background */
 .AdminNews-container {
-  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
 }
 
 /* Admin Drivers edit background */
-#driver-edit-background{
-  position: fixed;
+#driver-edit-background {
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
 }
 
 /* Admin ride requests container */
-.ride-request-container{
-  position: fixed;
+.ride-request-container {
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
@@ -167,7 +161,6 @@ input[id='home-ride-input']{
 
 /* Admin contact requests container */
 .contactRequest-container {
-  position: fixed;
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
@@ -181,21 +174,21 @@ input[id='home-ride-input']{
 
 /* Admin Bg-about background */
 .bgabout-container{
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
 }
 /* Admin Bg-home background */
 .bghome-container {
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
 }
 /* Admin Bg-contact background */
 .bgcontact-container {
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/25100.jpg");
@@ -203,7 +196,7 @@ input[id='home-ride-input']{
 
 /* Account page background */
 .Account-container{
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/1550.jpg");
@@ -211,7 +204,7 @@ input[id='home-ride-input']{
 
 /* trip history background */
 .TripHistory-container{
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/1550.jpg");
@@ -219,7 +212,7 @@ input[id='home-ride-input']{
 
 /* Faq background */
 .Faq-container{
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/1550.jpg");
@@ -227,7 +220,7 @@ input[id='home-ride-input']{
 
 /* help and support background */
 .HelpAndSupport-container{
-  position: fixed;
+  
   width: 100%;
   height: 100vh;
   background-image: url("../../images/1550.jpg");

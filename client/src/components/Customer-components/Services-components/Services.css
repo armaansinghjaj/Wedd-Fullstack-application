@@ -12,10 +12,10 @@
 
 #font-formats  {
     position: relative;
-    
     color: orangered;
     font-weight: 400;
     font-size: 30px;
+    top: -1.2rem;
 }
 #font-formatc {
     color: orangered;
@@ -85,7 +85,7 @@
 }
 
 #service-info {
-    font-size: 2rem;
+    font-size: 4rem;
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
