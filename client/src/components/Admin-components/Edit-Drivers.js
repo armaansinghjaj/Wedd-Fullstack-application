@@ -381,7 +381,7 @@ export default function AdminDriversEdit() {
 
         {/*Display Drivers List */}
         <div className='DriversEdit-container'>
-        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Daniel Wong"}/>
+        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={cookie.get("c_user")}/>
         <div id='Driver-table-container'>
             <h1 id='Driver-edit-h1'>Edit Drivers</h1>
                 <table className='edit-driver-table' >
