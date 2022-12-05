@@ -12,21 +12,22 @@
     text-align: center;
     position: relative;
     top: 30%;
+    font-size: 1.5rem;
 }
 
 
 #complete-link > button{
-    border-radius: 2em;
+    border-radius: 1.2rem;
     border-style: none;
-    width: 4rem;
+    width: 5rem;
     height: 2rem;
     color: white;
-    background-color: #16a085;
+    background-color: #dc792d;
 
 }
 
 #complete-link > button:hover{
-    background-color: #50c4ac;
+    background-color: #f08d2a;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
 
 }

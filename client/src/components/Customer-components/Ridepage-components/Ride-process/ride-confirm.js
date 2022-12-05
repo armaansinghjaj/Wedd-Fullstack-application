@@ -100,7 +100,7 @@ export default function RideConfirm() {
 				</div>
 			</div>
 			<form onSubmit={handleConfirmRideForm}>
-				<input type="submit" value="Confirm" />
+				<input type="submit" id="get_map" value="Confirm" />
 			</form>
 			<form>
 				<input id="reset-btn" type="submit" value="Reset" />

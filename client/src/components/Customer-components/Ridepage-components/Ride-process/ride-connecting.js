@@ -26,12 +26,12 @@ export default function RideConnecting() {
 		cookie.set("ride_session", "ride_session", {path: "/ride", secure: false, sameSite: "strict"});
 		cookie.remove("searching_session_id");
 		<Navigate to="/ride/connected" replace={true} />;
-		window.location.reload();
+		// window.location.reload();
 	}, []);
 
 	return (
 		<>
-			{cookie.get("ride_session") && <Navigate to="/ride/connected" replace={true} />}
+			{/* {cookie.get("ride_session") && <Navigate to="/ride/connected" replace={true} />} */}
 			{/* {cookie.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
 			{!cookie.get("searching_session_id") && <Navigate to="/ride" replace={true} />} */}
 
