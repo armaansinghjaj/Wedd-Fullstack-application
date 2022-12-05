@@ -11,8 +11,8 @@
     position: fixed;
     text-align: center;
     top: 22%;
-    left: 22%;
-    width: 80%;
+    left: 32%;
+    width: 50%;
 }
 #trip-history-h2{
     position: relative;
@@ -28,6 +28,15 @@
     position: relative;
     left: 5%;
     border: solid;
+}
+#trip_btn{
+   margin:2px;
+    width: 3rem;
+    background-color: rgb(235 114 0 / 93%);
+    color: white;
+    border-radius: 0.3rem;
+    height: 1.5rem;
+    border: none;
 }
 
 @media screen and (max-width:1600px){
