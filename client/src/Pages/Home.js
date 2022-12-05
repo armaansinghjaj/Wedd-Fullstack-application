@@ -11,7 +11,7 @@ function Home() {
     return(
         <>
         <NavBar/>
-        <Updates/>
+        {/* <Updates/> */}
         <BackgroundHome />
         <Cards />
         <Footer />

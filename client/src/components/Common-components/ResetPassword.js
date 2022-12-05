@@ -89,16 +89,16 @@ const ResetPassword = () => {
 														</td>
 													</tr>
 												</tbody>
+												<tbody className="loginLinkBox">
+													<tr>
+														<td>
+															<Link className="loginLink" to="/" replace>
+																Home
+															</Link>
+														</td>
+													</tr>
+												</tbody>
 											</table>
-										</td>
-									</tr>
-								</tbody>
-								<tbody className="loginLinkBox">
-									<tr>
-										<td>
-											<Link className="loginLink" to="/" replace>
-												Home
-											</Link>
 										</td>
 									</tr>
 								</tbody>

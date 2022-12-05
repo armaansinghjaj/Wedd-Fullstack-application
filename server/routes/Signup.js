@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 	if (sess.access) {
 		return res.status(200).send({
 			redirect: "/profile"
-		}).redirect("/api/profile");
+		});
 	} else {
 		return res.render("signup", {year: new Date().getFullYear(), title: "Signup"});
 		

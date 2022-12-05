@@ -34,10 +34,6 @@ module.exports = class Employee {
         return this._resetPassworduuid;
     }
 
-    getRegisterAccountUUID(newUUID){
-        return this._registerAccountuuid;
-    }
-
     // setters
     setEmail(newEmail){
         try{
@@ -69,15 +65,6 @@ module.exports = class Employee {
     setResetPasswordUUID(newUUID){
         try{
             this._resetPassworduuid = newUUID;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setRegisterAccountUUID(newUUID){
-        try{
-            this._registerAccountuuid = newUUID;
             return true;
         } catch(err){
             return false;

@@ -5,14 +5,13 @@
 .signup-parent-container {
 	position: relative;
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
 	background-image: url("../../images/Signup-background.png");
 	background-position: center center;
-	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-top: 20vh;
-	padding-bottom: 5vh;
+	padding-top: 17vh;
+	/* padding-bottom: 15vh; */
 }
 
 .signup-container-form {
@@ -20,15 +19,15 @@
 	flex-direction: column;
 	position: relative;
 	background: white;
-	min-width: 33vw;
+	min-width: 33.3%;
 	/* height: 60vh; */
-	margin-left: 33vw;
-	margin-right: 33vw;
+	margin-left: 33.3%;
+	margin-right: 33.3%;
 	border: 1px solid rgba(91, 105, 135, 0.22);
-	border-radius: 24px;
+	border-radius: 16px;
 	box-shadow: rgb(11 43 158 / 15%) 0px 6px 20px -6px;
 	z-index: 1;
-	min-height: 71vh;
+	min-height: 65vh;
 	overflow: hidden;
 }
 
@@ -153,7 +152,10 @@
 		padding-top: 1vh;
 	}
 	.signup-container-form {
+		position: relative;
 		width: 90vw;
+		margin-left: auto;
+		margin-right: auto;
 		margin-top: 15vh;
 		margin-bottom: 10vh;
 	}

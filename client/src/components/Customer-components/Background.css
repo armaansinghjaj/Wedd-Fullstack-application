@@ -5,9 +5,9 @@
 /* default background container */
 .Background-container {
   width: 100vw;
-  margin-top: -2.3rem;
+  /* margin-top: -2.3rem; */
   height: var(--first-component);
-  background-image: url("../../images/pexels-chait-goli-2224789.jpg");
+  background-image: url("../../images/Home.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
