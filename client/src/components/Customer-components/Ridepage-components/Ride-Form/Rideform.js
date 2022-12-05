@@ -74,7 +74,7 @@ function Rideform() {
 		let pickuplocation = Pickup;
 		
 		let geocoder = G.geocoders.nominatim();
-		geocoder.geocode(document.getElementById("hidden_pickup").value, (results) => {
+		geocoder.geocode(Pickup, (results) => {
 			var pickupResult = results[0];
 			setPickuplat(pickupResult.center.lat);
 			setPickuplat(pickupResult.center.lng);
@@ -85,34 +85,43 @@ function Rideform() {
 		e.preventDefault();
 
 		//checking if Name is empty
-		if (Name !== "" ? "" : setNameError("Name required"));
+		// if (Name !== "" ? "" : setNameError("Name required"));
+		// setName("Vaibhav Kumar");
 
-		//checking if Email is empty
-		if (Email !== "" ? "" : setEmailError("Email required"));
+		// //checking if Email is empty
+		// // if (Email !== "" ? "" : setEmailError("Email required"));
+		// setEmail("Vaibhavkumar8001@gmail.com");
 
-		//checking if Phone is empty
-		if (Phone !== "" ? "" : setPhoneError("Phone number required"));
+		// //checking if Phone is empty
+		// // if (Phone !== "" ? "" : setPhoneError("Phone number required"));
+		// setPhone("4446664848");
 
-		//checking if Pickup is empty
-		if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
+		// //checking if Pickup is empty
+		// // if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
+		// setPickup("Southern Alberta Institute of Technology");
 
-		//checking if Dropoff is empty
-		if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
+		// //checking if Dropoff is empty
+		// // if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
+		// setDropoff("Castlebrook Way NE");
 
-		// checking discount code
+		// // checking discount code
 
-		//checking if Payment type is empty
-		// if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
-		pickupCoordinates();
+		// //checking if Payment type is empty
+		// // if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
+		// setPayment("Credit Card");
+
+		// pickupCoordinates();
+		setPickuplat(51.06311085)
+		setPickuplng(-114.08791516800315)
 		const rideform_data = {
-			name: Name,
-			email: Email,
-			phone: Phone,
-			pick: Pickup,
-			dest: Dropoff,
-			pay_mode: Payment,
-			picklat:Pickuplat,
-			picklng:Pickuplng
+			name: "Vaibhav Kumar",
+			email: "Vaibhavaneja805@gmail.com",
+			phone: "4446664848",
+			pick: "Southern Alberta Institute of Technology",
+			dest: "Castlebrook Way NE",
+			pay_mode: "Credit card",
+			picklat:51.06311085,
+			picklng:-114.08791516800315
 		};
 		fetch("/api/ride/processing", {
 			credentials: "same-origin",

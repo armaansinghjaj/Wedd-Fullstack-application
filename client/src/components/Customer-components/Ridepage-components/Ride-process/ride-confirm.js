@@ -22,6 +22,14 @@ export default function RideConfirm() {
 			.finally(() => {
 				setLoader(false);
 			});
+			// setData({
+			// 	name: "Vaibhav Kumar",
+			// 	email: "Vaibhavkumar8001@gmail.com",
+			// 	phone: "4446664848",
+			// 	pickup: "Southern Alberta Institute of Technology",
+			// 	destination: "Castlebrook Way NE",
+			// 	payment: "Credit Card"
+			// })
 	}, []);
 
 	const handleConfirmRideForm = (e) => {
