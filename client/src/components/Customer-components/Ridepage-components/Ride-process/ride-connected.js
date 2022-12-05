@@ -43,7 +43,7 @@ export default function RideConnected() {
 			<input type="hidden" value={data.destination} name="hidden_destination" id="hidden_destination" />
 			<input type="hidden" value="3" id="map_state" />
 			<div id="connected-container">
-				<Map />
+				<div id="mapp" ><Map /></div>
 
 				<div id="wait-container">
 					<h1 id="wait-h1">Ride connected!</h1>
