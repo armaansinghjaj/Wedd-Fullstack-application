@@ -1,5 +1,11 @@
 .dropdown-box{
-    /* CODE HERE */
+    position: absolute;
+    padding-top: 1.6rem;
+}
+
+.navbar-user-link a{
+    text-decoration: none;
+    color: black;
 }
 
 .dropdown-list{
@@ -10,6 +16,7 @@
     background-color: white;
     text-align: center;
     padding: 14px 16px;
+    border-radius: 6px;
 }
 
 .dropdown-list-item{

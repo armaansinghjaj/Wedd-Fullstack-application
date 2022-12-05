@@ -8,6 +8,7 @@ function Cards () {
 
     return (
         <div className='cards'>
+            <p id="cards-p-main">We are Designated Drivers</p>
             <p id="cards-p-main">We know transportation. 400+ communities depend on us for it.</p>
                 <div className='cards__container'>
                     <div className='cards__wrapper'>

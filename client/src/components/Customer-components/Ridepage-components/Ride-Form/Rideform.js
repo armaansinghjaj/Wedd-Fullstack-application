@@ -214,8 +214,6 @@ function Rideform() {
 										</div>
 
 										<div className="submit-div">
-											<input type="text" name="discount_code" id="discount_code" placeholder="Discount code" />
-											<br/>
 											<input type="submit" id="ride-submit" value="Submit"></input>
 										</div>
 									</div>

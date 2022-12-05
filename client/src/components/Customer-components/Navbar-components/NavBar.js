@@ -10,6 +10,9 @@ function NavBar() {
 	const [click, setClick] = useState(false);
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
+
+    const [openProfileMenu, setOpenProfileMenu] = useState(false);
+
 	// Header visibility variables
 	const [position, setPosition] = useState(window.pageYOffset);
 	const [visible, setVisible] = useState(true);
@@ -21,6 +24,10 @@ function NavBar() {
 	const ScrollToTop = () => {
 		window.scrollTo({top: 0, left: 0, behavior: "smooth"});
 	};
+
+    const handleProfileClick = ()=>{
+        setOpenProfileMenu(!openProfileMenu);
+    }
 
 	const [button, setButton] = useState(true);
 
@@ -101,8 +108,8 @@ function NavBar() {
                     </ul>
                     <div className="navbar-profile-menu">
                         {((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-user-link">
-                            <Link to={{javascript:void(0)}}>{cookies.get('c_user').charAt(0).toUpperCase() + cookies.get('c_user').slice(1)} <i className='fas fa-angle-down'></i><i className='fas fa-angle-up'></i></Link>
-                            <Dropdown/>
+                            <Link onClick={handleProfileClick} to={{javascript:void(0)}}>{cookies.get('c_user').charAt(0).toUpperCase() + cookies.get('c_user').slice(1)} {(openProfileMenu === false) ? (<i className='fas fa-angle-up'></i>) : (<i className='fas fa-angle-down'></i>)}</Link>
+                            {(openProfileMenu === true) && (<Dropdown/>)}
                         </div>}
                         {!((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-buttons">
                             {button && <Button onClick={scrollAndClose} buttonStyle='btn--outline'></Button>}

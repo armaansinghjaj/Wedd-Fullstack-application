@@ -115,7 +115,7 @@ function LoginForm() {
                     <span className='login-right-banner-contents banner-content-1'>WeDD</span>
                     <span className='login-right-banner-contents banner-content-2'>Commute made simple</span>
                     <span className='login-right-banner-contents banner-content-3'>Call us at</span>
-                    <span className='login-right-banner-contents banner-content-4'>+1-XXX-XXX-XXXX</span>
+                    <span className='login-right-banner-contents banner-content-4'>+1-403-201-8223</span>
                 </div>
             </div>
         </div>
