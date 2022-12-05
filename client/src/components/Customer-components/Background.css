@@ -112,7 +112,9 @@ input[id='home-ride-input']{
 
 /* driver pages background */
 #driver-home-background{
+  position: fixed;
   height: 100vh;
+  width: 100%;
   background-image: url("../../images/driver-background.jpg");
   z-index: 1;
 }
