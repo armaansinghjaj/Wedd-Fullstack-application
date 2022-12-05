@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './EmployeeProfile.css';
+import ProfilePage from "../Customer-components/Profilepage-components/ProfilePage";
 
 
 export default function EmployeeProfile() {
@@ -67,7 +68,7 @@ export default function EmployeeProfile() {
     return(
         <>
         <div className='ellipse-menu-container' id='ellipse-menu-container'>
-            <div className='ellipse-menu-user-name'>Admin Name</div>
+            <div className='ellipse-menu-user-name'>Admin Name <ProfilePage/></div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
         </div>
         {(showMenu === true) ? (

@@ -6,7 +6,7 @@
     backdrop-filter: blur(8px);
     top: 15%;
     left: 7%;
-    width: 45rem;
+    width: 23rem;
     height: 15rem;
     border-radius: 0.5rem;
     margin-left: auto;
@@ -36,7 +36,7 @@
         left: 12%;
     }
     #edit-about-table {
-        left: 4%;
+        left: 5%;
     }
 }
 @media screen and (max-width:1280px){
@@ -47,11 +47,17 @@
     #edit-about-table-wrapper {
         left: 13%;
     }
+    #edit-about-table {
+        left: 7.5%;
+    }
 }
 @media screen and (max-width:1024px){
     #edit-about-table th, #edit-about-table td {
         border: 1px solid #ddd;
         padding: 0px;
+    }
+    #edit-about-table {
+        left: 9%;
     }
 }
 @media screen and (max-width:767px){
@@ -62,6 +68,7 @@
     }
     #edit-about-table {
         width: 22rem;
+        left: 13.5%;
     }
     #edit-about-table-wrapper {
         width: 30rem;
@@ -80,7 +87,7 @@
     }
     #edit-about-table {
         width: 22rem;
-        left: 3%;
+        left: 4%;
     }
     #file-typ{
         margin-left: 0px;
@@ -99,6 +106,6 @@
     }
     #edit-about-table {
         width: 22rem;
-        left: 1.5%;
+        left: 2%;
     }
 }

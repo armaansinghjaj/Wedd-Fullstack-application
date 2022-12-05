@@ -1,15 +1,14 @@
-:root{
-  --footer-height: 25rem;
-}
-
 .footer-container {
   background-color: #002d72;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   bottom: 0;
-  height: var(--footer-height);
+  height: 26rem;
+  padding-bottom: 1rem;
+  
 }
 
 .footer-input {
@@ -140,6 +139,10 @@
   .figure-1{
       height: 50vh;
       max-height: 50vh;
+  }
+
+  #social-media-links{
+    display: none;
   }
 
   .about-sidebar-div{

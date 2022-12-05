@@ -19,17 +19,8 @@ export default function BackgroundHome() {
                         <tr>
                             <td>
                                 <form action="/background?page=home" method="POST" enctype="multipart/form-data">
-                                    <input id="file-typ" type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/>
-                                    <input type="hidden" name="action" value="Home Page"/>
-                                    <input id="add-me" type="submit" value="Add"/>
-                                </form>
-                                {/* <button onClick={setPreview}>Preview</button> */}
-                            </td>
-                            <td>
-                                <form action="/background?page=home" method="POST" enctype="multipart/form-data">
-                                    <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg"  id="browse" name="image"/>
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg"  id="file-typ" name="image"/>
                                     <input type="hidden" name="action" value="for_home"/>
-                                    <br />
                                     <input id="hit-me" type="submit" />
                                 </form>
                             </td>

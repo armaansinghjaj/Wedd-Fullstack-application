@@ -20,16 +20,9 @@ export default function BackgroundContact() {
                         <tr>
                             <td>
                                 <form action="/background?page=contact" method="POST" enctype="multipart/form-data">
-                                    <input type="file" id="file-typ" accept="image/x-png,image/gif,image/jpeg,image/jpg" name="image"/>
-                                    <input type="hidden" name="action" value="for_contact"/>
-                                    <input type="submit" value="Add" id="add-me"/>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="/background?page=contact" method="POST" enctype="multipart/form-data">
                                     <input type="file" id="file-typ" accept="image/x-png,image/gif,image/jpeg,image/jpg"  name="image"/>
                                     <input type="hidden" name="action" value="for_contact"/>
-                                    <input type="submit" id="add-me"/>
+                                    <input type="submit" id="hit-me"/>
                                 </form>
                             </td>
                         </tr>

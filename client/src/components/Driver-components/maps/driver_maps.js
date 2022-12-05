@@ -12,6 +12,10 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import L, {Routing} from "leaflet";
 
+var lat, long;
+let userlocationlat = null;
+let userlocationlng = null;
+
 function LeafletMaps() {
 	let display_pickup = null;
 	let display_destination = null;
@@ -19,6 +23,22 @@ function LeafletMaps() {
 
 	display_pickup = document.getElementById("hidden_pickup").value;
 	display_destination = document.getElementById("hidden_destination").value;
+
+	function getPosition(position) {
+		lat = position.coords.latitude;
+		long = position.coords.longitude;
+
+		userlocationlat = lat;
+		userlocationlng = long;
+		document.getElementById("driverlat").value= userlocationlat;
+		document.getElementById("driverlng").value= userlocationlng;
+	}
+
+	if (!navigator.geolocation) {
+		console.log("Your browser doesn't support geolocation feature!");
+	} else {
+		navigator.geolocation.getCurrentPosition(getPosition);
+	}
 
 	let geocoder = G.geocoders.nominatim();
 	geocoder.geocode(display_pickup, (results) => {
@@ -51,7 +71,6 @@ export default function Maps() {
 		<>
 			<LR.MapContainer center={[51.0447, -114.0719]} id="map_driver" zoom={12}>
 				<LR.TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={18}></LR.TileLayer>
-
 				<LeafletMaps />
 			</LR.MapContainer>
 		</>

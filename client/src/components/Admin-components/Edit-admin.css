@@ -7,54 +7,73 @@
     margin-left: 7rem;
 }
 
+.Admintable{
+    position: relative;
+    bottom: 8%;
+}
+
 .edit-admin-table{
     position: relative;
-    width: 50rem;
+    width: 80rem;
     background-color: white;
     border-radius: 1em;
     text-align: center;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
     left: 7%;
     border: solid; 
 }
 
+@media screen and (max-width:1600px){
+    .edit-admin-table{
+        left: 8.5%;
+    }
+}
+
 @media screen and (max-width:1366px){
     .edit-admin-table{
-        left: 11%;
+        left: 9.5%;
+        width: 64rem;
     }
 }
 
 @media screen and (max-width:1280px){
     .edit-admin-table{
-        left: 13%;
+        left: 10%;
+        width: 62.5rem;
     }
 }
 @media screen and (max-width:1024px){
     .edit-admin-table{
-        left: 18%;
-        width: 40rem;
+        left: 12%;
+        width: 46rem;
+    }
+    #admin-edit-h1{
+        left: 39%;
     }
 }
 @media screen and (max-width:767px){
     .edit-admin-table{
-        left: 18%;
+        left: 17%;
         font-size: 12px;
-        width: 30rem;
+        width: 31rem;
+    }
+
+    .Admintable{
+        bottom: 0%;
     }
 }
 @media screen and (max-width: 414px){
     #admin-edit-h1 {
         position: relative;
         left: -13%;
-        font-size: 2rem;
+        font-size: 1.7rem;
         font-weight: 200;
         text-align: center;
     }
     .Admintable{
         position: relative;
-        top: 14%;
+        top: 8%;
     }
     .edit-admin-table{
         left: 0;
@@ -69,5 +88,8 @@
 @media screen and (max-width:375px){
     .edit-admin-table{
         width: 23.3rem;
+    }
+    .Admintable{
+        top: 11%;
     }
 }
