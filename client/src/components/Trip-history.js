@@ -29,7 +29,7 @@ export default function History() {
                         <td>{date}</td>
                         <td>{duration}</td>
                         <td>{driver}</td>
-                        <td><button>Details</button></td>
+                        <td><button id= "trip_btn">Details</button></td>
                     </tr>
                 </table>
             </div>

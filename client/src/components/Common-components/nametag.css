@@ -163,7 +163,7 @@
 @media screen and (max-width:390px){
     #employee-name-tag, #account-name-tag {
         left: 9%;
-        top: 15%;
+        top: 13%;
         width: 20rem;
         height: 8rem;
     }
@@ -189,7 +189,7 @@
 @media screen and (max-width:375px){
     #employee-name-tag{
         left: 7.5%;
-        top: 15%;
+        top: 10%;
         width: 20rem;
         height: 8rem;
     }
