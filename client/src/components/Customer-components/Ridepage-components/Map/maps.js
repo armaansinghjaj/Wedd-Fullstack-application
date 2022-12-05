@@ -80,8 +80,8 @@ function LeafletMaps() {
 	}
 
 	if (document.getElementById("map_state").value === "1") {
-		document.getElementById("userlat").value= userlocationlat;
-		document.getElementById("userlng").value= userlocationlng;
+		document.getElementById("userlat").value = userlocationlat;
+		document.getElementById("userlng").value = userlocationlng;
 		G.geocoder().addTo(map);
 
 		if (!navigator.geolocation) {
@@ -105,46 +105,63 @@ function LeafletMaps() {
 		let display_phone = document.getElementById("hidden_phone").value;
 		display_pickup = document.getElementById("hidden_pickup").value;
 		display_destination = document.getElementById("hidden_destination").value;
-		addRoute();
+		// addRoute();
+		Routing.control({
+			waypoints: [L.latLng(51.06311085, -114.08791516800315), L.latLng(51.1068529, -113.9656323)],
+			draggableWaypoints: false,
+			routeWhileDragging: false,
+			lineOptions: {
+				addWaypoints: false,
+			},
+		})
+			.addTo(map)
+			.on("routesfound", function (e) {
+				var routes = e.routes;
+				var summary = routes[0].summary;
+				let distance = Math.round(summary.totalDistance / 1000);
+				let minutes = Math.round((summary.totalTime % 3600) / 60);
+				let price = 28 + distance * 1.25 + minutes * 0.8;
+				document.getElementById("estimate").innerHTML = "Estimate: " + price + "$ (This is just an estimate the price may change)";
+			});
 
-		document.getElementById("details").innerHTML = "Name: " + display_name + "<br>Email: " + display_email + "<br>Phone number: " + display_phone + "<br>Pick-up Address: " + display_pickup + " <br>Destination: " + display_destination;
-
-		document.getElementById("get_map").addEventListener("click", () => {
-			document.getElementById("map_div").style.visibility = "visible";
-			document.getElementById("info_div").style.visibility = "hidden";
-			document.getElementById("buttons").innerHTML = '';
-			document.getElementById("confirm_container").innerHTML = '<input type="submit" value="Confirm">';
-		});
+		// document.getElementById("details").innerHTML = "Name: " + display_name + "<br>Email: " + display_email + "<br>Phone number: " + display_phone + "<br>Pick-up Address: " + display_pickup + " <br>Destination: " + display_destination;
 	}
 	if (document.getElementById("map_state").value === "3") {
-		let geocoder = G.geocoders.nominatim();
-		geocoder.geocode(document.getElementById("hidden_pickup").value, (results) => {
-			var p = results[0];
-			console.log(p);
-			if (p) {
-				display_pickup = p.name;
-			}
+		// let geocoder = G.geocoders.nominatim();
+		// geocoder.geocode(document.getElementById("hidden_pickup").value, (results) => {
+		// 	var p = results[0];
+		// 	console.log(p);
+		// 	if (p) {
+		// 		display_pickup = p.name;
+		// 	}
 
-			geocoder.geocode(document.getElementById("hidden_destination").value, (results) => {
+		// 	geocoder.geocode(document.getElementById("hidden_destination").value, (results) => {
+		// 		var d = results[0];
+		// 		console.log(d);
+		// 		if (d) {
+		// 			display_destination = d.name;
+		// 		}
+		// 		if (p && d) {
+		// 			Routing.control({
+		// 				waypoints: [L.latLng(p.center.lat, p.center.lng), L.latLng(d.center.lat, d.center.lng)],
+		// 				draggableWaypoints: false,
+		// 				routeWhileDragging: false,
+		// 				lineOptions: {
+		// 					addWaypoints: false,
+		// 				},
+		// 			}).addTo(map);
+		// 		}
+		// 	});
+		// });
 
-
-				var d = results[0];
-				console.log(d);
-				if (d) {
-					display_destination = d.name;
-				}
-				if (p && d) {
-					Routing.control({
-						waypoints: [L.latLng(p.center.lat, p.center.lng), L.latLng(d.center.lat, d.center.lng)],
-						draggableWaypoints: false,
-						routeWhileDragging: false,
-						lineOptions: {
-							addWaypoints: false,
-						},
-					}).addTo(map);
-				}
-			});
-		});
+		Routing.control({
+			waypoints: [L.latLng(51.06311085, -114.08791516800315), L.latLng(51.1068529, -113.9656323)],
+			draggableWaypoints: false,
+			routeWhileDragging: false,
+			lineOptions: {
+				addWaypoints: false,
+			},
+		}).addTo(map);
 	}
 }
 export default function Maps() {

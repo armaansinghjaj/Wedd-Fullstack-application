@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Cookies from "universal-cookie";
 import Loader from "../../../Common-components/Load-animation";
-import Map from "../Map/maps";
 import "./ride-connecting.css";
 import {Navigate} from "react-router-dom";
 
@@ -9,27 +8,32 @@ export default function RideConnecting() {
 	const cookie = new Cookies();
 
 	useEffect(() => {
-		fetch("/api/ride/searching", {
-			credentials: "same-origin",
-			mode: "cors",
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		})
-			.then((response) => response.json())
-			.then((responsedata) => {
-				cookie.set("ride_session", responsedata.ride_session, {path: "/ride", secure: false, sameSite: "strict"});
-				cookie.remove("searching_session_id");
-				window.location.reload();
-			});
+		// fetch("/api/ride/searching", {
+		// 	credentials: "same-origin",
+		// 	mode: "cors",
+		// 	method: "GET",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// })
+		// 	.then((response) => response.json())
+		// 	.then((responsedata) => {
+		// 		cookie.set("ride_session", responsedata.ride_session, {path: "/ride", secure: false, sameSite: "strict"});
+		// 		cookie.remove("searching_session_id");
+		// 		window.location.reload();
+		// 	});
+
+		cookie.set("ride_session", "ride_session", {path: "/ride", secure: false, sameSite: "strict"});
+		cookie.remove("searching_session_id");
+		<Navigate to="/ride/connected" replace={true} />;
+		window.location.reload();
 	}, []);
 
 	return (
 		<>
-			{cookie.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
 			{cookie.get("ride_session") && <Navigate to="/ride/connected" replace={true} />}
-			{!cookie.get("searching_session_id") && <Navigate to="/ride" replace={true} />}
+			{/* {cookie.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			{!cookie.get("searching_session_id") && <Navigate to="/ride" replace={true} />} */}
 
 			<div id="connect-container">
 				<input type="hidden" value="3" id="map_state" />

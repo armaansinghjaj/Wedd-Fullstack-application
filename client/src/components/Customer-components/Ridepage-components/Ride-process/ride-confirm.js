@@ -7,58 +7,62 @@ import {Navigate} from "react-router-dom";
 export default function RideConfirm() {
 	const cookie = new Cookie();
 	const [Loader, setLoader] = useState(false);
-	const [data, setData] = useState({name: "", email: "", phone: "", pickup: "", destination: "", payment:""});
+	const [data, setData] = useState({name: "", email: "", phone: "", pickup: "", destination: "", payment: ""});
 
 	useEffect(() => {
-		setLoader(true);
-		fetch("/api/ride/processing")
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data);
-			})
-			.catch((err) => {
-				console.log(err);
-			})
-			.finally(() => {
-				setLoader(false);
-			});
-			// setData({
-			// 	name: "Vaibhav Kumar",
-			// 	email: "Vaibhavkumar8001@gmail.com",
-			// 	phone: "4446664848",
-			// 	pickup: "Southern Alberta Institute of Technology",
-			// 	destination: "Castlebrook Way NE",
-			// 	payment: "Credit Card"
-			// })
+		// setLoader(true);
+		// fetch("/api/ride/processing")
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		setData(data);
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	})
+		// 	.finally(() => {
+		// 		setLoader(false);
+		// 	});
+		setData({
+			name: "Vaibhav Kumar",
+			email: "Vaibhavkumar8001@gmail.com",
+			phone: "4446664848",
+			pickup: "Southern Alberta Institute of Technology",
+			destination: "Castlebrook Way NE",
+			payment: "Credit Card",
+		});
 	}, []);
 
 	const handleConfirmRideForm = (e) => {
 		e.preventDefault();
 
-		const rideConfirm_data = {
-			customer_id: cookie.get("__sid"),
-			name: data.name,
-			email: data.email,
-			phone: data.phone,
-			pickup: data.pickup,
-			destination: data.destination,
-			payment: data.payment,
-		};
-		fetch(`/api/ride/searching`, {
-			credentials: "same-origin",
-			mode: "cors",
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(rideConfirm_data),
-		})
-			.then((rideConfirm_response) => rideConfirm_response.json())
-			.then((rideConfirm_response) => {
-				cookie.set("searching_session_id", rideConfirm_response.request_id, {path: "/ride", secure: false, sameSite: "strict"});
-				cookie.remove("temp_ride_session");
-				window.location.reload();
-			});
+		// const rideConfirm_data = {
+		// 	customer_id: cookie.get("__sid"),
+		// 	name: data.name,
+		// 	email: data.email,
+		// 	phone: data.phone,
+		// 	pickup: data.pickup,
+		// 	destination: data.destination,
+		// 	payment: data.payment,
+		// };
+		// fetch(`/api/ride/searching`, {
+		// 	credentials: "same-origin",
+		// 	mode: "cors",
+		// 	method: "PUT",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	body: JSON.stringify(rideConfirm_data),
+		// })
+		// 	.then((rideConfirm_response) => rideConfirm_response.json())
+		// 	.then((rideConfirm_response) => {
+		// 		cookie.set("searching_session_id", rideConfirm_response.request_id, {path: "/ride", secure: false, sameSite: "strict"});
+		// 		cookie.remove("temp_ride_session");
+		// 		window.location.reload();
+		// 	});
+		cookie.set("searching_session_id", "searching", {path: "/ride", secure: false, sameSite: "strict"});
+		cookie.remove("temp_ride_session");
+		<Navigate to="/ride/searching" replace={true} />
+		window.location.reload();
 	};
 
 	if (Loader) {
@@ -68,7 +72,8 @@ export default function RideConfirm() {
 	return (
 		<>
 			{cookie.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />}
-			{!cookie.get("temp_ride_session") && <Navigate to="/ride" replace={true} />}
+			{/* {cookie.get("ride_session") && <Navigate to="/ride/connected" replace={true} />}
+			{!cookie.get("temp_ride_session") && <Navigate to="/ride" replace={true} />} */}
 			<input type="hidden" value={data.name} name="hidden_name" id="hidden_name" />
 			<input type="hidden" value={data.email} name="hidden_email" id="hidden_email" />
 			<input type="hidden" value={data.phone} name="hidden_phone" id="hidden_phone" />
@@ -83,14 +88,18 @@ export default function RideConfirm() {
 			<div id="info_div">
 				Please check these details
 				<br />
-				<div id="details"></div>
+				<div id="details">
+					<p>Name: Vaibhav Kumar</p>
+					<p>Email: Vaibhavkumar8001@gmail</p>
+					<p>Phone number: 4446664848</p>
+					<p>Pick-up Address: Southern Alberta Institute of Technology</p>
+					<p>Destination: Castlebrook Way NE</p>
+					
+				</div>
 			</div>
 			<form onSubmit={handleConfirmRideForm}>
-				<div id="confirm_container"></div>
+				<input type="submit" value="Confirm" />
 			</form>
-			<div id="buttons">
-				<button id="get_map">Confirm</button>
-			</div>
 			<form>
 				<input type="submit" value="Reset" />
 			</form>
