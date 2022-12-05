@@ -22,7 +22,7 @@ export default function AdminDriversEdit() {
 
     const [accessForbidden, setAccessForbidden] = useState(false);
 
-    //VVVV----------------------------STATE HANLERS------------------------------------------VVVV//
+    //VVVV----------------------------STATE HANDLERS------------------------------------------VVVV//
 
     const handleEditNameInput = (e) => {
         setEditName(e.target.value);
@@ -381,32 +381,34 @@ export default function AdminDriversEdit() {
 
         {/*Display Drivers List */}
         <div className='DriversEdit-container'>
-        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
-        <h1 id='admin-h1'>Edit Drivers</h1>
-            <table className='Drivertable' >
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>E-mail</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                    {drivers.map((driver, i) => { 
-                        return <tbody key={i}>
-                            <tr>
-                                <td>{driver.name}</td>
-                                <td>{driver.email}</td>
-                                <td>
-                                    <button value={driver._id} onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
-                                </td>
-                                <td>
-                                    <button value={driver._id} onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    })}
-            </table>
+        <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Daniel Wong"}/>
+        <div id='Driver-table-container'>
+            <h1 id='Driver-edit-h1'>Edit Drivers</h1>
+                <table className='edit-driver-table' >
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>E-mail</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                        {drivers.map((driver, i) => { 
+                            return <tbody key={i}>
+                                <tr>
+                                    <td>{driver.name}</td>
+                                    <td>{driver.email}</td>
+                                    <td>
+                                        <button value={driver._id} onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
+                                    </td>
+                                    <td>
+                                        <button value={driver._id} onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        })}
+                </table>
+                </div>
         </div>
         </>
     )

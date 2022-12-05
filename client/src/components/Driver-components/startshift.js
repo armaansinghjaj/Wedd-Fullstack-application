@@ -13,7 +13,7 @@ export default function DriverHome() {
     
     return(
         <>
-            <Nametag id1="employee-name-tag" id2="wedd-logo-display" id3="employee-name-display" text={"Driver Name"} employee={"Driver"}/>
+            <Nametag id1="employee-name-tag" id2="wedd-logo-display" id3="employee-name-display" text={"Driver Name"} employee={"Driver"} welcome={"Welcome"}/>
             <div id='start-shift-container'>
                 <h2 id='driver2'>Please enter driver ID</h2>
                 <form id="dtable">

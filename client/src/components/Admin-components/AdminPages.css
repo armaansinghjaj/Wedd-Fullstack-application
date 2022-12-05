@@ -75,8 +75,8 @@
   #Add-button {
     position: fixed;
     z-index: 900;
-    top: 28.3%;
-    left: 28%;
+    top: 7%;
+    left: 45%;
     width: 2rem;
     height: 2rem;
     border-radius: 0.2rem;
@@ -238,7 +238,20 @@
 }
 @media screen and (max-width:1600px){
   #Add-button{
-    top: 30%;
+    top: 11.5%;
+  }
+  .edit-role{
+    left: 33vw;
+  }
+  .add-role{
+    left: 33vw;
+  }
+}
+
+@media screen and (max-width:1366px){
+  #Add-button{
+    top: 10%;
+
   }
   .edit-role{
     left: 33vw;
@@ -249,7 +262,7 @@
 }
 @media screen and (max-width:1280px){
   #Add-button{
-    top: 34%;
+    top: 10.2%;
   }
   .edit-role{
     left: 30vw;
@@ -260,7 +273,7 @@
 }
 @media screen and (max-width:1024px){
   #Add-button{
-    top: 35.4%;
+    top: 9%;
   }
   .edit-role{
     left: 27vw;
@@ -269,9 +282,15 @@
     left: 27vw;
   }
 }
+@media screen and (max-width:767px){
+  #Add-button{
+    top: 16%;
+  }
+
+}
 @media screen and (max-width: 414px){
   #Add-button {
-    top: 33.5%;
+    top: 18%;
     left: 10%;
   }
   .overlay-visibleEdit{
@@ -300,7 +319,7 @@
 @media screen and (max-device-width: 390px){
 
   #Add-button {
-    top: 30.8%;
+    top: 18.5%;
     left: 10%;
   }
   .driver-tab, .admin-tab{
@@ -327,7 +346,7 @@
 
 @media screen and (max-width:375px){
   #Add-button {
-    top: 35%;
+    top: 24.5%;
     left: 20%;
   }
   .edit-role{
