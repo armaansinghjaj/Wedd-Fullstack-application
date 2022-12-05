@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const loadDefaultValues = require("../modules/loadDefaultValues");
 const EmployeeController = require("../src/controllers/EmployeeController");
 const generateUserID = require("../modules/GenerateUserID");
 

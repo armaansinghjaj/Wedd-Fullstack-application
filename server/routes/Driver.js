@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/loadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
+const crypto = require("crypto");
+const DriverController = require("../src/controllers/DriverController")
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -20,7 +22,7 @@ router.get("/", (req, res) => {
 				con.release();
 
 				if (err) throw err; // remove on build
-				return res.render("driver_dash-drive", {driver: "Driver", pickup_address: "46 Taravista", drop_address: "52 Del ray"});
+				// return res.render("driver_dash-drive", {driver: "Driver", pickup_address: "46 Taravista", drop_address: "52 Del ray"});
 			});
 		});
 	} else if (sess.driver_session_id) {
@@ -37,47 +39,58 @@ router.get("/", (req, res) => {
 				if (err) throw err; // remove on build
 
 				result.rides = d_ride_requests;
-				return res.render("driver_dash-avail_requests", result);
+				return res.status(200).send(result);
+				// return res.render("driver_dash-avail_requests", result);
 			});
 		});
 	} else {
-		return res.render("driver_dashboard");
+		return res.status(200).send({
+			status: 200,
+			message: "You are at the homepage"
+		});
+		// return res.render("driver_dashboard");
 	}
 });
-router.post("/", (req, res) => {
+
+router.put("/:action", (req, res) => {
 	let sess = req.session;
 
 	if (sess.access != 2) {
-		return res.redirect("/");
+		return res.status(403).send({
+			status: 403,
+			message: "Access denied."
+		});
 	}
 
-	if (req.query.daction === "startdata") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
+	if (req.params.action === "start") {
+		
+		const drivers_session_id = crypto.randomBytes(8).toString("hex"); // 16 character long random value
 
-			const driver_session_id = crypto.randomBytes(8).toString("hex"); // 16 character long random value
-			con.query(`INSERT INTO available_drivers (active_driver_session_id, driver_1_id, driver_2_id, car_id) VALUES ('${driver_session_id}', '${req.body.driver_1_id}','${req.body.driver_2_id}','${req.body.car_id}')`, function (err, result, fields) {
-				con.release();
+		sess.drivers_session_id = drivers_session_id;
 
-				if (err) throw err; // remove on build
-				sess.driver_session_id = driver_session_id;
-				return res.redirect("/driver");
-			});
-		});
-	} else if (req.query.daction === "end") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
+		DriverController.startShift(drivers_session_id, req.body.driver_1_id, req.body.driver_2_id, req.body.car_id, req.body.lat, req.body.lon, (error, result)=>{
+			if(error){
+				return res.status(error.status).send(error);
+			} else {
+				return res.status(200).send(result);
+			}
+		})
 
-			con.query(`DELETE FROM available_drivers WHERE active_driver_session_id = '${sess.driver_session_id}'`, function (err, result, fields) {
-				con.release();
+	} else if (req.params.action === "end") {
 
-				if (err) throw err; // remove on build
-				sess.driver_session_id = undefined;
-				res.redirect("/driver");
-				return;
-			});
-		});
-	} else if (req.query.daction === "racc") {
+		DriverController.endShift(sess.drivers_session_id, (error, result)=>{
+			if(error){
+				return res.status(error.status).send(error);
+			} else {
+				sess.drivers_session_id = undefined;
+				return res.status(200).send(result);
+			}
+		})
+
+	} else if (req.params.action === "racc") {
+
+
+
 		if (sess.ride_allocated_session_id) {
 			pool.getConnection((err, con) => {
 				if (err) throw err;

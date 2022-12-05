@@ -46,10 +46,6 @@ module.exports = class Customer {
         return this._resetPassworduuid;
     }
 
-    getRegisterAccountUUID(){
-        return this._registerAccountuuid;
-    }
-
     // setters
     setEmail(newEmail){
         try{
@@ -108,15 +104,6 @@ module.exports = class Customer {
     setResetPasswordUUID(newUUID){
         try{
             this._resetPassworduuid = newUUID;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setRegisterAccountUUID(newUUID){
-        try{
-            this._registerAccountuuid = newUUID;
             return true;
         } catch(err){
             return false;

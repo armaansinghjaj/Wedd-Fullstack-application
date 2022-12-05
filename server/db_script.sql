@@ -88,7 +88,8 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`available_drivers` (
   `driver_1_id` VARCHAR(50) NOT NULL,
   `driver_2_id` VARCHAR(50),
   `car_id` INT(10) NOT NULL,
-  `driver_location` VARCHAR(50),
+  `driver_lat` INT(20),
+  `driver_lng` INT(20),
   PRIMARY KEY (`active_driver_session_id`),
   INDEX `fk_driver_1_idx` (`driver_1_id` ASC),
   CONSTRAINT `fk_driver_1_id` FOREIGN KEY (`driver_1_id`) REFERENCES `wedddb`.`employee` (`employee_id`),
@@ -172,6 +173,7 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`requests` (
 -- Table `wedddb`.`rideRequests`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wedddb`.`rideRequests` (
+  `active_driver_session_id` VARCHAR(16),
   `request_id` VARCHAR(16) NOT NULL,
   `customer_id` VARCHAR(50) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
@@ -180,7 +182,8 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`rideRequests` (
   `pickup` VARCHAR(500) NOT NULL,
   `destination` VARCHAR(500) NOT NULL,
   `payment` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`request_id`)
+  PRIMARY KEY (`request_id`),
+  CONSTRAINT `fk_driver_session_id_id` FOREIGN KEY (`active_driver_session_id`) REFERENCES `wedddb`.`available_drivers` (`active_driver_session_id`)
 );
 
 -- -----------------------------------------------------
@@ -208,149 +211,67 @@ CREATE TABLE IF NOT EXISTS `wedddb`.`temp_ride` (
   PRIMARY KEY (`temp_ride_session`)
 );
 
-INSERT INTO
-  services (service_id, service_name)
-VALUES
-(1, "shuttle");
+INSERT INTO services (service_id, service_name)
+VALUES (1, "shuttle");
 
-INSERT INTO
-  services (service_id, service_name)
-VALUES
-(2, "chauffeur");
+INSERT INTO services (service_id, service_name)
+VALUES (2, "chauffeur");
 
-INSERT INTO
-  services (service_id, service_name)
-VALUES
-(3, "drive");
+INSERT INTO services (service_id, service_name)
+VALUES (3, "drive");
 
-INSERT INTO
-  services (service_id, service_name)
-VALUES
-(4, "own");
+INSERT INTO services (service_id, service_name)
+VALUES (4, "own");
 
-INSERT INTO
-  user_roles (role_id, role_title)
-VALUES
-  (0, 'Administrator');
+INSERT INTO user_roles (role_id, role_title)
+VALUES (0, 'Administrator');
 
 INSERT INTO user_roles (role_id, role_title) VALUES (0, 'Driver');
 
-INSERT INTO
-  user_roles (role_id, role_title)
-VALUES
-  (0, 'Customer');
+INSERT INTO user_roles (role_id, role_title)
+VALUES (0, 'Customer');
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(1, 'admin1@gmail.com', 'Admin 1', 'password', 1);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (1, 'admin1@gmail.com', 'Admin 1', 'password', 1);
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(2, 'admin2@gmail.com', 'Admin 1', 'password', 1);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (2, 'admin2@gmail.com', 'Admin 1', 'password', 1);
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(3, 'admin3@gmail.com', 'Admin 1', 'password', 1);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (3, 'admin3@gmail.com', 'Admin 1', 'password', 1);
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(4, 'driver1@gmail.com', 'Driver 1', 'password', 2);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (4, 'driver1@gmail.com', 'Driver 1', 'password', 2);
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(5, 'driver2@gmail.com', 'Driver 1', 'password', 2);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (5, 'driver2@gmail.com', 'Driver 1', 'password', 2);
 
-INSERT INTO
-  employee (employee_id, email, name, password, role)
-VALUES
-(6, 'driver3@gmail.com', 'Driver 1', 'password', 2);
+INSERT INTO employee (employee_id, email, name, password, role)
+VALUES (6, 'driver3@gmail.com', 'Driver 1', 'password', 2);
 
-INSERT INTO
-  background
-VALUES
-  (
-    "image/homepage.jpg",
-    "image/aboutpage.jpg",
-    "image/contactpage.jpg",
-    "image/newspage.png"
-  );
+INSERT INTO background
+VALUES ("image/homepage.jpg","image/aboutpage.jpg","image/contactpage.jpg","image/newspage.png");
 
-INSERT INTO
-  customer (customer_id, email, name, password)
-VALUES
-(1, 'armaan@gmail.com', 'armaan singh', 'password');
+INSERT INTO customer (customer_id, email, name, password)
+VALUES (1, 'armaan@gmail.com', 'armaan singh', 'password');
 
-INSERT INTO
-  customer (customer_id, email, name, password)
-VALUES
-(2, 'prince@gmail.com', 'prince agam', 'password');
+INSERT INTO customer (customer_id, email, name, password)
+VALUES (2, 'prince@gmail.com', 'prince agam', 'password');
 
-INSERT INTO
-  customer (customer_id, email, name, password)
-VALUES
-(3, 'daniel@gmail.com', 'daniel wong', 'password');
+INSERT INTO customer (customer_id, email, name, password)
+VALUES (3, 'daniel@gmail.com', 'daniel wong', 'password');
 
-INSERT INTO
-  driver_car (
-    driver_car_id,
-    manufacturer,
-    model,
-    model_number,
-    year,
-    color,
-    car_type,
-    licence_plate
-  )
-VALUES
-(
-    NULL,
-    'Honda',
-    'Civic',
-    'hcx-186bh',
-    2016,
-    'Pale yellow',
-    'A',
-    'CAR-2016'
-  );
+INSERT INTO driver_car (driver_car_id, manufacturer, model, model_number, year, color, car_type, licence_plate)
+VALUES (NULL, 'Honda', 'Civic', 'hcx-186bh', 2016, 'Pale yellow', 'A', 'CAR-2016');
+INSERT INTO driver_car (driver_car_id, manufacturer, model, model_number, year, color, car_type, licence_plate)
+VALUES (NULL, 'Honda', 'Civic2', 'hcy-186bh', 2017, 'Pale yellow', 'M', 'CAR-2016');
 
-INSERT INTO
-  rideRequests
-VALUES
-  (
-    0,1,
-    'First',
-    '1@gmail.com',
-    1111111111,
-    '1233',
-    '12333',
-    'CASH'
-  );
+INSERT INTO available_drivers VALUES ('4EFDECDCDVDBBGXX', 4, 5, 1, -102354, 7039394);
+INSERT INTO available_drivers VALUES ('4EFDECDCDVDBBCXX', 5, 6, 2, -1027454, 7039394);
 
-INSERT INTO
-  rideRequests
-VALUES
-  (
-    1,2,
-    'Second',
-    '2@gmail.com',
-    1111111111,
-    '1233',
-    '12333',
-    'DEBIT'
-  );
+INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBGXX', 0, 1, 'First', '1@gmail.com', 1111111111, '1233', '12333', 'CASH' );
+INSERT INTO rideRequests VALUES (NULL, 1, 1, 'First', '1@gmail.com', 1111111111, '1233', '12333', 'CASH' );
+INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBGXX', 2, 2, 'Second', '2@gmail.com', 1111111111, '1233', '12333', 'DEBIT');
+INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBCXX', 3, 2, 'Second', '2@gmail.com', 1111111111, '1233', '12333', 'DEBIT');
 
-INSERT INTO
-  news (start_date, end_date, headline, message, color)
-VALUES
-  (
-    '2022-11-23T21:49',
-    '2022-12-23T21:49',
-    'This is a test headline',
-    'This is a test message.This is a test message.This is a test message.',
-    '#fff'
-  )
+INSERT INTO news (start_date, end_date, headline, message, color) VALUES ('2022-11-23T21:49', '2022-12-23T21:49', 'This is a test headline', 'This is a test message.This is a test message.This is a test message.', '#fff')
