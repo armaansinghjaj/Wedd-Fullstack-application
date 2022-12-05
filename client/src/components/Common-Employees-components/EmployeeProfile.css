@@ -300,6 +300,19 @@
     margin: 0 0.8rem 0.5rem 0.8rem;
 }
 
+#admin-submit{
+    position: relative;
+    color: rgb(255, 255, 255);
+    background: rgb(235 114 0 / 93%);
+    vertical-align: middle;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    border-radius: 0.2rem;
+    width: 5rem;
+    height: 2rem;
+}
 @media screen and (max-width:1366px){
     .admin-settings-display{
         top: 14%;
