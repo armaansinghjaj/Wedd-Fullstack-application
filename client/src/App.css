@@ -9,12 +9,3 @@ html,body{
   overflow-x: clip;
 }
 
-@media screen and (max-width: 414px) {
-  html,body{
-    overflow: scroll;
-  }
-}
-
-@media screen and (max-width: 390px) {
-  
-}

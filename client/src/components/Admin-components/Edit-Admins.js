@@ -215,10 +215,6 @@ export default function AdminEdit() {
     const [visibleAdd, setVisibleAdd] = useState(false) 
     const [visibleDelete, setVisibleDelete] = useState(false) 
 
-    const overlayEdit= visibleEdit ? "overlay-visibleEdit" : "overlay-hiddenEdit";
-    const overlayDelete = visibleDelete ? "overlay-visibleDelete" : "overlay-hiddenDelete";
-    const overlayAdd= visibleAdd ? "overlay-visibleAdd" : "overlay-hiddenAdd";
-
     const openOverlayEdit = (value) => {
         getDataById(value.nativeEvent.srcElement.parentElement.value, 0)
         setVisibleEdit(!visibleEdit);
@@ -314,7 +310,7 @@ export default function AdminEdit() {
 
         {/* DELETE DRIVER FORM */}
         <div >
-        <div className={overlayDelete}>
+        <div className={visibleDelete ? "overlay-visibleDelete" : "overlay-hiddenDelete"}>
                 <div className={visibleDelete === true ? 'delete-Admin' : 'delete-Admin-hidden'}>
                     <div id='edit-closeOverlay-btn-driver' >
                         <button onClick={closeOverlayDelete}><i className="fa-solid fa-x"></i></button>
@@ -339,7 +335,7 @@ export default function AdminEdit() {
         </div>
 
         {/* EDIT ADMIN FORM */}
-        <div className={overlayEdit}>
+        <div className={visibleEdit ? "overlay-visibleEdit" : "overlay-hiddenEdit"}>
             <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
                 <div id='edit-closeOverlay-btn-admin' >
                     <button onClick={closeOverlayEdit}><i className="fa-solid fa-x"></i></button>
@@ -375,7 +371,7 @@ export default function AdminEdit() {
 
 
         {/* ADD ADMIN FORM */}
-        <div className={overlayAdd}>
+        <div className={visibleAdd ? "overlay-visibleAdd" : "overlay-hiddenAdd"}>
             <div className={visibleAdd === true ? 'edit-role' : 'edit-role-hidden'}>
             <div id='add-closeOverlay-btn-admin'>
                     <button onClick={closeOverlayAdd}><i className="fa-solid fa-x"></i></button>
