@@ -3,7 +3,7 @@ const router = express.Router();
 const loadDefaultValues = require("../modules/loadDefaultValues");
 const pool = require("../modules/SQLconnectionpool");
 const crypto = require("crypto");
-const DriverController = require("../src/controllers/DriverController")
+const DriverController = require("../src/controllers/DriverController");
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
 	} else {
 		return res.status(200).send({
 			status: 200,
-			message: "You are at the homepage"
+			message: "You are at the homepage",
 		});
 		// return res.render("driver_dashboard");
 	}
@@ -58,39 +58,32 @@ router.put("/:action", (req, res) => {
 	if (sess.access != 2) {
 		return res.status(403).send({
 			status: 403,
-			message: "Access denied."
+			message: "Access denied.",
 		});
 	}
 
 	if (req.params.action === "start") {
-		
 		const drivers_session_id = crypto.randomBytes(8).toString("hex"); // 16 character long random value
 
 		sess.drivers_session_id = drivers_session_id;
 
-		DriverController.startShift(drivers_session_id, req.body.driver_1_id, req.body.driver_2_id, req.body.car_id, req.body.lat, req.body.lon, (error, result)=>{
-			if(error){
+		DriverController.startShift(drivers_session_id, req.body.driver_1_id, req.body.driver_2_id, req.body.car_id, req.body.lat, req.body.lon, (error, result) => {
+			if (error) {
 				return res.status(error.status).send(error);
 			} else {
 				return res.status(200).send(result);
 			}
-		})
-
+		});
 	} else if (req.params.action === "end") {
-
-		DriverController.endShift(sess.drivers_session_id, (error, result)=>{
-			if(error){
+		DriverController.endShift(sess.drivers_session_id, (error, result) => {
+			if (error) {
 				return res.status(error.status).send(error);
 			} else {
 				sess.drivers_session_id = undefined;
 				return res.status(200).send(result);
 			}
-		})
-
+		});
 	} else if (req.params.action === "racc") {
-
-
-
 		if (sess.ride_allocated_session_id) {
 			pool.getConnection((err, con) => {
 				if (err) throw err;
@@ -139,8 +132,27 @@ router.get("/processing", (req, res) => {
 			con.release();
 
 			if (err) return res.send("backend error");
-			return res.send({pickup_location: "Falbury Crescent NE, Falconridge, Calgary, Alberta, T3J 1B1, Canada",
-			drop_location: "SAIT,calgary"});
+			return res.send({pickup_location: "Falbury Crescent NE, Falconridge, Calgary, Alberta, T3J 1B1, Canada", drop_location: "SAIT,calgary"});
+		});
+	});
+});
+router.put("/searching", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`UPDATE available_drivers SET driver_lat = '${req.body.latitude}', driver_lng = '${req.body.longitude}' WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
+			con.release();
+			if (err) return res.send("backend error");
+		});
+	});
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`Select * from  riderequests WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
+			con.release();
+			if (err) return res.send("backend error");
+			if (result[0]){
+				return res.send(result)
+			}
 		});
 	});
 });
