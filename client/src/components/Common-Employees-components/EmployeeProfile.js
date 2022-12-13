@@ -264,7 +264,7 @@ export default function EmployeeProfile() {
         {userDeleted && (<Navigate replace to={"/"}/>)}
 
         <div className='ellipse-menu-container' id='ellipse-menu-container'>
-            <div className='ellipse-menu-user-name'>Admin Name <ProfilePage/></div>
+            <div className='ellipse-menu-user-name'>Admin Name</div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
         </div>
         {(showMenu === true) ? (

@@ -215,10 +215,6 @@ export default function AdminEdit() {
     const [visibleAdd, setVisibleAdd] = useState(false) 
     const [visibleDelete, setVisibleDelete] = useState(false) 
 
-    const overlayEdit= visibleEdit ? "overlay-visibleEdit" : "overlay-hiddenEdit";
-    const overlayDelete = visibleDelete ? "overlay-visibleDelete" : "overlay-hiddenDelete";
-    const overlayAdd= visibleAdd ? "overlay-visibleAdd" : "overlay-hiddenAdd";
-
     const openOverlayEdit = (value) => {
         getDataById(value.nativeEvent.srcElement.parentElement.value, 0)
         setVisibleEdit(!visibleEdit);
@@ -271,13 +267,18 @@ export default function AdminEdit() {
         <>
 
         {/* Loader component */}
-        {loader && <Loader/>}
+        {/* {loader && <Loader/>} */}
 
         {/* Display Admin list */}
         <div className='AdminEdit-container'>
             <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" employee={cookie.get("c_user")}/>            
             <div className='Admintable'>
-            <h1 id='admin-edit-h1'>Edit Admins</h1>
+            <h1 id='admin-edit-h1'>Edit Admins
+            <div id='addButton'>
+                    <button id='Add-button' onClick={openOverlayAdd}><i className="fa-regular fa-square-plus fa-2x"/>
+                    </button>
+                </div>
+                </h1>
                 <table className='edit-admin-table'>
                     <thead>
                         <tr id='edit-admin-tr'>
@@ -290,25 +291,26 @@ export default function AdminEdit() {
 
                     {admins.map((admin, i) =>{
                         return <tbody key={i}>
-                            <tr>
-                                <td>{admin.name}</td>
-                                <td>{admin.email}</td>
-                                <td>
-                                    <button value={admin._id} onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
-                                </td>
-                                <td>
-                                    <button value={admin._id} onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
-                                </td>
-                            </tr>
+
                         </tbody>
                     })}
+                                                <tr>
+                                <td>name</td>
+                                <td>email</td>
+                                <td>
+                                    <button  onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
+                                </td>
+                                <td>
+                                    <button  onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
+                                </td>
+                            </tr>
                 </table>
             </div>
         </div>
 
         {/* DELETE DRIVER FORM */}
         <div >
-        <div className={overlayDelete}>
+        <div className={visibleDelete ? "overlay-visibleDelete" : "overlay-hiddenDelete"}>
                 <div className={visibleDelete === true ? 'delete-Admin' : 'delete-Admin-hidden'}>
                     <div id='edit-closeOverlay-btn-driver' >
                         <button onClick={closeOverlayDelete}><i className="fa-solid fa-x"></i></button>
@@ -333,7 +335,7 @@ export default function AdminEdit() {
         </div>
 
         {/* EDIT ADMIN FORM */}
-        <div className={overlayEdit}>
+        <div className={visibleEdit ? "overlay-visibleEdit" : "overlay-hiddenEdit"}>
             <div className={visibleEdit === true ? 'edit-role' : 'edit-role-hidden'}>
                 <div id='edit-closeOverlay-btn-admin' >
                     <button onClick={closeOverlayEdit}><i className="fa-solid fa-x"></i></button>
@@ -366,18 +368,16 @@ export default function AdminEdit() {
         </div>
 
         {/* ADD BUTTON */}
-        <div id='addButton'>
-            <button id='Add-button' onClick={openOverlayAdd}><i className="fa-regular fa-square-plus fa-2x"/>
-            </button>
-        </div>
+
 
         {/* ADD ADMIN FORM */}
-        <div className={overlayAdd}>
+        <div className={visibleAdd ? "overlay-visibleAdd" : "overlay-hiddenAdd"}>
             <div className={visibleAdd === true ? 'edit-role' : 'edit-role-hidden'}>
             <div id='add-closeOverlay-btn-admin'>
                     <button onClick={closeOverlayAdd}><i className="fa-solid fa-x"></i></button>
                 </div>
-                <h2>Add Admin</h2>
+                <h2>Add Admin
+                </h2>
                 <div >
                     <form method="put" onSubmit={handleAdminAddForm}>       
                         <table>
