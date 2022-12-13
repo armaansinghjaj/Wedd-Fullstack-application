@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Nametag from "../Common-components/Nametag";
 import './Ride-requests.css'
 
 export default function RequestTable() {
@@ -21,7 +20,6 @@ export default function RequestTable() {
     return(
         <> 
         <div className="ride-request-container">
-            <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
             <div className="requesttable-container">
                 <h1 id='ride-requests-h1'>Ride Requests</h1>
                 <table className='ride-requests-table'>

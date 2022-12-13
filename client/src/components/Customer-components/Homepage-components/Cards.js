@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import CardItem from "./CardItem";
 import './Cards.css';
 
 
 function Cards () {
 
+    const cookies = new Cookies();
+
+    const [accessForbidden, setAccessForbidden] = useState(false);
+
+    useEffect(()=>{
+        verifyUser();
+    }, []);
+
+    const verifyUser = ()=>{
+        fetch(`/api/getuser/${cookies.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(verify_response => verify_response.json())
+        .then(verify_responseData => {
+            if(verify_responseData._id !== 3){
+                setAccessForbidden(true);
+            }
+        })
+    }
 
     return (
+
+        <>
+            {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
         <div className='cards'>
             <p id="cards-p-main">We are Designated Drivers</p>
             <p id="cards-p-main">We know transportation. 400+ communities depend on us for it.</p>
@@ -37,6 +66,7 @@ function Cards () {
                 </div>
             </div>
       </div>
+      </>
     )
 }
 

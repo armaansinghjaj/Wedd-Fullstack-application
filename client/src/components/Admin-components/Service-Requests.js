@@ -1,5 +1,4 @@
 import React from "react";
-import Nametag from "../Common-components/Nametag";
 import './Service-Requests.css'
 
 export default function ContactRequestsTable() {
@@ -16,7 +15,6 @@ export default function ContactRequestsTable() {
     return(
         <>  
             <div className="contactRequest-container">
-                <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={"Admin"}/>
                 <div id="services-request-container">
                     <h1 id="contact-request-h1">Contact Requests</h1>
                     <table className='contact-request-table'>

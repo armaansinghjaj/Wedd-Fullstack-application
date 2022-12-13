@@ -11,26 +11,19 @@ function insert(customer, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
 
-        con.query('INSERT INTO customer (customer_id, email, name, password) VALUES (?, ?, ?, ?)', [customer.getId(), customer.getEmail(), customer.getName(), customer.getPassword()], function (err, queryResult, fields) {
+        con.query('INSERT INTO customer (customer_id, email, name, password, salt) VALUES (?, ?, ?, ?)', [customer.getId(), customer.getEmail(), customer.getName(), customer.getPassword(), customer.getSalt()], function (err, queryResult, fields) {
             con.release();
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    },
-                    err: err
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, customer);
             }
@@ -44,12 +37,9 @@ function getByID(customer_id, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('SELECT * FROM customer WHERE customer_id = ?', [customer_id], function (err, users, fields) {
@@ -57,20 +47,14 @@ function getByID(customer_id, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 if(users[0] === undefined){
                     callback({
-                        error: true,
-                        errorDetails: {
-                            errorCode: 404,
-                            errorMsg: "No user found. Please try changing your email and password.",
-                        }
+                        status: 404,
+                        message: "No user found. Please try changing your email and password.",
                     }, null);
                 }
                 else{
@@ -85,12 +69,9 @@ function getByresetUUID(UUID, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('SELECT * FROM customer WHERE reset_password_UUID = ?', [UUID], function (err, users, fields) {
@@ -98,20 +79,14 @@ function getByresetUUID(UUID, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 if(users[0] === undefined){
                     callback({
-                        error: true,
-                        errorDetails: {
-                            errorCode: 404,
-                            errorMsg: "No user found. Please try changing your email and password.",
-                        }
+                        status: 404,
+                        message: "No user found. Please try changing your email and password.",
                     }, null);
                 }
                 else{
@@ -127,12 +102,9 @@ function getByEmail(email, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('SELECT * FROM customer WHERE email = ?', [email], function (err, users, fields) {
@@ -140,20 +112,14 @@ function getByEmail(email, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 if(users[0] === undefined){
                     callback({
-                        error: true,
-                        errorDetails: {
-                            errorCode: 404,
-                            errorMsg: "No user found. Please try changing your email and password.",
-                        }
+                        status: 404,
+                        message: "No user found. Please try changing your email and password.",
                     }, null);
                 }
                 else{
@@ -178,12 +144,9 @@ function updateInfo(customer, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('UPDATE customer SET ? WHERE customer_id = ?', [put, customer.getId()], function (err, queryResult, fields) {
@@ -191,12 +154,9 @@ function updateInfo(customer, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, customer);
             }
@@ -209,26 +169,18 @@ function updateResetUUID(customer, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
-        console.log(customer.getId())
-        console.log(customer.getResetPasswordUUID())
         con.query('UPDATE customer SET reset_password_uuid = ? WHERE customer_id = ?', [customer.getResetPasswordUUID(), customer.getId()], function (err, queryResult, fields) {
             con.release();
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 console.log(queryResult);
                 callback(null, queryResult);
@@ -242,12 +194,9 @@ function updatePassword(customer, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('UPDATE customer SET password = ?, reset_password_uuid = ? WHERE customer_id = ?', [customer.getPassword(),null, customer.getId()], function (err, queryResult, fields) {
@@ -255,12 +204,9 @@ function updatePassword(customer, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, customer);
             }
@@ -273,12 +219,9 @@ function updatePicture(customer, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('UPDATE customer SET customer_pp = ? WHERE customer_id = ?', [customer.getProfilePicture(), customer.getId()], function (err, queryResult, fields) {
@@ -286,13 +229,9 @@ function updatePicture(customer, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
-            } else{
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
                 callback(null, customer);
             }
         })
@@ -305,12 +244,9 @@ function remove(customer_id, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
         
         con.query('DELETE FROM customer WHERE customer_id = ?', [customer_id], function (err, queryResult, fields) {
@@ -318,12 +254,9 @@ function remove(customer_id, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    }
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, customer_id);
             }
@@ -331,4 +264,4 @@ function remove(customer_id, callback){
     })
 }
 
-module.exports = {insert, getByID, getByEmail, updateInfo, updatePicture, updatePassword, remove, updateResetUUID};
+module.exports = {insert, getByID, getByEmail, updateInfo, updatePicture, updatePassword, remove, updateResetUUID, getByresetUUID};

@@ -5,13 +5,13 @@ function insert(support, callback){
     pool.getConnection((err, con) => {
         if (err) {
             con.release();
-            callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+            if (err) {
+                con.release();
+                callback({
+                    status: 408,
+                    message: "Connection timed out. Please try again.",
+                }, undefined);
+            }
         }
 
         con.query('INSERT INTO supportRequests (email, reason, description, comments) VALUES (?, ?, ?, ?)', [support.getEmail(), support.getReason(), support.getDescription(), support.getComments()], function (err, queryResult, fields) {
@@ -19,13 +19,9 @@ function insert(support, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    },
-                    err: err
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, {
                     status: 200,
@@ -41,12 +37,9 @@ function getAll(callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
 
         con.query('SELECT * FROM supportRequests', function (err, requests, fields) {
@@ -54,13 +47,9 @@ function getAll(callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    },
-                    err: err
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 let listArray = [];
                 console.log(requests);
@@ -68,7 +57,6 @@ function getAll(callback){
                     console.log(request);
                     // listArray.push(new Support(request.email, request.reason, request.description, requests.comments));
                 })
-                // callback(null, listArray);
             }
         })
     })
@@ -79,12 +67,9 @@ function getByEmail(email, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
 
         con.query('SELECT * FROM supportRequests WHERE email = ?', [email], function (err, requests, fields) {
@@ -92,13 +77,9 @@ function getByEmail(email, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    },
-                    err: err
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 let listArray = [];
                 console.log(requests);
@@ -117,12 +98,9 @@ function remove(email, callback){
         if (err) {
             con.release();
             callback({
-                error: true,
-                errorDetails: {
-                    errorCode: 408,
-                    errorMsg: "Connection timed out. Please try again.",
-                }
-            }, null);
+                status: 408,
+                message: "Connection timed out. Please try again.",
+            }, undefined);
         }
 
         con.query('DELETE FROM supportRequests WHERE email = ?', [email], function (err, requests, fields) {
@@ -130,13 +108,9 @@ function remove(email, callback){
 
             if (err) {
                 callback({
-                    error: true,
-                    errorDetails: {
-                        errorCode: 500,
-                        errorMsg: "Internal Server Error. Please try again.",
-                    },
-                    err: err
-                }, null);
+                    status: 500,
+                    message: "Internal Server Error. Please try again.",
+                }, undefined);
             } else{
                 callback(null, {
                     status: 200,

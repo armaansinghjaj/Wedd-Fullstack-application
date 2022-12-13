@@ -1,4 +1,6 @@
-import React, { useState }from 'react';
+import React, { useEffect, useState }from 'react';
+import { Navigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import './Services.css';
 
 function Contactus() {
@@ -110,7 +112,36 @@ function Contactus() {
 //  });
 //  e.target.reset()
 // };
+
+
+const cookies = new Cookies();
+
+const [accessForbidden, setAccessForbidden] = useState(false);
+
+useEffect(()=>{
+    verifyUser();
+}, []);
+
+const verifyUser = ()=>{
+    fetch(`/api/getuser/${cookies.get("__sid")}`, {
+        credentials: 'same-origin',
+        mode: 'cors',
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(verify_response => verify_response.json())
+    .then(verify_responseData => {
+        if(verify_responseData._id !== 3){
+            setAccessForbidden(true);
+        }
+    })
+}
     return (
+      <>
+      {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
+      
       <div className="service-parent-conatiner">
        
        <div className='service-container'>
@@ -174,6 +205,7 @@ function Contactus() {
         </div>
 
         </div>
+        </>
     );
 }
 

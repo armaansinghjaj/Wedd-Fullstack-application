@@ -6,50 +6,25 @@ const Customer = require("../src/models/Customer");
 const generateUserID = require("../modules/GenerateUserID");
 const CustomerController = require("../src/controllers/CustomerController");
 
-router.get("/", (req, res) => {
-	// loadDefaultValues(req);
+router.get("/", (req, res) => {});
 
-	let sess = req.session;
-
-	if (sess.access) {
-		return res.status(200).send({
-			redirect: "/profile"
-		});
-	} else {
-		return res.render("signup", {year: new Date().getFullYear(), title: "Signup"});
-		
-		// return res.status(200).send({
-		// 	redirect: "/login"
-		// });
-	}
-});
 router.post("/", (req, res) => {
-	// loadDefaultValues(req);
 
 	let sess = req.session;
-
-	// if (sess.access) {
-		
-	// 	return res.status(200).send({
-	// 		redirect: "/profile"
-	// 	});
-	// }else 
-	if (req.body.name === undefined || req.body.email === undefined || req.body.password === undefined) {
+	if (req.body.name === undefined || req.body.email === undefined || req.body.password === undefined || req.body.name === "" || req.body.email === "" || req.body.password === "") {
 		
 		return res.status(400).send({
-			error: true,
-			errorDetails: {
-				errorCode: 400,
-				errorMsg: "Email or password cannot be empty.",
-			}
+			status: 400,
+			message: "Email or password cannot be empty.",
 		});
 		
 	} else {
 
 		CustomerController.getByEmail(req.body.email, (error, result)=>{
-			if(error && error.errorDetails.errorCode !== 404){
+			
+			if(error && error.status !== 404){
 				
-				return res.status(error.errorDetails.errorCode).send(error);
+				return res.status(error.status).send(message);
 				
 			} else{
 

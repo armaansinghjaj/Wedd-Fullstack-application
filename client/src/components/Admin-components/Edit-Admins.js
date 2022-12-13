@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Nametag from "../Common-components/Nametag";
 import Loader from '../Common-components/Loader';
 import Cookies from 'universal-cookie';
 import './AdminPages.css';
@@ -271,7 +270,6 @@ export default function AdminEdit() {
 
         {/* Display Admin list */}
         <div className='AdminEdit-container'>
-            <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" employee={cookie.get("c_user")}/>            
             <div className='Admintable'>
             <h1 id='admin-edit-h1'>Edit Admins
             <div id='addButton'>
@@ -291,19 +289,18 @@ export default function AdminEdit() {
 
                     {admins.map((admin, i) =>{
                         return <tbody key={i}>
-
-                        </tbody>
-                    })}
-                                                <tr>
-                                <td>name</td>
-                                <td>email</td>
+                            <tr>
+                                <td>{admin.name}</td>
+                                <td>{admin.email}</td>
                                 <td>
-                                    <button  onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
+                                    <button value={admin._id} onClick={openOverlayEdit}><i className="fa-solid fa-pencil"></i></button>
                                 </td>
                                 <td>
-                                    <button  onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
+                                    <button value={admin._id} onClick={openOverlayDelete}><i className="fa-solid fa-x"></i></button>
                                 </td>
                             </tr>
+                        </tbody>
+                    })}
                 </table>
             </div>
         </div>

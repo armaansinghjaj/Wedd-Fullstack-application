@@ -1,15 +1,41 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import figure1 from "../../../images/About-page-figure-1.jpg"
 import './About.css';
 
 function Abouttop() {
 
-    const phoneDialer = () => {
+    const cookies = new Cookies();
 
+    const [accessForbidden, setAccessForbidden] = useState(false);
+
+    useEffect(()=>{
+        verifyUser();
+    }, []);
+
+    const verifyUser = ()=>{
+        fetch(`/api/getuser/${cookies.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(verify_response => verify_response.json())
+        .then(verify_responseData => {
+            if(verify_responseData._id !== 3){
+                setAccessForbidden(true);
+            }
+        })
     }
+
     return(
         <>
+
+        {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
+
         <React.Fragment>
             <div className="figure-1-div">
                 <figure>
@@ -22,7 +48,7 @@ function Abouttop() {
                 <div className="about-content about-content-left">
                     <div className="about-sidebar-div">
                         <ul className="about-sidebar">
-                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><Link className="about-sidebar-li-question-a" to='/about' onClick={phoneDialer(1)}>+1-xxx-xxx-xxxx</Link></li>
+                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/>+1-403-201-8223</li>
                         </ul>
                     </div>
                 </div>

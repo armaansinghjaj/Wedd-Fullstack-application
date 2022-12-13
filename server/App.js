@@ -50,6 +50,7 @@ function setDropLocation(req, values) {
 
 const homeRoute = require("./routes/Home");
 const loginRoute = require("./routes/Login");
+const GetUserInfo = require("./routes/GetUserInfo");
 const logoutRoute = require("./routes/Logout");
 const signupRoute = require("./routes/Signup");
 const profileRoute = require("./routes/Profile");
@@ -59,7 +60,6 @@ const rideRoute = require("./routes/Ride");
 const newsRoute = require("./routes/News");
 const driverRoute = require("./routes/Driver");
 const adminRoute = require("./routes/Admin");
-const adminBackgroundRoute = require("./routes/Admin-Background");
 const adminAdminListRoute = require("./routes/Admin-AdminList");
 const adminDriverListRoute = require("./routes/Admin-DriverList");
 const employeeRoute = require("./routes/EmployeeProfile");
@@ -69,6 +69,7 @@ const forgotPassword = require("./routes/Forgot")
 
 app.use("/api/", homeRoute);
 app.use("/api/login", loginRoute);
+app.use("/api/getuser", GetUserInfo);
 app.use("/api/logout", logoutRoute);
 app.use("/api/signup", signupRoute);
 app.use("/api/account", profileRoute);
@@ -78,7 +79,6 @@ app.use("/api/ride", rideRoute);
 app.use("/api/news", newsRoute);
 app.use("/api/driver", driverRoute);
 app.use("/api/admin", adminRoute);
-app.use("/api/admin/background", adminBackgroundRoute);
 app.use("/api/admin/adminlist", adminAdminListRoute);
 app.use("/api/admin/driverlist", adminDriverListRoute);
 app.use("/api/employeeprofile", employeeRoute);

@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import { Link, useLocation } from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import { Link, Navigate } from 'react-router-dom';
+import Cookies from "universal-cookie";
 import './Profile.css';
 
 export default function ProfilePage(props) {
@@ -10,8 +11,34 @@ export default function ProfilePage(props) {
         setClick(!click)
     }
 
+    const cookies = new Cookies();
+
+    const [accessForbidden, setAccessForbidden] = useState(false);
+
+    useEffect(()=>{
+        verifyUser();
+    }, []);
+
+    const verifyUser = ()=>{
+        fetch(`/api/getuser/${cookies.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(verify_response => verify_response.json())
+        .then(verify_responseData => {
+            if(verify_responseData._id !== 3){
+                setAccessForbidden(true);
+            }
+         })
+    }
+
     return(
         <> 
+        {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
                 <div id="picture-container">
                     <figure id="profile-image-wrapper">
                         <img src={props.imageSrc} id='profile-image' className={props.profileClassname}/>

@@ -61,7 +61,7 @@ function LoginForm() {
         {userAuthenticated && (<Navigate to={userAuthenticated.accessPath} replace={true}/>)}
 
         {/* Redirect to ride if user comes to login page after logging in. */}
-        {(cookies.get('__uid') && cookies.get('__sid')) && (<Navigate to="/ride" replace={true} />)}
+        {/* {(cookies.get('c_user') && cookies.get('__sid')) && (<Navigate to="/ride" replace={true} />)} */}
         
         <div className="login-parent-container">
 

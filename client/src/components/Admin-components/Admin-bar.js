@@ -22,22 +22,10 @@ import './Sidebar-Background-edit.css';
                     <Link className={location.pathname === 'Employeeprofile'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin'>Profile</Link>
                 </li>
                 <li>
-                    <Link className={location.pathname === '/BackgroundEditHome'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/BackgroundEditHome'>Edit Backgrounds</Link>
-                </li>
-                <li>
                     <Link className={location.pathname === '/admin/driverlist'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/driverlist'>Edit Driver List</Link>
                 </li>
                 <li>
                     <Link className={location.pathname === '/admin/adminlist'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/adminlist'>Edit Admin list</Link>
-                </li>
-                <li>
-                    <Link className={location.pathname === '/admin/news'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/news'>Edit News updates</Link>
-                </li>
-                <li>
-                    <Link className={location.pathname === '/admin/services'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/services'>Access Contact Requests</Link>
-                </li>
-                <li>
-                    <Link className={location.pathname === '/admin/rides'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/admin/rides'>Access Ride Requests</Link>
                 </li>
             </ul>
         </div>
@@ -59,31 +47,15 @@ import './Sidebar-Background-edit.css';
         
         <ul className={click ? ' h-wrapper-active' : 'h-wrapper'}>
                 <li>
-                    <Link className='h-nav-links' to='/BackgroundEditHome' onClick={closeMobileMenu}>Edit Backgrounds</Link>
-                </li>
-                <li>
                     <Link className='h-nav-links' to='/admin/driverlist' onClick={closeMobileMenu}>Edit Driver List</Link>
                 </li>
                 <li>
                     <Link className='h-nav-links' to='/admin/adminlist' onClick={closeMobileMenu}>Edit Admin list</Link>
                 </li>
                 <li>
-                    <Link className='h-nav-links' to='/admin/news' onClick={closeMobileMenu}>Edit News updates</Link>
-                </li>
-                <li>
-                    <Link className='h-nav-links' to='/admin/services' onClick={closeMobileMenu}>Access Contact Requests</Link>
-                </li>
-                <li>
-                    <Link className='h-nav-links' to='/admin/rides' onClick={closeMobileMenu}>Access Ride Requests</Link>
-                </li>
-                <li>
                     <Link className='h-nav-links' to='/logout' onClick={closeMobileMenu}>Log Out</Link>
                 </li>
             </ul>
-
-
-
         </>
-
     )
 }
