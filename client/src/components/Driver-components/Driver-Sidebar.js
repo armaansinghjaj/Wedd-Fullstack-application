@@ -27,7 +27,7 @@ import '../Admin-components/Sidebar-Background-edit.css';
                 </li>
             </ul>
         <div className='logout-wrapper'>
-            <Link id='logout-link' to='/Home'>
+            <Link id='logout-link' to='/logout'>
             <button id='logout-button'>Log Out</button>
             </Link>
         </div>
@@ -48,7 +48,7 @@ import '../Admin-components/Sidebar-Background-edit.css';
                 <Link className='h-nav-links' to='/driver' onClick={closeMobileMenu}>Start Shift</Link>
             </li>
             <li>
-                <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                <Link className='h-nav-links' to='/logout' onClick={closeMobileMenu}>Log Out</Link>
             </li>
         </ul>
         </>

@@ -14,7 +14,7 @@ import './Sidebar-Background-edit.css';
         <>
         <div className='vertical-navbar'>
             <div id='logo-wrapper'>
-                <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
+                <Link id='vert-logo' to={'/admin'}>WeDD</Link>
             </div>
 
             <ul className='link-wrapper'>
@@ -42,7 +42,7 @@ import './Sidebar-Background-edit.css';
             </ul>
         </div>
         <div className='logout-wrapper'>
-            <Link id='logout-link' to='/Home'>
+            <Link id='logout-link' to='/logout'>
             <button id='logout-button'>Log Out</button>
             </Link>
         </div>
@@ -50,7 +50,7 @@ import './Sidebar-Background-edit.css';
 
         <div className='h-navbar'>
             <div id='logo-wrapper'>
-                <Link id='h-logo' to={'/Admin'}>WeDD</Link>
+                <Link id='h-logo' to={'/admin'}>WeDD</Link>
             </div>
             <div className='menu-icon' onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -77,7 +77,7 @@ import './Sidebar-Background-edit.css';
                     <Link className='h-nav-links' to='/admin/rides' onClick={closeMobileMenu}>Access Ride Requests</Link>
                 </li>
                 <li>
-                    <Link className='h-nav-links' to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                    <Link className='h-nav-links' to='/logout' onClick={closeMobileMenu}>Log Out</Link>
                 </li>
             </ul>
 

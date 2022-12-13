@@ -6,32 +6,21 @@ const LoginController = require("../src/controllers/LoginController");
 router.get("/", (req, res) => {});
 
 router.post("/", (req, res) => {
-	
-	let sess = req.session;
-	
-	// if (sess.access) {
-	// 	return res.status(403).send({
-	// 		redirect: "/profile"
-	// 	});
 
-	// } else 
+	let sess = req.session;
+
 	if (req.body.email === undefined || req.body.password === undefined) {
 
 		return res.status(400).send({
-			error: true,
-			errorDetails: {
-				errorCode: 400,
-				errorMsg: "Email or password cannot be empty.",
-			}
+			status: 400,
+			message: "Email or password cannot be empty.",
 		});
 
 	} else {
 
 		LoginController.getByEmail(req.body.email, (error, user)=>{
 			if(error){
-
-				return res.status(error.errorDetails.errorCode).send(error)
-
+				return res.status(error.status).send(error)
 			} else {
 				if(user.getPassword() === req.body.password){ // use bycrypt here
 					
@@ -66,9 +55,9 @@ router.post("/", (req, res) => {
 						});
 					}
 				} else{
-					return res.status(403).send({
-						error: true,
-						message: "No user found. Please try changing your email and password."
+					return res.status(404).send({
+						status: 404,
+						message: "Please try changing your credentials."
 					});
 				}
 			}

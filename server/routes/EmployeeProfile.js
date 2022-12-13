@@ -1,88 +1,119 @@
 const express = require("express");
 const router = express.Router();
-const loadDefaultValues = require("../modules/loadDefaultValues");
-const pool = require("../modules/SQLconnectionpool");
+const EmployeeController = require("../src/controllers/EmployeeController");
 
-router.get("/", (req, res) => {
-	loadDefaultValues(req);
+router.get("/:id", (req, res) => {
+
 	let sess = req.session;
-    if(sess.access === 3){
-        return res.redirect("/profile");
-    }
 
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM employees where email = '${sess.user}'`, function (err, account, fields) {
-			con.release();
-			if(err) throw err;
-
-			return res.render("profile-employee", {employee_account: account[0], page: null});
-		});
-	});
-});
-
-router.get("/account", (req, res) => {
-	loadDefaultValues(req);
-	let sess = req.session;
-    if(sess.access === 3){
-        return res.redirect("/profile");
-    }
-
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`SELECT * FROM employees where email = '${sess.user}'`, function (err, account, fields) {
-			con.release();
-			if(err) throw err;
-
-			return res.render("profile-employee", {employee_account: account[0], page: "account"});
-		});
-	});
-});
-
-router.post("/account", (req, res) => {
-	loadDefaultValues(req);
-	let sess = req.session;
-    if(sess.access === 3){
-        return res.redirect("/profile");
-    }
-
-	if (req.query.option === "details") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`UPDATE employees SET name = '${req.body.customer_name}', email = '${req.body.customer_email}' where email = '${sess.user}'`, function (err, result, fields) {
-				con.release();
-				if (err) throw err;
-
-				return res.redirect("/employeeprofile/account");
-			});
-		});
-	} else if (req.query.option === "password") {
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`SELECT password FROM employees where email = '${sess.user}'`, function (err, user_password, fields) {
-				con.release();
-				if(err) throw err;
-	
-				if(req.body.employee_password.old === user_password[0].password){
-					if(req.body.employee_password.new === req.body.employee_password.confirm){
-						pool.getConnection((err, con) => {
-							if (err) throw err;
-							con.query(`UPDATE employees SET password = '${req.body.employee_password.new}' where email = '${sess.user}'`, function (err, result, fields) {
-								con.release();
-								if (err) throw err;
-
-								return res.redirect("/employeeprofile/account");
-							});
-						});
-					} else {
-						res.send("Values didn't matched!");
-					}
-				} else {
-					res.send("Values didn't matched!");
-				}
-			});
+	if (sess.access != 1) {
+		return res.status(403).send({
+			status: 403,
+			message: "Access denied."
 		});
 	}
+
+	EmployeeController.getByID(req.params.id, (error, employee)=>{
+		if(error){
+			return res.status(error.status).send(error);
+		} else {
+			if(employee.setPassword(null)){
+				return res.status(200).send(employee);
+			}
+		}
+	})
 });
+
+router.put("/:id/:quantity", (req, res)=>{
+
+	let sess = req.session;
+
+	if (sess.access != 1) {
+		return res.status(403).send({
+			status: 403,
+			message: "Access denied."
+		});
+	}
+
+	if(req.params.quantity === "information"){
+		if (req.body.edit_name === undefined || req.body.edit_email === undefined || req.body.edit_name === "" || req.body.edit_email === "") {
+
+			return res.status(406).send({
+				status: 406,
+				message: "Fields cannot be empty."
+			});
+
+		} else {
+			EmployeeController.update(req.params.id, req.body.edit_email, req.body.edit_name, 0, null, req.body.emailFlag, (error, result)=>{
+				if(error){
+					return res.status(error.status).send(error);
+				} else {
+					return res.status(200).send(result);
+				}
+			})
+
+		}
+	} else if(req.params.quantity === "password"){
+		if (req.body.old_password === undefined || req.body.new_password === undefined || req.body.confirm_password === undefined || req.body.old_password === "" || req.body.new_password === "" || req.body.confirm_password === "") {
+
+			return res.status(406).send({
+				status: 406,
+				message: "Fields cannot be empty."
+			});
+
+		} else {
+
+			if(req.body.new_password !== req.body.confirm_password){
+				return res.status(406).send({
+					status: 406,
+					message: "Passwords do not match."
+				});
+			} else {
+				EmployeeController.getByID(req.params.id, (error, user)=>{
+					if(error){
+						return res.status(error.status).send(error);
+					} else {
+						if(user.getPassword() !== req.body.old_password){
+							return res.status(406).send({
+								status: 406,
+								message: "Passwords do not match."
+							});
+						} else {
+							// (id, email, name, passwordFlag, password, emailFlag, callback)
+							// EMAIL, NAME --> NULL, PASSWORD_FLAG --> 1 (PASSWORD CHANGED), PASSWORD --> CONFIRM_PASSWORD, EMAILFLAG --> 1 (EMAIL NOT CHANGED)
+							EmployeeController.update(req.params.id, null, null, 1, req.body.confirm_password, 0, (error, result)=>{
+								if(error){
+									return res.status(error.status).send(error);
+								} else {
+									return res.status(200).send(result);
+								}
+							})
+						}
+					}
+				})
+			}
+		}
+	}
+});
+
+router.delete("/:id", (req, res)=>{
+
+	let sess = req.session;
+
+	if (sess.access != 1) {
+		return res.status(403).send({
+			status: 403,
+			message: "Access denied."
+		});
+	}
+
+	EmployeeController.remove(req.params.id, (error, result)=>{
+		if(error){
+			return res.status(error.status).send(error);
+		} else {
+			return res.status(200).send(result);
+		}
+	})
+})
 
 module.exports = router;

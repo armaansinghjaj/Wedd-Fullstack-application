@@ -1,29 +1,207 @@
 import React, {useEffect, useState} from "react";
-import './EmployeeProfile.css';
+import Loader from '../Common-components/Loader';
+import Cookies from 'universal-cookie';
 import ProfilePage from "../Customer-components/Profilepage-components/ProfilePage";
-
+import './EmployeeProfile.css';
+import { Navigate } from "react-router-dom";
 
 export default function EmployeeProfile() {
 
-    const adminName = "Admin Name";
-    const adminEmail = "AdminEmail@email.com";
+    //VVVV----------------------------INSTANTIATE------------------------------------------VVVV//
+    const cookie = new Cookies();
+
+    //VVVV----------------------------STATES------------------------------------------VVVV//
+
+    const [editUserEmail, setEditUserEmail] = useState('');
+    const [editUserName, setEditUserName] = useState('');
+    const [userOldPassword, setOldPassword] = useState('');
+    const [userNewPassword, setNewPassword] = useState('');
+    const [userConfirmPassword, setConfirmPassword] = useState('');
+    const [loader, setLoader] = useState(false);
+
+    const [accessForbidden, setAccessForbidden] = useState(false);
+    const [userDeleted, setUserDeleted] = useState(false);
+
+    //VVVV----------------------------STATE HANLERS------------------------------------------VVVV//
+    const handleEditEmailChange = (e) =>{
+        setEditUserEmail(e.target.value);
+    }
+
+    const handleEditNameChange = (e) =>{
+        setEditUserName(e.target.value);
+    }
+
+    const handleEditOldPassword = (e) =>{
+        setOldPassword(e.target.value);
+    }
+
+    const handleEditNewPassword = (e) =>{
+        setNewPassword(e.target.value);
+    }
+
+    const handleEditConfirmPassword = (e) =>{
+        setConfirmPassword(e.target.value);
+    }
+
+    //VVVV----------------------------FORM HANLERS AND FETCH------------------------------------------VVVV//
+
+    useEffect( () => {
+        closeAllOverlays();
+        fetchUserDetails();
+    }, []);
+
+    const [userDetails, setUserDetails] = useState({});
+
+    const fetchUserDetails = () => {
+
+        setLoader(true);
+        fetch(`/api/employeeprofile/${cookie.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(user => user.json())
+        .then(user => {
+            if(user.status === 403){
+                setAccessForbidden(true)
+            }
+            else if(user.status === 404){
+                setUserDetails({});
+            } else{
+                setUserDetails(user);
+            }
+            setLoader(false);
+        })
+    };
+
+    const handleInfoUpdateForm = (e) => {
+        e.preventDefault();
+        setLoader(true);
+
+        if(editUserEmail === '' || editUserName === ''){
+            //checking if email is empty
+
+            // checking if name is empty
+
+        }
+        else{
+            const editUser_data = {
+                edit_email: editUserEmail,
+                edit_name: editUserName,
+                emailFlag: Number(cookie.get("_editemail")!==editUserEmail) // 0 if email not changed, 1 if changed 
+            }
+            fetch(`/api/employeeprofile/${cookie.get("__sid")}/information`, {
+                credentials: 'same-origin',
+                mode: 'cors',
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(editUser_data),
+            })
+            .then(editUser_response => editUser_response.json())
+            .then(editUser_response => {
+                window.confirm(editUser_response.message);
+                setEditProfile(!editProfile);
+                setLoader(false);
+                cookie.remove("_eemail");
+                fetchUserDetails();
+            })
+        }
+    }
+
+    const handlePasswordUpdateForm = (e) => {
+        e.preventDefault();
+        setLoader(true);
+
+        if(userOldPassword === '' || userNewPassword === '' || userConfirmPassword === ''){
+            //checking if passwords is empty
+
+        }
+        else{
+            const editPassword_data = {
+                old_password: userOldPassword,
+                new_password: userNewPassword,
+                confirm_password: userConfirmPassword
+            }
+            fetch(`/api/employeeprofile/${cookie.get("__sid")}/password`, {
+                credentials: 'same-origin',
+                mode: 'cors',
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(editPassword_data),
+            })
+            .then(editPassword_response => editPassword_response.json())
+            .then(editPassword_response => {
+                window.confirm(editPassword_response.message);
+                setChangePassword(!changePassword);
+                setLoader(false);
+                fetchUserDetails();
+            })
+        }
+    }
+
+    const handleDeleteUser = (e) =>{
+        e.preventDefault();
+        setLoader(true);
+
+        fetch(`/api/employeeprofile/${cookie.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(deleteUser_response => deleteUser_response.json())
+        .then(deleteUser_response => {
+            window.confirm(deleteUser_response.message);
+
+            // TO-DO: COLSE THE DELETE OVERLAY HERE AFTER PROCESSING THE REQUEST
+            setLoader(false);
+            if(deleteUser_response.status === 200){
+                setUserDeleted(true);
+                cookie.remove("c_user");
+                cookie.remove("__sid");
+            } else {
+                window.alert(deleteUser_response.message);
+            }
+            setDeleteAccount(!deleteAccount);
+            fetchUserDetails();
+        })
+    }
+
+    const getDataById = (id) => {
+        setLoader(true);
+        
+        fetch(`/api/employeeprofile/${id}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(userData => userData.json())
+        .then(userData => {
+            cookie.set("_editemail", userData.email, { path: '/Admin', maxAge: '3600', secure: false, sameSite: 'strict'});
+            setEditUserEmail(userData.email)
+            setEditUserName(userData.name)
+            setLoader(false);
+        })
+    }
+
+    //VVVV--------------------------------OVERLAYS--------------------------------------VVVV//
 
     const [editProfile, setEditProfile] = useState(false);
     const [changePassword, setChangePassword] = useState(false);
     const [deleteAccount, setDeleteAccount] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-
-    // useEffect( () => {
-    //     fetchAdminDetails();
-    // }, []);
-
-    const [adminDetails, setAdminDetails] = useState([]);
-
-    // const fetchAdminDetails = async () => {
-    //     const data = await fetch('/api/employeeprofile/');
-    //     const adminDetails = await data.json();
-    //     setAdminDetails(adminDetails);
-    // };
 
     // Functions
     const closeAllOverlays = () =>{
@@ -31,6 +209,13 @@ export default function EmployeeProfile() {
         setEditProfile(false);
         setChangePassword(false);
         setDeleteAccount(false);
+        setEditUserEmail('')
+        setEditUserName('')
+        setOldPassword('')
+        setNewPassword('')
+        setNewPassword('')
+        setConfirmPassword('')
+        setLoader('')
     }
 
     // Open menu
@@ -42,6 +227,7 @@ export default function EmployeeProfile() {
     // Open hidden forms
     const profileEdit = () => {
         closeAllOverlays();
+        getDataById(cookie.get("__sid"))
         setEditProfile(!editProfile)
     }
     const passwordChange = () => {
@@ -67,6 +253,16 @@ export default function EmployeeProfile() {
 
     return(
         <>
+
+        {/* Loader component */}
+        {loader && <Loader/>}
+
+        {/* Access Denied, redirect to Logout */}
+        {accessForbidden && (<Navigate replace to={"/login"}/>)}
+
+        {/* Redirect on delete account */}
+        {userDeleted && (<Navigate replace to={"/"}/>)}
+
         <div className='ellipse-menu-container' id='ellipse-menu-container'>
             <div className='ellipse-menu-user-name'>Admin Name <ProfilePage/></div>
             <i className="fa fa-ellipsis-v ellipse-menu" onClick={menuHandler} aria-hidden="true"></i>
@@ -75,16 +271,7 @@ export default function EmployeeProfile() {
             <div className='menu-parent-container' id='menu-parent-container'>
             <div className='menu-wrapper'>
                 <div className='menu-list'>
-                    {/* <div className='menu-list-item'>Dashboard</div>
-                    <div className='menu-list-item-divider'></div> */}
-
-                    {/* <div className='menu-list-item'>Start Shift</div>
-                    <div className='menu-list-item-divider'></div> */}
-                    
                     <div className='menu-list-item item-delete-account' onClick={remove}>Delete Account</div>
-                    
-                    {/* <div className='menu-list-item-divider'></div> */}
-                    {/* <div className='menu-list-item'>Signout</div> */}
                 </div>
             </div>
         </div>)
@@ -100,10 +287,10 @@ export default function EmployeeProfile() {
             <p className="admin-profile-heading-general" id="general-settings-header">General Settings</p>
                 <ul id="admin-edit-profile-ul">
                     <li>
-                        <p><span className="admin-first-word">Name:</span> {adminName}</p>
+                        <p><span className="admin-first-word">Name:</span> {userDetails.name}</p>
                     </li>
                     <li>
-                        <p><span className="admin-first-word">Email:</span> {adminEmail}</p>
+                        <p><span className="admin-first-word">Email:</span> {userDetails.email}</p>
                     </li>
                 </ul>
                 <button className="admin-edit-button" onClick={profileEdit}>
@@ -119,20 +306,13 @@ export default function EmployeeProfile() {
                     </li>
                 </ul>
             </div>
-            {/* <div className="divider-delete-btn"> */}
-                {/* <div id="divider"/> */}
-                {/* <div className="admin-change"> */}
-                    {/* <h1 id="admin-change-profilei">Delete account</h1> */}
-                    {/* <button className="admin-delete-account-btn" onClick={remove}>Delete account</button> */}
-                {/* </div> */}
-            {/* </div> */}
         </div>
 
                     
         {/* Hidden delete profile form */}
         <div id={deleteAccount ?"admin-delete-account-overlay-active" : "admin-delete-account-overlay"}>
             <div id={deleteAccount ? "admin-delete-profile-form-active": "admin-delete-profile-form"}>
-                <form action="/Employeeprofile/account?option=delete" method="post">
+                <form method="delete" onSubmit={handleDeleteUser}>
                     <div className={"delete-confirmation"}>
                         <h1 id="delete-warning">WARNING!</h1>
                         <p>Once you delete your account, there is no going back. Please be certain.</p>
@@ -147,10 +327,10 @@ export default function EmployeeProfile() {
         <div id={editProfile ?"admin-delete-account-overlay-active" : "admin-delete-account-overlay"}>
                 <div id={editProfile ? "admin-edit-form-active" :"admin-edit-form"}>
                     <h1 id="admin-change-profile">Edit profile</h1>
-                    <form action="/employeeprofile/account?option=details" method="post">
+                    <form method="put" onSubmit={handleInfoUpdateForm}>
                         <ul>
-                            <li id="admin-name"><input type="text" name="employee_name" id="admin-employee-name" value={adminName}/></li>
-                            <li id="admin-inputemail"><input type="email" name="employee_email" id="admin-employee-email" value={adminEmail}/></li>
+                            <li id="admin-name"><input type="text" name="employee_name" id="admin-employee-name" onChange={handleEditNameChange} value={editUserName}/></li>
+                            <li id="admin-inputemail"><input type="email" name="employee_email" id="admin-employee-email" onChange={handleEditEmailChange} value={editUserEmail}/></li>
                             <div className="admin-edit-profile-btns">
                                 <input type="submit" className="admin-submit" value="Update"/>
                                 <input type="reset" className="admin-submit" value="Cancel" onClick={closeEdit}/>
@@ -164,11 +344,11 @@ export default function EmployeeProfile() {
             <div id={changePassword ?"admin-delete-account-overlay-active" : "admin-delete-account-overlay"}>
                 <div className={changePassword ? "admin-password-form-active" : "admin-password-form"}>
                     <h1 id="admin-change-profilec">Change password</h1>
-                    <form action="/Employeeprofile/account?option=password" method="post">
+                    <form method="put" onSubmit={handlePasswordUpdateForm}>
                         <ul>
-                            <li>Old password: <br/><input type="password" name="employee_password[old]" id="admin-old-password" value=""/></li>
-                            <li>New password: <br/><input type="password" name="employee_password[new]" id="admin-new-password" value=""/></li>
-                            <li>Confirm password: <br/><input type="password" name="employee_password[confirm]" id="admin-confirm-password" value=""/></li>
+                            <li><input type="password" name="employee_password[old]" id="admin-old-password" placeholder="Old Password" onChange={handleEditOldPassword} value={userOldPassword}/></li>
+                            <li><input type="password" name="employee_password[new]" id="admin-new-password" placeholder="New Password" onChange={handleEditNewPassword} value={userNewPassword}/></li>
+                            <li><input type="password" name="employee_password[confirm]" id="admin-confirm-password" placeholder="Confirm Password" onChange={handleEditConfirmPassword} value={userConfirmPassword}/></li>
                             <input type="submit"  id="admin-submit" value="Update"/>
                             <input type="reset"  id="admin-submit" value="cancel" onClick={closeChange}/>
                         </ul>

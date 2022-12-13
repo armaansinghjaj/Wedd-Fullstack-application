@@ -41,57 +41,52 @@ function getByEmail(email, callback) {
 	});
 }
 
-function update(_id, email, name, flag, password, emailFlag, callback) {
-    console.log(emailFlag);
-
-    if(emailFlag === 0){ // EMAIL IS CHANGED
-
-        getByEmail(email, (error, user)=>{
-            
-            if(error){
-                
-                if(error.status === 404){
-
-                    getByID(_id, (error, employee)=>{
-                        console.log("Here");
-                        
-                        if(error){
-                            callback(error, null);
-                        } else {
-                            employee.setEmail(email);
-                            employee.setName(name);
-                            if(flag === 1){
-                                employee.setPassword(password);
-                            }	
-                            EmployeeDB.update(employee, (error, user) => {
-                                callback(error, user);
-                            });
-                        }
-                    });
-                } else {
-                    callback(error, null);
-                }
-            } else {
-                callback({
-                    status: 409,
-                    message: "Use a unique email address."
-                }, null);
-            }
-        })
-    } else { // EMAIL IS NOT CHANGED
+function update(_id, email, name, passwordFlag, password, emailFlag, callback) {
+    if(passwordFlag === 1){ // PASSWORD CHANGED
         getByID(_id, (error, employee)=>{
-            
             if(error){
                 callback(error, null);
             } else {
-                employee.setEmail(email);
-                employee.setName(name);
-                if(flag === 1){
-                    employee.setPassword(password);
-                }	
-                EmployeeDB.update(employee, (error, user) => {callback(error, user)});
+                employee.setPassword(password);
+                EmployeeDB.update(employee, (error, result) => {callback(error, result)});
             }
         });
+    } else if(passwordFlag === 0){ // PASSWORD NOT CHANGED
+        if(emailFlag === 1){ // EMAIL IS CHANGED
+            getByEmail(email, (error, user)=>{
+                if(error){
+                    if(error.status === 404){
+                        getByID(_id, (error, employee)=>{
+                            if(error){
+                                callback(error, null);
+                            } else {
+                                employee.setEmail(email);
+                                employee.setName(name);
+                                EmployeeDB.update(employee, (error, user) => {
+                                    callback(error, user);
+                                });
+                            }
+                        });
+                    } else {
+                        callback(error, null);
+                    }
+                } else {
+                    callback({
+                        status: 409,
+                        message: "Use a unique email address."
+                    }, null);
+                }
+            })
+        } else if(emailFlag === 0) { // EMAIL IS NOT CHANGED
+            getByID(_id, (error, employee)=>{
+                if(error){
+                    callback(error, null);
+                } else {
+                    employee.setName(name);
+                    EmployeeDB.update(employee, (error, user) => {callback(error, user)});
+                }
+            });
+        }
     }
 }
 
@@ -100,7 +95,7 @@ function updateResetUUID(employee, callback) {
 		if (error) {
 			callback(error, null);
 		} else {
-			EmployeeDB.updateResetUUID(employee, (error, user) => {
+			EmployeeDB.updateResetUUID(user, (error, user) => {
 				callback(error, user);
 			});
 		}

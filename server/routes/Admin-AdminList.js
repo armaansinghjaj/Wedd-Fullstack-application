@@ -51,7 +51,6 @@ router.put("/:method/:id", (req, res)=>{
 			});
 
 		} else {
-			console.log(req.body.flag);
 			EmployeeController.update(req.params.id, req.body.edit_email, req.body.edit_name, 0, null, req.body.flag, (error, result)=>{
 				if(error){
 					return res.status(error.status).send(error);
