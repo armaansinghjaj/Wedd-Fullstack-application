@@ -20,7 +20,6 @@ import AdminEdit from './Pages/AdminEdit';
 import AdminNews from './Pages/AdminNews';
 import DriversEdit from './Pages/DriversEdit';
 import ContactRequests from './Pages/ContactRequests';
-import AdminRideRequests from './Pages/RideRequests';
 
 // Customer account pages
 import CustomerProfile from './Pages/Account';
