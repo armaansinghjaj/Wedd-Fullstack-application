@@ -6,7 +6,8 @@ import * as G from "leaflet-control-geocoder";
 //import taxiImg from "../../../../images/taxi.jpg";
 import Cookies from "universal-cookie";
 import Maps from "../Map/maps";
-const cookie = new Cookies();
+import Sent from "../Ride-process/request-sent";
+const cookies = new Cookies();
 
 function Rideform() {
 	//Monitors state of input
@@ -83,68 +84,56 @@ function Rideform() {
 		e.preventDefault();
 
 		//checking if Name is empty
-		// if (Name !== "" ? "" : setNameError("Name required"));
-		setName("Vaibhav Kumar");
+		if (Name !== "" ? "" : setNameError("Name required"));
 
-		// //checking if Email is empty
-		// // if (Email !== "" ? "" : setEmailError("Email required"));
-		setEmail("Vaibhavkumar8001@gmail.com");
+		//checking if Email is empty
+		if (Email !== "" ? "" : setEmailError("Email required"));
 
-		// //checking if Phone is empty
-		// // if (Phone !== "" ? "" : setPhoneError("Phone number required"));
-		setPhone("4446664848");
+		//checking if Phone is empty
+		if (Phone !== "" ? "" : setPhoneError("Phone number required"));
 
-		// //checking if Pickup is empty
-		// // if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
-		setPickup("Southern Alberta Institute of Technology");
+		//checking if Pickup is empty
+		if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
 
-		// //checking if Dropoff is empty
-		// // if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
-		setDropoff("Castlebrook Way NE");
+		//checking if Dropoff is empty
+		if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
 
-		// // checking discount code
+		// checking discount code
 
-		// //checking if Payment type is empty
-		// // if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
-		setPayment("Credit Card");
-
-		// pickupCoordinates();
-		setPickuplat(51.06311085);
-		setPickuplng(-114.08791516800315);
-		// const rideform_data = {
-		// 	name: "Vaibhav Kumar",
-		// 	email: "Vaibhavaneja805@gmail.com",
-		// 	phone: "4446664848",
-		// 	pick: "Southern Alberta Institute of Technology",
-		// 	dest: "Castlebrook Way NE",
-		// 	pay_mode: "Credit card",
-		// 	picklat:51.06311085,
-		// 	picklng:-114.08791516800315
-		// };
-		// fetch("/api/ride/processing", {
-		// 	credentials: "same-origin",
-		// 	mode: "cors",
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify(rideform_data),
-		// })
-		// 	.then((response) => response.json())
-		// 	.then((responsedata) => {
-		// 		cookie.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
-		// 		window.location.reload();
-		// 	});
-		cookie.set("temp_ride_session", "temp_session", {path: "/ride", secure: false, sameSite: "strict"});
-		<Navigate to="/ride/confirm" replace={true} />
-		window.location.reload();
+		//checking if Payment type is empty
+		// if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
+		pickupCoordinates();
+		const rideform_data = {
+			name: Name,
+			email: Email,
+			phone: Phone,
+			pick: Pickup,
+			dest: Dropoff,
+			pay_mode: Payment,
+			picklat: Pickuplat,
+			picklng: Pickuplng,
+		};
+		fetch("/api/ride/processing", {
+			credentials: "same-origin",
+			mode: "cors",
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(rideform_data),
+		})
+			.then((response) => response.json())
+			.then((responsedata) => {
+				// cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
+				if (responsedata.status) window.alert("Request sent");
+			});
 	};
+
 
 	return (
 		<>
-			{cookie.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
-			{/* {cookie.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />}
-			{cookie.get("ride_session") && <Navigate to="/ride/connected" replace={true} />} */}
+			{/* {cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />} */}
 			<input type="hidden" id="userlat" />
 			<input type="hidden" id="userlng" />
 
@@ -223,6 +212,8 @@ function Rideform() {
 							</div>
 
 							<div className="submit-div">
+								<input type="text" name="discount_code" id="discount_code" placeholder="Discount code" />
+								<br />
 								<input type="submit" id="ride-submit" value="Submit"></input>
 							</div>
 						</div>

@@ -11,18 +11,8 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import Forgotpass from './Pages/Forgotpass'; 
 
-//Driver Page
-import DriverProfile from './Pages/DriverProfile';
-import Driver from './Pages/Driver';
-import DriverDashboard from './Pages/DriverDashboard';
-import DriverRequests from './Pages/Driver-Available-Requests';
-
 // Ride Pages
 import Ride from './Pages/Ride';
-import RideConfirm from './Pages/RideConfirmation';
-import RideSearching from './Pages/RideSearching';
-import RideConnected from './Pages/RideConnected';
-import RideCompleted from './Pages/RideCompleted';
 
 // Admin pages
 import Admin from './Pages/Admin';
@@ -61,10 +51,6 @@ const App = () => {
         
         {/* Ride Pages is pending yet */}
         <Route path= '/ride'  element={<Ride/>}/> 
-        <Route path= '/ride/confirm'  element={<RideConfirm/>}/> 
-        <Route path= '/ride/searching'  element={<RideSearching/>}/> 
-        <Route path= '/ride/connected'  element={<RideConnected/>}/> 
-        <Route path= '/ride/completed'  element={<RideCompleted/>}/> 
 
         {/* Admin Pages */}
         <Route path= '/admin'  element={<Admin/>}/> 
@@ -72,13 +58,7 @@ const App = () => {
         <Route path= '/admin/news'  element={<AdminNews/>}/>
         <Route path= '/admin/driverlist'  element={<DriversEdit/>}/> 
         <Route path= '/admin/services' element={<ContactRequests/>}/>
-        <Route path= '/admin/rides' element={<AdminRideRequests/>}/>
-
-        {/* Driver dashboard pages */}
-        <Route path= '/driver/Profile'  element={<DriverProfile/>}/> 
-        <Route path= '/driver'  element={<Driver/>}/> 
-        <Route path= '/driver/dashboard'  element={<DriverDashboard/>}/>
-        <Route path= '/driver/availrequests'  element={<DriverRequests/>}/> 
+        {/* <Route path= '/admin/rides' element={<AdminRideRequests/>}/> */}
 
         {/* Customer account pages */}
         <Route path= '/account'  element={<CustomerProfile/>}/>        

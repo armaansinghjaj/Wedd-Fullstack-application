@@ -52,6 +52,3 @@ import '../Admin-components/Sidebar-Background-edit.css';
             </li>
         </ul>
         </>
-
-    )
-}

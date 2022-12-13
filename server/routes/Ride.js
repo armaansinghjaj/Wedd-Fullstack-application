@@ -5,6 +5,16 @@ const pool = require("../modules/SQLconnectionpool");
 const crypto = require("crypto");
 const {response} = require("express");
 const geolib = require("geolib");
+require("dotenv").config();
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+	service: "gmail",
+	auth: {
+		user: process.env.MAIL,
+		pass: process.env.PASS,
+	},
+});
 
 router.get("/", (req, res) => {
 	loadDefaultValues(req);
@@ -12,9 +22,7 @@ router.get("/", (req, res) => {
 	if (sess.access != 3) {
 		return res.redirect("/login");
 	} else if (sess.customer_ride_session_id) {
-		return res.render("customer_ride_searching", {
-
-		});
+		return res.render("customer_ride_searching", {});
 	}
 	return res.render("ride");
 });
@@ -36,21 +44,39 @@ router.post("/processing", (req, res) => {
 	if (req.body.name === "" || req.body.email === "" || req.body.phone === "" || req.body.pick === "" || req.body.dest === "" || req.body.pay_mode === "") {
 		return res.send("error");
 	} else {
-		let temp_ride_session_id = crypto.randomBytes(8).toString("hex");
-		pool.getConnection((err, con) => {
-			if (err) throw err;
-			con.query(`INSERT INTO temp_ride (temp_ride_session, name, email, phone, pickup, destination, payment) VALUES ('${temp_ride_session_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pick}','${req.body.dest}','${req.body.pay_mode}')`, function (err, result, fields) {
-				con.release();
+		// 	let temp_ride_session_id = crypto.randomBytes(8).toString("hex");
+		// 	pool.getConnection((err, con) => {
+		// 		if (err) throw err;
+		// 		con.query(`INSERT INTO temp_ride (temp_ride_session, name, email, phone, pickup, destination, payment) VALUES ('${temp_ride_session_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pick}','${req.body.dest}','${req.body.pay_mode}')`, function (err, result, fields) {
+		// 			con.release();
 
-				if (err) return res.send("backend error");
-				
-				sess.temp_session_id = temp_ride_session_id;
-				sess.customer_lat = req.body.picklat;
-				sess.customer_lng = req.body.picklng;
-				return res.send({
-					temp_session_id: temp_ride_session_id,
-				});
-			});
+		// 			if (err) return res.send("backend error");
+
+		// 			sess.temp_session_id = temp_ride_session_id;
+		// 			sess.customer_lat = req.body.picklat;
+		// 			sess.customer_lng = req.body.picklng;
+		// 			return res.send({
+		// 				temp_session_id: temp_ride_session_id,
+		// 			});
+		// 		});
+		// 	});
+		// }
+
+		const mailOptions = {
+			from: process.env.MAIL,
+			to: process.env.MAIL,
+			Subject: "NEW RIDE REQUEST",
+			text: `Name: ${req.body.name} \nEmail: ${req.body.email}\nPhone number: ${req.body.phone}\nPickup: ${req.body.pick}\nDestination: ${req.body.dest}\nMode of Payment: ${req.body.pay_mode}`,
+		};
+
+		transporter.sendMail(mailOptions, (error, info) => {
+			if (error) {
+				console.log("error", error);
+				res.status(401).send("error");
+			} else {
+				console.log("Email sent", info.response);
+				res.send({status: true});
+			}
 		});
 	}
 });
@@ -77,12 +103,11 @@ router.put("/searching", (req, res) => {
 	let sess = req.session;
 	if (req.body.customer_id === "" || req.body.name === "" || req.body.email === "" || req.body.phone === "" || req.body.pickup === "" || req.body.destination === "" || req.body.payment === "" || req.body.customer_id === undefined || req.body.name === undefined || req.body.email === undefined || req.body.phone === undefined || req.body.pickup === undefined || req.body.destination === undefined || req.body.payment === undefined) {
 		return res.send("error");
-	} else
-	{
+	} else {
 		let request_id = crypto.randomBytes(8).toString("hex");
 		pool.getConnection((err, con) => {
 			if (err) throw err;
-			con.query(`INSERT INTO riderequests (request_id, customer_id, name, email, phone, pickup, destination, payment) VALUES ('${request_id}','${1}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pickup}','${req.body.destination}','${req.body.payment}')`, function (err, result, fields) {
+			con.query(`INSERT INTO riderequests (request_id, customer_id, name, email, phone, pickup, destination, payment) VALUES ('${request_id}','${req.body.customer_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pickup}','${req.body.destination}','${req.body.payment}')`, function (err, result, fields) {
 				con.release();
 				pool.getConnection((err, con) => {
 					if (err) throw err;
@@ -92,43 +117,62 @@ router.put("/searching", (req, res) => {
 						if (err) return res.send("backend error");
 						sess.temp_session_id = null;
 					});
-					pool.getConnection((err, con) => {
-						if (err) throw err;
-						con.query(`SELECT active_driver_session_id, driver_lat, driver_lng FROM available_drivers`, function (err, result, fields) {
-							con.release();
-							if (err) return res.send("backend error");
-							let closest_driver;
-							let closest_distance;
-							if (result[0]) {
-								closest_driver = result[0].active_driver_session_id;
-								closest_distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[0].driver_lat, longitude: result[0].driver_lng});
-								for (i = 0; i < result.length; i++) {
-									let distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[i].driver_lat, longitude: result[i].driver_lng});
-									if (distance < closest_distance) {
-										closest_distance = distance;
-										closest_driver = result[i].active_driver_session_id;
-									}
-								}
-								pool.getConnection((err, con) => {
-									if (err) throw err;
-									con.query(`UPDATE riderequests SET active_driver_session_id = '${closest_driver}' WHERE customer_id = '${sess.customer_id}'`, function (err, result, fields) {
-										con.release();
-										if (err) return console.log(err);
-									});
-								});
-							}
-						});
-					});
 				});
 				if (err) return console.log(err);
 				sess.searching_session_id = request_id;
-
 				return res.send({
 					searching_session_id: request_id,
 				});
 			});
 		});
 	}
+});
+
+router.post("/searching", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`Select * from current_rides WHERE customer_id = '${req.body.customer_id}'`, function (err, result, fields) {
+			con.release();
+			if (err) return res.send("error");
+
+			if (result[0]) {
+				sess.request_id = sess.searching_session_id;
+				sess.searching_session_id = null;
+				return res.send({
+					request_id: sess.searching_session_id,
+				});
+			} else {
+				pool.getConnection((err, con) => {
+					if (err) throw err;
+					con.query(`SELECT active_driver_session_id, driver_lat, driver_lng FROM available_drivers`, function (err, result, fields) {
+						con.release();
+						if (err) return res.send("backend error");
+						let closest_driver;
+						let closest_distance;
+						if (result[0]) {
+							closest_driver = result[0].active_driver_session_id;
+							closest_distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[0].driver_lat, longitude: result[0].driver_lng});
+							for (i = 0; i < result.length; i++) {
+								let distance = geolib.getDistance({latitude: sess.customer_lat, longitude: sess.customer_lng}, {latitude: result[i].driver_lat, longitude: result[i].driver_lng});
+								if (distance < closest_distance) {
+									closest_distance = distance;
+									closest_driver = result[i].active_driver_session_id;
+								}
+							}
+							pool.getConnection((err, con) => {
+								if (err) throw err;
+								con.query(`UPDATE riderequests SET active_driver_session_id = '${closest_driver}' WHERE customer_id = '${sess.customer_id}'`, function (err, result, fields) {
+									con.release();
+									if (err) return console.log(err);
+								});
+							});
+						}
+					});
+				});
+			}
+		});
+	});
 });
 
 // router.post("/", (req, res) => {
