@@ -23,6 +23,7 @@
 
 #Driver-edit-h1 {
     position: relative;
+    display: flex;
     top: 5%;
     left: 44%;
     font-size: 3rem;

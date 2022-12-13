@@ -1,12 +1,11 @@
 var mysql = require("mysql");
 
 var pool = mysql.createPool({
-	connectionLimit: 100,
-	host: "127.0.0.1",
+	host: "n1nlmysql29plsk.secureserver.net",
 	port: 3306,
-	user: "root",
-	password: "password",
-	database: "wedddb",
+	user: "user_admin",
+	password: "W&kp51x2",
+	database: "admin",
 });
 
 module.exports = pool;

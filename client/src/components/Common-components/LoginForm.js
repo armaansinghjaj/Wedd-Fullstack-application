@@ -48,7 +48,6 @@ function LoginForm() {
             })
             .then(login_response => login_response.json())
             .then(login_responseData => {
-                window.confirm(login_responseData.sessionID);
                 setAuthenticatedUser(login_responseData);
                 cookies.set('c_user', login_responseData.userName, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
                 cookies.set('__sid', login_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});

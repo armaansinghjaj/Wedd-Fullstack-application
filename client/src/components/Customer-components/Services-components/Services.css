@@ -118,17 +118,13 @@ input[class="service-input"]:focus {
 }
 
 #service-submit{
-    appearance: none;
     margin: 0px;
-    overflow: visible;
     font-style: inherit;
     font-variant: inherit;
     font-stretch: inherit;
     font-family: inherit;
     font-weight: 600;
     color: rgb(255, 255, 255);
-    text-transform: none;
-    display: inline-flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
@@ -138,13 +134,10 @@ input[class="service-input"]:focus {
     background:rgb(235 114 0 / 93%);
     vertical-align: middle;
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-    line-height: 44px;
     height: 48px;
     min-width: 40px;
     max-width: none;
     font-size: 16px;
-    text-decoration: none;
     text-align: center;
     white-space: nowrap;
     border-width: 2px;
@@ -152,8 +145,7 @@ input[class="service-input"]:focus {
     border-color: transparent;
     width: 30%;
     left: 60%;
-    top:-40%;
-      
+    top:-40%; 
 }
   
 #service-submit:hover{
