@@ -14,7 +14,7 @@ export default function VerticalNavbar() {
         <>
         <div className='vertical-navbar'>
             <div id='logo-wrapper'>
-                <Link id='vert-logo' to={'/Admin'}>WeDD</Link>
+                <Link id='vert-logo' to={'/admin'}>WeDD</Link>
             </div>
 
             <ul className='link-wrapper'>
@@ -28,7 +28,7 @@ export default function VerticalNavbar() {
                     <Link className={location.pathname === '/backgroundeditcontact'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/backgroundeditcontact'>Edit Contact us page</Link>
                 </li>
                 <li>
-                    <Link className='Vert-Nav-Links' to='/Admin'>Admin home page</Link>
+                    <Link className='Vert-Nav-Links' to='/admin'>Admin home page</Link>
                 </li>
             </ul>
         </div>

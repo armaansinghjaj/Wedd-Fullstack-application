@@ -283,7 +283,7 @@ export default function AdminDriversEdit() {
     return(
         <>
         {/* Loader component */}
-        {loader && <Loader/>}
+        {/* {loader && <Loader/>} */}
 
         {/* Edit Driver Form */}
         <div >
@@ -374,16 +374,18 @@ export default function AdminDriversEdit() {
         </div>
 
         {/* Add button */}
-        <div id='addButton'>
-                <button id='Add-button' onClick={openOverlayAdd}><i className="fa-regular fa-square-plus fa-2x"/>
-                </button>
-        </div>
+
 
         {/*Display Drivers List */}
         <div className='DriversEdit-container'>
         <Nametag id1="admin-name-tag" id2="admin-logo-display" id3="admin-name-display" text={"Admin name"} employee={cookie.get("c_user")}/>
         <div id='Driver-table-container'>
-            <h1 id='Driver-edit-h1'>Edit Drivers</h1>
+            <h1 id='Driver-edit-h1'>Edit Drivers
+            <div id='addButton'>
+                <button id='Add-button' onClick={openOverlayAdd}><i className="fa-regular fa-square-plus fa-2x"/>
+                </button>
+            </div>
+            </h1>
                 <table className='edit-driver-table' >
                     <thead>
                         <tr>
