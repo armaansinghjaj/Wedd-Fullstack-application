@@ -7,10 +7,8 @@ function Loader() {
     return (
         <>
             <div className="loader-div">
-                <div className='loader'>
-                    <img src={Animation} alt="Loading Animation"/>
-                    <p>Loading...</p>
-                </div>
+                <span className="loader"></span>
+                <p>Loading...</p>
             </div>
         </>
     )

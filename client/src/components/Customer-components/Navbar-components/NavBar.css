@@ -1,41 +1,30 @@
 nav {
-  left: 1.5%;
-  width: 95vw;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
   position: fixed;
-  z-index: 999;
-  top: 0;
-}
-
-#navbar {
   margin-top: 1rem;
+  left: 1.5vw;
+  width: 95vw;
+  height: 10.5vh;
   border-radius: 5px;
   box-shadow: 0px 10px 45px 0px #2b2b2bd1;
   background: rgb(255 255 255 / 90%);
   backdrop-filter: blur(8px);
+  z-index: 999;
 }
 
 .navbar-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
+  position: relative;
   height: 100%;
-  width: 80%;
 }
 
 .navbar-logo {
   color: #e64c1b;
-  justify-self: start;
-  margin-left: 20px;
-  margin-bottom: 0.8rem;
-  width: 6rem;
   cursor: pointer;
   text-decoration: none;
-  padding-top: 15px;
   font-size: 2rem;
-  display: flex;
-  align-items: center;
 }
 
 .fa-typo3 {
@@ -44,14 +33,11 @@ nav {
 }
 
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(10, auto);
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: row;
   list-style: none;
   text-align: center;
-  width: 60vw;
-  justify-content: end;
-  margin-right: 2rem;
+  font-size: 1.3rem;
   z-index: 999;
 }
 
@@ -62,11 +48,13 @@ nav {
 .nav-links {
   color: #e64c1b;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
+  margin-right: 2.5rem;
+  flex-wrap: wrap;
   text-decoration: none;
-  padding: 0.5rem 1rem;
   height: 100%;
-  
 }
 
 .nav-links-active {
@@ -97,24 +85,56 @@ nav {
 #signup-active {
   display: none;
 }
+
+.navbar-right{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: -4.3rem;
+}
+
+.navbar-buttons-right{
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  color: #e64c1b;
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+.navbar-buttons-right:nth-child(1) {
+  color: white;
+  border-radius: 20px;
+  background-color: #e64c1b;
+  border: 1px solid #e64c1b;
+  transition: 0.5s;
+}
+
+.navbar-buttons-right:nth-child(1):hover {
+  background-color: #b1340e;
+}
+
 @media screen and (max-width: 1366px) {
   .nav-menu{
     margin-right: -9rem;
-    
   }
 }
 
 @media screen and (max-width: 1280px) {
   .nav-menu{
-    margin-right: -12rem;
-    
+    margin-right: -12rem; 
+  }
+  .navbar-group-3{
+    display: none;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .nav-menu{
-    margin-right: -16rem;
-    
+    margin-right: -16rem; 
+  }
+  .navbar-group-3{
+    display: none;
   }
 }
 
@@ -204,6 +224,9 @@ nav {
     font-size: 2rem;
   }
 
+  .navbar-group-3{
+    display: none;
+  }
 }
 
 @media screen and (max-width:767px ) {
@@ -265,6 +288,9 @@ nav {
     display: initial;
   }
 
+  .navbar-group-3{
+    display: none;
+  }
 }
 
 
@@ -307,6 +333,9 @@ nav {
   .menu-icon {
     top: 17px;
   }
+  .navbar-group-3{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -324,6 +353,9 @@ nav {
 
   .nav-menu.active {
     height: 90vh;
+  }
+  .navbar-group-3{
+    display: none;
   }
 }
 

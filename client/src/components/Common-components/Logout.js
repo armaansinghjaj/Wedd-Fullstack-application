@@ -1,13 +1,16 @@
 import React, { useEffect, useState} from "react";
 import {Navigate} from "react-router-dom";
+import Loader from '../Common-components/Loader';
 import Cookies from 'universal-cookie';
 
 export default function Logout() {
 
     const [isLoggedIn, setLoggedIn] = useState(true);
+    const [loader, setLoader] = useState(false);
     const cookies = new Cookies();
 
     useEffect( ()=>{
+        setLoader(true)
         if(isLoggedIn){
             fetch('/api/logout', {
                 credentials: 'same-origin',
@@ -27,9 +30,17 @@ export default function Logout() {
                     cookies.remove('__sid');
                     setLoggedIn(false);
                 }
+                setLoader(false)
             })
         }
     }, []);
 
-    return (<>{(!isLoggedIn) && <Navigate to="/login" replace={true}/>}</>);
+    return (
+    <>
+        {/* Loader component */}
+        {loader && <Loader/>}
+
+        {(!isLoggedIn) && <Navigate to="/login" replace={true}/>}
+    </>
+    );
 }

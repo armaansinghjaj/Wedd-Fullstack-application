@@ -35,7 +35,7 @@ function Cards () {
     return (
 
         <>
-            {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
+            {/* {(accessForbidden)?<Navigate replace to={"/admin"}/>:""} */}
         <div className='cards'>
             <p id="cards-p-main">We are Designated Drivers</p>
             <p id="cards-p-main">We know transportation. 400+ communities depend on us for it.</p>

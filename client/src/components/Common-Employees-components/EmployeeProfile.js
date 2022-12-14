@@ -189,7 +189,7 @@ export default function EmployeeProfile() {
         })
         .then(userData => userData.json())
         .then(userData => {
-            cookie.set("_editemail", userData.email, { path: '/Admin', maxAge: '3600', secure: false, sameSite: 'strict'});
+            cookie.set("_editemail", userData.email, { path: '/', maxAge: '3600', secure: false, sameSite: 'strict'});
             setEditUserEmail(userData.email)
             setEditUserName(userData.name)
             setLoader(false);

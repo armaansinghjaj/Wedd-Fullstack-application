@@ -140,7 +140,7 @@ const verifyUser = ()=>{
 }
     return (
       <>
-      {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
+      {/* {(accessForbidden)?<Navigate replace to={"/admin"}/>:""} */}
       
       <div className="service-parent-conatiner">
        

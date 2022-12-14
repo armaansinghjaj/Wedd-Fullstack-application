@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Loader from '../Common-components/Loader';
 import './LoginForm.css';
 
 function LoginForm() {
@@ -10,6 +11,7 @@ function LoginForm() {
     const [password, setPassword]=useState('');
     const [passwordError, setPasswordError]=useState('');
     const [userAuthenticated, setAuthenticatedUser]=useState('');
+    const [loader, setLoader] = useState(false);
     const cookies = new Cookies();
 
     const handleEmailChange=(e)=>{
@@ -22,9 +24,9 @@ function LoginForm() {
     }
 
     const handleFormSubmit=(e)=>{
-
         e.preventDefault();
         
+        setLoader(true)
         if(email === '' || password === ''){
             //checking if email is empty
             if(email === '') setEmailError('Email Required');
@@ -48,17 +50,26 @@ function LoginForm() {
             })
             .then(login_response => login_response.json())
             .then(login_responseData => {
-                setAuthenticatedUser(login_responseData);
-                cookies.set('c_user', login_responseData.userName, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
-                cookies.set('__sid', login_responseData.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                if(login_responseData.status === 200){
+                    setAuthenticatedUser(login_responseData);
+                    cookies.set('__sid', login_responseData.user.sessionID, { path: '/', maxAge: '5184000', secure: false, sameSite: 'strict'});
+                    setLoader(false)
+                } else {
+                    setLoader(false)
+                    window.alert(login_responseData.message);
+                }
             })
         }
     }
 
     return (
         <>
+
+        {/* Loader component */}
+        {loader && <Loader/>}
+
         {/* Redirect to different portals when logged in */}
-        {userAuthenticated && (<Navigate to={userAuthenticated.accessPath} replace={true}/>)}
+        {userAuthenticated && (<Navigate replace to={userAuthenticated.user.accessPath}/>)}
 
         {/* Redirect to ride if user comes to login page after logging in. */}
         {/* {(cookies.get('c_user') && cookies.get('__sid')) && (<Navigate to="/ride" replace={true} />)} */}

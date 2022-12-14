@@ -3,6 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 import Cookies from 'universal-cookie';
 import {Button} from "./Button";
 import Dropdown from "./Navbar-Account-dropdown"
+import Loader from '../../Common-components/Loader';
 import "./NavBar.css";
 
 function NavBar() {
@@ -10,7 +11,7 @@ function NavBar() {
 	const [click, setClick] = useState(false);
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
-
+    const [loader, setLoader] = useState(false);
     const [openProfileMenu, setOpenProfileMenu] = useState(false);
 
 	// Header visibility variables
@@ -58,65 +59,109 @@ function NavBar() {
 		};
 	});
 
-    // useEffect(() => {
-	// 	if(cookies.get('__uid')){
-    //         document.getElementsByClassName("navbar-user-link")[0].style.display = "block";
-    //         document.getElementsByClassName("navbar-buttons")[0].style.display = "none";
-    //     }
-    //     else{
-    //         document.getElementsByClassName("navbar-user-link")[0].style.display = "none";
-    //         document.getElementsByClassName("navbar-buttons")[0].style.display = "block";
-    //     }
-	// });
-
 	const cls = visible ? "visible" : "hidden";
+
+    const [userName, setUserName] = useState('');
+
+    useEffect(()=>{
+        if(cookies.get("__sid") !== undefined){
+            setLoader(true)
+            getUser();
+            setLoader(false)
+        }
+    }, []);
+
+    setInterval(()=>{
+        if(cookies.get("__sid") !== undefined){
+            setLoader(true)
+            getUser();
+            setLoader(false)
+        }
+    }, 5000)
+
+    const getUser = ()=>{
+        fetch(`/api/getuser/${cookies.get("__sid")}`, {
+            credentials: 'same-origin',
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(getUser_response => getUser_response.json())
+        .then(getUser_responseData => {
+            console.log(getUser_responseData)
+            if('user' in getUser_responseData){
+                setUserName(getUser_responseData.user.name);
+            } else {
+                if(cookies.get('__sid')){
+                    window.alert(getUser_responseData.message);
+                }
+                cookies.remove('c_user');
+                cookies.remove('__sid');
+                setUserName('');
+            }
+        })
+    }
 
     return (
         <>
-            <nav id='navbar' className={cls}>
+        {/* Loader component */}
+        {loader && <Loader/>}
+
+        <nav className={cls}>
                 <div className="navbar-container">
-                        <Link to="/Home" className="navbar-logo" onClick={scrollAndClose}>WeDD <i className=''/>
-                        </Link>
+
+                    <div className="navbar-group-1">
+                        <Link to="/" className="navbar-logo" onClick={scrollAndClose}>WeDD</Link>
+                    </div>
+
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>
-                    <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
-                        <li className = 'nav-item'>
-                            <Link to='/' className={location.pathname === '/'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Home
-                            </Link>
-                        </li>
-                        <li className = 'nav-item'>
-                            <Link to='/ride' className={location.pathname === '/ride'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Ride
-                            </Link>
-                        </li>
-                        <li className = 'nav-item'>
-                            <Link to='/about' className={location.pathname === '/about'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> About 
-                            </Link>
-                        </li>
-                        <li className = 'nav-item'>
-                            <Link to='/services' className={location.pathname === '/services'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Services 
-                            </Link>
-                        </li>
-                        <li className = 'nav-item' id='login-active'>
-                            <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login 
-                            </Link>
-                        </li>
-                        <li className = 'nav-item' id='signup-active'>
-                            <Link to='/signup' className='nav-links' onClick={scrollAndClose}> Sign up
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="navbar-profile-menu">
-                        {((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-user-link">
-                            <Link onClick={handleProfileClick} to={{javascript:void(0)}}>{cookies.get('c_user').charAt(0).toUpperCase() + cookies.get('c_user').slice(1)} {(openProfileMenu === false) ? (<i className='fas fa-angle-up'></i>) : (<i className='fas fa-angle-down'></i>)}</Link>
-                            {(openProfileMenu === true) && (<Dropdown/>)}
-                        </div>}
-                        {!((cookies.get('c_user') && cookies.get('__sid'))) && <div className="navbar-buttons">
-                            {button && <Button onClick={scrollAndClose} buttonStyle='btn--outline'></Button>}
-                        </div>}
+
+                    <div className="navbar-group-2">
+                        <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
+                            <li className = 'nav-item'>
+                                <Link to='/' className={location.pathname === '/'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Home
+                                </Link>
+                            </li>
+                            <li className = 'nav-item'>
+                                <Link to='/ride' className={location.pathname === '/ride'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Ride
+                                </Link>
+                            </li>
+                            <li className = 'nav-item'>
+                                <Link to='/about' className={location.pathname === '/about'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> About 
+                                </Link>
+                            </li>
+                            <li className = 'nav-item'>
+                                <Link to='/services' className={location.pathname === '/services'?'nav-links nav-links-active' : 'nav-links'} onClick={scrollAndClose}> Services 
+                                </Link>
+                            </li>
+                            <li className = 'nav-item' id='login-active'>
+                                <Link to='/login' className='nav-links' onClick={scrollAndClose}> Login 
+                                </Link>
+                            </li>
+                            <li className = 'nav-item' id='signup-active'>
+                                <Link to='/signup' className='nav-links' onClick={scrollAndClose}> Sign up
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </nav>
+                    
+                    <div className="navbar-group-3">
+
+                            {(userName !== '' && cookies.get('__sid')) && <div className="navbar-user-link">
+                                <Link onClick={handleProfileClick} to={{javascript:void(0)}}>{userName.charAt(0).toUpperCase() + userName.slice(1)} {(openProfileMenu === false) ? (<i className='fas fa-angle-down'></i>) : (<i className='fas fa-angle-up'></i>)}</Link>
+                                {(openProfileMenu === true) && (<Dropdown/>)}
+                            </div>}
+                            {!(userName !== '' && cookies.get('__sid')) && <div className="navbar-right">
+                                <Link className='navbar-buttons-right' to='/signup'>Signup</Link>
+                                <Link className='navbar-buttons-right' to='/login'>Login</Link>
+                            </div>}
+                    </div>
+            </div>
+        </nav>
         </>
     );
 }

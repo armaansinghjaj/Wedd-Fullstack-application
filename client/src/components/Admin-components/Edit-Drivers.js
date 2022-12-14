@@ -282,7 +282,7 @@ export default function AdminDriversEdit() {
     return(
         <>
         {/* Loader component */}
-        {/* {loader && <Loader/>} */}
+        {loader && <Loader/>}
 
         {/* Edit Driver Form */}
         <div >

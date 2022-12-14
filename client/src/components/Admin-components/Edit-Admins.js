@@ -266,7 +266,7 @@ export default function AdminEdit() {
         <>
 
         {/* Loader component */}
-        {/* {loader && <Loader/>} */}
+        {loader && <Loader/>}
 
         {/* Display Admin list */}
         <div className='AdminEdit-container'>

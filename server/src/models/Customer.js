@@ -1,12 +1,11 @@
 "use strict";
 module.exports = class Customer {
 
-    constructor(_id, email, name, password, salt, roleId){
+    constructor(_id, email, name, password, roleId){
         this._id = _id;
         this.email = email;
         this.name = name;
         this.password = password;
-        this.salt = salt;
         this.roleID = roleId;
     }
 
@@ -25,10 +24,6 @@ module.exports = class Customer {
 
     getPassword(){
         return this.password;
-    }
-
-    getSalt(){
-        return this.salt;
     }
 
     getRoleID(){
@@ -73,15 +68,6 @@ module.exports = class Customer {
     setPassword(newPassword){
         try{
             this.password = newPassword;
-            return true;
-        } catch(err){
-            return false;
-        }
-    }
-
-    setSalt(newSalt){
-        try{
-            this.salt = newSalt;
             return true;
         } catch(err){
             return false;

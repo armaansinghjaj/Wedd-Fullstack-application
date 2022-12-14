@@ -3,6 +3,8 @@ import * as React from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
 
+import PageNotFound from './components/Common-components/PageNotFound';
+
 // Client portals
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -37,9 +39,16 @@ const App = () => {
   return (
     <>
       <Router>
-       {/* Routing for application */}
-      <Routes>
-        <Route path= "*" element={<Home />}/>
+         {/* Routing for application */}
+        <Routes>
+
+        {/* Redirect pages */}
+        <Route path='/customer' element={
+          <Navigate replace to="/"/>
+        }/>
+
+        <Route path= "*" element={<PageNotFound />}/>
+        <Route path= '/'  element={<Home/>}/> 
         <Route path= '/about'  element={<About/>}/> 
         <Route path= '/services'  element={<Services/>}/> 
         <Route path= '/login'  element={<Login/>}/> 
@@ -68,11 +77,6 @@ const App = () => {
 
         {/* Common pages */}
         <Route path='/logout' element={<Logout/>}/>
-
-        {/* Redirect pages */}
-        <Route path='/customer' element={
-          <Navigate replace to="/"/>
-        }/>
 
       </Routes>
     </Router>

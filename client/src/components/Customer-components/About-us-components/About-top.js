@@ -34,7 +34,7 @@ function Abouttop() {
     return(
         <>
 
-        {(accessForbidden)?<Navigate replace to={"/admin"}/>:""}
+        {/* {(accessForbidden)?<Navigate replace to={"/admin"}/>:""} */}
 
         <React.Fragment>
             <div className="figure-1-div">
