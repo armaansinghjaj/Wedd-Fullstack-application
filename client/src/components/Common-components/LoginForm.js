@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Loader from '../Common-components/Loader';
@@ -12,16 +12,26 @@ function LoginForm() {
     const [passwordError, setPasswordError]=useState('');
     const [userAuthenticated, setAuthenticatedUser]=useState('');
     const [loader, setLoader] = useState(false);
+    const [redirectUser, setRedirect]=useState(false);
+    const [error, setError]=useState('');
     const cookies = new Cookies();
 
     const handleEmailChange=(e)=>{
+        setError('');
         setEmailError('');
         setEmail(e.target.value);
     }
     const handlePasswordChange=(e)=>{
+        setError('');
         setPasswordError('');
         setPassword(e.target.value);
     }
+
+    useEffect(()=>{
+        if(cookies.get("__sid")){
+            setRedirect(true);
+        }
+    }, [])
 
     const handleFormSubmit=(e)=>{
         e.preventDefault();
@@ -56,10 +66,13 @@ function LoginForm() {
                     setLoader(false)
                 } else {
                     setLoader(false)
-                    window.alert(login_responseData.message);
+                    setError(login_responseData.message);
                 }
+            }).catch((err)=>{
+                console.log(err);
             })
         }
+        setLoader(false)
     }
 
     return (
@@ -70,6 +83,9 @@ function LoginForm() {
 
         {/* Redirect to different portals when logged in */}
         {userAuthenticated && (<Navigate replace to={userAuthenticated.user.accessPath}/>)}
+
+        {/* Redirect if user already logged in */}
+        {redirectUser && (<Navigate replace to={"/"}/>)}
 
         {/* Redirect to ride if user comes to login page after logging in. */}
         {/* {(cookies.get('c_user') && cookies.get('__sid')) && (<Navigate to="/ride" replace={true} />)} */}
@@ -88,6 +104,8 @@ function LoginForm() {
                                 
                                 <div className="login-form">
                                     <h1 className='login-form-head login-form-inside-contents'>Log in to your account</h1>
+
+                                    {(error !== '')?<div className='login-error-message'>{error}</div>:""}
 
                                     <div className="login-form-error-txt"></div>
                                     

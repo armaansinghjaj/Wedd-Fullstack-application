@@ -65,21 +65,26 @@ function NavBar() {
 
     useEffect(()=>{
         if(cookies.get("__sid") !== undefined){
-            setLoader(true)
+            setLoader(true);
             getUser();
-            setLoader(false)
+            // setLoader(false);
+        } else {
+            setUserName('');
         }
     }, []);
 
     setInterval(()=>{
         if(cookies.get("__sid") !== undefined){
-            setLoader(true)
+            // setLoader(true);
             getUser();
-            setLoader(false)
+            // setLoader(false);
+        } else {
+            setUserName('');
         }
     }, 5000)
 
     const getUser = ()=>{
+        // setLoader(true);
         fetch(`/api/getuser/${cookies.get("__sid")}`, {
             credentials: 'same-origin',
             mode: 'cors',
@@ -90,17 +95,21 @@ function NavBar() {
         })
         .then(getUser_response => getUser_response.json())
         .then(getUser_responseData => {
-            console.log(getUser_responseData)
             if('user' in getUser_responseData){
+                // console.log(getUser_responseData)
                 setUserName(getUser_responseData.user.name);
             } else {
                 if(cookies.get('__sid')){
-                    window.alert(getUser_responseData.message);
+                    // window.alert(getUser_responseData.message);
                 }
                 cookies.remove('c_user');
                 cookies.remove('__sid');
                 setUserName('');
             }
+            setLoader(false);
+        })
+        .catch(err => {
+            console.log(err);
         })
     }
 

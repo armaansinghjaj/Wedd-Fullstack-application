@@ -69,7 +69,7 @@ router.post("/", (req, res) => {
 				} else{
 					return res.status(404).send({
 						status: 404,
-						message: "No user found. Invalid email or password."
+						message: "The email or password you entered is incorrect. Please try again."
 					});
 				}
 			}

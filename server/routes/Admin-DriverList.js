@@ -71,7 +71,7 @@ router.put("/:method/:id", (req, res)=>{
 			});
 
 		} else {
-			EmployeeController.insert(generateUserID(), req.body.new_email, req.body.new_name, req.body.new_password, 2, (error, result)=>{
+			EmployeeController.insert(02+generateUserID(), req.body.new_email, req.body.new_name, req.body.new_password, 2, (error, result)=>{
 				if(error){
 					return res.status(error.status).send(error);
 				} else {

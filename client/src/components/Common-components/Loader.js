@@ -8,7 +8,6 @@ function Loader() {
         <>
             <div className="loader-div">
                 <span className="loader"></span>
-                <p>Loading...</p>
             </div>
         </>
     )
