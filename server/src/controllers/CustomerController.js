@@ -1,13 +1,28 @@
 const CustomerDB = require("../DBAccess/CustomerDB");
 const Customer = require("../models/Customer");
+const LoginDB = require("../DBAccess/LoginDB")
 
 function insert(_id, email, name, password, roleID, picturePath, carName, address, callback){
-    let customer = new Customer(_id, email, name, password, roleID);
-    customer.setProfilePicture(picturePath);
-    customer.setCarName(carName);
-    customer.setHomeAddress(address);
 
-    CustomerDB.insert(customer, (error, user)=>{callback(error, user)});
+    LoginDB.getByEmail(email, (error, result)=>{
+        if(error){
+            if(error.status === 404){
+                let customer = new Customer(_id, email, name, password, roleID);
+                customer.setProfilePicture(picturePath);
+                customer.setCarName(carName);
+                customer.setHomeAddress(address);
+
+                CustomerDB.insert(customer, (error, user)=>{callback(error, user)});
+            } else {
+                callback(error, null);
+            }
+        } else {
+            callback({
+                status: 400,
+                message: "Sorry, that email address is already associated with an account."
+            }, null);
+        }
+    })
 }
 
 function getByID(customer_id, callback){

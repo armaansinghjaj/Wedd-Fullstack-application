@@ -59,7 +59,7 @@ function getByEmail(email, callback) {
 				if (users[0] === undefined) {
 					callback({
 						status: 404,
-						message: "Please try changing your credentials.",
+						message: "The email or password you entered is incorrect. Please try again.",
 					},null);
 				} else {
 					callback(null, 

@@ -30,9 +30,9 @@ router.post("/", (req, res) => {
 
 				// const customer = new Customer(generateUserID(), req.body.email, req.body.name, req.body.password, 3);
 
-				CustomerController.insert(generateUserID(), req.body.email, req.body.name, req.body.password, 3, null, null, null, (error, user)=>{
+				CustomerController.insert(03+generateUserID(), req.body.email, req.body.name, req.body.password, 3, null, null, null, (error, user)=>{
 					if(error){
-						return res.status(error.errorDetails.errorCode).send(error);
+						return res.status(error.status).send(error);
 					} else {
 						// set user's id into the session
 							sess._uid = user.getId();

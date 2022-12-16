@@ -16,7 +16,7 @@ function insert(customer, callback){
             }, undefined);
         }
 
-        con.query('INSERT INTO customer (customer_id, email, name, password, salt) VALUES (?, ?, ?, ?)', [customer.getId(), customer.getEmail(), customer.getName(), customer.getPassword(), customer.getSalt()], function (err, queryResult, fields) {
+        con.query('INSERT INTO customer (customer_id, email, name, password) VALUES (?, ?, ?, ?)', [customer.getId(), customer.getEmail(), customer.getName(), customer.getPassword()], function (err, queryResult, fields) {
             con.release();
 
             if (err) {
