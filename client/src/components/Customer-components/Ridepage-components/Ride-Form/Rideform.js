@@ -58,16 +58,14 @@ function Rideform() {
 		// setApple(e.target.value);
 	};
 
-	const gps = () => {
+	const gps = async () => {
 		let userlocationlat = document.getElementById("userlat").value;
 		let userlocationlng = document.getElementById("userlng").value;
 		var url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + userlocationlat + "&lon=" + userlocationlng;
 
-		return fetch(url)
-			.then((response) => response.text())
-			.then((str) => {
-				setPickup(JSON.parse(str).display_name);
-			});
+		const response = await fetch(url);
+		const str = await response.text();
+		setPickup(JSON.parse(str).display_name);
 	};
 	const pickupCoordinates = () => {
 		let pickuplocation = Pickup;
@@ -124,16 +122,20 @@ function Rideform() {
 		})
 			.then((response) => response.json())
 			.then((responsedata) => {
-				// cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
-				if (responsedata.status) window.alert("Request sent");
+				if (responsedata.temp_session_id) {
+					cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
+					if (responsedata.status) window.alert("Request sent");
+				}
+				else {
+					console.log("error")
+				}
 			});
 	};
 
-
 	return (
 		<>
-			{/* {cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
-			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />} */}
+			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />}
 			<input type="hidden" id="userlat" />
 			<input type="hidden" id="userlng" />
 
