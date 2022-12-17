@@ -124,37 +124,42 @@ router.put("/:action", (req, res) => {
 	}
 });
 
-router.get("/processing", (req, res) => {
+router.put("/processing", (req, res) => {
 	let sess = req.session;
 	pool.getConnection((err, con) => {
 		if (err) throw err;
-		con.query(`SELECT * FROM current_rides WHERE ride_allocated_session_id = '${sess.ride_allocated_session_id}'`, function (err, result, fields) {
+		con.query(`SELECT * FROM current_rides WHERE active_driver_session_id = '${sess.ride_allocated_session_id}'`, function (err, result, fields) {
 			con.release();
 
 			if (err) return res.send("backend error");
-			return res.send({pickup_location: "Falbury Crescent NE, Falconridge, Calgary, Alberta, T3J 1B1, Canada", drop_location: "SAIT,calgary"});
+			return res.send(result[0]);
 		});
 	});
 });
 router.put("/searching", (req, res) => {
 	let sess = req.session;
+	console.log("yes")
 	pool.getConnection((err, con) => {
 		if (err) throw err;
-		con.query(`UPDATE available_drivers SET driver_lat = '${req.body.latitude}', driver_lng = '${req.body.longitude}' WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
-			con.release();
-			if (err) return res.send("backend error");
-		});
-	});
-	pool.getConnection((err, con) => {
-		if (err) throw err;
-		con.query(`Select * from  riderequests WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
+		con.query(`Select * from  current_rides WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
 			con.release();
 			if (err) return res.send("backend error");
 			if (result[0]){
-				return res.send(result)
+				return res.send(result[0].ride_id)
 			}
 		});
 	});
 });
+router.put("/complete", (req, res) => {
+	let sess = req.session;
+	pool.getConnection((err, con) => {
+		if (err) throw err;
+		con.query(`DELETE from current_rides WHERE active_driver_session_id = '${req.body.driver_session_id}' `, function (err, result, fields) {
+			con.release();
+			if (err) return res.send("backend error");
+		});
+	});
+});
+
 
 module.exports = router;
