@@ -82,7 +82,7 @@ function LoginForm() {
         {loader && <Loader/>}
 
         {/* Redirect to different portals when logged in */}
-        {userAuthenticated && (<Navigate replace to={userAuthenticated.user.accessPath}/>)}
+        {userAuthenticated && (<Navigate replace to={"/ride"}/>)}
 
         {/* Redirect if user already logged in */}
         {redirectUser && (<Navigate replace to={"/"}/>)}
@@ -143,7 +143,7 @@ function LoginForm() {
                     <span className='login-right-banner-contents banner-content-1'>WeDD</span>
                     <span className='login-right-banner-contents banner-content-2'>Commute made simple</span>
                     <span className='login-right-banner-contents banner-content-3'>Call us at</span>
-                    <span className='login-right-banner-contents banner-content-4'>+1-403-201-8223</span>
+                    <span className='login-right-banner-contents banner-content-4'><a href="tel:+14032018223" className='login-call-link'>+1-403-201-8223</a></span>
                 </div>
             </div>
         </div>

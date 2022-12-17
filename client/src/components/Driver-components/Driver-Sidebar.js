@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../Admin-components/Sidebar-Background-edit.css';
 
-    export default function DriverNavbar() {
+export default function DriverNavbar() {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -52,3 +52,5 @@ import '../Admin-components/Sidebar-Background-edit.css';
             </li>
         </ul>
         </>
+    )
+}

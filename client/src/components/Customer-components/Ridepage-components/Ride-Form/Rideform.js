@@ -7,9 +7,11 @@ import * as G from "leaflet-control-geocoder";
 import Cookies from "universal-cookie";
 import Maps from "../Map/maps";
 import Sent from "../Ride-process/request-sent";
-const cookies = new Cookies();
 
 function Rideform() {
+
+	const cookies = new Cookies();
+
 	//Monitors state of input
 	const [Name, setName] = useState("");
 	const [nameError, setNameError] = useState("");
@@ -17,9 +19,9 @@ function Rideform() {
 	const [EmailError, setEmailError] = useState("");
 	const [Phone, setPhone] = useState("");
 	const [PhoneError, setPhoneError] = useState("");
-	const [Dropoff, setDropoff] = useState("");
+	const [Dropoff, setDropoff] = useState((cookies.get("form_pick")?cookies.get("form_drop"):""));
 	const [DropoffError, setDropoffError] = useState("");
-	const [Pickup, setPickup] = useState("");
+	const [Pickup, setPickup] = useState((cookies.get("form_pick")?cookies.get("form_pick"):""));
 	const [PickupError, setPickupError] = useState("");
 	const [Payment, setPayment] = useState("");
 	const [PaymentError, setPaymentError] = useState("");
@@ -212,7 +214,6 @@ function Rideform() {
 							</div>
 
 							<div className="submit-div">
-								<input type="text" name="discount_code" id="discount_code" placeholder="Discount code" />
 								<br />
 								<input type="submit" id="ride-submit" value="Submit"></input>
 							</div>

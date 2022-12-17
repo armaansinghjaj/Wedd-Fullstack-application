@@ -121,6 +121,10 @@
     color: #032d60;
 }
 
+.about-call-link{
+    color: black;
+}
+
 @media screen and (max-width:767px){
     .figure-1{
         height: 50vh;

@@ -24,7 +24,9 @@ export default function Auth() {
     //VVVV----------------------------FORM HANLERS AND FETCH------------------------------------------VVVV//
 
     useEffect( () => {
-        fetchUserDetails();
+        if(cookies.get("__sid") !== undefined || cookies.get("__sid") !== null){
+            fetchUserDetails();
+        }
     }, []);
 
     const [userDetails, setUserDetails] = useState({});

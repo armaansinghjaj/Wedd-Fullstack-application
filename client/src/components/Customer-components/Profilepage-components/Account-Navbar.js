@@ -26,9 +26,6 @@ export default function AccountNavbar() {
                             <Link className={location.pathname === '/Account'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/Account'>Settings and Profile</Link>
                         </li>
                         <li>
-                            <Link className={location.pathname === '/triphistory'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/triphistory'>Trip History</Link>
-                        </li>
-                        <li>
                             <Link className={location.pathname === '/helpandsupport'?'Vert-Nav-Links Vert-Nav-Active' : 'Vert-Nav-Links'} to='/helpandsupport'>Help and Support</Link>
                         </li>
                         {/* <li>
@@ -37,7 +34,7 @@ export default function AccountNavbar() {
                     </ul>
                 </div>
                 <div className='logout-wrapper'>
-                    <Link id='logout-link' to='/Home'>
+                    <Link id='logout-link' to='/logout'>
                     <button id='logout-button'>Log Out</button>
                     </Link>
                 </div>
@@ -56,16 +53,13 @@ export default function AccountNavbar() {
                             <Link className={'h-nav-links'} to='/Account' onClick={closeMobileMenu}>Settings and Profile</Link>
                         </li>
                         <li>
-                            <Link className={'h-nav-links'} to='/triphistory' onClick={closeMobileMenu}>Trip History</Link>
-                        </li>
-                        <li>
                             <Link className={'h-nav-links'} to='/helpandsupport' onClick={closeMobileMenu}>Help and Support</Link>
                         </li>
                         {/* <li>
                             <Link className={'h-nav-links'} to='/faq' onClick={closeMobileMenu}>Frequently Asked Questions</Link>
                         </li> */}
                         <li>
-                            <Link className={'h-nav-links'} to='/Home' onClick={closeMobileMenu}>Log Out</Link>
+                            <Link className={'h-nav-links'} to='/logout' onClick={closeMobileMenu}>Log Out</Link>
                         </li>
                 </ul>
 

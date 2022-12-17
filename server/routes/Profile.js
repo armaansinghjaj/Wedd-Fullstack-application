@@ -8,6 +8,8 @@ const path = require("path");
 var fs = require("fs");
 const readFile = (filename) => fs.readFileSync(filename).toString("UTF8");
 const SupportController = require("../src/controllers/SupportController");
+const hbs = require('nodemailer-express-handlebars')
+const nodemailer = require('nodemailer')
 
 router.get("/:id", (req, res) => {
 	// loadDefaultValues(req);
@@ -21,7 +23,7 @@ router.get("/:id", (req, res) => {
 	CustomerController.getByID(req.params.id, (error, user)=>{
 		if(error){
 				
-			return res.status(error.errorDetails.errorCode).send(error);
+			return res.status(error.status).send(error);
 			
 		} else{
 
@@ -41,32 +43,25 @@ router.get("/profile/:id", (req, res) => {
 	let sess = req.session;
 
 	if(sess.access === 1 || sess.access === 2){
-        return res.redirect("/employeeprofile");
+        return res.status(403).send({
+			status: 403,
+			message: "Access forbidden"
+		});
     }
 
 	CustomerController.getByID(req.params.id, (error, user)=>{
 		if(error){
-				
-			return res.status(error.errorDetails.errorCode).send(error);
-			
+			return res.status(error.status).send(error);
 		} else{
-
 			return res.status(200).send({
 				email: user.getEmail(),
-				name: user.getName(),
-				home_address: user.getHomeAddress(),
-				car_name: user.getCarName(),
-				picture_path: user.getProfilePicture()
+				name: user.getName()
 			})
 
 		}
 	})
 });
-router.get("/support", (req, res) => {
-	return res.status(200).send({
-		message: "Get works fine"
-	})
-});
+router.get("/support", (req, res) => {});
 
 router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 	// loadDefaultValues(req);
@@ -77,7 +72,7 @@ router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 		CustomerController.updateInfo(req.params.id, req.body.customer_email, req.body.customer_name, req.body.customer_car, req.body.home_address, (error, user)=>{
 			if(error){
 				
-				return res.status(error.errorDetails.errorCode).send(error);
+				return res.status(error.status).send(error);
 				
 			} else{
 	
@@ -90,18 +85,16 @@ router.put("/profile/:id", setProfilePicture.single("image"), (req, res) => {
 
 	} else if (req.query.option === "password") {
 
-		console.log(1)
-
 		CustomerController.getByID(req.params.id, (error, user)=>{
 			if(error){
-				return res.status(error.errorDetails.errorCode).send(error);
+				return res.status(error.status).send(error);
 				
 			} else{
 				if(req.body.profile_password_old === user.getPassword()){
 					if(req.body.profile_password_new === req.body.profile_password_confirm){
 						CustomerController.updatePassword(req.params.id, req.body.profile_password_new, (error, user)=>{
 							if(error){
-								return res.status(error.errorDetails.errorCode).send(error);
+								return res.status(error.status).send(error);
 								
 							} else{
 								return res.status(200).send({
@@ -166,7 +159,7 @@ router.delete("/profile/:id", (req, res)=>{
 	CustomerController.remove(req.params.id, (error, result)=>{
 		if(error){
 			
-			return res.status(error.errorDetails.errorCode).send(error);
+			return res.status(error.status).send(error);
 			
 		} else{
 			req.session.sessionID = null;
@@ -183,15 +176,60 @@ router.delete("/profile/:id", (req, res)=>{
 
 router.put("/support", (req, res) => {
 
-	SupportController.insert(req.body.customer_email, req.body.reason, req.body.description, req.body.comments, (error, result)=>{
-		if(error){
-			
-			return res.status(error.errorDetails.errorCode).send(error);
-			
-		} else{
-			
-			return res.status(result.status).send(result)
+	// initialize nodemailer
+	var transporter = nodemailer.createTransport(
+		{
+			service: 'gmail',
+			auth:{
+				user: process.env.MAIL,
+				pass: process.env.PASS
+			}
+		}
+	);
 
+	// point to the template folder
+	const handlebarOptions = {
+		viewEngine: {
+			partialsDir: path.resolve('../views'),
+			defaultLayout: false,
+		},
+		viewPath: path.resolve('./views/'),
+	};
+
+	// use a template file with nodemailer
+	transporter.use('compile', hbs(handlebarOptions))
+
+	CustomerController.getByEmail(req.body.customer_email, (error, user)=>{
+		if(error){
+			return res.status(error.status).send(error);
+		} else {
+			var mailOptions = {
+				from: `"WeDD" ${process.env.MAIL}`,
+				to: `${user.getEmail()}`,
+				subject: 'Thanks for contacting',
+				template: 'support',
+				context:{
+					name: `${user.getName()}`
+				}
+			};
+
+			SupportController.insert(req.body.customer_email, req.body.reason, req.body.description, req.body.comments, (error, result)=>{
+				if(error){
+					return res.status(error.status).send(error);
+				} else{
+					transporter.sendMail(mailOptions, function(error, info){
+						if(error){
+							return res.status(500).send({
+								status: 500,
+								message: "Server encountered an error. Please try again later."
+							})
+							console.log(error);
+						}
+					});
+					return res.status(result.status).send(result)
+				}
+			})
+			
 		}
 	})
 });

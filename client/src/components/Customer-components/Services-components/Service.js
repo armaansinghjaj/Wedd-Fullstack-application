@@ -146,7 +146,7 @@ const verifyUser = ()=>{
        
        <div className='service-container'>
             <form id='contactus-form' onSubmit={handleFormSubmit}>
-                  <h2 id='service-info'>Service WeDD For Any Queries </h2>
+                  <h2 id='service-info'>Submit your query</h2>
                 <div id='service-top'>
                   <h2 id='font-formatc'>Service Information</h2>
                   <input typeof='text' id='service-input' placeholder='name '  value={Firstname} onChange={handleFirstnameChange}/>

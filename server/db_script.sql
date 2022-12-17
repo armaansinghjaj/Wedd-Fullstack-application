@@ -167,11 +167,12 @@ CREATE TABLE IF NOT EXISTS `admin`.`rideRequests` (
 -- Table `admin`.`supportRequests`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `admin`.`supportRequests` (
+  `requestId` tinyint NOT NULL auto_increment,
   `email` VARCHAR(50) NOT NULL,
   `reason` VARCHAR(20) NOT NULL,
   `description` VARCHAR(30) NOT NULL,
   `comments` VARCHAR(500),
-  PRIMARY KEY (`email`)
+  PRIMARY KEY (`requestId`)
 );
 
 -- -----------------------------------------------------

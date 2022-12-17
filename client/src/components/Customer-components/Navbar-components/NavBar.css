@@ -124,18 +124,18 @@ nav {
   .nav-menu{
     margin-right: -12rem; 
   }
-  .navbar-group-3{
+  /* .navbar-group-3{
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 1024px) {
   .nav-menu{
     margin-right: -16rem; 
   }
-  .navbar-group-3{
+  /* .navbar-group-3{
     display: none;
-  }
+  } */
 }
 
 @media screen and (min-width: 960px) {
@@ -226,6 +226,14 @@ nav {
 
   .navbar-group-3{
     display: none;
+  }
+
+  #signup-active {
+    display: initial;
+  }
+
+  #login-active {
+    display: initial;
   }
 }
 

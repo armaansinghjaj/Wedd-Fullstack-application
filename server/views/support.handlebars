@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                font-family: "Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+            }
+            .headText{
+                padding: 10px 10px;
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .messageHead{
+                width: 94%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 3%;
+                padding-left: 3%;
+                max-width: 600px;
+                border-left: 1px solid #333;
+                border-right: 1px solid #333;
+                border-top: 1px solid #333;
+            }
+            .messageBody{
+                line-height: 1.9;
+                width: 94%;
+                max-width: 600px;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-right: 3%;
+                padding-left: 3%;
+                font-size: 12px;
+                border-left: 1px solid #333;
+                border-right: 1px solid #333;
+                border-bottom: 1px solid #333;
+                border-top: 1px solid #333;
+                color: #333333;
+            }
+            .bodyText{
+                line-height: 1.3;
+                font-size: 28px;
+                font-weight: 700;
+                color: #004ea8;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+            .bodyLine{
+                border-top: 2px solid #f1c400;
+                padding-bottom: 20px;
+            }
+            .bodyPara{
+                line-height: 150%;
+                margin: 0;
+                padding-bottom: 20px;
+            }
+            .bodyLinkBtn{
+                text-align: center;
+            }
+            .link{
+                border: 1px solid black;
+                display: inline-block;
+                padding: 10px;
+                color: white;
+                background-color: #004ea8;
+            }
+            .link:hover{
+                cursor: pointer;
+            }
+            .linkBtn{
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="messageHead">
+                            <tbody>
+                                <tr>
+                                    <td class="headText">WeDD</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="messageBody">
+                            <tbody>
+                                <tr>
+                                    <td class="bodyText">Thanks for contacting</td>
+                                </tr>
+                                <tr>
+                                    <td class="bodyLine"></td>
+                                </tr>
+                                <tr>
+                                    <td class="bodyPara">
+                                        <p>Hi {{name}}, this email is to confirm that we got for query. Our representative will reach you as soon as possible.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bodyLinkBtn">
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

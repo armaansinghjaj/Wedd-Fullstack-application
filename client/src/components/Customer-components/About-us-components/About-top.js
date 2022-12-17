@@ -48,7 +48,7 @@ function Abouttop() {
                 <div className="about-content about-content-left">
                     <div className="about-sidebar-div">
                         <ul className="about-sidebar">
-                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/>+1-403-201-8223</li>
+                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><a href="tel:+14032018223" className='about-call-link' onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Call', eventLabel: 'Mobile Button'});">+1-403-201-8223</a></li>
                         </ul>
                     </div>
                 </div>

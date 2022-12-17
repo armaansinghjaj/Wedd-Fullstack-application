@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Auth from './Auth';
+import Loader from '../Common-components/Loader';
 import './Help-support.css';
 
 export default function Help() {
@@ -6,11 +8,22 @@ export default function Help() {
     const [email, setEmail]=useState('');
     const [reason, setReason]=useState('');
     const [description, setDescription]=useState('');
+    const [emailError, setEmailError]=useState('');
+    const [reasonError, setReasonError]=useState('');
+    const [descriptionError, setDescriptionError]=useState('');
     const [comments, setComments]=useState('');
     const [confirmation, setConfirmation]=useState(false);
+    const [loader, setLoader] = useState(false);
 
     const handleClick=()=>{
         setClick(!click)
+    }
+
+    const resetStates = () =>{
+        setEmail('')
+        setReason('')
+        setDescription('')
+        setComments('')
     }
 
     const handleSupportEmailChange=(e)=>{
@@ -26,11 +39,11 @@ export default function Help() {
         setComments(e.target.value);
     }
 
-    const handleSupportForm = () => {
-        if(email === "" || reason === "" || description === "" || comments === ""){
-            
-            // SHOW ERROR HERE
-            alert("Empty");
+    const handleSupportForm = (e) => {
+        e.preventDefault();
+        setLoader(true)
+        if(email === "" || reason === "" || description === ""){
+            alert("Fields are empty")
 
         } else{
             const support_data = {
@@ -53,13 +66,20 @@ export default function Help() {
                 if(support_response.status === 200){
                     setConfirmation(true);
                     alert(support_response.message);
+                } else {
+                    alert(support_response.message);
                 }
+                resetStates()
             })
         }
+        setLoader(false)
     }
     
     return(
         <>
+        {/* Loader component */}
+        {loader && <Loader/>}
+        <Auth/>
         <div className="help-container">
 
             <div id="help-left">
@@ -79,14 +99,15 @@ export default function Help() {
             </div>
             <div id="help-right">
             <h2 id="contactus-h2">Reach out to us</h2>
-                <form id="support_form" method="put" onSubmit={handleSupportForm}>
+                <form id="support_form" onSubmit={handleSupportForm}>
                     <div className="user">
-                    <label>User email:</label><br>
-                    </br>
-                    <input type="email" name="email" id="customer_email" onChange={handleSupportEmailChange} value={email}/> <br/><br/>
+                    <label>User email:</label><br/>
+                    <br/>
+                    <input type="email" name="email" id="customer_email" onChange={handleSupportEmailChange} value={email} required/> <br/><br/>
+                    {(emailError !== "")?<div className="helpandsupport-errors">{emailError}</div>:<></>}
                     <label>How can we help you?</label>
                     <br/>
-                    <select name="reason" id="drop"  onChange={handleSupportReasonChange} value={reason}>
+                    <select  required name="reason" id="drop"  onChange={handleSupportReasonChange} value={reason}>
                         <option value="">--SELECT REASON--</option>
                         <option value="book_ride">Problems with booking a ride</option>
                         <option value="account">Account related problems</option>
@@ -94,7 +115,7 @@ export default function Help() {
                     </select> <br/><br/>
 
                     <label>Briefly describe your problems in one or two lines.</label> <br/>
-                    <input type="text" id="brief_description" name="description" placeholder="The form on the homepage..." onChange={handleSupportDescriptionChange} value={description}/>
+                    <input required type="text" id="brief_description" name="description" placeholder="The form on the homepage..." onChange={handleSupportDescriptionChange} value={description}/>
                     <br/><br/>
                     <label>Do you have any additional comments over the issue so that we can assist you better ?</label> <br/>
                     <textarea id="textarea" rows="8" cols="50" name="comments" placeholder="Comments..." onChange={handleSupportCommentsChange} value={comments}></textarea><br/><br/>
@@ -107,7 +128,7 @@ export default function Help() {
             {/* Hidden contact us form */}
             <div id={click ?  "contact-form-mobile" : "contact-form-hidden"}>
             <h2 id="contactus-h2">Reach out to us</h2>
-            <button id="close-contact-btn" onClick={handleClick}><i class="fa-solid fa-x"></i></button>
+            <button id="close-contact-btn" onClick={handleClick}><i className="fa-solid fa-x"></i></button>
                 <form id="support_form" method="put" onSubmit={handleSupportForm}>
                     
                     <div className="user">
@@ -128,7 +149,7 @@ export default function Help() {
                     <br/><br/>
                     <label>Do you have any additional comments over the issue so that we can assist you better ?</label> <br/>
                     <textarea id="textarea" rows="8" cols="50" name="comments" placeholder="Comments..." onChange={handleSupportCommentsChange} value={comments}></textarea><br/><br/>
-                    <button id="submitnew">Contact</button>
+                    <button type="submit" id="submitnew">Contact</button>
                     </div>
                 </form>
             </div>
