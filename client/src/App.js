@@ -31,11 +31,6 @@ import DriversEdit from "./Pages/DriversEdit";
 import ContactRequests from "./Pages/ContactRequests";
 import AdminRideRequests from "./Pages/RideRequests";
 
-// Background edit pages
-import BgHome from "./components/Admin-components/Edit-Background-Home";
-import BgAbout from "../src/components/Admin-components/Edit-Background-About";
-import BgContact from "../src/components/Admin-components/Edit-Background-Contact";
-
 // Customer account pages
 import CustomerProfile from "./Pages/Account";
 import TripHistory from "./Pages/TripHistory";
@@ -75,11 +70,6 @@ const App = () => {
 					<Route path="/admin/driverlist" element={<DriversEdit />} />
 					<Route path="/admin/services" element={<ContactRequests />} />
 					<Route path="/admin/rides" element={<AdminRideRequests />} />
-
-					{/* Background editing pages */}
-					<Route path="/backgroundedithome" element={<BgHome />} />
-					<Route path="/backgroundeditabout" element={<BgAbout />} />
-					<Route path="/backgroundeditcontact" element={<BgContact />} />
 
 					{/* Driver dashboard pages */}
 					{/* <Route path="/driver/Profile" element={<DriverProfile />} />

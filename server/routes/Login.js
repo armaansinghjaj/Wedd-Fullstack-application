@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const loadDefaultValues = require("../modules/LoadDefaultValues");
 const LoginController = require("../src/controllers/LoginController");
+const bcrypt = require('bcrypt');
 
 router.get("/", (req, res) => {});
 
@@ -22,8 +23,7 @@ router.post("/", (req, res) => {
 			if(error){
 				return res.status(error.status).send(error)
 			} else {
-				if(user.getPassword() === req.body.password){ // use bycrypt here
-					
+				bcrypt.compare(req.body.password, user.getPassword(), function(err, result) {
 					// set user's id into the session
 					sess._uid = user.getId();
 
@@ -66,12 +66,17 @@ router.post("/", (req, res) => {
 							}
 						});
 					}
-				} else{
-					return res.status(404).send({
-						status: 404,
-						message: "The email or password you entered is incorrect. Please try again."
-					});
-				}
+				});
+
+				// if(user.getPassword() === req.body.password){ // use bycrypt here
+					
+					
+				// } else{
+				// 	return res.status(404).send({
+				// 		status: 404,
+				// 		message: "The email or password you entered is incorrect. Please try again."
+				// 	});
+				// }
 			}
 		})
 	}

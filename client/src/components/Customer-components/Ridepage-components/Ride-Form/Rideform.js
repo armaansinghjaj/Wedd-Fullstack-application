@@ -28,6 +28,8 @@ function Rideform() {
 	const [Pickuplat, setPickuplat] = useState("");
 	const [Pickuplng, setPickuplng] = useState("");
 
+	const [redirectLogin, setRedirectLogin] = useState(false);
+
 	let move = useNavigate();
 
 	const handleNameChange = (e) => {
@@ -55,9 +57,6 @@ function Rideform() {
 	const handlePaymentChange = (e) => {
 		setPaymentError("");
 		setPayment(e.target.value);
-		// setDebit(e.target.value);
-		// setPaypal(e.target.value);
-		// setApple(e.target.value);
 	};
 
 	const gps = async () => {
@@ -83,61 +82,70 @@ function Rideform() {
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 
-		//checking if Name is empty
-		if (Name !== "" ? "" : setNameError("Name required"));
+		if(cookies.get("__sid") !== undefined){
+			if(Name === "" || Email === "" || Phone === "" || Pickup === "" || Dropoff === ""){
 
-		//checking if Email is empty
-		if (Email !== "" ? "" : setEmailError("Email required"));
-
-		//checking if Phone is empty
-		if (Phone !== "" ? "" : setPhoneError("Phone number required"));
-
-		//checking if Pickup is empty
-		if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
-
-		//checking if Dropoff is empty
-		if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
-
-		// checking discount code
-
-		//checking if Payment type is empty
-		// if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
-		pickupCoordinates();
-		const rideform_data = {
-			name: Name,
-			email: Email,
-			phone: Phone,
-			pick: Pickup,
-			dest: Dropoff,
-			pay_mode: Payment,
-			picklat: Pickuplat,
-			picklng: Pickuplng,
-		};
-		fetch("/api/ride/processing", {
-			credentials: "same-origin",
-			mode: "cors",
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(rideform_data),
-		})
-			.then((response) => response.json())
-			.then((responsedata) => {
-				if (responsedata.temp_session_id) {
-					cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
-					if (responsedata.status) window.alert("Request sent");
+				//checking if Name is empty
+				if (Name !== "" ? "" : setNameError("Name required"));
+		
+				//checking if Email is empty
+				if (Email !== "" ? "" : setEmailError("Email required"));
+		
+				//checking if Phone is empty
+				if (Phone !== "" ? "" : setPhoneError("Phone number required"));
+		
+				//checking if Pickup is empty
+				if (Pickup !== "" ? "" : setPickupError("Pickup location required"));
+		
+				//checking if Dropoff is empty
+				if (Dropoff !== "" ? "" : setDropoffError("Dropoff location required"));
+		
+				// checking discount code
+		
+				//checking if Payment type is empty
+				// if (Credit !== "" && Debit !== "" && Apple !== "" && Paypal !== "" ? "" : setPaymentError("Payment type required"));
+				} else {
+					pickupCoordinates();
+					const rideform_data = {
+						name: Name,
+						email: Email,
+						phone: Phone,
+						pick: Pickup,
+						dest: Dropoff,
+						pay_mode: Payment,
+						picklat: Pickuplat,
+						picklng: Pickuplng,
+					};
+					fetch("/api/ride/processing", {
+						credentials: "same-origin",
+						mode: "cors",
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(rideform_data),
+					})
+						.then((response) => response.json())
+						.then((responsedata) => {
+							if (responsedata.status === 200) {
+								// cookies.set("temp_ride_session", responsedata.temp_session_id, {path: "/ride", secure: false, sameSite: "strict"});
+								if (responsedata.status) window.alert("Request sent");
+							}
+							else {
+								console.log("error")
+							}
+						});
 				}
-				else {
-					console.log("error")
-				}
-			});
+		} else {
+			setRedirectLogin(true);
+		}
 	};
 
 	return (
 		<>
-			{cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
-			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />}
+			{(redirectLogin === true)?(<Navigate replace to="/login"/>):""}
+			{/* {cookies.get("temp_ride_session") && <Navigate to="/ride/confirm" replace={true} />}
+			{cookies.get("searching_session_id") && <Navigate to="/ride/searching" replace={true} />} */}
 			<input type="hidden" id="userlat" />
 			<input type="hidden" id="userlng" />
 

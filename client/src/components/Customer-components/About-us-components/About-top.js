@@ -48,7 +48,7 @@ function Abouttop() {
                 <div className="about-content about-content-left">
                     <div className="about-sidebar-div">
                         <ul className="about-sidebar">
-                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><a href="tel:+14032018223" className='about-call-link' onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Call', eventLabel: 'Mobile Button'});">+1-403-201-8223</a></li>
+                            <li className="about-sidebar-li-question">Questions?<br/>Call us at<br/><i className="fa fa-phone-alt" aria-hidden="true"></i> <a href="tel:+14032018223" className='about-call-link'>+1-403-201-8223</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,28 +65,19 @@ function Abouttop() {
 
                     <div id="our-story" className="content-2 content-block">
                         <div className="content-2-head content-small-head content-head">
-                            Our story
+                            Travel
                         </div>
                         <div className="content-2-details  content-details">
                             When we come together, we unlock hidden potential. We unify people to help businesses and communities pursue their loftiest goals, solve their thorniest challenges, and harness their success to leave our planet a little better than we found it.
                         </div>
                         <div className="content-2-1-details  content-details">
-                            The world will continue to change. Technology will evolve. Business will pivot and pivot again. But relationships, built on trust and respect, will help us face the future, come what may.
-                        </div>
-                    </div>
+                        Our taxi company has been serving the community for over 10 years. We take pride in providing reliable and safe transportation services to our customers. Our team of experienced drivers are dedicated to ensuring that every ride is comfortable and enjoyable.
 
-                    <div className="content-3 content-block">
-                        <div className="content-3-head content-small-head content-head">
-                            <figure>
-                                <img className="figure-ceo" alt="The CEO" src={figure1}/>
-                            </figure>
-                        </div>
-                        <div className="content-ceo-text content-details">
-                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, exercitationem sed ut molestiae autem nostrum illum."
-                            <br/>
-                            <div className="content-ceo-name">
-                                Rahul Narang, CEO
-                            </div>
+We offer a wide range of services, including airport transfers, corporate travel, and local pickups. Our fleet of vehicles is well-maintained and equipped with the latest technology to ensure a smooth and hassle-free ride.
+
+Customer satisfaction is our top priority, and we strive to exceed expectations with every ride. We are committed to providing the highest level of service and professionalism to our valued customers.
+
+Thank you for choosing our taxi company for all of your transportation needs. We look forward to serving you.
                         </div>
                     </div>
 
@@ -99,24 +90,6 @@ function Abouttop() {
                         </div>
                         <div className="content-4-1-details  content-details">
                             And we lead by example, spearheading initiatives in philanthropy, racial equality and justice, climate action and advocacy, and the ethical and humane use of technology.
-                        </div>
-                    </div>
-
-                    <div className="content-5 content-block">
-                        <div className="content-5-head content-small-head content-head">
-                            We believe business is the greatest platform for change.
-                        </div>
-                        <div className="content-5-details  content-details">
-                            We are passionate proponents of stakeholder capitalism, committed to doing well by all our stakeholders — our customers, employees, partners, communities, the planet, and society as a whole.
-                        </div>
-                    </div>
-
-                    <div className="content-6 content-block">
-                        <div className="content-4-head content-small-head content-head">
-                            We believe business is the greatest platform for change.
-                        </div>
-                        <div className="content-6-details  content-details">
-                            We are passionate proponents of stakeholder capitalism, committed to doing well by all our stakeholders — our customers, employees, partners, communities, the planet, and society as a whole.
                         </div>
                     </div>
 

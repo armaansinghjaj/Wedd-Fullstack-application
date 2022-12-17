@@ -1,0 +1,43 @@
+#ride-complete-container{
+    position: relative;
+    top: 5%;
+    left: 15%;
+    border-radius: 0.5em;
+    background-color: white;
+    height: 40vh;
+    width: 70vw;
+}
+
+#complete-text{
+    text-align: center;
+    position: relative;
+    top: 30%;
+    font-size: 1.5rem;
+}
+
+
+#complete-link > button{
+    border-radius: 1.2rem;
+    border-style: none;
+    width: 5rem;
+    height: 2rem;
+    color: white;
+    background-color: #dc792d;
+
+}
+
+#complete-link > button:hover{
+    background-color: #f08d2a;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
+
+}
+@media only screen and (max-device-width: 390px){
+   
+#ride-complete-container{
+ position: relative;
+ width:88vw;
+ left: 1.5rem;
+ 
+
+    }
+}

@@ -35,8 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin`.`customer` (
   `customer_id` VARCHAR(50) NOT NULL,
   `email` VARCHAR(40) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  `salt` VARCHAR(10) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `home_address` VARCHAR(100),
   `car_name` VARCHAR(100),
   `reset_password_uuid` VARCHAR(50),
@@ -54,8 +53,7 @@ CREATE TABLE IF NOT EXISTS `admin`.`employee` (
   `employee_id` VARCHAR(50) NOT NULL,
   `email` VARCHAR(40) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  `salt` VARCHAR(10) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `reset_password_uuid` VARCHAR(50),
   `register_account_uuid` VARCHAR(50),
   `role` INT(2) NOT NULL,
@@ -189,62 +187,11 @@ CREATE TABLE IF NOT EXISTS `admin`.`temp_ride` (
   PRIMARY KEY (`temp_ride_session`)
 );
 
-INSERT INTO services (service_id, service_name)
-VALUES (1, "shuttle");
+INSERT INTO services (service_id, service_name) VALUES (1, "shuttle");
+INSERT INTO services (service_id, service_name) VALUES (2, "chauffeur");
+INSERT INTO services (service_id, service_name) VALUES (3, "drive");
+INSERT INTO services (service_id, service_name) VALUES (4, "own");
 
-INSERT INTO services (service_id, service_name)
-VALUES (2, "chauffeur");
-
-INSERT INTO services (service_id, service_name)
-VALUES (3, "drive");
-
-INSERT INTO services (service_id, service_name)
-VALUES (4, "own");
-
-INSERT INTO user_roles (role_id, role_title)
-VALUES (0, 'Administrator');
-
+INSERT INTO user_roles (role_id, role_title) VALUES (0, 'Administrator');
 INSERT INTO user_roles (role_id, role_title) VALUES (0, 'Driver');
-
-INSERT INTO user_roles (role_id, role_title)
-VALUES (0, 'Customer');
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (1, 'admin1@gmail.com', 'Admin 1', 'password', '1x345', 1);
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (2, 'admin2@gmail.com', 'Admin 1', 'password', 1);
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (3, 'admin3@gmail.com', 'Admin 1', 'password', 1);
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (4, 'driver1@gmail.com', 'Driver 1', 'password', 2);
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (5, 'driver2@gmail.com', 'Driver 1', 'password', 2);
-
-INSERT INTO employee (employee_id, email, name, password, salt, role)
-VALUES (6, 'driver3@gmail.com', 'Driver 1', 'password', 2);
-
-INSERT INTO customer (customer_id, email, name, password, salt)
-VALUES (1, 'armaan@gmail.com', 'armaan singh', 'password');
-
-INSERT INTO customer (customer_id, email, name, password, salt)
-VALUES (2, 'prince@gmail.com', 'prince agam', 'password');
-
-INSERT INTO customer (customer_id, email, name, password, salt)
-VALUES (3, 'daniel@gmail.com', 'daniel wong', 'password');
-
-INSERT INTO driver_car (driver_car_id, manufacturer, model, model_number, year, color, car_type, licence_plate)
-VALUES (NULL, 'Honda', 'Civic', 'hcx-186bh', 2016, 'Pale yellow', 'A', 'CAR-2016');
-INSERT INTO driver_car (driver_car_id, manufacturer, model, model_number, year, color, car_type, licence_plate)
-VALUES (NULL, 'Honda', 'Civic2', 'hcy-186bh', 2017, 'Pale yellow', 'M', 'CAR-2016');
-
-INSERT INTO available_drivers VALUES ('4EFDECDCDVDBBGXX', 4, 5, 1, -102354, 7039394);
-INSERT INTO available_drivers VALUES ('4EFDECDCDVDBBCXX', 5, 6, 2, -1027454, 7039394);
-
-INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBGXX', 0, 1, 'First', '1@gmail.com', 1111111111, '1233', '12333', 'CASH' );
-INSERT INTO rideRequests VALUES (NULL, 1, 1, 'First', '1@gmail.com', 1111111111, '1233', '12333', 'CASH' );
-INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBGXX', 2, 2, 'Second', '2@gmail.com', 1111111111, '1233', '12333', 'DEBIT');
-INSERT INTO rideRequests VALUES ('4EFDECDCDVDBBCXX', 3, 2, 'Second', '2@gmail.com', 1111111111, '1233', '12333', 'DEBIT');
+INSERT INTO user_roles (role_id, role_title) VALUES (0, 'Customer');

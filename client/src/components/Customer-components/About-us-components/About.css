@@ -6,7 +6,7 @@
     margin-top: -4px;
     display: inline-block;
     position: fixed;
-    margin-left: 4vw;
+    margin-left: 2vw;
     min-height: 30vh;
     min-width: var(--side-bar-width);
     max-width: 20vw;
@@ -15,6 +15,7 @@
     backdrop-filter: blur(8px);
     background-color: rgba(255, 255, 255, 0.562);
     border-radius: 20px 20px 0 0;
+    z-index: 999;
 }
 
 .about-sidebar{

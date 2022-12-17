@@ -143,7 +143,7 @@ function LoginForm() {
                     <span className='login-right-banner-contents banner-content-1'>WeDD</span>
                     <span className='login-right-banner-contents banner-content-2'>Commute made simple</span>
                     <span className='login-right-banner-contents banner-content-3'>Call us at</span>
-                    <span className='login-right-banner-contents banner-content-4'><a href="tel:+14032018223" className='login-call-link'>+1-403-201-8223</a></span>
+                    <span className='login-right-banner-contents banner-content-4'><i className="fa fa-phone-alt" aria-hidden="true"></i> <a href="tel:+14032018223" className='login-call-link'>+1-403-201-8223</a></span>
                 </div>
             </div>
         </div>

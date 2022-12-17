@@ -5,6 +5,8 @@ const pool = require("../modules/SQLconnectionpool");
 const Customer = require("../src/models/Customer");
 const generateUserID = require("../modules/GenerateUserID");
 const CustomerController = require("../src/controllers/CustomerController");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 router.get("/", (req, res) => {});
 
@@ -30,24 +32,26 @@ router.post("/", (req, res) => {
 
 				// const customer = new Customer(generateUserID(), req.body.email, req.body.name, req.body.password, 3);
 
-				CustomerController.insert(03+generateUserID(), req.body.email, req.body.name, req.body.password, 3, null, null, null, (error, user)=>{
-					if(error){
-						return res.status(error.status).send(error);
-					} else {
-						// set user's id into the session
-							sess._uid = user.getId();
-
-							sess.access = 3;
-							return res.status(200).send({
-								user: {
-									userEmail: user.getEmail(),
-									userName: user.getName()
-								},
-								sessionID: user.getId(),
-								accessPath: "/customer"
-							});
-					}
-				})
+				bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+					CustomerController.insert(03+generateUserID(), req.body.email, req.body.name, hash, 3, null, null, null, (error, user)=>{
+						if(error){
+							return res.status(error.status).send(error);
+						} else {
+							// set user's id into the session
+								sess._uid = user.getId();
+	
+								sess.access = 3;
+								return res.status(200).send({
+									user: {
+										userEmail: user.getEmail(),
+										userName: user.getName()
+									},
+									sessionID: user.getId(),
+									accessPath: "/customer"
+								});
+						}
+					})
+				});
 			}
 		})
 	}

@@ -7,6 +7,8 @@ const {response} = require("express");
 const geolib = require("geolib");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
+const path = require("path");
+const hbs = require('nodemailer-express-handlebars')
 
 const transporter = nodemailer.createTransport({
 	service: "gmail",
@@ -50,13 +52,58 @@ router.post("/processing", (req, res) => {
 			con.query(`INSERT INTO temp_ride (temp_ride_session, name, email, phone, pickup, destination, payment) VALUES ('${temp_ride_session_id}','${req.body.name}','${req.body.email}','${req.body.phone}','${req.body.pick}','${req.body.dest}','${req.body.pay_mode}')`, function (err, result, fields) {
 				con.release();
 
-				if (err) return res.send("backend error");
+				if (err) return res.status(500).send("backend error");
 
 				sess.temp_session_id = temp_ride_session_id;
 				sess.customer_lat = req.body.picklat;
 				sess.customer_lng = req.body.picklng;
-				return res.send({
-					temp_session_id: temp_ride_session_id,
+
+				// initialize nodemailer
+				var transporter = nodemailer.createTransport(
+					{
+						service: 'gmail',
+						auth:{
+							user: process.env.MAIL,
+							pass: process.env.PASS
+						}
+					}
+				);
+
+				// point to the template folder
+				const handlebarOptions = {
+					viewEngine: {
+						partialsDir: path.resolve('./views/'),
+						defaultLayout: false,
+					},
+					viewPath: path.resolve('./views/'),
+				};
+
+				var mailOptions = {
+					from: `"WeDD" ${process.env.MAIL}`,
+					to: `${req.body.email}`,
+					subject: 'Thanks for contacting',
+					template: 'rideconfirm',
+					context:{
+						name: `${req.body.name}`,
+						pick: `${req.body.pick}`,
+						drop: `${req.body.dest}`,
+						phone: `${req.body.phone}`
+					}
+				};
+
+				transporter.sendMail(mailOptions, function(error, info){
+					if(error){
+						return res.status(500).send({
+							status: 500,
+							message: "Server encountered an error. Please try again later."
+						})
+						console.log(error);
+					}
+				});
+
+				return res.status(200).send({
+					status: 200,
+					message: "Request sent to the company. Driver will be here soon."
 				});
 			});
 		});
